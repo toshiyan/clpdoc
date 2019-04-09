@@ -82,9 +82,7 @@
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">apstool</span></code> – angular power spectrum calculation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#module-basictools">Multipole binning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#compute-binned-cls">Compute binned cls</a><ul class="simple">
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#compute-binned-cls">Compute binned cls</a></li>
 </ul>
 </li>
 </ul>
@@ -163,20 +161,18 @@ Fortran 90/95 modules:</p>
 </div>
 <div class="section" id="compute-binned-cls">
 <h2>Compute binned cls<a class="headerlink" href="#compute-binned-cls" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">alm_to_bcl_full</span></code></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">alm_to_bcl_flat</span></code></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<dl class="function">
+<dt id="basictools.apstool.alm_to_bcl_full">
+<code class="descclassname">basictools.apstool.</code><code class="descname">alm_to_bcl_full</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#basictools.apstool.alm_to_bcl_full" title="Permalink to this definition">¶</a></dt>
+<dd><p>cb = alm_to_bcl_full(bn,el,alm1,alm2)</p>
+<p>Wrapper for <code class="docutils literal notranslate"><span class="pre">alm_to_bcl_full</span></code>.</p>
+<p>bn : input int
+el : input rank-1 array(‘i’) with bounds (2)
+alm1 : input rank-2 array(‘D’) with bounds (f2py_alm1_d0,f2py_alm1_d1)
+alm2 : input rank-2 array(‘D’) with bounds (f2py_alm2_d0,f2py_alm2_d1)</p>
+<p>cb : rank-1 array(‘d’) with bounds (bn)</p>
+</dd></dl>
+
 </div>
 </div>
 

@@ -12,10 +12,7 @@ Multipole binning
 
 Compute binned cls
 ------------------
-.. autosummary::
-   :toctree: generated/
+.. autofunction:: basictools.apstool.alm_to_bcl_full
 
-   alm_to_bcl_full
-   alm_to_bcl_flat
 
 

@@ -1,4 +1,6 @@
 #!/bin/bash
+rm -rf html
+make html
 mv build/html/ .
 rename _ "" html/*
 

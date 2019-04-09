@@ -2,8 +2,9 @@
 rm -rf html
 make html
 mv build/html/ .
-rename _ "" html/*
 
-sed -i -e "s/_static/static/g" html/index.html
-sed -i -e "s/_sources/sources/g" html/index.html
+rename _s s html/*
+
+find html/ -name "*.html" | xargs sed -i -e "s/_static/static/g" ${1}
+find html/ -name "*.html" | xargs sed -i -e "s/_sources/sources/g" ${1}
 

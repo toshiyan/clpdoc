@@ -23,7 +23,7 @@ Reference
 .. toctree::
    :maxdepth: 2
 
-   basictools_apstool
+   basictools/apstool
 
 
 Indices and tables

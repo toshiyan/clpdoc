@@ -7,10 +7,8 @@
 
 Multipole binning
 --------------------
-.. autosummary::
-   :toctree: generated/
-
-   binning
+.. automodule::  basictools
+   :members:
 
 Compute binned cls
 ------------------

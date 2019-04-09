@@ -7,7 +7,7 @@
 
 Multipole binning
 --------------------
-.. automodule::  iof90
+.. automodule:: iof90
    :members:
 
 Compute binned cls

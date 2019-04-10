@@ -156,17 +156,17 @@
 <dl class="function">
 <dt id="mytestw.qtt">
 <code class="descclassname">mytestw.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rL</em>, <em>fC</em>, <em>Tlm1</em>, <em>Tlm2</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#mytestw.qtt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Test</p>
+<dd><p>Reconstructing CMB lensing potential and its curl mode from the temperature quadratic estimator</p>
 <p>e.g., 
-glm, clm = curvedsky.rec_lens.qtt(lmax,rL,fC,Tlm1,Tlm2[,nside])</p>
+glm, clm = curvedsky.rec_lens.qtt(lmax,rL,fC,Tlm1,Tlm2,nside)</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><ul class="first last simple">
 <li>lmax (int)   : maximum multipole</li>
 <li>rL   (int)   : minimum rL[0] and maximum multipoles rL[1] of CMB, with bounds (2)</li>
 <li>fC   (double): temperature angular power spectrum, with bounds (rL[1])</li>
-<li>Tlm1 (dcmplx): 1st temperature alm, with bounds (rL[1]+1,rL[1]+1)</li>
-<li>Tlm2 (dcmplx): 2nd temperature alm, with bounds (rL[1]+1,rL[1]+1)</li>
+<li>Tlm1 (dcmplx): 1st inverse-variance filtered temperature alm, with bounds (rL[1]+1,rL[1]+1)</li>
+<li>Tlm2 (dcmplx): 2nd inverse-variance filtered temperature alm, with bounds (rL[1]+1,rL[1]+1)</li>
 </ul>
 </dd>
 <dt>Args (optional):</dt>

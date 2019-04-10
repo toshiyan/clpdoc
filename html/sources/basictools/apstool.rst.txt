@@ -7,7 +7,7 @@
 
 Multipole binning
 --------------------
-.. automodule:: iof90
+.. automodule:: mytest.mytest.recfull
    :members:
 
 Compute binned cls

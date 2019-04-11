@@ -7,8 +7,6 @@
 
 Multipole binning
 --------------------
-.. automodule:: wdevcurvedsky.rec_lens
-   :members:
 
 Compute binned cls
 ------------------

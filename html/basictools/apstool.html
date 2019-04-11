@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="rec_lens – quadratic lensing reconstruction" href="../curvedsky.html" />
     <link rel="prev" title="Welcome to the cmblensplus documentation" href="../index.html" /> 
 </head>
 
@@ -81,10 +82,12 @@
             
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">apstool</span></code> – angular power spectrum calculation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-wdevcurvedsky.rec_lens">Multipole binning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multipole-binning">Multipole binning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#compute-binned-cls">Compute binned cls</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../curvedsky.html"><code class="docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../curvedsky.html#module-devcurvedskypy.delens"><code class="docutils literal notranslate"><span class="pre">delens</span></code> – delensing</a></li>
 </ul>
 
             
@@ -151,208 +154,8 @@
             
   <div class="section" id="apstool-angular-power-spectrum-calculation">
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">apstool</span></code> – angular power spectrum calculation<a class="headerlink" href="#apstool-angular-power-spectrum-calculation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-wdevcurvedsky.rec_lens">
-<span id="multipole-binning"></span><h2>Multipole binning<a class="headerlink" href="#module-wdevcurvedsky.rec_lens" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="wdevcurvedsky.rec_lens.qbb">
-<code class="descclassname">wdevcurvedsky.rec_lens.</code><code class="descname">qbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Blm1</em>, <em>Blm2</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#wdevcurvedsky.rec_lens.qbb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reconstructing CMB lensing potential and its curl mode from the BB quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)   : maximum multipole of output lensing potential alms</li>
-<li>rL   (int)   : minimum rL[0] and maximum multipoles rlmax of CMB, with bounds (2)</li>
-<li>fC[l] (double): B-mode angular power spectrum, with bounds (1:rlmax)</li>
-<li>Blm1 (dcmplx): 1st inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</li>
-<li>Blm2 (dcmplx): 2nd inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</li>
-</ul>
-</dd>
-<dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>nside (int)  : Nside for the convolution calculation, default to lmax</li>
-</ul>
-</dd>
-<dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>glm (dcmplx) : CMB lensing potential, with bounds (0:lmax,0:lmax)</li>
-<li>clm (dcmplx) : curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
-<dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., glm,clm = devcurvedsky.rec_lens.qbb(lmax,rlmin,rlmax,fC,Blm1,Blm2,nside)</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="wdevcurvedsky.rec_lens.qeb">
-<code class="descclassname">wdevcurvedsky.rec_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Elm</em>, <em>Blm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#wdevcurvedsky.rec_lens.qeb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reconstructing CMB lensing potential and its curl mode from the EB quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)   : maximum multipole of output lensing potential alms</li>
-<li>rL   (int)   : minimum rL[0] and maximum multipoles rlmax of CMB, with bounds (2)</li>
-<li>fC[l] (double): E-mode angular power spectrum, with bounds (1:rlmax)</li>
-<li>Elm  (dcmplx): inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</li>
-<li>Blm  (dcmplx): inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</li>
-</ul>
-</dd>
-<dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>nside (int)  : Nside for the convolution calculation, default to lmax</li>
-</ul>
-</dd>
-<dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>glm (dcmplx) : CMB lensing potential, with bounds (0:lmax,0:lmax)</li>
-<li>clm (dcmplx) : curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
-<dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., glm,clm = devcurvedsky.rec_lens.qeb(lmax,rlmin,rlmax,fC,Elm,Blm,nside)</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="wdevcurvedsky.rec_lens.qee">
-<code class="descclassname">wdevcurvedsky.rec_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Elm1</em>, <em>Elm2</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#wdevcurvedsky.rec_lens.qee" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reconstructing CMB lensing potential and its curl mode from the EE quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)   : maximum multipole of output lensing potential alms</li>
-<li>rL   (int)   : minimum rL[0] and maximum multipoles rlmax of CMB, with bounds (2)</li>
-<li>fC[l] (double): E-mode angular power spectrum, with bounds (1:rlmax)</li>
-<li>Elm1 (dcmplx): 1st inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</li>
-<li>Elm2 (dcmplx): 2nd inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</li>
-</ul>
-</dd>
-<dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>nside (int)  : Nside for the convolution calculation, default to lmax</li>
-</ul>
-</dd>
-<dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>glm (dcmplx) : CMB lensing potential, with bounds (0:lmax,0:lmax)</li>
-<li>clm (dcmplx) : curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
-<dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., glm,clm = devcurvedsky.rec_lens.qee(lmax,rlmin,rlmax,fC,Elm1,Elm2,nside)</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="wdevcurvedsky.rec_lens.qtb">
-<code class="descclassname">wdevcurvedsky.rec_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm</em>, <em>Blm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#wdevcurvedsky.rec_lens.qtb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reconstructing CMB lensing potential and its curl mode from the TB quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)   : maximum multipole of output lensing potential alms</li>
-<li>rL   (int)   : minimum rL[0] and maximum multipoles rlmax of CMB, with bounds (2)</li>
-<li>fC[l] (double): temperature-E cross-angular power spectrum, with bounds (1:rlmax)</li>
-<li>Tlm  (dcmplx): inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
-<li>Blm  (dcmplx): inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</li>
-</ul>
-</dd>
-<dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>nside (int)  : Nside for the convolution calculation, default to lmax</li>
-</ul>
-</dd>
-<dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>glm (dcmplx) : CMB lensing potential, with bounds (0:lmax,0:lmax)</li>
-<li>clm (dcmplx) : curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
-<dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., glm,clm = devcurvedsky.rec_lens.qtb(lmax,rlmin,rlmax,fC,Tlm,Blm,nside)</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="wdevcurvedsky.rec_lens.qte">
-<code class="descclassname">wdevcurvedsky.rec_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm</em>, <em>Elm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#wdevcurvedsky.rec_lens.qte" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reconstructing CMB lensing potential and its curl mode from the TE quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)   : maximum multipole of output lensing potential alms</li>
-<li>rlmin (int)  : minimum multipole of CMB for reconstruction</li>
-<li>rlmax (int)  : maximum multipole of CMB for reconstruction</li>
-<li>fC[l] (double): temperature-E cross-angular power spectrum, with bounds (1:rlmax)</li>
-<li>Tlm  (dcmplx): inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
-<li>Elm  (dcmplx): inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</li>
-</ul>
-</dd>
-<dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>nside (int)  : Nside for the convolution calculation, default to lmax</li>
-</ul>
-</dd>
-<dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>glm (dcmplx) : CMB lensing potential, with bounds (0:lmax,0:lmax)</li>
-<li>clm (dcmplx) : curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
-<dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., glm,clm = devcurvedsky.rec_lens.qte(lmax,rlmin,rlmax,fC,Tlm,Elm,nside)</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="wdevcurvedsky.rec_lens.qtt">
-<code class="descclassname">wdevcurvedsky.rec_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm1</em>, <em>Tlm2</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#wdevcurvedsky.rec_lens.qtt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reconstructing CMB lensing potential and its curl mode from the temperature quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)        | maximum multipole of output lensing potential alms</li>
-<li>rlmin (int)       | minimum multipole of CMB for reconstruction</li>
-<li>rlmax (int)       | maximum multipole of CMB for reconstruction</li>
-<li>fC[l] (double)    | temperature angular power spectrum, with bounds (1:rlmax)</li>
-<li>Tlm1[l,m] (dcmplx)| 1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
-<li>Tlm2[l,m] (dcmplx)| 2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
-</ul>
-</dd>
-<dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>nside (int)  : Nside for the convolution calculation, default to lmax</li>
-</ul>
-</dd>
-<dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>glm[l,m] (dcmplx) | CMB lensing potential alm, with bounds (0:lmax,0:lmax)</li>
-<li>clm[l,m] (dcmplx) | curl mode (pseudo lensing potential) alm, with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
-<dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., glm,clm = devcurvedsky.rec_lens.qtt(lmax,rlmin,rlmax,fC,Tlm1,Tlm2,nside)</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
+<div class="section" id="multipole-binning">
+<h2>Multipole binning<a class="headerlink" href="#multipole-binning" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="compute-binned-cls">
 <h2>Compute binned cls<a class="headerlink" href="#compute-binned-cls" title="Permalink to this headline">¶</a></h2>
@@ -378,6 +181,8 @@ alm2 : input rank-2 array(‘D’) with bounds (f2py_alm2_d0,f2py_alm2_d1)</p>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../curvedsky.html" class="btn btn-neutral float-right" title="rec_lens – quadratic lensing reconstruction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to the cmblensplus documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

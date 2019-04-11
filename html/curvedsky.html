@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>rec_lens – quadratic lensing reconstruction &mdash; cmblensplus  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="static/documentation_options.js"></script>
+        <script type="text/javascript" src="static/jquery.js"></script>
+        <script type="text/javascript" src="static/underscore.js"></script>
+        <script type="text/javascript" src="static/doctools.js"></script>
+        <script type="text/javascript" src="static/language_data.js"></script>
+    
+    <script type="text/javascript" src="static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="apstool – angular power spectrum calculation" href="basictools/apstool.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> cmblensplus
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="basictools/apstool.html"><code class="docutils literal notranslate"><span class="pre">apstool</span></code> – angular power spectrum calculation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-devcurvedskypy.rec_lens">rec_lens</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#module-devcurvedskypy.delens"><code class="docutils literal notranslate"><span class="pre">delens</span></code> – delensing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">cmblensplus</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li><code class="docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="sources/curvedsky.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rec-lens-quadratic-lensing-reconstruction">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction<a class="headerlink" href="#rec-lens-quadratic-lensing-reconstruction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-devcurvedskypy.rec_lens">
+<span id="rec-lens"></span><h2>rec_lens<a class="headerlink" href="#module-devcurvedskypy.rec_lens" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="devcurvedskypy.rec_lens.qtt">
+<code class="descclassname">devcurvedskypy.rec_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm1</em>, <em>Tlm2</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.rec_lens.qtt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing CMB lensing potential and its curl mode from the temperature quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmax (int)        : maximum multipole of output lensing potential alms</li>
+<li>rlmin (int)       : minimum multipole of CMB for reconstruction</li>
+<li>rlmax (int)       : maximum multipole of CMB for reconstruction</li>
+<li>fC[l] (double)    : temperature angular power spectrum, with bounds (1:rlmax)</li>
+<li>Tlm1[l,m] (dcmplx): 1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
+<li>Tlm2[l,m] (dcmplx): 2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>nside (int)       : Nside for the convolution calculation, default to lmax</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>glm[l,m] (dcmplx) : CMB lensing potential alm, with bounds (0:lmax,0:lmax)</li>
+<li>clm[l,m] (dcmplx) : curl mode (pseudo lensing potential) alm, with bounds (0:lmax,0:lmax)</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., glm,clm = devcurvedsky.rec_lens.qtt(lmax,rlmin,rlmax,fC,Tlm1,Tlm2,nside)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.rec_lens.qte">
+<code class="descclassname">devcurvedskypy.rec_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm</em>, <em>Elm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.rec_lens.qte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing CMB lensing potential and its curl mode from the TE quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmax (int)   : maximum multipole of output lensing potential alms</li>
+<li>rlmin (int)  : minimum multipole of CMB for reconstruction</li>
+<li>rlmax (int)  : maximum multipole of CMB for reconstruction</li>
+<li>fC[l] (double): temperature-E cross-angular power spectrum, with bounds (1:rlmax)</li>
+<li>Tlm  (dcmplx): inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
+<li>Elm  (dcmplx): inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>nside (int)  : Nside for the convolution calculation, default to lmax</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>glm (dcmplx) : CMB lensing potential, with bounds (0:lmax,0:lmax)</li>
+<li>clm (dcmplx) : curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., glm,clm = devcurvedsky.rec_lens.qte(lmax,rlmin,rlmax,fC,Tlm,Elm,nside)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.rec_lens.qtb">
+<code class="descclassname">devcurvedskypy.rec_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm</em>, <em>Blm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.rec_lens.qtb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing CMB lensing potential and its curl mode from the TB quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmax (int)   : maximum multipole of output lensing potential alms</li>
+<li>rL   (int)   : minimum rL[0] and maximum multipoles rlmax of CMB, with bounds (2)</li>
+<li>fC[l] (double): temperature-E cross-angular power spectrum, with bounds (1:rlmax)</li>
+<li>Tlm  (dcmplx): inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
+<li>Blm  (dcmplx): inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>nside (int)  : Nside for the convolution calculation, default to lmax</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>glm (dcmplx) : CMB lensing potential, with bounds (0:lmax,0:lmax)</li>
+<li>clm (dcmplx) : curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., glm,clm = devcurvedsky.rec_lens.qtb(lmax,rlmin,rlmax,fC,Tlm,Blm,nside)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.rec_lens.qee">
+<code class="descclassname">devcurvedskypy.rec_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Elm1</em>, <em>Elm2</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.rec_lens.qee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing CMB lensing potential and its curl mode from the EE quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmax (int)   : maximum multipole of output lensing potential alms</li>
+<li>rL   (int)   : minimum rL[0] and maximum multipoles rlmax of CMB, with bounds (2)</li>
+<li>fC[l] (double): E-mode angular power spectrum, with bounds (1:rlmax)</li>
+<li>Elm1 (dcmplx): 1st inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</li>
+<li>Elm2 (dcmplx): 2nd inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>nside (int)  : Nside for the convolution calculation, default to lmax</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>glm (dcmplx) : CMB lensing potential, with bounds (0:lmax,0:lmax)</li>
+<li>clm (dcmplx) : curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., glm,clm = devcurvedsky.rec_lens.qee(lmax,rlmin,rlmax,fC,Elm1,Elm2,nside)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.rec_lens.qeb">
+<code class="descclassname">devcurvedskypy.rec_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Elm</em>, <em>Blm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.rec_lens.qeb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing CMB lensing potential and its curl mode from the EB quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmax (int)   : maximum multipole of output lensing potential alms</li>
+<li>rL   (int)   : minimum rL[0] and maximum multipoles rlmax of CMB, with bounds (2)</li>
+<li>fC[l] (double): E-mode angular power spectrum, with bounds (1:rlmax)</li>
+<li>Elm  (dcmplx): inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</li>
+<li>Blm  (dcmplx): inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>nside (int)  : Nside for the convolution calculation, default to lmax</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>glm (dcmplx) : CMB lensing potential, with bounds (0:lmax,0:lmax)</li>
+<li>clm (dcmplx) : curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., glm,clm = devcurvedsky.rec_lens.qeb(lmax,rlmin,rlmax,fC,Elm,Blm,nside)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.rec_lens.qbb">
+<code class="descclassname">devcurvedskypy.rec_lens.</code><code class="descname">qbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Blm1</em>, <em>Blm2</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.rec_lens.qbb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing CMB lensing potential and its curl mode from the BB quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmax (int)   : maximum multipole of output lensing potential alms</li>
+<li>rL   (int)   : minimum rL[0] and maximum multipoles rlmax of CMB, with bounds (2)</li>
+<li>fC[l] (double): B-mode angular power spectrum, with bounds (1:rlmax)</li>
+<li>Blm1 (dcmplx): 1st inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</li>
+<li>Blm2 (dcmplx): 2nd inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>nside (int)  : Nside for the convolution calculation, default to lmax</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>glm (dcmplx) : CMB lensing potential, with bounds (0:lmax,0:lmax)</li>
+<li>clm (dcmplx) : curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., glm,clm = devcurvedsky.rec_lens.qbb(lmax,rlmin,rlmax,fC,Blm1,Blm2,nside)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-devcurvedskypy.delens">
+<span id="delens-delensing"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">delens</span></code> – delensing<a class="headerlink" href="#module-devcurvedskypy.delens" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="devcurvedskypy.delens.lensingb">
+<code class="descclassname">devcurvedskypy.delens.</code><code class="descname">lensingb</code><span class="sig-paren">(</span><em>lmax</em>, <em>elmin</em>, <em>elmax</em>, <em>plmin</em>, <em>plmax</em>, <em>wElm</em>, <em>wplm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.delens.lensingb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computing lensing B mode as a convolution of wiener-filtered E-mode and lensing potential</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmax (int)        : maximum multipole of output lensing B-mode alm</li>
+<li>elmin (int)       : minimum multipole of wiener-filtered E-mode alm</li>
+<li>elmax (int)       : maximum multipole of wiener-filtered E-mode alm</li>
+<li>plmin (int)       : minimum multipole of wiener-filtered lensing potential alm</li>
+<li>plmax (int)       : maximum multipole of wiener-filtered lensing potential alm</li>
+<li>wElm[l,m] (dcmplx): wiener-filtered E-mode alm, with bounds (0:elmax,0:elmax)</li>
+<li>wplm[l,m] (dcmplx): wiener-filtered lensing potential alm, with bounds (0:plmax,0:plmax)</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>nside (int)       : Nside for the convolution calculation, default to lmax</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>lBlm[l,m] (dcmplx): Lensing B-mode alm, with bounds (0:lmax,0:lmax)</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., lBlm = devcurvedsky.delens.lensingb(lmax,elmin,elmax,plmin,plmax,wElm,wplm,nside)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.delens.compute_shift_vector">
+<code class="descclassname">devcurvedskypy.delens.</code><code class="descname">compute_shift_vector</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>nremap</em>, <em>plm</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.delens.compute_shift_vector" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., beta = devcurvedsky.delens.compute_shift_vector(npix,lmax,nremap,plm)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="basictools/apstool.html" class="btn btn-neutral float-left" title="apstool – angular power spectrum calculation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Toshiya Namikawa
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

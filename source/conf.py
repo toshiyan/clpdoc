@@ -75,7 +75,7 @@ pygments_style = None
 
 # -- Import modules -- #
 #import basictools
-import wdevcurvedsky
+import devcurvedskypy
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -182,5 +182,6 @@ epub_title = project
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
 
-
+# order of autodoc
+autodoc_member_order = 'bysource'
 # -- Extension configuration -------------------------------------------------

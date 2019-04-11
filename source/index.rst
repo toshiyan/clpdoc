@@ -25,7 +25,7 @@ Reference
 
    basictools/apstool
 
-   curvedsky
+   curvedsky/curvedsky
 
 
 Indices and tables

@@ -75,7 +75,7 @@ pygments_style = None
 
 # -- Import modules -- #
 #import basictools
-import mytest
+import wdevcurvedsky
 
 
 # -- Options for HTML output -------------------------------------------------

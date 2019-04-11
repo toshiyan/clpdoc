@@ -2,7 +2,7 @@
 
 .. currentmodule:: curvedsky
 
-:mod:`rec_lens` -- quadratic lensing reconstruction
+:mod:`devcurvedsky.rec_lens` -- quadratic lensing reconstruction
 ==================================================
 
 rec_lens
@@ -10,7 +10,7 @@ rec_lens
 .. automodule:: devcurvedskypy.rec_lens
    :members:
 
-:mod:`delens` -- delensing
+:mod:`devcurvedsky.delens` -- delensing
 ==================================================
 
 .. automodule:: devcurvedskypy.delens

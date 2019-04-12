@@ -404,8 +404,8 @@
 <code class="descclassname">devcurvedskypy.delens.</code><code class="descname">shiftvec</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>plm</em>, <em>nremap=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.delens.shiftvec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the anti deflection vector, beta, at the Healpix pixel for the delensing where</p>
 <blockquote>
-<div>beta(n) + alpha_w(n+beta(n)) = 0</div></blockquote>
-<p>and alpha_w is the filtered lensing deflection vector (see arXiv:1701.01712).</p>
+<div>beta(n) + alphaiw(n+beta(n)) = 0</div></blockquote>
+<p>and alphaw is the filtered lensing deflection vector (see arXiv:1701.01712).</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><ul class="first last simple">
@@ -477,7 +477,25 @@ alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
 <dl class="function">
 <dt id="devcurvedskypy.bispec.bispec_equi">
 <code class="descclassname">devcurvedskypy.bispec.</code><code class="descname">bispec_equi</code><span class="sig-paren">(</span><em>lmin</em>, <em>lmax</em>, <em>alm</em>, <em>bst=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.bispec.bispec_equi" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>Compute equilateral shape of the unnormalized binned reduced bispectrum for a given alm, b[l,l,l]</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmin (int)        : minimum multipole of the bin</li>
+<li>lmax (int)        : maximum multipole of the bin</li>
+<li>alm[l,m] (dcmplx) : input harmonic coefficients, with bounds (0:lmax,0:lmax).</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>bst (int)         : a parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>bispec (double)   : unnormalized binned reduced bispectrum at the bin, [lmin,lmax]</li>
+</ul>
+</dd>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
 <li>e.g., bispec = devcurvedsky.bispec.bispec_equi(lmin,lmax,alm,bst)</li>
@@ -488,11 +506,29 @@ alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
 
 <dl class="function">
 <dt id="devcurvedskypy.bispec.bispec_fold">
-<code class="descclassname">devcurvedskypy.bispec.</code><code class="descname">bispec_fold</code><span class="sig-paren">(</span><em>lmin</em>, <em>lmax</em>, <em>bst</em>, <em>alm</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.bispec.bispec_fold" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<code class="descclassname">devcurvedskypy.bispec.</code><code class="descname">bispec_fold</code><span class="sig-paren">(</span><em>lmin</em>, <em>lmax</em>, <em>alm</em>, <em>bst=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.bispec.bispec_fold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute folded shape of the unnormalized binned reduced bispectrum for a given alm, b[l,l/2,l/2]</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmin (int)        : minimum multipole of the bin</li>
+<li>lmax (int)        : maximum multipole of the bin</li>
+<li>alm[l,m] (dcmplx) : input harmonic coefficients, with bounds (0:lmax,0:lmax).</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>bst (int)         : a parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>bispec (double)   : unnormalized binned reduced bispectrum at the bin, [lmin,lmax]</li>
+</ul>
+</dd>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
-<li>e.g., bispec = devcurvedsky.bispec.bispec_fold(lmin,lmax,bst,alm)</li>
+<li>e.g., bispec = devcurvedsky.bispec.bispec_fold(lmin,lmax,alm,bst)</li>
 </ul>
 </dd>
 </dl>
@@ -500,11 +536,30 @@ alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
 
 <dl class="function">
 <dt id="devcurvedskypy.bispec.bispec_sque">
-<code class="descclassname">devcurvedskypy.bispec.</code><code class="descname">bispec_sque</code><span class="sig-paren">(</span><em>eL</em>, <em>sL</em>, <em>l1</em>, <em>bst</em>, <em>alm</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.bispec.bispec_sque" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<code class="descclassname">devcurvedskypy.bispec.</code><code class="descname">bispec_sque</code><span class="sig-paren">(</span><em>eL</em>, <em>sL</em>, <em>l1</em>, <em>alm</em>, <em>bst=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.bispec.bispec_sque" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute squeezed shape of the unnormalized binned reduced bispectrum for a given alm, b[sL,eL,eL]</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>eL[] (int)        : minimum and maximum multipoles of the bin, with bounds (2)</li>
+<li>sL[] (int)        : minimum and maximum multipoles of the fixed bin, with bounds (2)</li>
+<li>l1 (int)          : maximum multipole of the input alm, satisfying eLmax,sLmax&lt;=l1</li>
+<li>alm[l,m] (dcmplx) : input harmonic coefficients, with bounds (0:lmax,0:lmax).</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>bst (int)         : a parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>bispec (double)   : unnormalized binned reduced bispectrum at the bin, [lmin,lmax]</li>
+</ul>
+</dd>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
-<li>e.g., bispec = devcurvedsky.bispec.bispec_sque(eL,sL,l1,bst,alm)</li>
+<li>e.g., bispec = devcurvedsky.bispec.bispec_sque(eL,sL,l1,alm,bst)</li>
 </ul>
 </dd>
 </dl>
@@ -512,11 +567,30 @@ alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
 
 <dl class="function">
 <dt id="devcurvedskypy.bispec.bispec_angl">
-<code class="descclassname">devcurvedskypy.bispec.</code><code class="descname">bispec_angl</code><span class="sig-paren">(</span><em>eL</em>, <em>aL</em>, <em>l1</em>, <em>bst</em>, <em>alm</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.bispec.bispec_angl" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<code class="descclassname">devcurvedskypy.bispec.</code><code class="descname">bispec_angl</code><span class="sig-paren">(</span><em>eL</em>, <em>aL</em>, <em>l1</em>, <em>alm</em>, <em>bst=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.bispec.bispec_angl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute isosceles shape of the unnormalized binned reduced bispectrum for a given alm, b[eL,aL,aL]</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>eL[] (int)        : minimum and maximum multipoles of the bin, with bounds (2)</li>
+<li>aL[] (int)        : minimum and maximum multipoles of the fixed bin, with bounds (2)</li>
+<li>l1 (int)          : maximum multipole of the input alm, satisfying eLmax,sLmax&lt;=l1</li>
+<li>alm[l,m] (dcmplx) : input harmonic coefficients, with bounds (0:lmax,0:lmax).</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>bst (int)         : a parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>bispec (double)   : unnormalized binned reduced bispectrum at the bin, [lmin,lmax]</li>
+</ul>
+</dd>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
-<li>e.g., bispec = devcurvedsky.bispec.bispec_angl(eL,aL,l1,bst,alm)</li>
+<li>e.g., bispec = devcurvedsky.bispec.bispec_angl(eL,aL,l1,alm,bst)</li>
 </ul>
 </dd>
 </dl>

@@ -88,7 +88,10 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">devcurvedsky</span></code> – Curvedsky analysis tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#module-devcurvedskypy.rec_lens"><code class="docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-devcurvedskypy.delens"><code class="docutils literal notranslate"><span class="pre">delens</span></code> – delensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-devcurvedskypy.rec_tau"><code class="docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic tau reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-devcurvedskypy.rec_src"><code class="docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-soruce reconstruction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-devcurvedskypy.bispec"><code class="docutils literal notranslate"><span class="pre">bispec</span></code> – binned reduced bispectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-devcurvedskypy.utils"><code class="docutils literal notranslate"><span class="pre">utils</span></code> – other tools</a></li>
 </ul>
 </li>
 </ul>
@@ -460,15 +463,174 @@ alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-devcurvedskypy.rec_tau">
+<span id="rec-tau-quadratic-tau-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic tau reconstruction<a class="headerlink" href="#module-devcurvedskypy.rec_tau" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="devcurvedskypy.rec_tau.qtt_sym">
+<code class="descclassname">devcurvedskypy.rec_tau.</code><code class="descname">qtt_sym</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.rec_tau.qtt_sym" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing inhomogeneous tau from the temperature quadratic estimator, assuming Tlm1=Tlm2</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmax (int)        : maximum multipole of output tau alms</li>
+<li>rlmin (int)       : minimum multipole of CMB for reconstruction</li>
+<li>rlmax (int)       : maximum multipole of CMB for reconstruction</li>
+<li>fC[l] (double)    : temperature angular power spectrum, with bounds (1:rlmax)</li>
+<li>Tlm[l,m] (dcmplx) : inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>nside (int)       : Nside for the convolution calculation, default to lmax</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>xlm[l,m] (dcmplx) : inhomogeneous tau alm, with bounds (0:lmax,0:lmax)</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., xlm = devcurvedsky.rec_tau.qtt_sym(lmax,rlmin,rlmax,fC,Tlm,nside)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.rec_tau.qtt">
+<code class="descclassname">devcurvedskypy.rec_tau.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm1</em>, <em>Tlm2</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.rec_tau.qtt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing inhomogeneous tau from the temperature quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmax (int)        : maximum multipole of output tau alms</li>
+<li>rlmin (int)       : minimum multipole of CMB for reconstruction</li>
+<li>rlmax (int)       : maximum multipole of CMB for reconstruction</li>
+<li>fC[l] (double)    : temperature angular power spectrum, with bounds (1:rlmax)</li>
+<li>Tlm1[l,m] (dcmplx): 1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
+<li>Tlm2[l,m] (dcmplx): 2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>nside (int)       : Nside for the convolution calculation, default to lmax</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>xlm[l,m] (dcmplx) : inhomogeneous tau alm, with bounds (0:lmax,0:lmax)</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., xlm = devcurvedsky.rec_tau.qtt(lmax,rlmin,rlmax,fC,Tlm1,Tlm2,nside)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-devcurvedskypy.rec_src">
+<span id="rec-src-quadratic-point-soruce-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-soruce reconstruction<a class="headerlink" href="#module-devcurvedskypy.rec_src" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="devcurvedskypy.rec_src.qtt_sym">
+<code class="descclassname">devcurvedskypy.rec_src.</code><code class="descname">qtt_sym</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>Tlm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.rec_src.qtt_sym" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing point sources from the temperature quadratic estimator, assuming Tlm1=Tlm2</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmax (int)        : maximum multipole of output point-source alms</li>
+<li>rlmin (int)       : minimum multipole of CMB for reconstruction</li>
+<li>rlmax (int)       : maximum multipole of CMB for reconstruction</li>
+<li>fC[l] (double)    : temperature angular power spectrum, with bounds (1:rlmax)</li>
+<li>Tlm[l,m] (dcmplx) : inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>nside (int)       : Nside for the convolution calculation, default to lmax</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><blockquote class="first">
+<div><ul class="simple">
+<li>slm[l,m] (dcmplx) : point-source alm, with bounds (0:lmax,0:lmax)</li>
+</ul>
+</div></blockquote>
+<p class="last">alm to map 
+map to alm</p>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., slm = devcurvedsky.rec_src.qtt_sym(lmax,rlmin,rlmax,Tlm,nside)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.rec_src.qtt">
+<code class="descclassname">devcurvedskypy.rec_src.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>Tlm1</em>, <em>Tlm2</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.rec_src.qtt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing point sources from the temperature quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmax (int)        : maximum multipole of output point-source alms</li>
+<li>rlmin (int)       : minimum multipole of CMB for reconstruction</li>
+<li>rlmax (int)       : maximum multipole of CMB for reconstruction</li>
+<li>fC[l] (double)    : temperature angular power spectrum, with bounds (1:rlmax)</li>
+<li>Tlm1[l,m] (dcmplx): 1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
+<li>Tlm2[l,m] (dcmplx): 2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>nside (int)       : Nside for the convolution calculation, default to lmax</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><blockquote class="first">
+<div><ul class="simple">
+<li>slm[l,m] (dcmplx) : point-source alm, with bounds (0:lmax,0:lmax)</li>
+</ul>
+</div></blockquote>
+<p class="last">alm to map 
+map to alm</p>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., slm = devcurvedsky.rec_src.qtt(lmax,rlmin,rlmax,Tlm1,Tlm2,nside)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 <div class="section" id="module-devcurvedskypy.bispec">
 <span id="bispec-binned-reduced-bispectrum"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">bispec</span></code> – binned reduced bispectrum<a class="headerlink" href="#module-devcurvedskypy.bispec" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="devcurvedskypy.bispec.make_quad_gauss">
 <code class="descclassname">devcurvedskypy.bispec.</code><code class="descname">make_quad_gauss</code><span class="sig-paren">(</span><em>lmax</em>, <em>alm</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.bispec.make_quad_gauss" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>Return a non-Gaussian alm. The corresponding non-Gaussian field is defined as</p>
+<blockquote>
+<div>delta^NL(n) = delta^L(n) + delta^L(n)**2</div></blockquote>
+<p>where delta^L(n) is a gaussian field obtained from the input alm.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmax (int)        : maximum multipole of the bin</li>
+<li>alm[l,m] (dcmplx) : input harmonic coefficients, with bounds (0:lmax,0:lmax).</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>qlm[l,m] (dcmplx) : output harmonic coefficients of the non-Gaussian fields, with bounds (0:lmax,0:lmax).</li>
+</ul>
+</dd>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
-<li>e.g.,  = devcurvedsky.bispec.make_quad_gauss(lmax,alm)</li>
+<li>e.g., qlm = devcurvedsky.bispec.make_quad_gauss(lmax,alm)</li>
 </ul>
 </dd>
 </dl>
@@ -591,6 +753,223 @@ alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
 <li>e.g., bispec = devcurvedsky.bispec.bispec_angl(eL,aL,l1,alm,bst)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-devcurvedskypy.utils">
+<span id="utils-other-tools"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code> – other tools<a class="headerlink" href="#module-devcurvedskypy.utils" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="devcurvedskypy.utils.gauss1alm">
+<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">gauss1alm</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.gauss1alm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generating alm as a random Gaussian field whose power spectrum is cl.
+The output alm is given by a 2D array.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmax (int)        : maximum multipole of the output alm</li>
+<li>Cl[l] (double)    : angular power spectrum, with bounds (1:lmax)</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>alm[l,m] (dcmplx) : random Gaussian alm, with bounds (0:lmax,0:lmax)</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., alm = devcurvedsky.utils.gauss1alm(lmax,cl)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.utils.gauss2alm">
+<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">gauss2alm</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl1</em>, <em>cl2</em>, <em>xl</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.gauss2alm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generating two alms as random Gaussian fields whose power spectra are cl1, cl2 and the cross spectrum is xl.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmax (int)      : maximum multipole of the output alm</li>
+<li>cl1[l] (double) : angular power spectrum of the 1st alm, with bounds (1:lmax)</li>
+<li>cl2[l] (double) : angular power spectrum of the 2nd alm, with bounds (1:lmax)</li>
+<li>xl[l] (double)  : cross-power spectrum between alm1 and alm2, with bounds (1:lmax)</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>alm[2,l,m] (dcmplx): random Gaussian alms, with bounds (2,0:lmax,0:lmax)</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., alm = devcurvedsky.utils.gauss2alm(lmax,cl1,cl2,xl)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.utils.gaussTEB">
+<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">gaussTEB</code><span class="sig-paren">(</span><em>lmax</em>, <em>TT</em>, <em>EE</em>, <em>BB</em>, <em>TE</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.gaussTEB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generating T/E/B alms as random Gaussian fields whose power spectra are TT, EE, BB and the cross spectrum is TE.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmax (int)     : maximum multipole of the output alms</li>
+<li>TT[l] (double) : angular power spectrum of temperature, with bounds (1:lmax)</li>
+<li>EE[l] (double) : angular power spectrum of E mode, with bounds (1:lmax)</li>
+<li>BB[l] (double) : angular power spectrum of B mode, with bounds (1:lmax)</li>
+<li>TE[l] (double) : TE cross-power spectrum, with bounds (1:lmax)</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>alm[3,l,m] (dcmplx): random Gaussian T/E/B alms, with bounds (3,0:lmax,0:lmax)</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., alm = devcurvedsky.utils.gaussTEB(lmax,TT,EE,BB,TE)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.utils.gauss3alm">
+<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">gauss3alm</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.gauss3alm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generating three alms as random Gaussian fields whose covariance is given by cl[i,j].</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmax (int)         : maximum multipole of the output alm</li>
+<li>cl[i,j,l] (double) : covariance between the gaussian fields, with bounds (3,3,1:lmax)</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>alm[3,l,m] (dcmplx): random Gaussian alms, with bounds (3,0:lmax,0:lmax)</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., alm = devcurvedsky.utils.gauss3alm(lmax,cl)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.utils.gauss4alm">
+<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">gauss4alm</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.gauss4alm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generating four alms as random Gaussian fields whose covariance is given by cl[i,j].</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmax (int)         : maximum multipole of the output alm</li>
+<li>cl[i,j,l] (double) : covariance between the gaussian fields, with bounds (4,4,1:lmax)</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>alm[4,l,m] (dcmplx): random Gaussian alms, with bounds (4,0:lmax,0:lmax)</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., alm = devcurvedsky.utils.gauss4alm(lmax,cl)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.utils.get_baseline">
+<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">get_baseline</code><span class="sig-paren">(</span><em>BLmap</em>, <em>QUmap</em>, <em>npix</em>, <em>nside_subpatch</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.get_baseline" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>written by Ryo Nagata</dt>
+<dd><dl class="first last docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., BLmap = devcurvedsky.utils.get_baseline(BLmap,QUmap,npix,nside_subpatch)</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.utils.get_subpatch">
+<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">get_subpatch</code><span class="sig-paren">(</span><em>nside_large</em>, <em>nside_small</em>, <em>ipix_in</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.get_subpatch" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>written by Ryo Nagata</dt>
+<dd><dl class="first last docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g.,  ipix_out = devcurvedsky.utils.get_subpatch( nside_large, nside_small, ipix_in)</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.utils.get_winmap">
+<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">get_winmap</code><span class="sig-paren">(</span><em>nside_large</em>, <em>nside_small</em>, <em>ipix_pix</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.get_winmap" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>written by Ryo Nagata</dt>
+<dd><dl class="first last docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., win_out = devcurvedsky.utils.get_winmap(nside_large,nside_small,ipix_pix)</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.utils.get_apod_window">
+<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">get_apod_window</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.get_apod_window" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>written by Ryo Nagata</dt>
+<dd><dl class="first last docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., w = devcurvedsky.utils.get_apod_window(s)</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.utils.cosin_healpix">
+<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">cosin_healpix</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.cosin_healpix" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., cosin = devcurvedsky.utils.cosin_healpix(npix,lmax)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.utils.eb_seperate">
+<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">eb_seperate</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>W</em>, <em>QUin</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.eb_seperate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., QUou = devcurvedsky.utils.eb_seperate(npix,lmax,W,QUin)</li>
 </ul>
 </dd>
 </dl>

@@ -3,8 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+========================================
 Welcome to the cmblensplus documentation
-====================================
+========================================
 
 This package contains fortran90 wrappers for python to perform CMB lensing/ cosmic bi-refringence/ patchy reionization reconstructions, 
 delensing, and bi-spectrum measurement. 
@@ -29,7 +30,7 @@ Reference
 
 
 Indices and tables
--------
+------------------
 
 * :ref:`genindex`
 * :ref:`modindex`

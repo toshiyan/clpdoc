@@ -2,18 +2,22 @@
 
 .. currentmodule:: curvedsky
 
-:mod:`devcurvedsky.rec_lens` -- quadratic lensing reconstruction
-==================================================
+:mod:`devcurvedsky` -- Curvedsky analysis tools
+===============================================
 
-rec_lens
---------------------
+:mod:`rec_lens` -- quadratic lensing reconstruction
+----------------------------------------------------
 .. automodule:: devcurvedskypy.rec_lens
    :members:
 
-:mod:`devcurvedsky.delens` -- delensing
-==================================================
-
+:mod:`delens` -- delensing
+----------------------------------------------------
 .. automodule:: devcurvedskypy.delens
+   :members:
+
+:mod:`bispec` -- binned reduced bispectrum
+----------------------------------------------------
+.. automodule:: devcurvedskypy.bispec
    :members:
 
 

@@ -889,64 +889,77 @@ The output alm is given by a 2D array.</p>
 
 <dl class="function">
 <dt id="devcurvedskypy.utils.get_baseline">
-<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">get_baseline</code><span class="sig-paren">(</span><em>BLmap</em>, <em>QUmap</em>, <em>npix</em>, <em>nside_subpatch</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.get_baseline" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>written by Ryo Nagata</dt>
-<dd><dl class="first last docutils">
-<dt>Usage:</dt>
+<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">get_baseline</code><span class="sig-paren">(</span><em>npix</em>, <em>nside_subpatch</em>, <em>QU</em>, <em>blmap</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.get_baseline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate baseline of each subpatch. The subpatches have the same size.
+Written by Ryo Nagata.</p>
+<dl class="docutils">
+<dt>Args:</dt>
 <dd><ul class="first last simple">
-<li>e.g., BLmap = devcurvedsky.utils.get_baseline(BLmap,QUmap,npix,nside_subpatch)</li>
+<li>npix (int)           : pixel number of the full map</li>
+<li>nside_subpatch (int) : Nside of sub patch</li>
+<li>QU[pix,2] (double)   : Q/U maps, with bounds (0:npix-1,2)</li>
 </ul>
 </dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="devcurvedskypy.utils.get_subpatch">
-<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">get_subpatch</code><span class="sig-paren">(</span><em>nside_large</em>, <em>nside_small</em>, <em>ipix_in</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.get_subpatch" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>written by Ryo Nagata</dt>
-<dd><dl class="first last docutils">
-<dt>Usage:</dt>
+<dt>Returns:</dt>
 <dd><ul class="first last simple">
-<li>e.g.,  ipix_out = devcurvedsky.utils.get_subpatch( nside_large, nside_small, ipix_in)</li>
+<li>blmap[pix,2] (double): baseline maps, with bounds (0:npix-1,2)</li>
 </ul>
 </dd>
-</dl>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g.,  = devcurvedsky.utils.get_baseline(npix,nside_subpatch,QU,blmap)</li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="devcurvedskypy.utils.get_winmap">
-<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">get_winmap</code><span class="sig-paren">(</span><em>nside_large</em>, <em>nside_small</em>, <em>ipix_pix</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.get_winmap" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>written by Ryo Nagata</dt>
-<dd><dl class="first last docutils">
-<dt>Usage:</dt>
+<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">get_winmap</code><span class="sig-paren">(</span><em>nside_large</em>, <em>nside_small</em>, <em>ipix_pix</em>, <em>apod</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.get_winmap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return apodization window for subpatch.
+Written by Ryo Nagata.</p>
+<dl class="docutils">
+<dt>Args:</dt>
 <dd><ul class="first last simple">
-<li>e.g., win_out = devcurvedsky.utils.get_winmap(nside_large,nside_small,ipix_pix)</li>
+<li>nside_large (int) : Nside of sub patch</li>
+<li>nside_small (int) : full Nside</li>
+<li>ipix_pix (int)    : pixel index of full map</li>
+<li>apod (double)     : apodization length</li>
 </ul>
 </dd>
-</dl>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>wind_out (double) : aporization window at ipix_pix</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., win_out = devcurvedsky.utils.get_winmap(nside_large,nside_small,ipix_pix,apod)</li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="devcurvedskypy.utils.get_apod_window">
-<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">get_apod_window</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.get_apod_window" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>written by Ryo Nagata</dt>
-<dd><dl class="first last docutils">
-<dt>Usage:</dt>
+<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">get_apod_window</code><span class="sig-paren">(</span><em>s</em>, <em>a</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.get_apod_window" title="Permalink to this definition">¶</a></dt>
+<dd><p>A sine apodization window</p>
+<dl class="docutils">
+<dt>Args:</dt>
 <dd><ul class="first last simple">
-<li>e.g., w = devcurvedsky.utils.get_apod_window(s)</li>
+<li>s (double) : distance from the center of the window</li>
+<li>a (double) : apodization length, nothing (a=1) to all (a=0)</li>
 </ul>
 </dd>
-</dl>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>w (double) : aporization window</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., w = devcurvedsky.utils.get_apod_window(s,a)</li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -954,7 +967,19 @@ The output alm is given by a 2D array.</p>
 <dl class="function">
 <dt id="devcurvedskypy.utils.cosin_healpix">
 <code class="descclassname">devcurvedskypy.utils.</code><code class="descname">cosin_healpix</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.cosin_healpix" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>cos(theta) as a function of the Healpix pixel index</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>npix (int) : pixel number of the desired map</li>
+<li>lmax (int) : maximum multipole</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>cosin[pix] (double) : cos(theta), with bounds (0:npix-1)</li>
+</ul>
+</dd>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
 <li>e.g., cosin = devcurvedsky.utils.cosin_healpix(npix,lmax)</li>
@@ -966,7 +991,21 @@ The output alm is given by a 2D array.</p>
 <dl class="function">
 <dt id="devcurvedskypy.utils.eb_seperate">
 <code class="descclassname">devcurvedskypy.utils.</code><code class="descname">eb_seperate</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>W</em>, <em>QUin</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.eb_seperate" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>E/B mode seperation based on the chi-field estimator.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>npix (int)           : pixel number of the desired map</li>
+<li>lmax (int)           : maximum multipole used for the harmonic transform internally</li>
+<li>W[pix,2] (double)    : window function satisfying zero 1st and 2nd derivatives at the boundary, with bounds (0:npix-1,2)</li>
+<li>QUin[pix,2] (double) : input QU map, with bounds (0:npix-1,2)</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>QUou[pix,2] (double) : E/B seperated QU map, with bounds (0:npix-1,2)</li>
+</ul>
+</dd>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
 <li>e.g., QUou = devcurvedsky.utils.eb_seperate(npix,lmax,W,QUin)</li>

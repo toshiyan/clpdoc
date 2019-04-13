@@ -543,7 +543,6 @@ alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
 <li>lmax (int)        : maximum multipole of output point-source alms</li>
 <li>rlmin (int)       : minimum multipole of CMB for reconstruction</li>
 <li>rlmax (int)       : maximum multipole of CMB for reconstruction</li>
-<li>fC[l] (double)    : temperature angular power spectrum, with bounds (1:rlmax)</li>
 <li>Tlm[l,m] (dcmplx) : inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
 </ul>
 </dd>
@@ -579,7 +578,6 @@ map to alm</p>
 <li>lmax (int)        : maximum multipole of output point-source alms</li>
 <li>rlmin (int)       : minimum multipole of CMB for reconstruction</li>
 <li>rlmax (int)       : maximum multipole of CMB for reconstruction</li>
-<li>fC[l] (double)    : temperature angular power spectrum, with bounds (1:rlmax)</li>
 <li>Tlm1[l,m] (dcmplx): 1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
 <li>Tlm2[l,m] (dcmplx): 2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
 </ul>
@@ -889,7 +887,7 @@ The output alm is given by a 2D array.</p>
 
 <dl class="function">
 <dt id="devcurvedskypy.utils.get_baseline">
-<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">get_baseline</code><span class="sig-paren">(</span><em>npix</em>, <em>nside_subpatch</em>, <em>QU</em>, <em>blmap</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.get_baseline" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">get_baseline</code><span class="sig-paren">(</span><em>npix</em>, <em>nside_subpatch</em>, <em>QU</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.get_baseline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate baseline of each subpatch. The subpatches have the same size.
 Written by Ryo Nagata.</p>
 <dl class="docutils">
@@ -907,7 +905,7 @@ Written by Ryo Nagata.</p>
 </dd>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
-<li>e.g.,  = devcurvedsky.utils.get_baseline(npix,nside_subpatch,QU,blmap)</li>
+<li>e.g., blmap = devcurvedsky.utils.get_baseline(npix,nside_subpatch,QU)</li>
 </ul>
 </dd>
 </dl>

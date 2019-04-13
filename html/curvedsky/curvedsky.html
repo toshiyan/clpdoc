@@ -90,7 +90,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#module-devcurvedskypy.delens"><code class="docutils literal notranslate"><span class="pre">delens</span></code> – delensing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-devcurvedskypy.rec_tau"><code class="docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic tau reconstruction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-devcurvedskypy.rec_src"><code class="docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-soruce reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#bispec-binned-reduced-bispectrum"><code class="docutils literal notranslate"><span class="pre">bispec</span></code> – binned reduced bispectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-devcurvedskypy.bispec"><code class="docutils literal notranslate"><span class="pre">bispec</span></code> – binned reduced bispectrum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-devcurvedskypy.utils"><code class="docutils literal notranslate"><span class="pre">utils</span></code> – other tools</a></li>
 </ul>
 </li>
@@ -605,8 +605,222 @@ map to alm</p>
 </dd></dl>
 
 </div>
-<div class="section" id="bispec-binned-reduced-bispectrum">
-<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">bispec</span></code> – binned reduced bispectrum<a class="headerlink" href="#bispec-binned-reduced-bispectrum" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-devcurvedskypy.bispec">
+<span id="bispec-binned-reduced-bispectrum"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">bispec</span></code> – binned reduced bispectrum<a class="headerlink" href="#module-devcurvedskypy.bispec" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="devcurvedskypy.bispec.make_quad_gauss">
+<code class="descclassname">devcurvedskypy.bispec.</code><code class="descname">make_quad_gauss</code><span class="sig-paren">(</span><em>lmax</em>, <em>alm</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.bispec.make_quad_gauss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a non-Gaussian alm. The corresponding non-Gaussian field is defined as</p>
+<blockquote>
+<div>delta^NL(n) = delta^L(n) + delta^L(n)**2</div></blockquote>
+<p>where delta^L(n) is a gaussian field obtained from the input alm.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmax (int)        : maximum multipole of alm</li>
+<li>alm[l,m] (dcmplx) : input harmonic coefficients, with bounds (0:lmax,0:lmax).</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>qlm[l,m] (dcmplx) : output harmonic coefficients of the non-Gaussian fields, with bounds (0:lmax,0:lmax).</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., qlm = devcurvedsky.bispec.make_quad_gauss(lmax,alm)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.bispec.bispec_main">
+<code class="descclassname">devcurvedskypy.bispec.</code><code class="descname">bispec_main</code><span class="sig-paren">(</span><em>bn</em>, <em>bp</em>, <em>bstype=0</em>, <em>alm=0</em>, <em>bst=0</em>, <em>sL=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.bispec.bispec_main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return normalization of equilateral binned reduced bispectrum for a given multipole bin</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>bn (int)          : number of multipole bins</li>
+<li>bp[edge] (double) : bin edges, with bounds (bn+1)</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>bstype (str) : configuration of the bispectrum, default to equilateral</li>
+<li>bst (int)    : a parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</li>
+<li>alm[l,m] (dcmplx) : input harmonic coefficients, with bounds (0:lmax,0:lmax), default to 0.</li>
+<li>sL[2] (int)  : the fixed bin for the squeezed configuration, b[sL,eL,eL], default to the lowest multipole bin</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>norm[bin] (double) : normalization of the binned reduced bispectrum at each bin, with bounds (bn)</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., norm = devcurvedsky.bispec.bispec_main(bn,bp,bstype,alm,bst,sL)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.bispec.bispec_bin">
+<code class="descclassname">devcurvedskypy.bispec.</code><code class="descname">bispec_bin</code><span class="sig-paren">(</span><em>bn</em>, <em>bp</em>, <em>lmax</em>, <em>alm</em>, <em>bstype=0</em>, <em>bst=0</em>, <em>sL=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.bispec.bispec_bin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the unnormalized binned reduced bispectrum for a given multipole bin</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>bn (int)          : number of multipole bins</li>
+<li>bp[edge] (double) : bin edges, with bounds (bn+1)</li>
+<li>lmax (int)        : maximum multipole of the input alm</li>
+<li>alm[l,m] (dcmplx) : input harmonic coefficients, with bounds (0:lmax,0:lmax), default to 0.</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>bstype (str) : configuration of the bispectrum, default to equilateral</li>
+<li>bst (int) : a parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</li>
+<li>sL[2] (int)  : the fixed bin for the squeezed configuration, b[sL,eL,eL], default to the lowest multipole bin</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>bis[bin] (double) : the unnormalized binned reduced bispectrum at each bin, with bounds (bn)</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., bis = devcurvedsky.bispec.bispec_bin(bn,bp,lmax,alm,bstype,bst,sL)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.bispec.equi">
+<code class="descclassname">devcurvedskypy.bispec.</code><code class="descname">equi</code><span class="sig-paren">(</span><em>lmin</em>, <em>lmax</em>, <em>alm</em>, <em>bst=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.bispec.equi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute equilateral shape of the unnormalized binned reduced bispectrum for a given alm, b[l,l,l]</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmin (int)        : minimum multipole of the bin</li>
+<li>lmax (int)        : maximum multipole of the bin</li>
+<li>alm[l,m] (dcmplx) : input harmonic coefficients, with bounds (0:lmax,0:lmax).</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>bst (int)         : a parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>bispec (double)   : unnormalized binned reduced bispectrum at the bin, [lmin,lmax]</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., bispec = devcurvedsky.bispec.equi(lmin,lmax,alm,bst)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.bispec.fold">
+<code class="descclassname">devcurvedskypy.bispec.</code><code class="descname">fold</code><span class="sig-paren">(</span><em>lmin</em>, <em>lmax</em>, <em>alm</em>, <em>bst=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.bispec.fold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute folded shape of the unnormalized binned reduced bispectrum for a given alm, b[l,l/2,l/2]</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmin (int)        : minimum multipole of the bin</li>
+<li>lmax (int)        : maximum multipole of the bin</li>
+<li>alm[l,m] (dcmplx) : input harmonic coefficients, with bounds (0:lmax,0:lmax).</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>bst (int)         : a parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>bispec (double)   : unnormalized binned reduced bispectrum at the bin, [lmin,lmax]</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., bispec = devcurvedsky.bispec.fold(lmin,lmax,alm,bst)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.bispec.sque">
+<code class="descclassname">devcurvedskypy.bispec.</code><code class="descname">sque</code><span class="sig-paren">(</span><em>eL</em>, <em>sL</em>, <em>l1</em>, <em>alm</em>, <em>bst=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.bispec.sque" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute squeezed shape of the unnormalized binned reduced bispectrum for a given alm, b[sL,eL,eL]</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>eL[] (int)        : minimum and maximum multipoles of the bin, with bounds (2)</li>
+<li>sL[] (int)        : minimum and maximum multipoles of the fixed bin, with bounds (2)</li>
+<li>l1 (int)          : maximum multipole of the input alm, satisfying eLmax,sLmax&lt;=l1</li>
+<li>alm[l,m] (dcmplx) : input harmonic coefficients, with bounds (0:lmax,0:lmax).</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>bst (int)         : a parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>bispec (double)   : unnormalized binned reduced bispectrum at the bin, [lmin,lmax]</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., bispec = devcurvedsky.bispec.sque(eL,sL,l1,alm,bst)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.bispec.isos">
+<code class="descclassname">devcurvedskypy.bispec.</code><code class="descname">isos</code><span class="sig-paren">(</span><em>eL</em>, <em>aL</em>, <em>l1</em>, <em>alm</em>, <em>bst=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.bispec.isos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute isosceles shape of the unnormalized binned reduced bispectrum for a given alm, b[eL,aL,aL]</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>eL[] (int)        : minimum and maximum multipoles of the bin, with bounds (2)</li>
+<li>aL[] (int)        : minimum and maximum multipoles of the fixed bin, with bounds (2)</li>
+<li>l1 (int)          : maximum multipole of the input alm, satisfying eLmax,sLmax&lt;=l1</li>
+<li>alm[l,m] (dcmplx) : input harmonic coefficients, with bounds (0:lmax,0:lmax).</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>bst (int)         : a parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>bispec (double)   : unnormalized binned reduced bispectrum at the bin, [lmin,lmax]</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., bispec = devcurvedsky.bispec.isos(eL,aL,l1,alm,bst)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 <div class="section" id="module-devcurvedskypy.utils">
 <span id="utils-other-tools"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code> – other tools<a class="headerlink" href="#module-devcurvedskypy.utils" title="Permalink to this headline">¶</a></h2>

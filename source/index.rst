@@ -26,6 +26,8 @@ Reference
 
    basictools/apstool
 
+   analytic/analytic
+
    curvedsky/curvedsky
 
 

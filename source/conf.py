@@ -75,6 +75,7 @@ pygments_style = None
 
 # -- Import modules -- #
 #import basictools
+import devanalytic
 import devcurvedskypy
 
 

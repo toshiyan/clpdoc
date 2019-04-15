@@ -176,7 +176,7 @@
 <li>lmax (int)        : maximum multipole of output lensing potential alms</li>
 <li>rlmin (int)       : minimum multipole of CMB for reconstruction</li>
 <li>rlmax (int)       : maximum multipole of CMB for reconstruction</li>
-<li>fC[l] (double)    : temperature angular power spectrum, with bounds (1:rlmax)</li>
+<li>fC[l] (double)    : temperature angular power spectrum, with bounds (0:rlmax)</li>
 <li>Tlm1[l,m] (dcmplx): 1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
 <li>Tlm2[l,m] (dcmplx): 2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
 </ul>
@@ -210,7 +210,7 @@
 <li>lmax (int)   : maximum multipole of output lensing potential alms</li>
 <li>rlmin (int)  : minimum multipole of CMB for reconstruction</li>
 <li>rlmax (int)  : maximum multipole of CMB for reconstruction</li>
-<li>fC[l] (double): temperature-E cross-angular power spectrum, with bounds (1:rlmax)</li>
+<li>fC[l] (double): temperature-E cross-angular power spectrum, with bounds (0:rlmax)</li>
 <li>Tlm  (dcmplx): inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
 <li>Elm  (dcmplx): inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</li>
 </ul>
@@ -243,7 +243,7 @@
 <dd><ul class="first last simple">
 <li>lmax (int)   : maximum multipole of output lensing potential alms</li>
 <li>rL   (int)   : minimum rL[0] and maximum multipoles rlmax of CMB, with bounds (2)</li>
-<li>fC[l] (double): temperature-E cross-angular power spectrum, with bounds (1:rlmax)</li>
+<li>fC[l] (double): temperature-E cross-angular power spectrum, with bounds (0:rlmax)</li>
 <li>Tlm  (dcmplx): inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
 <li>Blm  (dcmplx): inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</li>
 </ul>
@@ -276,7 +276,7 @@
 <dd><ul class="first last simple">
 <li>lmax (int)   : maximum multipole of output lensing potential alms</li>
 <li>rL   (int)   : minimum rL[0] and maximum multipoles rlmax of CMB, with bounds (2)</li>
-<li>fC[l] (double): E-mode angular power spectrum, with bounds (1:rlmax)</li>
+<li>fC[l] (double): E-mode angular power spectrum, with bounds (0:rlmax)</li>
 <li>Elm1 (dcmplx): 1st inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</li>
 <li>Elm2 (dcmplx): 2nd inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</li>
 </ul>
@@ -309,7 +309,7 @@
 <dd><ul class="first last simple">
 <li>lmax (int)   : maximum multipole of output lensing potential alms</li>
 <li>rL   (int)   : minimum rL[0] and maximum multipoles rlmax of CMB, with bounds (2)</li>
-<li>fC[l] (double): E-mode angular power spectrum, with bounds (1:rlmax)</li>
+<li>fC[l] (double): E-mode angular power spectrum, with bounds (0:rlmax)</li>
 <li>Elm  (dcmplx): inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</li>
 <li>Blm  (dcmplx): inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</li>
 </ul>
@@ -342,7 +342,7 @@
 <dd><ul class="first last simple">
 <li>lmax (int)   : maximum multipole of output lensing potential alms</li>
 <li>rL   (int)   : minimum rL[0] and maximum multipoles rlmax of CMB, with bounds (2)</li>
-<li>fC[l] (double): B-mode angular power spectrum, with bounds (1:rlmax)</li>
+<li>fC[l] (double): B-mode angular power spectrum, with bounds (0:rlmax)</li>
 <li>Blm1 (dcmplx): 1st inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</li>
 <li>Blm2 (dcmplx): 2nd inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</li>
 </ul>
@@ -1072,6 +1072,42 @@ Written by Ryo Nagata.</p>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
 <li>e.g., QUou = devcurvedsky.utils.eb_separate(npix,lmax,W,QUin)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.utils.calccl_spc">
+<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">calccl_spc</code><span class="sig-paren">(</span><em>lmax</em>, <em>alm1</em>, <em>alm2=0</em>, <em>norm=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.calccl_spc" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., cl = devcurvedsky.utils.calccl_spc(lmax,alm1,alm2,norm)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.utils.calccl_dpc">
+<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">calccl_dpc</code><span class="sig-paren">(</span><em>lmax</em>, <em>alm1</em>, <em>alm2=0</em>, <em>norm=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.calccl_dpc" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., cl = devcurvedsky.utils.calccl_dpc(lmax,alm1,alm2,norm)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="devcurvedskypy.utils.alm2bcl">
+<code class="descclassname">devcurvedskypy.utils.</code><code class="descname">alm2bcl</code><span class="sig-paren">(</span><em>bn</em>, <em>lmax</em>, <em>alm1</em>, <em>alm2=0</em>, <em>oL=0</em>, <em>norm=0</em><span class="sig-paren">)</span><a class="headerlink" href="#devcurvedskypy.utils.alm2bcl" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., cb = devcurvedsky.utils.alm2bcl(bn,lmax,alm1,alm2,oL,norm)</li>
 </ul>
 </dd>
 </dl>

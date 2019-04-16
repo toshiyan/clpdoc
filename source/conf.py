@@ -76,7 +76,7 @@ pygments_style = None
 # -- Import modules -- #
 #import basictools
 import analytic
-import curvedskypy
+import curvedsky
 import flatsky
 import basic
 

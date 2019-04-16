@@ -87,12 +87,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../basic/basic.html"><code class="docutils literal notranslate"><span class="pre">aps</span></code> – angular power spectrum tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../analytic/analytic.html"><code class="docutils literal notranslate"><span class="pre">analytic</span></code> – Analytic normalization, delensed BB, etc</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-curvedskypy.rec_lens"><code class="docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-curvedskypy.delens"><code class="docutils literal notranslate"><span class="pre">delens</span></code> – delensing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-curvedskypy.rec_tau"><code class="docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic tau reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-curvedskypy.rec_src"><code class="docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-soruce reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-curvedskypy.bispec"><code class="docutils literal notranslate"><span class="pre">bispec</span></code> – binned reduced bispectrum</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-curvedskypy.utils"><code class="docutils literal notranslate"><span class="pre">utils</span></code> – other tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.rec_lens"><code class="docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.delens"><code class="docutils literal notranslate"><span class="pre">delens</span></code> – delensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.rec_tau"><code class="docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic tau reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.rec_src"><code class="docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-soruce reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.bispec"><code class="docutils literal notranslate"><span class="pre">bispec</span></code> – binned reduced bispectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.utils"><code class="docutils literal notranslate"><span class="pre">utils</span></code> – other tools</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../flatsky/flatsky.html"><code class="docutils literal notranslate"><span class="pre">flatsky</span></code> – Curvedsky analysis tools</a></li>
@@ -165,11 +165,11 @@
             
   <div class="section" id="curvedsky-curvedsky-analysis-tools">
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools<a class="headerlink" href="#curvedsky-curvedsky-analysis-tools" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-curvedskypy.rec_lens">
-<span id="rec-lens-quadratic-lensing-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction<a class="headerlink" href="#module-curvedskypy.rec_lens" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-curvedsky.rec_lens">
+<span id="rec-lens-quadratic-lensing-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction<a class="headerlink" href="#module-curvedsky.rec_lens" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="curvedskypy.rec_lens.qtt">
-<code class="descclassname">curvedskypy.rec_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm1</em>, <em>Tlm2</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.rec_lens.qtt" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.rec_lens.qtt">
+<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm1</em>, <em>Tlm2</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qtt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the temperature quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -202,8 +202,8 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.rec_lens.qte">
-<code class="descclassname">curvedskypy.rec_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm</em>, <em>Elm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.rec_lens.qte" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.rec_lens.qte">
+<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm</em>, <em>Elm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qte" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the TE quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -236,8 +236,8 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.rec_lens.qtb">
-<code class="descclassname">curvedskypy.rec_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm</em>, <em>Blm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.rec_lens.qtb" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.rec_lens.qtb">
+<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm</em>, <em>Blm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qtb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the TB quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -269,8 +269,8 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.rec_lens.qee">
-<code class="descclassname">curvedskypy.rec_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Elm1</em>, <em>Elm2</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.rec_lens.qee" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.rec_lens.qee">
+<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Elm1</em>, <em>Elm2</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qee" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the EE quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -302,8 +302,8 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.rec_lens.qeb">
-<code class="descclassname">curvedskypy.rec_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Elm</em>, <em>Blm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.rec_lens.qeb" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.rec_lens.qeb">
+<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Elm</em>, <em>Blm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qeb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the EB quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -335,8 +335,8 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.rec_lens.qbb">
-<code class="descclassname">curvedskypy.rec_lens.</code><code class="descname">qbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Blm1</em>, <em>Blm2</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.rec_lens.qbb" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.rec_lens.qbb">
+<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Blm1</em>, <em>Blm2</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qbb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the BB quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -368,11 +368,11 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-curvedskypy.delens">
-<span id="delens-delensing"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">delens</span></code> – delensing<a class="headerlink" href="#module-curvedskypy.delens" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-curvedsky.delens">
+<span id="delens-delensing"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">delens</span></code> – delensing<a class="headerlink" href="#module-curvedsky.delens" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="curvedskypy.delens.lensingb">
-<code class="descclassname">curvedskypy.delens.</code><code class="descname">lensingb</code><span class="sig-paren">(</span><em>lmax</em>, <em>elmin</em>, <em>elmax</em>, <em>plmin</em>, <em>plmax</em>, <em>wElm</em>, <em>wplm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.delens.lensingb" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.delens.lensingb">
+<code class="descclassname">curvedsky.delens.</code><code class="descname">lensingb</code><span class="sig-paren">(</span><em>lmax</em>, <em>elmin</em>, <em>elmax</em>, <em>plmin</em>, <em>plmax</em>, <em>wElm</em>, <em>wplm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.delens.lensingb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computing lensing B mode as a convolution of wiener-filtered E-mode and lensing potential</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -405,8 +405,8 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.delens.shiftvec">
-<code class="descclassname">curvedskypy.delens.</code><code class="descname">shiftvec</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>plm</em>, <em>nremap=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.delens.shiftvec" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.delens.shiftvec">
+<code class="descclassname">curvedsky.delens.</code><code class="descname">shiftvec</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>plm</em>, <em>nremap=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.delens.shiftvec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the anti deflection vector, beta, at the Healpix pixel for the delensing where</p>
 <blockquote>
 <div>beta(n) + alphaiw(n+beta(n)) = 0</div></blockquote>
@@ -438,8 +438,8 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.delens.remap_tp">
-<code class="descclassname">curvedskypy.delens.</code><code class="descname">remap_tp</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>beta</em>, <em>alm_in</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.delens.remap_tp" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.delens.remap_tp">
+<code class="descclassname">curvedsky.delens.</code><code class="descname">remap_tp</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>beta</em>, <em>alm_in</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.delens.remap_tp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remapping CMB temperaure and polarization with a given shift vector, grad, based on a simple implementation of LensPix. 
 alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
 <dl class="docutils">
@@ -465,11 +465,11 @@ alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-curvedskypy.rec_tau">
-<span id="rec-tau-quadratic-tau-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic tau reconstruction<a class="headerlink" href="#module-curvedskypy.rec_tau" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-curvedsky.rec_tau">
+<span id="rec-tau-quadratic-tau-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic tau reconstruction<a class="headerlink" href="#module-curvedsky.rec_tau" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="curvedskypy.rec_tau.qtt_sym">
-<code class="descclassname">curvedskypy.rec_tau.</code><code class="descname">qtt_sym</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.rec_tau.qtt_sym" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.rec_tau.qtt_sym">
+<code class="descclassname">curvedsky.rec_tau.</code><code class="descname">qtt_sym</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_tau.qtt_sym" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing inhomogeneous tau from the temperature quadratic estimator, assuming Tlm1=Tlm2</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -500,8 +500,8 @@ alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.rec_tau.qtt">
-<code class="descclassname">curvedskypy.rec_tau.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm1</em>, <em>Tlm2</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.rec_tau.qtt" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.rec_tau.qtt">
+<code class="descclassname">curvedsky.rec_tau.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm1</em>, <em>Tlm2</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_tau.qtt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing inhomogeneous tau from the temperature quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -533,11 +533,11 @@ alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-curvedskypy.rec_src">
-<span id="rec-src-quadratic-point-soruce-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-soruce reconstruction<a class="headerlink" href="#module-curvedskypy.rec_src" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-curvedsky.rec_src">
+<span id="rec-src-quadratic-point-soruce-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-soruce reconstruction<a class="headerlink" href="#module-curvedsky.rec_src" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="curvedskypy.rec_src.qtt_sym">
-<code class="descclassname">curvedskypy.rec_src.</code><code class="descname">qtt_sym</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>Tlm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.rec_src.qtt_sym" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.rec_src.qtt_sym">
+<code class="descclassname">curvedsky.rec_src.</code><code class="descname">qtt_sym</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>Tlm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_src.qtt_sym" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing point sources from the temperature quadratic estimator, assuming Tlm1=Tlm2</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -571,8 +571,8 @@ map to alm</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.rec_src.qtt">
-<code class="descclassname">curvedskypy.rec_src.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>Tlm1</em>, <em>Tlm2</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.rec_src.qtt" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.rec_src.qtt">
+<code class="descclassname">curvedsky.rec_src.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>Tlm1</em>, <em>Tlm2</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_src.qtt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing point sources from the temperature quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -607,11 +607,11 @@ map to alm</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-curvedskypy.bispec">
-<span id="bispec-binned-reduced-bispectrum"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">bispec</span></code> – binned reduced bispectrum<a class="headerlink" href="#module-curvedskypy.bispec" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-curvedsky.bispec">
+<span id="bispec-binned-reduced-bispectrum"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">bispec</span></code> – binned reduced bispectrum<a class="headerlink" href="#module-curvedsky.bispec" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="curvedskypy.bispec.make_quad_gauss">
-<code class="descclassname">curvedskypy.bispec.</code><code class="descname">make_quad_gauss</code><span class="sig-paren">(</span><em>lmax</em>, <em>alm</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.bispec.make_quad_gauss" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.bispec.make_quad_gauss">
+<code class="descclassname">curvedsky.bispec.</code><code class="descname">make_quad_gauss</code><span class="sig-paren">(</span><em>lmax</em>, <em>alm</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.bispec.make_quad_gauss" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a non-Gaussian alm. The corresponding non-Gaussian field is defined as</p>
 <blockquote>
 <div>delta^NL(n) = delta^L(n) + delta^L(n)**2</div></blockquote>
@@ -637,8 +637,8 @@ map to alm</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.bispec.bispec_norm">
-<code class="descclassname">curvedskypy.bispec.</code><code class="descname">bispec_norm</code><span class="sig-paren">(</span><em>bn</em>, <em>bp</em>, <em>bstype=0</em>, <em>bst=0</em>, <em>sL=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.bispec.bispec_norm" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.bispec.bispec_norm">
+<code class="descclassname">curvedsky.bispec.</code><code class="descname">bispec_norm</code><span class="sig-paren">(</span><em>bn</em>, <em>bp</em>, <em>bstype=0</em>, <em>bst=0</em>, <em>sL=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.bispec.bispec_norm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return normalization of the binned reduced bispectrum for a given multipole bin</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -668,8 +668,8 @@ map to alm</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.bispec.bispec_bin">
-<code class="descclassname">curvedskypy.bispec.</code><code class="descname">bispec_bin</code><span class="sig-paren">(</span><em>bn</em>, <em>bp</em>, <em>lmax</em>, <em>alm</em>, <em>bstype=0</em>, <em>bst=0</em>, <em>sL=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.bispec.bispec_bin" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.bispec.bispec_bin">
+<code class="descclassname">curvedsky.bispec.</code><code class="descname">bispec_bin</code><span class="sig-paren">(</span><em>bn</em>, <em>bp</em>, <em>lmax</em>, <em>alm</em>, <em>bstype=0</em>, <em>bst=0</em>, <em>sL=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.bispec.bispec_bin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the unnormalized binned reduced bispectrum for a given multipole bin</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -701,8 +701,8 @@ map to alm</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.bispec.equi">
-<code class="descclassname">curvedskypy.bispec.</code><code class="descname">equi</code><span class="sig-paren">(</span><em>lmin</em>, <em>lmax</em>, <em>alm</em>, <em>bst=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.bispec.equi" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.bispec.equi">
+<code class="descclassname">curvedsky.bispec.</code><code class="descname">equi</code><span class="sig-paren">(</span><em>lmin</em>, <em>lmax</em>, <em>alm</em>, <em>bst=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.bispec.equi" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute equilateral shape of the unnormalized binned reduced bispectrum for a given alm, b[l,l,l]</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -731,8 +731,8 @@ map to alm</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.bispec.fold">
-<code class="descclassname">curvedskypy.bispec.</code><code class="descname">fold</code><span class="sig-paren">(</span><em>lmin</em>, <em>lmax</em>, <em>alm</em>, <em>bst=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.bispec.fold" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.bispec.fold">
+<code class="descclassname">curvedsky.bispec.</code><code class="descname">fold</code><span class="sig-paren">(</span><em>lmin</em>, <em>lmax</em>, <em>alm</em>, <em>bst=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.bispec.fold" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute folded shape of the unnormalized binned reduced bispectrum for a given alm, b[l,l/2,l/2]</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -761,8 +761,8 @@ map to alm</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.bispec.sque">
-<code class="descclassname">curvedskypy.bispec.</code><code class="descname">sque</code><span class="sig-paren">(</span><em>eL</em>, <em>sL</em>, <em>l1</em>, <em>alm</em>, <em>bst=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.bispec.sque" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.bispec.sque">
+<code class="descclassname">curvedsky.bispec.</code><code class="descname">sque</code><span class="sig-paren">(</span><em>eL</em>, <em>sL</em>, <em>l1</em>, <em>alm</em>, <em>bst=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.bispec.sque" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute squeezed shape of the unnormalized binned reduced bispectrum for a given alm, b[sL,eL,eL]</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -792,8 +792,8 @@ map to alm</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.bispec.isos">
-<code class="descclassname">curvedskypy.bispec.</code><code class="descname">isos</code><span class="sig-paren">(</span><em>eL</em>, <em>aL</em>, <em>l1</em>, <em>alm</em>, <em>bst=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.bispec.isos" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.bispec.isos">
+<code class="descclassname">curvedsky.bispec.</code><code class="descname">isos</code><span class="sig-paren">(</span><em>eL</em>, <em>aL</em>, <em>l1</em>, <em>alm</em>, <em>bst=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.bispec.isos" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute isosceles shape of the unnormalized binned reduced bispectrum for a given alm, b[eL,aL,aL]</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -823,11 +823,11 @@ map to alm</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-curvedskypy.utils">
-<span id="utils-other-tools"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code> – other tools<a class="headerlink" href="#module-curvedskypy.utils" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-curvedsky.utils">
+<span id="utils-other-tools"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code> – other tools<a class="headerlink" href="#module-curvedsky.utils" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="curvedskypy.utils.gauss1alm">
-<code class="descclassname">curvedskypy.utils.</code><code class="descname">gauss1alm</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.utils.gauss1alm" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.utils.gauss1alm">
+<code class="descclassname">curvedsky.utils.</code><code class="descname">gauss1alm</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.gauss1alm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generating alm as a random Gaussian field whose power spectrum is cl.
 The output alm is given by a 2D array.</p>
 <dl class="docutils">
@@ -851,8 +851,8 @@ The output alm is given by a 2D array.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.utils.gauss2alm">
-<code class="descclassname">curvedskypy.utils.</code><code class="descname">gauss2alm</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl1</em>, <em>cl2</em>, <em>xl</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.utils.gauss2alm" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.utils.gauss2alm">
+<code class="descclassname">curvedsky.utils.</code><code class="descname">gauss2alm</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl1</em>, <em>cl2</em>, <em>xl</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.gauss2alm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generating two alms as random Gaussian fields whose power spectra are cl1, cl2 and the cross spectrum is xl.</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -877,8 +877,8 @@ The output alm is given by a 2D array.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.utils.gaussTEB">
-<code class="descclassname">curvedskypy.utils.</code><code class="descname">gaussTEB</code><span class="sig-paren">(</span><em>lmax</em>, <em>TT</em>, <em>EE</em>, <em>BB</em>, <em>TE</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.utils.gaussTEB" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.utils.gaussTEB">
+<code class="descclassname">curvedsky.utils.</code><code class="descname">gaussTEB</code><span class="sig-paren">(</span><em>lmax</em>, <em>TT</em>, <em>EE</em>, <em>BB</em>, <em>TE</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.gaussTEB" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generating T/E/B alms as random Gaussian fields whose power spectra are TT, EE, BB and the cross spectrum is TE.</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -904,8 +904,8 @@ The output alm is given by a 2D array.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.utils.gauss3alm">
-<code class="descclassname">curvedskypy.utils.</code><code class="descname">gauss3alm</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.utils.gauss3alm" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.utils.gauss3alm">
+<code class="descclassname">curvedsky.utils.</code><code class="descname">gauss3alm</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.gauss3alm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generating three alms as random Gaussian fields whose covariance is given by cl[i,j].</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -928,8 +928,8 @@ The output alm is given by a 2D array.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.utils.gauss4alm">
-<code class="descclassname">curvedskypy.utils.</code><code class="descname">gauss4alm</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.utils.gauss4alm" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.utils.gauss4alm">
+<code class="descclassname">curvedsky.utils.</code><code class="descname">gauss4alm</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.gauss4alm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generating four alms as random Gaussian fields whose covariance is given by cl[i,j].</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -952,8 +952,8 @@ The output alm is given by a 2D array.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.utils.get_baseline">
-<code class="descclassname">curvedskypy.utils.</code><code class="descname">get_baseline</code><span class="sig-paren">(</span><em>npix</em>, <em>nside_subpatch</em>, <em>QU</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.utils.get_baseline" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.utils.get_baseline">
+<code class="descclassname">curvedsky.utils.</code><code class="descname">get_baseline</code><span class="sig-paren">(</span><em>npix</em>, <em>nside_subpatch</em>, <em>QU</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.get_baseline" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate baseline of each subpatch. The subpatches have the same size.
 Written by Ryo Nagata.</p>
 <dl class="docutils">
@@ -978,8 +978,8 @@ Written by Ryo Nagata.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.utils.get_winmap">
-<code class="descclassname">curvedskypy.utils.</code><code class="descname">get_winmap</code><span class="sig-paren">(</span><em>nside_large</em>, <em>nside_small</em>, <em>ipix_pix</em>, <em>apod</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.utils.get_winmap" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.utils.get_winmap">
+<code class="descclassname">curvedsky.utils.</code><code class="descname">get_winmap</code><span class="sig-paren">(</span><em>nside_large</em>, <em>nside_small</em>, <em>ipix_pix</em>, <em>apod</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.get_winmap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return apodization window for subpatch.
 Written by Ryo Nagata.</p>
 <dl class="docutils">
@@ -1005,8 +1005,8 @@ Written by Ryo Nagata.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.utils.get_apod_window">
-<code class="descclassname">curvedskypy.utils.</code><code class="descname">get_apod_window</code><span class="sig-paren">(</span><em>s</em>, <em>a</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.utils.get_apod_window" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.utils.get_apod_window">
+<code class="descclassname">curvedsky.utils.</code><code class="descname">get_apod_window</code><span class="sig-paren">(</span><em>s</em>, <em>a</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.get_apod_window" title="Permalink to this definition">¶</a></dt>
 <dd><p>A sine apodization window</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -1029,8 +1029,8 @@ Written by Ryo Nagata.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.utils.cosin_healpix">
-<code class="descclassname">curvedskypy.utils.</code><code class="descname">cosin_healpix</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.utils.cosin_healpix" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.utils.cosin_healpix">
+<code class="descclassname">curvedsky.utils.</code><code class="descname">cosin_healpix</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.cosin_healpix" title="Permalink to this definition">¶</a></dt>
 <dd><p>cos(theta) as a function of the Healpix pixel index</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -1053,8 +1053,8 @@ Written by Ryo Nagata.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.utils.eb_separate">
-<code class="descclassname">curvedskypy.utils.</code><code class="descname">eb_separate</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>W</em>, <em>QUin</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.utils.eb_separate" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.utils.eb_separate">
+<code class="descclassname">curvedsky.utils.</code><code class="descname">eb_separate</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>W</em>, <em>QUin</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.eb_separate" title="Permalink to this definition">¶</a></dt>
 <dd><p>E/B mode seperation based on the chi-field estimator.</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -1079,8 +1079,8 @@ Written by Ryo Nagata.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.utils.alm2cl">
-<code class="descclassname">curvedskypy.utils.</code><code class="descname">alm2cl</code><span class="sig-paren">(</span><em>lmax</em>, <em>alm1</em>, <em>alm2=0</em>, <em>norm=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.utils.alm2cl" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.utils.alm2cl">
+<code class="descclassname">curvedsky.utils.</code><code class="descname">alm2cl</code><span class="sig-paren">(</span><em>lmax</em>, <em>alm1</em>, <em>alm2=0</em>, <em>norm=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.alm2cl" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -1091,8 +1091,8 @@ Written by Ryo Nagata.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedskypy.utils.alm2bcl">
-<code class="descclassname">curvedskypy.utils.</code><code class="descname">alm2bcl</code><span class="sig-paren">(</span><em>bn</em>, <em>lmax</em>, <em>alm1</em>, <em>alm2=0</em>, <em>oL=0</em>, <em>norm=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedskypy.utils.alm2bcl" title="Permalink to this definition">¶</a></dt>
+<dt id="curvedsky.utils.alm2bcl">
+<code class="descclassname">curvedsky.utils.</code><code class="descname">alm2bcl</code><span class="sig-paren">(</span><em>bn</em>, <em>lmax</em>, <em>alm1</em>, <em>alm2=0</em>, <em>oL=0</em>, <em>norm=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.alm2bcl" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">

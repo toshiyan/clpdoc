@@ -7,32 +7,32 @@
 
 :mod:`rec_lens` -- quadratic lensing reconstruction
 ----------------------------------------------------
-.. automodule:: curvedskypy.rec_lens
+.. automodule:: curvedsky.rec_lens
    :members:
 
 :mod:`delens` -- delensing
 ----------------------------------------------------
-.. automodule:: curvedskypy.delens
+.. automodule:: curvedsky.delens
    :members:
 
 :mod:`rec_tau` -- quadratic tau reconstruction
 ----------------------------------------------------
-.. automodule:: curvedskypy.rec_tau
+.. automodule:: curvedsky.rec_tau
    :members:
 
 :mod:`rec_src` -- quadratic point-soruce reconstruction
 -------------------------------------------------------
-.. automodule:: curvedskypy.rec_src
+.. automodule:: curvedsky.rec_src
    :members:
 
 :mod:`bispec` -- binned reduced bispectrum
 ----------------------------------------------------
-.. automodule:: curvedskypy.bispec
+.. automodule:: curvedsky.bispec
    :members:
 
 :mod:`utils` -- other tools
 ----------------------------------------------------
-.. automodule:: curvedskypy.utils
+.. automodule:: curvedsky.utils
    :members:
 
 

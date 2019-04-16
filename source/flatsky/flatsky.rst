@@ -7,22 +7,22 @@
 
 :mod:`rec_lens` -- quadratic lensing reconstruction
 ----------------------------------------------------
-.. automodule:: flatskypy.rec_lens
+.. automodule:: flatsky.rec_lens
    :members:
 
 :mod:`norm_lens` -- normalization of quadratic lensing reconstruction
 ---------------------------------------------------------------------
-.. automodule:: flatskypy.norm_lens
+.. automodule:: flatsky.norm_lens
    :members:
 
 :mod:`ffttools` -- FFT tools
 ----------------------------------------------------
-.. automodule:: flatskypy.ffttools
+.. automodule:: flatsky.ffttools
    :members:
 
 :mod:`utils` -- other tools
 ----------------------------------------------------
-.. automodule:: flatskypy.utils
+.. automodule:: flatsky.utils
    :members:
 
 

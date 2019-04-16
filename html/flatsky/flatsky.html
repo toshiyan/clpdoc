@@ -88,10 +88,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../analytic/analytic.html"><code class="docutils literal notranslate"><span class="pre">analytic</span></code> – Analytic normalization, delensed BB, etc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../curvedsky/curvedsky.html"><code class="docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">flatsky</span></code> – Curvedsky analysis tools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-flatskypy.rec_lens"><code class="docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-flatskypy.norm_lens"><code class="docutils literal notranslate"><span class="pre">norm_lens</span></code> – normalization of quadratic lensing reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-flatskypy.ffttools"><code class="docutils literal notranslate"><span class="pre">ffttools</span></code> – FFT tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-flatskypy.utils"><code class="docutils literal notranslate"><span class="pre">utils</span></code> – other tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flatsky.rec_lens"><code class="docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flatsky.norm_lens"><code class="docutils literal notranslate"><span class="pre">norm_lens</span></code> – normalization of quadratic lensing reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flatsky.ffttools"><code class="docutils literal notranslate"><span class="pre">ffttools</span></code> – FFT tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flatsky.utils"><code class="docutils literal notranslate"><span class="pre">utils</span></code> – other tools</a></li>
 </ul>
 </li>
 </ul>
@@ -163,11 +163,11 @@
             
   <div class="section" id="flatsky-curvedsky-analysis-tools">
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">flatsky</span></code> – Curvedsky analysis tools<a class="headerlink" href="#flatsky-curvedsky-analysis-tools" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-flatskypy.rec_lens">
-<span id="rec-lens-quadratic-lensing-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction<a class="headerlink" href="#module-flatskypy.rec_lens" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-flatsky.rec_lens">
+<span id="rec-lens-quadratic-lensing-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction<a class="headerlink" href="#module-flatsky.rec_lens" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="flatskypy.rec_lens.qtt">
-<code class="descclassname">flatskypy.rec_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>T1</em>, <em>T2</em>, <em>gtype=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.rec_lens.qtt" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.rec_lens.qtt">
+<code class="descclassname">flatsky.rec_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>T1</em>, <em>T2</em>, <em>gtype=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_lens.qtt" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div>kappa factor
 filtering
@@ -186,8 +186,8 @@ estimator</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.rec_lens.qte">
-<code class="descclassname">flatskypy.rec_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>T</em>, <em>E</em>, <em>gtype=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.rec_lens.qte" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.rec_lens.qte">
+<code class="descclassname">flatsky.rec_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>T</em>, <em>E</em>, <em>gtype=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_lens.qte" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div>kappa factor
 filtering
@@ -203,8 +203,8 @@ form estimator</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.rec_lens.qtb">
-<code class="descclassname">flatskypy.rec_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>T</em>, <em>B</em>, <em>gtype=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.rec_lens.qtb" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.rec_lens.qtb">
+<code class="descclassname">flatsky.rec_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>T</em>, <em>B</em>, <em>gtype=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_lens.qtb" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div>kappa factor
 filtering
@@ -220,8 +220,8 @@ form estimator</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.rec_lens.qee">
-<code class="descclassname">flatskypy.rec_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>E1</em>, <em>E2</em>, <em>gtype=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.rec_lens.qee" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.rec_lens.qee">
+<code class="descclassname">flatsky.rec_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>E1</em>, <em>E2</em>, <em>gtype=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_lens.qee" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div>kappa factor
 filtering
@@ -237,8 +237,8 @@ estimator</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.rec_lens.qeb">
-<code class="descclassname">flatskypy.rec_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>E</em>, <em>B</em>, <em>gtype=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.rec_lens.qeb" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.rec_lens.qeb">
+<code class="descclassname">flatsky.rec_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>E</em>, <em>B</em>, <em>gtype=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_lens.qeb" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div>kappa factor
 filtering
@@ -254,8 +254,8 @@ estimator</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.rec_lens.qbb">
-<code class="descclassname">flatskypy.rec_lens.</code><code class="descname">qbb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>B1</em>, <em>B2</em>, <em>gtype=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.rec_lens.qbb" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.rec_lens.qbb">
+<code class="descclassname">flatsky.rec_lens.</code><code class="descname">qbb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>B1</em>, <em>B2</em>, <em>gtype=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_lens.qbb" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div>kappa factor
 filtering
@@ -271,11 +271,11 @@ form estimator</div></blockquote>
 </dd></dl>
 
 </div>
-<div class="section" id="module-flatskypy.norm_lens">
-<span id="norm-lens-normalization-of-quadratic-lensing-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_lens</span></code> – normalization of quadratic lensing reconstruction<a class="headerlink" href="#module-flatskypy.norm_lens" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-flatsky.norm_lens">
+<span id="norm-lens-normalization-of-quadratic-lensing-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_lens</span></code> – normalization of quadratic lensing reconstruction<a class="headerlink" href="#module-flatsky.norm_lens" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="flatskypy.norm_lens.qtt">
-<code class="descclassname">flatskypy.norm_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>OC</em>, <em>CT</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.norm_lens.qtt" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.norm_lens.qtt">
+<code class="descclassname">flatsky.norm_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>OC</em>, <em>CT</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_lens.qtt" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -286,8 +286,8 @@ form estimator</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.norm_lens.qte">
-<code class="descclassname">flatskypy.norm_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>OT</em>, <em>OE</em>, <em>TE</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.norm_lens.qte" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.norm_lens.qte">
+<code class="descclassname">flatsky.norm_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>OT</em>, <em>OE</em>, <em>TE</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_lens.qte" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -298,8 +298,8 @@ form estimator</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.norm_lens.qtb">
-<code class="descclassname">flatskypy.norm_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>OT</em>, <em>OB</em>, <em>TE</em>, <em>rL</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.norm_lens.qtb" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.norm_lens.qtb">
+<code class="descclassname">flatsky.norm_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>OT</em>, <em>OB</em>, <em>TE</em>, <em>rL</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_lens.qtb" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -310,8 +310,8 @@ form estimator</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.norm_lens.qee">
-<code class="descclassname">flatskypy.norm_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>OE</em>, <em>EE</em>, <em>rL</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.norm_lens.qee" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.norm_lens.qee">
+<code class="descclassname">flatsky.norm_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>OE</em>, <em>EE</em>, <em>rL</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_lens.qee" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -322,8 +322,8 @@ form estimator</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.norm_lens.qeb">
-<code class="descclassname">flatskypy.norm_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>OE</em>, <em>OB</em>, <em>EE</em>, <em>rL</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.norm_lens.qeb" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.norm_lens.qeb">
+<code class="descclassname">flatsky.norm_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>OE</em>, <em>OB</em>, <em>EE</em>, <em>rL</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_lens.qeb" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -334,11 +334,11 @@ form estimator</div></blockquote>
 </dd></dl>
 
 </div>
-<div class="section" id="module-flatskypy.ffttools">
-<span id="ffttools-fft-tools"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">ffttools</span></code> – FFT tools<a class="headerlink" href="#module-flatskypy.ffttools" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-flatsky.ffttools">
+<span id="ffttools-fft-tools"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">ffttools</span></code> – FFT tools<a class="headerlink" href="#module-flatsky.ffttools" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="flatskypy.ffttools.dft1d">
-<code class="descclassname">flatskypy.ffttools.</code><code class="descname">dft1d</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.ffttools.dft1d" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.ffttools.dft1d">
+<code class="descclassname">flatsky.ffttools.</code><code class="descname">dft1d</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft1d" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -349,8 +349,8 @@ form estimator</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.ffttools.dft2d">
-<code class="descclassname">flatskypy.ffttools.</code><code class="descname">dft2d</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.ffttools.dft2d" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.ffttools.dft2d">
+<code class="descclassname">flatsky.ffttools.</code><code class="descname">dft2d</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft2d" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -361,8 +361,8 @@ form estimator</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.ffttools.dft2dr">
-<code class="descclassname">flatskypy.ffttools.</code><code class="descname">dft2dr</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.ffttools.dft2dr" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.ffttools.dft2dr">
+<code class="descclassname">flatsky.ffttools.</code><code class="descname">dft2dr</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft2dr" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -373,8 +373,8 @@ form estimator</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.ffttools.dft2drc">
-<code class="descclassname">flatskypy.ffttools.</code><code class="descname">dft2drc</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.ffttools.dft2drc" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.ffttools.dft2drc">
+<code class="descclassname">flatsky.ffttools.</code><code class="descname">dft2drc</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft2drc" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -385,8 +385,8 @@ form estimator</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.ffttools.dft2dcr">
-<code class="descclassname">flatskypy.ffttools.</code><code class="descname">dft2dcr</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.ffttools.dft2dcr" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.ffttools.dft2dcr">
+<code class="descclassname">flatsky.ffttools.</code><code class="descname">dft2dcr</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft2dcr" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -397,8 +397,8 @@ form estimator</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.ffttools.eb_separate">
-<code class="descclassname">flatskypy.ffttools.</code><code class="descname">eb_separate</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>QU</em>, <em>W=0</em>, <em>Wd=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.ffttools.eb_separate" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.ffttools.eb_separate">
+<code class="descclassname">flatsky.ffttools.</code><code class="descname">eb_separate</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>QU</em>, <em>W=0</em>, <em>Wd=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.eb_separate" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div>Transform to Fourier Space
 add corrections</div></blockquote>
@@ -412,11 +412,11 @@ add corrections</div></blockquote>
 </dd></dl>
 
 </div>
-<div class="section" id="module-flatskypy.utils">
-<span id="utils-other-tools"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code> – other tools<a class="headerlink" href="#module-flatskypy.utils" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-flatsky.utils">
+<span id="utils-other-tools"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code> – other tools<a class="headerlink" href="#module-flatsky.utils" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="flatskypy.utils.el2d">
-<code class="descclassname">flatskypy.utils.</code><code class="descname">el2d</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.utils.el2d" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.utils.el2d">
+<code class="descclassname">flatsky.utils.</code><code class="descname">el2d</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.el2d" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -427,8 +427,8 @@ add corrections</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.utils.elarrays">
-<code class="descclassname">flatskypy.utils.</code><code class="descname">elarrays</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.utils.elarrays" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.utils.elarrays">
+<code class="descclassname">flatsky.utils.</code><code class="descname">elarrays</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.elarrays" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -439,8 +439,8 @@ add corrections</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.utils.alm2bcl">
-<code class="descclassname">flatskypy.utils.</code><code class="descname">alm2bcl</code><span class="sig-paren">(</span><em>bn</em>, <em>oL</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>alm1</em>, <em>alm2=0</em>, <em>spc=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.utils.alm2bcl" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.utils.alm2bcl">
+<code class="descclassname">flatsky.utils.</code><code class="descname">alm2bcl</code><span class="sig-paren">(</span><em>bn</em>, <em>oL</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>alm1</em>, <em>alm2=0</em>, <em>spc=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.alm2bcl" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div>2D power spectrum
 to 1D power spectrum</div></blockquote>
@@ -454,8 +454,8 @@ to 1D power spectrum</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.utils.c2d2bcl">
-<code class="descclassname">flatskypy.utils.</code><code class="descname">c2d2bcl</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>Cl</em>, <em>bn</em>, <em>oL</em>, <em>spc=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.utils.c2d2bcl" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.utils.c2d2bcl">
+<code class="descclassname">flatsky.utils.</code><code class="descname">c2d2bcl</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>Cl</em>, <em>bn</em>, <em>oL</em>, <em>spc=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.c2d2bcl" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -466,8 +466,8 @@ to 1D power spectrum</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.utils.cl2c2d">
-<code class="descclassname">flatskypy.utils.</code><code class="descname">cl2c2d</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>lmin</em>, <em>lmax</em>, <em>Cl</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.utils.cl2c2d" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.utils.cl2c2d">
+<code class="descclassname">flatsky.utils.</code><code class="descname">cl2c2d</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>lmin</em>, <em>lmax</em>, <em>Cl</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.cl2c2d" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Transform Cl to Cl2D with linear interpolation</dt>
 <dd><dl class="first last docutils">
@@ -482,8 +482,8 @@ to 1D power spectrum</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.utils.cb2c2d">
-<code class="descclassname">flatskypy.utils.</code><code class="descname">cb2c2d</code><span class="sig-paren">(</span><em>bn</em>, <em>bc</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>eL</em>, <em>Cb</em>, <em>method0=0</em>, <em>bp=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.utils.cb2c2d" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.utils.cb2c2d">
+<code class="descclassname">flatsky.utils.</code><code class="descname">cb2c2d</code><span class="sig-paren">(</span><em>bn</em>, <em>bc</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>eL</em>, <em>Cb</em>, <em>method0=0</em>, <em>bp=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.cb2c2d" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -494,8 +494,8 @@ to 1D power spectrum</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.utils.gauss1alm">
-<code class="descclassname">flatskypy.utils.</code><code class="descname">gauss1alm</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>lmin</em>, <em>lmax</em>, <em>Cl</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.utils.gauss1alm" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.utils.gauss1alm">
+<code class="descclassname">flatsky.utils.</code><code class="descname">gauss1alm</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>lmin</em>, <em>lmax</em>, <em>Cl</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.gauss1alm" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div>make cl on 2d grid
 alm=0 if i=1 or j=1 for symmetry
@@ -512,8 +512,8 @@ check</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.utils.gauss2alm">
-<code class="descclassname">flatskypy.utils.</code><code class="descname">gauss2alm</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>lmin</em>, <em>lmax</em>, <em>TT</em>, <em>TE</em>, <em>EE</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.utils.gauss2alm" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.utils.gauss2alm">
+<code class="descclassname">flatsky.utils.</code><code class="descname">gauss2alm</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>lmin</em>, <em>lmax</em>, <em>TT</em>, <em>TE</em>, <em>EE</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.gauss2alm" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -524,8 +524,8 @@ check</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.utils.window_sin">
-<code class="descclassname">flatskypy.utils.</code><code class="descname">window_sin</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>ap=0</em>, <em>cut=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.utils.window_sin" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.utils.window_sin">
+<code class="descclassname">flatsky.utils.</code><code class="descname">window_sin</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>ap=0</em>, <em>cut=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.window_sin" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -536,8 +536,8 @@ check</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.utils.window_norm">
-<code class="descclassname">flatskypy.utils.</code><code class="descname">window_norm</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>numn</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.utils.window_norm" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.utils.window_norm">
+<code class="descclassname">flatsky.utils.</code><code class="descname">window_norm</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>numn</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.window_norm" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -548,8 +548,8 @@ check</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.utils.window_norm_x">
-<code class="descclassname">flatskypy.utils.</code><code class="descname">window_norm_x</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>W1</em>, <em>W2</em>, <em>num</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.utils.window_norm_x" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.utils.window_norm_x">
+<code class="descclassname">flatsky.utils.</code><code class="descname">window_norm_x</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>W1</em>, <em>W2</em>, <em>num</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.window_norm_x" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -560,8 +560,8 @@ check</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.utils.rotation">
-<code class="descclassname">flatskypy.utils.</code><code class="descname">rotation</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>rot</em>, <em>rtype</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.utils.rotation" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.utils.rotation">
+<code class="descclassname">flatsky.utils.</code><code class="descname">rotation</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>rot</em>, <em>rtype</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.rotation" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -572,8 +572,8 @@ check</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.utils.get_angle">
-<code class="descclassname">flatskypy.utils.</code><code class="descname">get_angle</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.utils.get_angle" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.utils.get_angle">
+<code class="descclassname">flatsky.utils.</code><code class="descname">get_angle</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.get_angle" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -584,8 +584,8 @@ check</div></blockquote>
 </dd></dl>
 
 <dl class="function">
-<dt id="flatskypy.utils.cutmap">
-<code class="descclassname">flatskypy.utils.</code><code class="descname">cutmap</code><span class="sig-paren">(</span><em>ox</em>, <em>oy</em>, <em>cx</em>, <em>cy</em>, <em>omap</em><span class="sig-paren">)</span><a class="headerlink" href="#flatskypy.utils.cutmap" title="Permalink to this definition">¶</a></dt>
+<dt id="flatsky.utils.cutmap">
+<code class="descclassname">flatsky.utils.</code><code class="descname">cutmap</code><span class="sig-paren">(</span><em>ox</em>, <em>oy</em>, <em>cx</em>, <em>cy</em>, <em>omap</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.cutmap" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">

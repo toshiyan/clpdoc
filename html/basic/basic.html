@@ -84,15 +84,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation Guide</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">aps</span></code> – angular power spectrum tools</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#other-parameters">Other Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#returns">Returns</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">Other Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">Returns</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">aps</span></code> – angular power spectrum tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../analytic/analytic.html"><code class="docutils literal notranslate"><span class="pre">analytic</span></code> – Analytic normalization, delensed BB, etc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../curvedsky/curvedsky.html"><code class="docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../flatsky/flatsky.html"><code class="docutils literal notranslate"><span class="pre">flatsky</span></code> – Curvedsky analysis tools</a></li>
@@ -165,47 +157,30 @@
             
   <div class="section" id="module-basic.aps">
 <span id="aps-angular-power-spectrum-tools"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">aps</span></code> – angular power spectrum tools<a class="headerlink" href="#module-basic.aps" title="Permalink to this headline">¶</a></h1>
-<p>bp,bc = binning(bn,eL,[spc])</p>
-<p>Wrapper for <code class="docutils literal notranslate"><span class="pre">binning</span></code>.</p>
-<div class="section" id="parameters">
-<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
-<p>bn : input int
-eL : input rank-1 array(‘i’) with bounds (2)</p>
-</div>
-<div class="section" id="other-parameters">
-<h2>Other Parameters<a class="headerlink" href="#other-parameters" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>spc <span class="classifier-delimiter">:</span> <span class="classifier">input string(len=4), optional</span></dt>
-<dd>Default: ‘’</dd>
+<dl class="function">
+<dt id="basic.aps.binning">
+<code class="descclassname">basic.aps.</code><code class="descname">binning</code><span class="sig-paren">(</span><em>bn</em>, <em>eL</em>, <em>spc=0</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.aps.binning" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., bp,bc = basic.aps.binning(bn,eL,spc)</li>
+</ul>
+</dd>
 </dl>
-</div>
-<div class="section" id="returns">
-<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this headline">¶</a></h2>
-<p>bp : rank-1 array(‘d’) with bounds (bn + 1)
-bc : rank-1 array(‘d’) with bounds (bn)
-cl = read_cambcls(f,lmin,lmax,numcls,[bb,raw])</p>
-<p>Wrapper for <code class="docutils literal notranslate"><span class="pre">read_cambcls</span></code>.</p>
-</div>
-<div class="section" id="id1">
-<h2>Parameters<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>f : input string(len=-1)
-lmin : input int
-lmax : input int
-numcls : input int</p>
-</div>
-<div class="section" id="id2">
-<h2>Other Parameters<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>bb <span class="classifier-delimiter">:</span> <span class="classifier">input int, optional</span></dt>
-<dd>Default: 0</dd>
-<dt>raw <span class="classifier-delimiter">:</span> <span class="classifier">input int, optional</span></dt>
-<dd>Default: 0</dd>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.aps.read_cambcls">
+<code class="descclassname">basic.aps.</code><code class="descname">read_cambcls</code><span class="sig-paren">(</span><em>f</em>, <em>lmin</em>, <em>lmax</em>, <em>numcls</em>, <em>bb=0</em>, <em>raw=0</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.aps.read_cambcls" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., cl = basic.aps.read_cambcls(f,lmin,lmax,numcls,bb,raw)</li>
+</ul>
+</dd>
 </dl>
-</div>
-<div class="section" id="id3">
-<h2>Returns<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<p>cl : rank-2 array(‘d’) with bounds (numcls,lmax + 1)</p>
-</div>
+</dd></dl>
+
 </div>
 
 

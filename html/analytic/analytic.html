@@ -35,8 +35,7 @@
   <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="devcurvedsky – Curvedsky analysis tools" href="../curvedsky/curvedsky.html" />
-    <link rel="prev" title="apstool – angular power spectrum calculation" href="../basictools/apstool.html" /> 
+    <link rel="next" title="curvedsky – Curvedsky analysis tools" href="../curvedsky/curvedsky.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,17 +83,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installation Guide</a></li>
 </ul>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../basictools/apstool.html"><code class="docutils literal notranslate"><span class="pre">apstool</span></code> – angular power spectrum calculation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">analytic</span></code> – Analytic normalization, delensed BB, etc</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#rec-lens-normalization-of-quadratic-lensing-reconstruction"><code class="docutils literal notranslate"><span class="pre">rec_lens</span></code> – Normalization of quadratic lensing reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rec-rot-quadratic-rotation-reconstruction"><code class="docutils literal notranslate"><span class="pre">rec_rot</span></code> – quadratic rotation reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rec-tau-quadratic-tau-reconstruction"><code class="docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic tau reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rec-src-quadratic-point-soruce-reconstruction"><code class="docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-soruce reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#delens-delensed-bb-and-bias"><code class="docutils literal notranslate"><span class="pre">delens</span></code> – delensed BB and bias</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#flat-flatsky-normalization-and-delensed-bb"><code class="docutils literal notranslate"><span class="pre">flat</span></code> – flatsky normalization and delensed BB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-analyticpy.rec_lens"><code class="docutils literal notranslate"><span class="pre">rec_lens</span></code> – Normalization of quadratic lensing reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-analyticpy.rec_rot"><code class="docutils literal notranslate"><span class="pre">rec_rot</span></code> – quadratic rotation reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-analyticpy.rec_tau"><code class="docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic tau reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-analyticpy.rec_src"><code class="docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-soruce reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-analyticpy.delens"><code class="docutils literal notranslate"><span class="pre">delens</span></code> – delensed BB and bias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-analyticpy.flat"><code class="docutils literal notranslate"><span class="pre">flat</span></code> – flatsky normalization and delensed BB</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../curvedsky/curvedsky.html"><code class="docutils literal notranslate"><span class="pre">devcurvedsky</span></code> – Curvedsky analysis tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../curvedsky/curvedsky.html"><code class="docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">Licenses</a></li>
@@ -164,23 +162,293 @@
             
   <div class="section" id="analytic-analytic-normalization-delensed-bb-etc">
 <h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">analytic</span></code> – Analytic normalization, delensed BB, etc<a class="headerlink" href="#analytic-analytic-normalization-delensed-bb-etc" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="rec-lens-normalization-of-quadratic-lensing-reconstruction">
-<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_lens</span></code> – Normalization of quadratic lensing reconstruction<a class="headerlink" href="#rec-lens-normalization-of-quadratic-lensing-reconstruction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-analyticpy.rec_lens">
+<span id="rec-lens-normalization-of-quadratic-lensing-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_lens</span></code> – Normalization of quadratic lensing reconstruction<a class="headerlink" href="#module-analyticpy.rec_lens" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="analyticpy.rec_lens.qtt">
+<code class="descclassname">analyticpy.rec_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em><span class="sig-paren">)</span><a class="headerlink" href="#analyticpy.rec_lens.qtt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ag,Ac = analytic.rec_lens.qtt(lmax,rlmin,rlmax,fC,OCT)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="analyticpy.rec_lens.qte">
+<code class="descclassname">analyticpy.rec_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>OCE</em><span class="sig-paren">)</span><a class="headerlink" href="#analyticpy.rec_lens.qte" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ag,Ac = analytic.rec_lens.qte(lmax,rlmin,rlmax,fC,OCT,OCE)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="analyticpy.rec_lens.qtb">
+<code class="descclassname">analyticpy.rec_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>OCB</em><span class="sig-paren">)</span><a class="headerlink" href="#analyticpy.rec_lens.qtb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ag,Ac = analytic.rec_lens.qtb(lmax,rlmin,rlmax,fC,OCT,OCB)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="analyticpy.rec_lens.qee">
+<code class="descclassname">analyticpy.rec_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCE</em><span class="sig-paren">)</span><a class="headerlink" href="#analyticpy.rec_lens.qee" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ag,Ac = analytic.rec_lens.qee(lmax,rlmin,rlmax,fC,OCE)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="analyticpy.rec_lens.qeb">
+<code class="descclassname">analyticpy.rec_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCE</em>, <em>OCB</em><span class="sig-paren">)</span><a class="headerlink" href="#analyticpy.rec_lens.qeb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ag,Ac = analytic.rec_lens.qeb(lmax,rlmin,rlmax,fC,OCE,OCB)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="analyticpy.rec_lens.qbb">
+<code class="descclassname">analyticpy.rec_lens.</code><code class="descname">qbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCB</em><span class="sig-paren">)</span><a class="headerlink" href="#analyticpy.rec_lens.qbb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ag,Ac = analytic.rec_lens.qbb(lmax,rlmin,rlmax,fC,OCB)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="analyticpy.rec_lens.qttte">
+<code class="descclassname">analyticpy.rec_lens.</code><code class="descname">qttte</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCTT</em>, <em>fCTE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCTE</em><span class="sig-paren">)</span><a class="headerlink" href="#analyticpy.rec_lens.qttte" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ig,Ic = analytic.rec_lens.qttte(lmax,rlmin,rlmax,fCTT,fCTE,OCT,OCE,OCTE)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="analyticpy.rec_lens.qttee">
+<code class="descclassname">analyticpy.rec_lens.</code><code class="descname">qttee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCTT</em>, <em>fCEE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCTE</em><span class="sig-paren">)</span><a class="headerlink" href="#analyticpy.rec_lens.qttee" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ig,Ic = analytic.rec_lens.qttee(lmax,rlmin,rlmax,fCTT,fCEE,OCT,OCE,OCTE)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="analyticpy.rec_lens.qteee">
+<code class="descclassname">analyticpy.rec_lens.</code><code class="descname">qteee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCEE</em>, <em>fCTE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCTE</em><span class="sig-paren">)</span><a class="headerlink" href="#analyticpy.rec_lens.qteee" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ig,Ic = analytic.rec_lens.qteee(lmax,rlmin,rlmax,fCEE,fCTE,OCT,OCE,OCTE)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="analyticpy.rec_lens.qtbeb">
+<code class="descclassname">analyticpy.rec_lens.</code><code class="descname">qtbeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCEE</em>, <em>fCBB</em>, <em>fCTE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCB</em>, <em>OCTE</em><span class="sig-paren">)</span><a class="headerlink" href="#analyticpy.rec_lens.qtbeb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ig,Ic = analytic.rec_lens.qtbeb(lmax,rlmin,rlmax,fCEE,fCBB,fCTE,OCT,OCE,OCB,OCTE)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="analyticpy.rec_lens.qmv">
+<code class="descclassname">analyticpy.rec_lens.</code><code class="descname">qmv</code><span class="sig-paren">(</span><em>lmax</em>, <em>QDO</em>, <em>Al</em>, <em>Il</em><span class="sig-paren">)</span><a class="headerlink" href="#analyticpy.rec_lens.qmv" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Compute MV estimator from pre-computed normalization (Al) and correlations (Il)</dt>
+<dd><blockquote class="first">
+<div><dl class="docutils">
+<dt>set ids</dt>
+<dd>noise covariance</dd>
+</dl>
+</div></blockquote>
+<dl class="last docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., MV = analytic.rec_lens.qmv(lmax,QDO,Al,Il)</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
-<div class="section" id="rec-rot-quadratic-rotation-reconstruction">
-<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_rot</span></code> – quadratic rotation reconstruction<a class="headerlink" href="#rec-rot-quadratic-rotation-reconstruction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-analyticpy.rec_rot">
+<span id="rec-rot-quadratic-rotation-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_rot</span></code> – quadratic rotation reconstruction<a class="headerlink" href="#module-analyticpy.rec_rot" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="analyticpy.rec_rot.qeb">
+<code class="descclassname">analyticpy.rec_rot.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCEE</em>, <em>OCEE</em>, <em>OCBB</em><span class="sig-paren">)</span><a class="headerlink" href="#analyticpy.rec_rot.qeb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Al = analytic.rec_rot.qeb(lmax,rlmin,rlmax,fCEE,OCEE,OCBB)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
-<div class="section" id="rec-tau-quadratic-tau-reconstruction">
-<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic tau reconstruction<a class="headerlink" href="#rec-tau-quadratic-tau-reconstruction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-analyticpy.rec_tau">
+<span id="rec-tau-quadratic-tau-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic tau reconstruction<a class="headerlink" href="#module-analyticpy.rec_tau" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="analyticpy.rec_tau.qtt">
+<code class="descclassname">analyticpy.rec_tau.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCTT</em><span class="sig-paren">)</span><a class="headerlink" href="#analyticpy.rec_tau.qtt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Al = analytic.rec_tau.qtt(lmax,rlmin,rlmax,fC,OCTT)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
-<div class="section" id="rec-src-quadratic-point-soruce-reconstruction">
-<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-soruce reconstruction<a class="headerlink" href="#rec-src-quadratic-point-soruce-reconstruction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-analyticpy.rec_src">
+<span id="rec-src-quadratic-point-soruce-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-soruce reconstruction<a class="headerlink" href="#module-analyticpy.rec_src" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="analyticpy.rec_src.qtt">
+<code class="descclassname">analyticpy.rec_src.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>OCTT</em><span class="sig-paren">)</span><a class="headerlink" href="#analyticpy.rec_src.qtt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Al = analytic.rec_src.qtt(lmax,rlmin,rlmax,OCTT)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
-<div class="section" id="delens-delensed-bb-and-bias">
-<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">delens</span></code> – delensed BB and bias<a class="headerlink" href="#delens-delensed-bb-and-bias" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-analyticpy.delens">
+<span id="delens-delensed-bb-and-bias"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">delens</span></code> – delensed BB and bias<a class="headerlink" href="#module-analyticpy.delens" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="analyticpy.delens.qeb_iter">
+<code class="descclassname">analyticpy.delens.</code><code class="descname">qeb_iter</code><span class="sig-paren">(</span><em>rlmin</em>, <em>rlmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>fCEE</em>, <em>Cpp</em>, <em>oEE</em>, <em>oBB</em>, <em>iter=0</em>, <em>conv=0</em><span class="sig-paren">)</span><a class="headerlink" href="#analyticpy.delens.qeb_iter" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>lensing reconstruction with EB
+convergence check
+delensing with EB-estimator</div></blockquote>
+<dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Alg,Alc = analytic.delens.qeb_iter(rlmin,rlmax,dlmin,dlmax,fCEE,Cpp,oEE,oBB,iter,conv)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="analyticpy.delens.resbb">
+<code class="descclassname">analyticpy.delens.</code><code class="descname">resbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>Cp</em>, <em>WE</em>, <em>Wp</em><span class="sig-paren">)</span><a class="headerlink" href="#analyticpy.delens.resbb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>residual ClBB = ClBB^lin - ClBB^est</dt>
+<dd><dl class="first last docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., lmax,CB = analytic.delens.resbb(lmax,dlmin,dlmax,CE,Cp,WE,Wp)</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="analyticpy.delens.lintemplate">
+<code class="descclassname">analyticpy.delens.</code><code class="descname">lintemplate</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>Cp</em>, <em>WE</em>, <em>Wp</em><span class="sig-paren">)</span><a class="headerlink" href="#analyticpy.delens.lintemplate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., lmax,Cl = analytic.delens.lintemplate(lmax,dlmin,dlmax,CE,Cp,WE,Wp)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="analyticpy.delens.lensingbb">
+<code class="descclassname">analyticpy.delens.</code><code class="descname">lensingbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>Cp</em><span class="sig-paren">)</span><a class="headerlink" href="#analyticpy.delens.lensingbb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., lmax,CB = analytic.delens.lensingbb(lmax,dlmin,dlmax,CE,Cp)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="analyticpy.delens.delensbias_dom">
+<code class="descclassname">analyticpy.delens.</code><code class="descname">delensbias_dom</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>EE</em>, <em>BB</em>, <em>pp</em>, <em>NP1</em>, <em>NP2</em>, <em>Ag</em>, <em>DBl</em><span class="sig-paren">)</span><a class="headerlink" href="#analyticpy.delens.delensbias_dom" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., lmax = analytic.delens.delensbias_dom(lmax,dlmin,dlmax,EE,BB,pp,NP1,NP2,Ag,DBl)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
-<div class="section" id="flat-flatsky-normalization-and-delensed-bb">
-<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">flat</span></code> – flatsky normalization and delensed BB<a class="headerlink" href="#flat-flatsky-normalization-and-delensed-bb" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-analyticpy.flat">
+<span id="flat-flatsky-normalization-and-delensed-bb"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">flat</span></code> – flatsky normalization and delensed BB<a class="headerlink" href="#module-analyticpy.flat" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="analyticpy.flat.alxy">
+<code class="descclassname">analyticpy.flat.</code><code class="descname">alxy</code><span class="sig-paren">(</span><em>est</em>, <em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>W1</em>, <em>W2</em>, <em>qe=0</em>, <em>gln=0</em>, <em>gle=0</em>, <em>lxcut=0</em><span class="sig-paren">)</span><a class="headerlink" href="#analyticpy.flat.alxy" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ag,Ac = analytic.flat.alxy(est,lmax,rlmin,rlmax,fC,W1,W2,qe,gln,gle,lxcut)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="analyticpy.flat.bbxy">
+<code class="descclassname">analyticpy.flat.</code><code class="descname">bbxy</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>XX</em>, <em>YY</em>, <em>weight=0</em>, <em>gln=0</em>, <em>gle=0</em><span class="sig-paren">)</span><a class="headerlink" href="#analyticpy.flat.bbxy" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., BB = analytic.flat.bbxy(lmax,rlmin,rlmax,XX,YY,weight,gln,gle)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 </div>
 
@@ -192,10 +460,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../curvedsky/curvedsky.html" class="btn btn-neutral float-right" title="devcurvedsky – Curvedsky analysis tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../curvedsky/curvedsky.html" class="btn btn-neutral float-right" title="curvedsky – Curvedsky analysis tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="../basictools/apstool.html" class="btn btn-neutral float-left" title="apstool – angular power spectrum calculation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

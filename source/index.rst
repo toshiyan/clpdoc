@@ -24,11 +24,13 @@ Reference
 .. toctree::
    :maxdepth: 2
 
-   basictools/apstool
+   basic/basic
 
    analytic/analytic
 
    curvedsky/curvedsky
+
+   flatsky/flatsky
 
 
 Indices and tables

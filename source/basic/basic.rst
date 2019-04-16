@@ -1,16 +1,11 @@
-.. basictools.apstool:
+.. basic:
 
-.. currentmodule:: basictools.apstool
+.. currentmodule:: basic
 
-:mod:`apstool` -- angular power spectrum calculation
+:mod:`aps` -- angular power spectrum tools
 ==================================================
 
-Multipole binning
---------------------
-
-Compute binned cls
-------------------
-.. autofunction:: basictools.apstool.alm_to_bcl_full
-
+.. automodule:: basic.aps
+   :members:
 
 

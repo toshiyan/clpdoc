@@ -75,9 +75,10 @@ pygments_style = None
 
 # -- Import modules -- #
 #import basictools
-import devanalytic
-import devcurvedskypy
-
+import analytic
+import curvedskypy
+import flatsky
+import basic
 
 # -- Options for HTML output -------------------------------------------------
 

@@ -2,7 +2,7 @@
 
 .. currentmodule:: flatsky
 
-:mod:`flatsky` -- Curvedsky analysis tools
+:mod:`flatsky` -- Flatsky analysis tools
 ===============================================
 
 :mod:`rec_lens` -- quadratic lensing reconstruction

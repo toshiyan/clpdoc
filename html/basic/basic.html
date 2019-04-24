@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="analytic – Analytic normalization, delensed BB, etc" href="../analytic/analytic.html" />
+    <link rel="next" title="curvedsky – Curvedsky analysis tools" href="../curvedsky/curvedsky.html" />
     <link rel="prev" title="Installation Guide" href="../install.html" /> 
 </head>
 
@@ -85,7 +85,6 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">aps</span></code> – angular power spectrum tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../analytic/analytic.html"><code class="docutils literal notranslate"><span class="pre">analytic</span></code> – Analytic normalization, delensed BB, etc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../curvedsky/curvedsky.html"><code class="docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../flatsky/flatsky.html"><code class="docutils literal notranslate"><span class="pre">flatsky</span></code> – Flatsky analysis tools</a></li>
 </ul>
@@ -159,7 +158,7 @@
 <span id="aps-angular-power-spectrum-tools"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">aps</span></code> – angular power spectrum tools<a class="headerlink" href="#module-basic.aps" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="basic.aps.binning">
-<code class="descclassname">basic.aps.</code><code class="descname">binning</code><span class="sig-paren">(</span><em>bn</em>, <em>eL</em>, <em>spc=0</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.aps.binning" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">basic.aps.</code><code class="descname">binning</code><span class="sig-paren">(</span><em>bn</em>, <em>eL</em>, <em>spc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.aps.binning" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
@@ -171,11 +170,48 @@
 
 <dl class="function">
 <dt id="basic.aps.read_cambcls">
-<code class="descclassname">basic.aps.</code><code class="descname">read_cambcls</code><span class="sig-paren">(</span><em>f</em>, <em>lmin</em>, <em>lmax</em>, <em>numcls</em>, <em>bb=0</em>, <em>raw=0</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.aps.read_cambcls" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">basic.aps.</code><code class="descname">read_cambcls</code><span class="sig-paren">(</span><em>f</em>, <em>lmin</em>, <em>lmax</em>, <em>numcls</em>, <em>bb=None</em>, <em>raw=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.aps.read_cambcls" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
 <li>e.g., cl = basic.aps.read_cambcls(f,lmin,lmax,numcls,bb,raw)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.aps.map_vars">
+<code class="descclassname">basic.aps.</code><code class="descname">map_vars</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.aps.map_vars" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., sigma = basic.aps.map_vars(lmax,cl)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.aps.cl2bcl">
+<code class="descclassname">basic.aps.</code><code class="descname">cl2bcl</code><span class="sig-paren">(</span><em>bn</em>, <em>lmax</em>, <em>cl</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.aps.cl2bcl" title="Permalink to this definition">¶</a></dt>
+<dd><p>From unbinned to binned angular power spectrum</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>bn (int)         : number of multipole bins</li>
+<li>lmax (int)       : maximum multipole of the input alm</li>
+<li>cl[l] (double)   : 1st harmonic coefficient, with bounds (0:lmax)</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>cb[bin] (double) : auto or cross angular power spectrum with multipole binning, with bounds (0:bn-1)</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., cb = basic.aps.cl2bcl(bn,lmax,cl)</li>
 </ul>
 </dd>
 </dl>
@@ -191,7 +227,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../analytic/analytic.html" class="btn btn-neutral float-right" title="analytic – Analytic normalization, delensed BB, etc" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../curvedsky/curvedsky.html" class="btn btn-neutral float-right" title="curvedsky – Curvedsky analysis tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../install.html" class="btn btn-neutral float-left" title="Installation Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

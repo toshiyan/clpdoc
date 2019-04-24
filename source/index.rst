@@ -26,8 +26,6 @@ Reference
 
    basic/basic
 
-   analytic/analytic
-
    curvedsky/curvedsky
 
    flatsky/flatsky

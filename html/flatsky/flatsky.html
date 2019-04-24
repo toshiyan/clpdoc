@@ -85,7 +85,6 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../basic/basic.html"><code class="docutils literal notranslate"><span class="pre">aps</span></code> – angular power spectrum tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../analytic/analytic.html"><code class="docutils literal notranslate"><span class="pre">analytic</span></code> – Analytic normalization, delensed BB, etc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../curvedsky/curvedsky.html"><code class="docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">flatsky</span></code> – Flatsky analysis tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#module-flatsky.rec_lens"><code class="docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction</a></li>
@@ -417,7 +416,19 @@ add corrections</div></blockquote>
 <dl class="function">
 <dt id="flatsky.utils.el2d">
 <code class="descclassname">flatsky.utils.</code><code class="descname">el2d</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.el2d" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>Return absolute value of multipole in 2D grids</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>nx, ny (int):  number of Lx and Ly grids</li>
+<li>D[xy] (double):  map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>els[nx,ny] (double):  absolute value of Fourier mode, (Lx**2+Ly**2)**0.5, with bounds (nx,ny)</li>
+</ul>
+</dd>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
 <li>e.g., els = flatsky.utils.el2d(nx,ny,D)</li>
@@ -429,7 +440,22 @@ add corrections</div></blockquote>
 <dl class="function">
 <dt id="flatsky.utils.elarrays">
 <code class="descclassname">flatsky.utils.</code><code class="descname">elarrays</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.elarrays" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>Return Lx, Ly, absolute value of multipole, and its inverse in 2D grids</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>nx, ny (int):  number of Lx and Ly grids</li>
+<li>D[xy] (double):  map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>elx[nx,ny] (double) : Lx, with bounds (nx,ny)</li>
+<li>ely[nx,ny] (double) : Ly, with bounds (nx,ny)</li>
+<li>els[nx,ny] (double) : absolute value of Fourier mode, (Lx**2+Ly**2)**0.5, with bounds (nx,ny)</li>
+<li>eli[nx,ny] (double) : inverse of els, with bounds (nx,ny)</li>
+</ul>
+</dd>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
 <li>e.g., elx,ely,els,eli = flatsky.utils.elarrays(nx,ny,D)</li>
@@ -441,10 +467,32 @@ add corrections</div></blockquote>
 <dl class="function">
 <dt id="flatsky.utils.alm2bcl">
 <code class="descclassname">flatsky.utils.</code><code class="descname">alm2bcl</code><span class="sig-paren">(</span><em>bn</em>, <em>oL</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>alm1</em>, <em>alm2=None</em>, <em>spc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.alm2bcl" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div>2D power spectrum
-to 1D power spectrum</div></blockquote>
+<dd><p>Compute angular power spectrum from Fourier modes, with multipole binning</p>
 <dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>bn (int)      : number of multipole bin</li>
+<li>oL[2] (int)   : minimum and maximum multipoles of the output cl</li>
+<li>nx, ny (int)  : number of Lx and Ly grids</li>
+<li>D[xy] (double): map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</li>
+<li>alm1[nx,ny] (dcmplx): Fourier mode, with bounds (nx,ny)</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>alm2[nx,ny] (dcmplx): Fourier mode, with bounds (nx,ny), default to None</li>
+<li>spc (str)           : type of multipole binning, i.e., linear spacing (spc=’‘, default), or log spacing (spc=’log’)</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><blockquote class="first">
+<div><ul class="simple">
+<li>Cb[bin] (double) : angular power spectrum with multipole binning, with bounds (bn)</li>
+</ul>
+</div></blockquote>
+<p class="last">2D power spectrum
+to 1D power spectrum</p>
+</dd>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
 <li>e.g., Cb = flatsky.utils.alm2bcl(bn,oL,nx,ny,D,alm1,alm2,spc)</li>
@@ -455,11 +503,31 @@ to 1D power spectrum</div></blockquote>
 
 <dl class="function">
 <dt id="flatsky.utils.c2d2bcl">
-<code class="descclassname">flatsky.utils.</code><code class="descname">c2d2bcl</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>Cl</em>, <em>bn</em>, <em>oL</em>, <em>spc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.c2d2bcl" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<code class="descclassname">flatsky.utils.</code><code class="descname">c2d2bcl</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>c2d</em>, <em>bn</em>, <em>oL</em>, <em>spc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.c2d2bcl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return 1D angular power spectrum with multipole binning from a 2D power spectrum</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>nx, ny (int)       : number of Lx and Ly grids</li>
+<li>D[xy] (double)     : map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</li>
+<li>c2d[nx,ny] (double): 2D power spectrum, with bounds (nx,ny)</li>
+<li>bn (int)           : number of multipole bin</li>
+<li>oL[2] (int)        : minimum and maximum multipoles of the output cl</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>spc (str) : type of multipole binning, i.e., linear spacing (spc=’‘, default), or log spacing (spc=’log’)</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>Cb[bin] (double) : angular power spectrum with multipole binning, with bounds (bn)</li>
+</ul>
+</dd>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
-<li>e.g., Cb = flatsky.utils.c2d2bcl(nx,ny,D,Cl,bn,oL,spc)</li>
+<li>e.g., Cb = flatsky.utils.c2d2bcl(nx,ny,D,c2d,bn,oL,spc)</li>
 </ul>
 </dd>
 </dl>
@@ -468,26 +536,59 @@ to 1D power spectrum</div></blockquote>
 <dl class="function">
 <dt id="flatsky.utils.cl2c2d">
 <code class="descclassname">flatsky.utils.</code><code class="descname">cl2c2d</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>lmin</em>, <em>lmax</em>, <em>Cl</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.cl2c2d" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Transform Cl to Cl2D with linear interpolation</dt>
-<dd><dl class="first last docutils">
+<dd><p>Assign values of 1D angular power spectrum on to 2D grid with linear interpolation</p>
+<dl class="docutils">
+<dt>Args: </dt>
+<dd><ul class="first last simple">
+<li>nx, ny (int)   : number of Lx and Ly grids</li>
+<li>D[xy] (double) : map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</li>
+<li>lmin (int)     : minimum multipole of cl to be interpolated</li>
+<li>lmax (int)     : maximum multipole of cl to be interpolated</li>
+<li>Cl[l] (double) : 1D power spectrum, with bounds (0:lmax)</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>c2d[nx,ny] (double): 2D power spectrum, with bounds (nx,ny)</li>
+</ul>
+</dd>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
 <li>e.g., c2d = flatsky.utils.cl2c2d(nx,ny,D,lmin,lmax,Cl)</li>
 </ul>
 </dd>
 </dl>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="flatsky.utils.cb2c2d">
-<code class="descclassname">flatsky.utils.</code><code class="descname">cb2c2d</code><span class="sig-paren">(</span><em>bn</em>, <em>bc</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>eL</em>, <em>Cb</em>, <em>method0=None</em>, <em>bp=None</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.cb2c2d" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<code class="descclassname">flatsky.utils.</code><code class="descname">cb2c2d</code><span class="sig-paren">(</span><em>bn</em>, <em>bc</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>lmin</em>, <em>lmax</em>, <em>Cb</em>, <em>method=None</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.cb2c2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign values of 1D angular power spectrum on to 2D grid with linear interpolation</p>
+<dl class="docutils">
+<dt>Args: </dt>
+<dd><ul class="first last simple">
+<li>bn (int)        : number of multipole bins</li>
+<li>bc[bin] (double): multipole bin center, with bounds (bn)</li>
+<li>nx, ny (int)    : number of Lx and Ly grids</li>
+<li>D[xy] (double)  : map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</li>
+<li>lmin (int)      : minimum multipole of cl to be interpolated</li>
+<li>lmax (int)      : maximum multipole of cl to be interpolated</li>
+<li>Cb[bin] (double): 1D power spectrum with multipole binning, with bounds (bn)</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>method (str) : interpolation method from binned to unbinned angular spectrum, i.e., spline (‘’, default), or linear (‘linear’) interpolation</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>c2d[nx,ny] (double): 2D power spectrum, with bounds (nx,ny)</li>
+</ul>
+</dd>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
-<li>e.g., C2d = flatsky.utils.cb2c2d(bn,bc,nx,ny,D,eL,Cb,method0,bp)</li>
+<li>e.g., C2d = flatsky.utils.cb2c2d(bn,bc,nx,ny,D,lmin,lmax,Cb,method)</li>
 </ul>
 </dd>
 </dl>
@@ -496,13 +597,29 @@ to 1D power spectrum</div></blockquote>
 <dl class="function">
 <dt id="flatsky.utils.gauss1alm">
 <code class="descclassname">flatsky.utils.</code><code class="descname">gauss1alm</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>lmin</em>, <em>lmax</em>, <em>Cl</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.gauss1alm" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div>make cl on 2d grid
+<dd><p>Generate random gaussian fields in 2D Fourier space for a given isotropic spectrum, satisfying a^*_l = a_{-l}</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>nx, ny (int)    : number of Lx and Ly grids</li>
+<li>D[xy] (double)  : map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</li>
+<li>lmin (int)      : minimum multipole of cl to be interpolated</li>
+<li>lmax (int)      : maximum multipole of cl to be interpolated</li>
+<li>Cl[l] (double) : 1D power spectrum, with bounds (0:lmax)</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><blockquote class="first">
+<div><ul class="simple">
+<li>alm[lx,ly] (dcmplx): random gaussian fields on 2D Fourier plane, with bounds (nx,ny)</li>
+</ul>
+</div></blockquote>
+<p class="last">make cl on 2d grid
 alm=0 if i=1 or j=1 for symmetry
 center: (ic,jc) = (nx/2+1, ny/2+1)
 maximum nn
-check</div></blockquote>
-<dl class="docutils">
+check</p>
+</dd>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
 <li>e.g., alm = flatsky.utils.gauss1alm(nx,ny,D,lmin,lmax,Cl)</li>
@@ -514,7 +631,25 @@ check</div></blockquote>
 <dl class="function">
 <dt id="flatsky.utils.gauss2alm">
 <code class="descclassname">flatsky.utils.</code><code class="descname">gauss2alm</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>lmin</em>, <em>lmax</em>, <em>TT</em>, <em>TE</em>, <em>EE</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.gauss2alm" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>Generate two correlated random gaussian fields in 2D Fourier space for a given isotropic spectrum</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>nx, ny (int)    : number of Lx and Ly grids</li>
+<li>D[xy] (double)  : map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</li>
+<li>lmin (int)      : minimum multipole of cl to be interpolated</li>
+<li>lmax (int)      : maximum multipole of cl to be interpolated</li>
+<li>TT[l] (double)  : the 1st 1D power spectrum, with bounds (0:lmax)</li>
+<li>TE[l] (double)  : the cross 1D power spectrum, with bounds (0:lmax)</li>
+<li>EE[l] (double)  : the 2nd 1D power spectrum, with bounds (0:lmax)</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>tlm[lx,ly] (dcmplx): the 1st random gaussian fields on 2D Fourier plane, with bounds (nx,ny)</li>
+<li>elm[lx,ly] (dcmplx): the 2nd random gaussian fields on 2D Fourier plane, with bounds (nx,ny)</li>
+</ul>
+</dd>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
 <li>e.g., tlm,elm = flatsky.utils.gauss2alm(nx,ny,D,lmin,lmax,TT,TE,EE)</li>

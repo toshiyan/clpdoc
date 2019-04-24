@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="flatsky – Flatsky analysis tools" href="../flatsky/flatsky.html" />
-    <link rel="prev" title="analytic – Analytic normalization, delensed BB, etc" href="../analytic/analytic.html" /> 
+    <link rel="prev" title="aps – angular power spectrum tools" href="../basic/basic.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,12 +85,16 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../basic/basic.html"><code class="docutils literal notranslate"><span class="pre">aps</span></code> – angular power spectrum tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../analytic/analytic.html"><code class="docutils literal notranslate"><span class="pre">analytic</span></code> – Analytic normalization, delensed BB, etc</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.rec_lens"><code class="docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.delens"><code class="docutils literal notranslate"><span class="pre">delens</span></code> – delensing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.rec_tau"><code class="docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic tau reconstruction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.rec_src"><code class="docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-soruce reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.norm_lens"><code class="docutils literal notranslate"><span class="pre">norm_lens</span></code> – normalization of quadratic lensing reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.norm_rot"><code class="docutils literal notranslate"><span class="pre">norm_rot</span></code> – normalization of quadratic rotation reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.norm_tau"><code class="docutils literal notranslate"><span class="pre">norm_tau</span></code> – normalization of quadratic tau reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.norm_src"><code class="docutils literal notranslate"><span class="pre">norm_src</span></code> – normalization of quadratic point-source reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.delens"><code class="docutils literal notranslate"><span class="pre">delens</span></code> – delensing for simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.anadelens"><code class="docutils literal notranslate"><span class="pre">anadelens</span></code> – analytic delensed spectra</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.bispec"><code class="docutils literal notranslate"><span class="pre">bispec</span></code> – binned reduced bispectrum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.utils"><code class="docutils literal notranslate"><span class="pre">utils</span></code> – other tools</a></li>
 </ul>
@@ -374,103 +378,6 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-curvedsky.delens">
-<span id="delens-delensing"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">delens</span></code> – delensing<a class="headerlink" href="#module-curvedsky.delens" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="curvedsky.delens.lensingb">
-<code class="descclassname">curvedsky.delens.</code><code class="descname">lensingb</code><span class="sig-paren">(</span><em>lmax</em>, <em>elmin</em>, <em>elmax</em>, <em>plmin</em>, <em>plmax</em>, <em>wElm</em>, <em>wplm</em>, <em>nside=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.delens.lensingb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computing lensing B mode as a convolution of wiener-filtered E-mode and lensing potential</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)        : maximum multipole of output lensing B-mode alm</li>
-<li>elmin (int)       : minimum multipole of wiener-filtered E-mode alm</li>
-<li>elmax (int)       : maximum multipole of wiener-filtered E-mode alm</li>
-<li>plmin (int)       : minimum multipole of wiener-filtered lensing potential alm</li>
-<li>plmax (int)       : maximum multipole of wiener-filtered lensing potential alm</li>
-<li>wElm[l,m] (dcmplx): wiener-filtered E-mode alm, with bounds (0:elmax,0:elmax)</li>
-<li>wplm[l,m] (dcmplx): wiener-filtered lensing potential alm, with bounds (0:plmax,0:plmax)</li>
-</ul>
-</dd>
-<dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>nside (int)       : Nside for the convolution calculation, default to lmax</li>
-</ul>
-</dd>
-<dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>lBlm[l,m] (dcmplx): Lensing B-mode alm, with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
-<dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., lBlm = curvedsky.delens.lensingb(lmax,elmin,elmax,plmin,plmax,wElm,wplm,nside)</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.delens.shiftvec">
-<code class="descclassname">curvedsky.delens.</code><code class="descname">shiftvec</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>plm</em>, <em>nremap=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.delens.shiftvec" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the anti deflection vector, beta, at the Healpix pixel for the delensing where</p>
-<blockquote>
-<div>beta(n) + alphaiw(n+beta(n)) = 0</div></blockquote>
-<p>and alphaw is the filtered lensing deflection vector (see arXiv:1701.01712).</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>npix (int)          : pixel number of output shift vector</li>
-<li>lmax (int)          : maximum multipole of the input plm</li>
-<li>plm[l,m] (dcmplx)   : wiener-filtered lensing potential alm, with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
-<dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>nremap (int)        : number of iteration for computing the shift vector</li>
-</ul>
-</dd>
-<dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>beta[pix,2] (double): 2D shift vector, with bounds (0:npix-1,1:2)</li>
-</ul>
-</dd>
-<dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., beta = curvedsky.delens.shiftvec(npix,lmax,plm,nremap)</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.delens.remap_tp">
-<code class="descclassname">curvedsky.delens.</code><code class="descname">remap_tp</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>beta</em>, <em>alm_in</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.delens.remap_tp" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remapping CMB temperaure and polarization with a given shift vector, grad, based on a simple implementation of LensPix. 
-alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>npix (int)               : pixel number of output shift vector</li>
-<li>lmax (int)               : maximum multipole of the input plm</li>
-<li>beta[pix,2] (double)     : 2D shift vector, with bounds (0:npix-1,1:2)</li>
-<li>alm_in[TEB,l,m] (dcmplx) : input T/E/B alms to be remapped, with bounds (1:3,0:lmax,0:lmax).</li>
-</ul>
-</dd>
-<dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>alm_re[TEB,l,m] (dcmplx) : remapped T/E/B alms, with bounds (1:3,0:lmax,0:lmax).</li>
-</ul>
-</dd>
-<dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., alm_re = curvedsky.delens.remap_tp(npix,lmax,beta,alm_in)</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
 <div class="section" id="module-curvedsky.rec_tau">
 <span id="rec-tau-quadratic-tau-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic tau reconstruction<a class="headerlink" href="#module-curvedsky.rec_tau" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
@@ -607,6 +514,372 @@ map to alm</p>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
 <li>e.g., slm = curvedsky.rec_src.qtt(lmax,rlmin,rlmax,Tlm1,Tlm2,nside)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-curvedsky.norm_lens">
+<span id="norm-lens-normalization-of-quadratic-lensing-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_lens</span></code> – normalization of quadratic lensing reconstruction<a class="headerlink" href="#module-curvedsky.norm_lens" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="curvedsky.norm_lens.qtt">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qtt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ag,Ac = curvedsky.norm_lens.qtt(lmax,rlmin,rlmax,fC,OCT,gtype)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.norm_lens.qte">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>OCE</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qte" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ag,Ac = curvedsky.norm_lens.qte(lmax,rlmin,rlmax,fC,OCT,OCE,gtype)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.norm_lens.qtb">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>OCB</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qtb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ag,Ac = curvedsky.norm_lens.qtb(lmax,rlmin,rlmax,fC,OCT,OCB,gtype)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.norm_lens.qee">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCE</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qee" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ag,Ac = curvedsky.norm_lens.qee(lmax,rlmin,rlmax,fC,OCE,gtype)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.norm_lens.qeb">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCE</em>, <em>OCB</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qeb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ag,Ac = curvedsky.norm_lens.qeb(lmax,rlmin,rlmax,fC,OCE,OCB,gtype)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.norm_lens.qbb">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCB</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qbb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ag,Ac = curvedsky.norm_lens.qbb(lmax,rlmin,rlmax,fC,OCB,gtype)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.norm_lens.qttte">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qttte</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCTT</em>, <em>fCTE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCTE</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qttte" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ig,Ic = curvedsky.norm_lens.qttte(lmax,rlmin,rlmax,fCTT,fCTE,OCT,OCE,OCTE)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.norm_lens.qttee">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qttee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCTT</em>, <em>fCEE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCTE</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qttee" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ig,Ic = curvedsky.norm_lens.qttee(lmax,rlmin,rlmax,fCTT,fCEE,OCT,OCE,OCTE)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.norm_lens.qteee">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qteee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCEE</em>, <em>fCTE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCTE</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qteee" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ig,Ic = curvedsky.norm_lens.qteee(lmax,rlmin,rlmax,fCEE,fCTE,OCT,OCE,OCTE)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.norm_lens.qtbeb">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qtbeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCEE</em>, <em>fCBB</em>, <em>fCTE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCB</em>, <em>OCTE</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qtbeb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ig,Ic = curvedsky.norm_lens.qtbeb(lmax,rlmin,rlmax,fCEE,fCBB,fCTE,OCT,OCE,OCB,OCTE)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.norm_lens.qmv">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qmv</code><span class="sig-paren">(</span><em>lmax</em>, <em>QDO</em>, <em>Al</em>, <em>Il</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qmv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute MV estimator
+lmax         — Maximum multipole of MV(l)
+QDO(6)       — T/F array, specifying which estimators to be used for MV
+Oder of QDO: TT, TE, EE, TB, EB</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., MV,Nl = curvedsky.norm_lens.qmv(lmax,QDO,Al,Il)</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.norm_lens.qall">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qall</code><span class="sig-paren">(</span><em>QDO</em>, <em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OC</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qall" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ag,Ac,Nlg,Nlc = curvedsky.norm_lens.qall(QDO,lmax,rlmin,rlmax,fC,OC)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-curvedsky.norm_rot">
+<span id="norm-rot-normalization-of-quadratic-rotation-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_rot</span></code> – normalization of quadratic rotation reconstruction<a class="headerlink" href="#module-curvedsky.norm_rot" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="curvedsky.norm_rot.qeb">
+<code class="descclassname">curvedsky.norm_rot.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCEE</em>, <em>OCEE</em>, <em>OCBB</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_rot.qeb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Al = curvedsky.norm_rot.qeb(lmax,rlmin,rlmax,fCEE,OCEE,OCBB)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-curvedsky.norm_tau">
+<span id="norm-tau-normalization-of-quadratic-tau-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_tau</span></code> – normalization of quadratic tau reconstruction<a class="headerlink" href="#module-curvedsky.norm_tau" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="curvedsky.norm_tau.qtt">
+<code class="descclassname">curvedsky.norm_tau.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCTT</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_tau.qtt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Al = curvedsky.norm_tau.qtt(lmax,rlmin,rlmax,fC,OCTT)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-curvedsky.norm_src">
+<span id="norm-src-normalization-of-quadratic-point-source-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_src</span></code> – normalization of quadratic point-source reconstruction<a class="headerlink" href="#module-curvedsky.norm_src" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="curvedsky.norm_src.qtt">
+<code class="descclassname">curvedsky.norm_src.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>OCTT</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_src.qtt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Al = curvedsky.norm_src.qtt(lmax,rlmin,rlmax,OCTT)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-curvedsky.delens">
+<span id="delens-delensing-for-simulation"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">delens</span></code> – delensing for simulation<a class="headerlink" href="#module-curvedsky.delens" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="curvedsky.delens.lensingb">
+<code class="descclassname">curvedsky.delens.</code><code class="descname">lensingb</code><span class="sig-paren">(</span><em>lmax</em>, <em>elmin</em>, <em>elmax</em>, <em>plmin</em>, <em>plmax</em>, <em>wElm</em>, <em>wplm</em>, <em>nside=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.delens.lensingb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computing lensing B mode as a convolution of wiener-filtered E-mode and lensing potential</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmax (int)        : maximum multipole of output lensing B-mode alm</li>
+<li>elmin (int)       : minimum multipole of wiener-filtered E-mode alm</li>
+<li>elmax (int)       : maximum multipole of wiener-filtered E-mode alm</li>
+<li>plmin (int)       : minimum multipole of wiener-filtered lensing potential alm</li>
+<li>plmax (int)       : maximum multipole of wiener-filtered lensing potential alm</li>
+<li>wElm[l,m] (dcmplx): wiener-filtered E-mode alm, with bounds (0:elmax,0:elmax)</li>
+<li>wplm[l,m] (dcmplx): wiener-filtered lensing potential alm, with bounds (0:plmax,0:plmax)</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>nside (int)       : Nside for the convolution calculation, default to lmax</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>lBlm[l,m] (dcmplx): Lensing B-mode alm, with bounds (0:lmax,0:lmax)</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., lBlm = curvedsky.delens.lensingb(lmax,elmin,elmax,plmin,plmax,wElm,wplm,nside)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.delens.shiftvec">
+<code class="descclassname">curvedsky.delens.</code><code class="descname">shiftvec</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>plm</em>, <em>nremap=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.delens.shiftvec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the anti deflection vector, beta, at the Healpix pixel for the delensing where</p>
+<blockquote>
+<div>beta(n) + alphaiw(n+beta(n)) = 0</div></blockquote>
+<p>and alphaw is the filtered lensing deflection vector (see arXiv:1701.01712).</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>npix (int)          : pixel number of output shift vector</li>
+<li>lmax (int)          : maximum multipole of the input plm</li>
+<li>plm[l,m] (dcmplx)   : wiener-filtered lensing potential alm, with bounds (0:lmax,0:lmax)</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>nremap (int)        : number of iteration for computing the shift vector</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>beta[pix,2] (double): 2D shift vector, with bounds (0:npix-1,1:2)</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., beta = curvedsky.delens.shiftvec(npix,lmax,plm,nremap)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.delens.remap_tp">
+<code class="descclassname">curvedsky.delens.</code><code class="descname">remap_tp</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>beta</em>, <em>alm_in</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.delens.remap_tp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remapping CMB temperaure and polarization with a given shift vector, grad, based on a simple implementation of LensPix. 
+alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>npix (int)               : pixel number of output shift vector</li>
+<li>lmax (int)               : maximum multipole of the input plm</li>
+<li>beta[pix,2] (double)     : 2D shift vector, with bounds (0:npix-1,1:2)</li>
+<li>alm_in[TEB,l,m] (dcmplx) : input T/E/B alms to be remapped, with bounds (1:3,0:lmax,0:lmax).</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>alm_re[TEB,l,m] (dcmplx) : remapped T/E/B alms, with bounds (1:3,0:lmax,0:lmax).</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., alm_re = curvedsky.delens.remap_tp(npix,lmax,beta,alm_in)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-curvedsky.anadelens">
+<span id="anadelens-analytic-delensed-spectra"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">anadelens</span></code> – analytic delensed spectra<a class="headerlink" href="#module-curvedsky.anadelens" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="curvedsky.anadelens.qeb_iter">
+<code class="descclassname">curvedsky.anadelens.</code><code class="descname">qeb_iter</code><span class="sig-paren">(</span><em>rlmin</em>, <em>rlmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>fCEE</em>, <em>Cpp</em>, <em>oEE</em>, <em>oBB</em>, <em>iter=None</em>, <em>conv=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.anadelens.qeb_iter" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>lensing reconstruction with EB
+convergence check
+delensing with EB-estimator</div></blockquote>
+<dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Alg,Alc = curvedsky.anadelens.qeb_iter(rlmin,rlmax,dlmin,dlmax,fCEE,Cpp,oEE,oBB,iter,conv)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.anadelens.resbb">
+<code class="descclassname">curvedsky.anadelens.</code><code class="descname">resbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>Cp</em>, <em>WE</em>, <em>Wp</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.anadelens.resbb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>residual ClBB = ClBB^lin - ClBB^est</dt>
+<dd><dl class="first last docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., lmax,CB = curvedsky.anadelens.resbb(lmax,dlmin,dlmax,CE,Cp,WE,Wp)</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.anadelens.lintemplate">
+<code class="descclassname">curvedsky.anadelens.</code><code class="descname">lintemplate</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>Cp</em>, <em>WE</em>, <em>Wp</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.anadelens.lintemplate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., lmax,Cl = curvedsky.anadelens.lintemplate(lmax,dlmin,dlmax,CE,Cp,WE,Wp)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.anadelens.lensingbb">
+<code class="descclassname">curvedsky.anadelens.</code><code class="descname">lensingbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>Cp</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.anadelens.lensingbb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., lmax,CB = curvedsky.anadelens.lensingbb(lmax,dlmin,dlmax,CE,Cp)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.anadelens.delensbias_dom">
+<code class="descclassname">curvedsky.anadelens.</code><code class="descname">delensbias_dom</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>EE</em>, <em>BB</em>, <em>pp</em>, <em>NP1</em>, <em>NP2</em>, <em>Ag</em>, <em>DBl</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.anadelens.delensbias_dom" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., lmax = curvedsky.anadelens.delensbias_dom(lmax,dlmin,dlmax,EE,BB,pp,NP1,NP2,Ag,DBl)</li>
 </ul>
 </dd>
 </dl>
@@ -1108,7 +1381,7 @@ Written by Ryo Nagata.</p>
 </dd>
 <dt>Returns:</dt>
 <dd><ul class="first last simple">
-<li>cl[b] (double) : auto or cross angular power spectrum with multipole binning, with bounds (0:bn-1)</li>
+<li>cb[bin] (double) : auto or cross angular power spectrum with multipole binning, with bounds (0:bn-1)</li>
 </ul>
 </dd>
 <dt>Usage:</dt>
@@ -1274,7 +1547,7 @@ the alm contains E-mode and B-mode.</p>
         <a href="../flatsky/flatsky.html" class="btn btn-neutral float-right" title="flatsky – Flatsky analysis tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../analytic/analytic.html" class="btn btn-neutral float-left" title="analytic – Analytic normalization, delensed BB, etc" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../basic/basic.html" class="btn btn-neutral float-left" title="aps – angular power spectrum tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

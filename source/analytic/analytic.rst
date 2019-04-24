@@ -2,7 +2,7 @@
 
 .. currentmodule:: analytic
 
-:mod:`analytic` -- Analytic normalization, delensed BB, etc
+:mod:`analytic` -- 
 ===========================================================
 
 :mod:`rec_lens` -- Normalization of quadratic lensing reconstruction

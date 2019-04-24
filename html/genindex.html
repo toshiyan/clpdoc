@@ -84,7 +84,6 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="basic/basic.html"><code class="docutils literal notranslate"><span class="pre">aps</span></code> – angular power spectrum tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analytic/analytic.html"><code class="docutils literal notranslate"><span class="pre">analytic</span></code> – Analytic normalization, delensed BB, etc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="curvedsky/curvedsky.html"><code class="docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="flatsky/flatsky.html"><code class="docutils literal notranslate"><span class="pre">flatsky</span></code> – Flatsky analysis tools</a></li>
 </ul>
@@ -232,15 +231,27 @@
 </li>
       <li><a href="flatsky/flatsky.html#flatsky.utils.cb2c2d">cb2c2d() (in module flatsky.utils)</a>
 </li>
+      <li><a href="basic/basic.html#basic.aps.cl2bcl">cl2bcl() (in module basic.aps)</a>
+</li>
       <li><a href="flatsky/flatsky.html#flatsky.utils.cl2c2d">cl2c2d() (in module flatsky.utils)</a>
 </li>
       <li><a href="curvedsky/curvedsky.html#curvedsky.utils.cosin_healpix">cosin_healpix() (in module curvedsky.utils)</a>
 </li>
+      <li><a href="curvedsky/curvedsky.html#module-curvedsky.anadelens">curvedsky.anadelens (module)</a>
+</li>
       <li><a href="curvedsky/curvedsky.html#module-curvedsky.bispec">curvedsky.bispec (module)</a>
+</li>
+      <li><a href="curvedsky/curvedsky.html#module-curvedsky.delens">curvedsky.delens (module)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#module-curvedsky.delens">curvedsky.delens (module)</a>
+      <li><a href="curvedsky/curvedsky.html#module-curvedsky.norm_lens">curvedsky.norm_lens (module)</a>
+</li>
+      <li><a href="curvedsky/curvedsky.html#module-curvedsky.norm_rot">curvedsky.norm_rot (module)</a>
+</li>
+      <li><a href="curvedsky/curvedsky.html#module-curvedsky.norm_src">curvedsky.norm_src (module)</a>
+</li>
+      <li><a href="curvedsky/curvedsky.html#module-curvedsky.norm_tau">curvedsky.norm_tau (module)</a>
 </li>
       <li><a href="curvedsky/curvedsky.html#module-curvedsky.rec_lens">curvedsky.rec_lens (module)</a>
 </li>
@@ -259,13 +270,17 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="analytic/analytic.html#analytic.delens.delensbias_dom">delensbias_dom() (in module analytic.delens)</a>
+
+      <ul>
+        <li><a href="curvedsky/curvedsky.html#curvedsky.anadelens.delensbias_dom">(in module curvedsky.anadelens)</a>
 </li>
+      </ul></li>
       <li><a href="flatsky/flatsky.html#flatsky.ffttools.dft1d">dft1d() (in module flatsky.ffttools)</a>
-</li>
-      <li><a href="flatsky/flatsky.html#flatsky.ffttools.dft2d">dft2d() (in module flatsky.ffttools)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="flatsky/flatsky.html#flatsky.ffttools.dft2d">dft2d() (in module flatsky.ffttools)</a>
+</li>
       <li><a href="flatsky/flatsky.html#flatsky.ffttools.dft2dcr">dft2dcr() (in module flatsky.ffttools)</a>
 </li>
       <li><a href="flatsky/flatsky.html#flatsky.ffttools.dft2dr">dft2dr() (in module flatsky.ffttools)</a>
@@ -372,12 +387,20 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="curvedsky/curvedsky.html#curvedsky.delens.lensingb">lensingb() (in module curvedsky.delens)</a>
 </li>
+      <li><a href="analytic/analytic.html#analytic.delens.lensingbb">lensingbb() (in module analytic.delens)</a>
+
+      <ul>
+        <li><a href="curvedsky/curvedsky.html#curvedsky.anadelens.lensingbb">(in module curvedsky.anadelens)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="analytic/analytic.html#analytic.delens.lensingbb">lensingbb() (in module analytic.delens)</a>
-</li>
       <li><a href="analytic/analytic.html#analytic.delens.lintemplate">lintemplate() (in module analytic.delens)</a>
+
+      <ul>
+        <li><a href="curvedsky/curvedsky.html#curvedsky.anadelens.lintemplate">(in module curvedsky.anadelens)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -387,12 +410,18 @@
       <li><a href="curvedsky/curvedsky.html#curvedsky.bispec.make_quad_gauss">make_quad_gauss() (in module curvedsky.bispec)</a>
 </li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="basic/basic.html#basic.aps.map_vars">map_vars() (in module basic.aps)</a>
+</li>
+  </ul></td>
 </tr></table>
 
 <h2 id="Q">Q</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="analytic/analytic.html#analytic.rec_lens.qbb">qbb() (in module analytic.rec_lens)</a>
+      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_lens.qall">qall() (in module curvedsky.norm_lens)</a>
+</li>
+      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_lens.qbb">qbb() (in module curvedsky.norm_lens)</a>
 
       <ul>
         <li><a href="curvedsky/curvedsky.html#curvedsky.rec_lens.qbb">(in module curvedsky.rec_lens)</a>
@@ -400,10 +429,12 @@
         <li><a href="flatsky/flatsky.html#flatsky.rec_lens.qbb">(in module flatsky.rec_lens)</a>
 </li>
       </ul></li>
-      <li><a href="analytic/analytic.html#analytic.rec_lens.qeb">qeb() (in module analytic.rec_lens)</a>
+      <li><a href="analytic/analytic.html#analytic.rec_rot.qeb">qeb() (in module analytic.rec_rot)</a>
 
       <ul>
-        <li><a href="analytic/analytic.html#analytic.rec_rot.qeb">(in module analytic.rec_rot)</a>
+        <li><a href="curvedsky/curvedsky.html#curvedsky.norm_lens.qeb">(in module curvedsky.norm_lens)</a>
+</li>
+        <li><a href="curvedsky/curvedsky.html#curvedsky.norm_rot.qeb">(in module curvedsky.norm_rot)</a>
 </li>
         <li><a href="curvedsky/curvedsky.html#curvedsky.rec_lens.qeb">(in module curvedsky.rec_lens)</a>
 </li>
@@ -413,8 +444,12 @@
 </li>
       </ul></li>
       <li><a href="analytic/analytic.html#analytic.delens.qeb_iter">qeb_iter() (in module analytic.delens)</a>
+
+      <ul>
+        <li><a href="curvedsky/curvedsky.html#curvedsky.anadelens.qeb_iter">(in module curvedsky.anadelens)</a>
 </li>
-      <li><a href="analytic/analytic.html#analytic.rec_lens.qee">qee() (in module analytic.rec_lens)</a>
+      </ul></li>
+      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_lens.qee">qee() (in module curvedsky.norm_lens)</a>
 
       <ul>
         <li><a href="curvedsky/curvedsky.html#curvedsky.rec_lens.qee">(in module curvedsky.rec_lens)</a>
@@ -424,9 +459,9 @@
         <li><a href="flatsky/flatsky.html#flatsky.rec_lens.qee">(in module flatsky.rec_lens)</a>
 </li>
       </ul></li>
-      <li><a href="analytic/analytic.html#analytic.rec_lens.qmv">qmv() (in module analytic.rec_lens)</a>
+      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_lens.qmv">qmv() (in module curvedsky.norm_lens)</a>
 </li>
-      <li><a href="analytic/analytic.html#analytic.rec_lens.qtb">qtb() (in module analytic.rec_lens)</a>
+      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_lens.qtb">qtb() (in module curvedsky.norm_lens)</a>
 
       <ul>
         <li><a href="curvedsky/curvedsky.html#curvedsky.rec_lens.qtb">(in module curvedsky.rec_lens)</a>
@@ -438,9 +473,9 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="analytic/analytic.html#analytic.rec_lens.qtbeb">qtbeb() (in module analytic.rec_lens)</a>
+      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_lens.qtbeb">qtbeb() (in module curvedsky.norm_lens)</a>
 </li>
-      <li><a href="analytic/analytic.html#analytic.rec_lens.qte">qte() (in module analytic.rec_lens)</a>
+      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_lens.qte">qte() (in module curvedsky.norm_lens)</a>
 
       <ul>
         <li><a href="curvedsky/curvedsky.html#curvedsky.rec_lens.qte">(in module curvedsky.rec_lens)</a>
@@ -450,14 +485,18 @@
         <li><a href="flatsky/flatsky.html#flatsky.rec_lens.qte">(in module flatsky.rec_lens)</a>
 </li>
       </ul></li>
-      <li><a href="analytic/analytic.html#analytic.rec_lens.qteee">qteee() (in module analytic.rec_lens)</a>
+      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_lens.qteee">qteee() (in module curvedsky.norm_lens)</a>
 </li>
-      <li><a href="analytic/analytic.html#analytic.rec_lens.qtt">qtt() (in module analytic.rec_lens)</a>
+      <li><a href="analytic/analytic.html#analytic.rec_src.qtt">qtt() (in module analytic.rec_src)</a>
 
       <ul>
-        <li><a href="analytic/analytic.html#analytic.rec_src.qtt">(in module analytic.rec_src)</a>
-</li>
         <li><a href="analytic/analytic.html#analytic.rec_tau.qtt">(in module analytic.rec_tau)</a>
+</li>
+        <li><a href="curvedsky/curvedsky.html#curvedsky.norm_lens.qtt">(in module curvedsky.norm_lens)</a>
+</li>
+        <li><a href="curvedsky/curvedsky.html#curvedsky.norm_src.qtt">(in module curvedsky.norm_src)</a>
+</li>
+        <li><a href="curvedsky/curvedsky.html#curvedsky.norm_tau.qtt">(in module curvedsky.norm_tau)</a>
 </li>
         <li><a href="curvedsky/curvedsky.html#curvedsky.rec_lens.qtt">(in module curvedsky.rec_lens)</a>
 </li>
@@ -476,9 +515,9 @@
         <li><a href="curvedsky/curvedsky.html#curvedsky.rec_tau.qtt_sym">(in module curvedsky.rec_tau)</a>
 </li>
       </ul></li>
-      <li><a href="analytic/analytic.html#analytic.rec_lens.qttee">qttee() (in module analytic.rec_lens)</a>
+      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_lens.qttee">qttee() (in module curvedsky.norm_lens)</a>
 </li>
-      <li><a href="analytic/analytic.html#analytic.rec_lens.qttte">qttte() (in module analytic.rec_lens)</a>
+      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_lens.qttte">qttte() (in module curvedsky.norm_lens)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -493,7 +532,11 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="analytic/analytic.html#analytic.delens.resbb">resbb() (in module analytic.delens)</a>
+
+      <ul>
+        <li><a href="curvedsky/curvedsky.html#curvedsky.anadelens.resbb">(in module curvedsky.anadelens)</a>
 </li>
+      </ul></li>
       <li><a href="flatsky/flatsky.html#flatsky.utils.rotation">rotation() (in module flatsky.utils)</a>
 </li>
   </ul></td>

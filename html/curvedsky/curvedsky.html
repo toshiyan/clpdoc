@@ -94,7 +94,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.norm_tau"><code class="docutils literal notranslate"><span class="pre">norm_tau</span></code> – normalization of quadratic tau reconstruction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.norm_src"><code class="docutils literal notranslate"><span class="pre">norm_src</span></code> – normalization of quadratic point-source reconstruction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.delens"><code class="docutils literal notranslate"><span class="pre">delens</span></code> – delensing for simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.anadelens"><code class="docutils literal notranslate"><span class="pre">anadelens</span></code> – analytic delensed spectra</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.bispec"><code class="docutils literal notranslate"><span class="pre">bispec</span></code> – binned reduced bispectrum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.utils"><code class="docutils literal notranslate"><span class="pre">utils</span></code> – other tools</a></li>
 </ul>
@@ -842,77 +841,6 @@ alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
 <li>e.g., alm_re = curvedsky.delens.remap_tp(npix,lmax,beta,alm_in)</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
-<div class="section" id="module-curvedsky.anadelens">
-<span id="anadelens-analytic-delensed-spectra"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">anadelens</span></code> – analytic delensed spectra<a class="headerlink" href="#module-curvedsky.anadelens" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="curvedsky.anadelens.qeb_iter">
-<code class="descclassname">curvedsky.anadelens.</code><code class="descname">qeb_iter</code><span class="sig-paren">(</span><em>rlmin</em>, <em>rlmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>fCEE</em>, <em>Cpp</em>, <em>oEE</em>, <em>oBB</em>, <em>iter=None</em>, <em>conv=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.anadelens.qeb_iter" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div>lensing reconstruction with EB
-convergence check
-delensing with EB-estimator</div></blockquote>
-<dl class="docutils">
-<dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., Alg,Alc = curvedsky.anadelens.qeb_iter(rlmin,rlmax,dlmin,dlmax,fCEE,Cpp,oEE,oBB,iter,conv)</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.anadelens.resbb">
-<code class="descclassname">curvedsky.anadelens.</code><code class="descname">resbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>Cp</em>, <em>WE</em>, <em>Wp</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.anadelens.resbb" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>residual ClBB = ClBB^lin - ClBB^est</dt>
-<dd><dl class="first last docutils">
-<dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., lmax,CB = curvedsky.anadelens.resbb(lmax,dlmin,dlmax,CE,Cp,WE,Wp)</li>
-</ul>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.anadelens.lintemplate">
-<code class="descclassname">curvedsky.anadelens.</code><code class="descname">lintemplate</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>Cp</em>, <em>WE</em>, <em>Wp</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.anadelens.lintemplate" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., lmax,Cl = curvedsky.anadelens.lintemplate(lmax,dlmin,dlmax,CE,Cp,WE,Wp)</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.anadelens.lensingbb">
-<code class="descclassname">curvedsky.anadelens.</code><code class="descname">lensingbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>Cp</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.anadelens.lensingbb" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., lmax,CB = curvedsky.anadelens.lensingbb(lmax,dlmin,dlmax,CE,Cp)</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.anadelens.delensbias_dom">
-<code class="descclassname">curvedsky.anadelens.</code><code class="descname">delensbias_dom</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>EE</em>, <em>BB</em>, <em>pp</em>, <em>NP1</em>, <em>NP2</em>, <em>Ag</em>, <em>DBl</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.anadelens.delensbias_dom" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., lmax = curvedsky.anadelens.delensbias_dom(lmax,dlmin,dlmax,EE,BB,pp,NP1,NP2,Ag,DBl)</li>
 </ul>
 </dd>
 </dl>

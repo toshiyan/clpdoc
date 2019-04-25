@@ -45,11 +45,6 @@
 .. automodule:: curvedsky.delens
    :members:
 
-:mod:`anadelens` -- analytic delensed spectra
-----------------------------------------------------
-.. automodule:: curvedsky.anadelens
-   :members:
-
 :mod:`bispec` -- binned reduced bispectrum
 ----------------------------------------------------
 .. automodule:: curvedsky.bispec

@@ -85,6 +85,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../basic/basic.html"><code class="docutils literal notranslate"><span class="pre">aps</span></code> – angular power spectrum tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic/basic.html#module-basic.delens"><code class="docutils literal notranslate"><span class="pre">delens</span></code> – analytic calculation for delensing</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.rec_lens"><code class="docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.rec_tau"><code class="docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic tau reconstruction</a></li>
@@ -525,7 +526,28 @@ map to alm</p>
 <dl class="function">
 <dt id="curvedsky.norm_lens.qtt">
 <code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qtt" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>Normalization of reconstructed CMB lensing potential and its curl mode from the temperature quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmax (int)     : maximum multipole of output lensing potential alms</li>
+<li>rlmin (int)    : minimum multipole of CMB for reconstruction</li>
+<li>rlmax (int)    : maximum multipole of CMB for reconstruction</li>
+<li>fC[l] (double) : theory temperature angular power spectrum, with bounds (0:rlmax)</li>
+<li>OCT[l] (double): observed temperature angular power spectrum, with bounds (0:rlmax)</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>gtype (str)    : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>Ag[l] (double) : CMB lensing potential normalization, with bounds (0:lmax)</li>
+<li>Ac[l] (double) : curl mode (pseudo lensing potential) normalization, with bounds (0:lmax)</li>
+</ul>
+</dd>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
 <li>e.g., Ag,Ac = curvedsky.norm_lens.qtt(lmax,rlmin,rlmax,fC,OCT,gtype)</li>
@@ -667,6 +689,18 @@ Oder of QDO: TT, TE, EE, TB, EB</p>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
 <li>e.g., Ag,Ac,Nlg,Nlc = curvedsky.norm_lens.qall(QDO,lmax,rlmin,rlmax,fC,OC)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.norm_lens.qeb_iter">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qeb_iter</code><span class="sig-paren">(</span><em>rlmin</em>, <em>rlmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>fCEE</em>, <em>Cpp</em>, <em>oEE</em>, <em>oBB</em>, <em>iter=None</em>, <em>conv=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qeb_iter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Alg,Alc = curvedsky.norm_lens.qeb_iter(rlmin,rlmax,dlmin,dlmax,fCEE,Cpp,oEE,oBB,iter,conv)</li>
 </ul>
 </dd>
 </dl>

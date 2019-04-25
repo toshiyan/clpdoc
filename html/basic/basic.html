@@ -85,6 +85,7 @@
 </ul>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">aps</span></code> – angular power spectrum tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-basic.delens"><code class="docutils literal notranslate"><span class="pre">delens</span></code> – analytic calculation for delensing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../curvedsky/curvedsky.html"><code class="docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../flatsky/flatsky.html"><code class="docutils literal notranslate"><span class="pre">flatsky</span></code> – Flatsky analysis tools</a></li>
 </ul>
@@ -212,6 +213,68 @@
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
 <li>e.g., cb = basic.aps.cl2bcl(bn,lmax,cl)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-basic.delens">
+<span id="delens-analytic-calculation-for-delensing"></span><h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">delens</span></code> – analytic calculation for delensing<a class="headerlink" href="#module-basic.delens" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="basic.delens.resbb">
+<code class="descclassname">basic.delens.</code><code class="descname">resbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>Cp</em>, <em>WE</em>, <em>Wp</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.delens.resbb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Residual B-mode spectrum; ClBB = ClBB^lin - ClBB^est</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>lmax (int)     : maximum multipole of residual ClBB
+dlmin (int)    : minimum multipole of E and lensing for delensing
+dlmax (int)    : maximum multipole of E and lensing for delensing
+CE[l] (double) : power spectrum of E-mode, with bounds (0:dlmax)
+Cp[l] (double) : power spectrum of lensing pontential, with bounds (0:dlmax)
+WE[l] (double) : Wiener filter of E-mode, with bounds (0:dlmax)
+Wp[l] (double) : Wiener filter of lensing potential, with bountd (0:dlmax)</dd>
+<dt>Returns:</dt>
+<dd>CB[l] (double) : residual B-mode spectrum, with bounds (0:lmax)</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., lmax,CB = basic.delens.resbb(lmax,dlmin,dlmax,CE,Cp,WE,Wp)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.delens.lintemplate">
+<code class="descclassname">basic.delens.</code><code class="descname">lintemplate</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>Cp</em>, <em>WE</em>, <em>Wp</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.delens.lintemplate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., lmax,Cl = basic.delens.lintemplate(lmax,dlmin,dlmax,CE,Cp,WE,Wp)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.delens.lensingbb">
+<code class="descclassname">basic.delens.</code><code class="descname">lensingbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>Cp</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.delens.lensingbb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., lmax,CB = basic.delens.lensingbb(lmax,dlmin,dlmax,CE,Cp)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.delens.delensbias_dom">
+<code class="descclassname">basic.delens.</code><code class="descname">delensbias_dom</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>EE</em>, <em>BB</em>, <em>pp</em>, <em>NP1</em>, <em>NP2</em>, <em>Ag</em>, <em>DBl</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.delens.delensbias_dom" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., lmax = basic.delens.delensbias_dom(lmax,dlmin,dlmax,EE,BB,pp,NP1,NP2,Ag,DBl)</li>
 </ul>
 </dd>
 </dl>

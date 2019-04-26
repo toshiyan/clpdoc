@@ -18,7 +18,7 @@ Installation
 
    install
 
-Reference
+Modules
 ---------
 
 .. toctree::
@@ -29,6 +29,12 @@ Reference
    curvedsky/curvedsky
 
    flatsky/flatsky
+
+Documents
+------------
+
+The following documents show derivation of equations used for the modules
+https://toshiyan.github.io/clpdoc/doc/Doc_Normalization_Curvedsky
 
 
 Indices and tables

@@ -34,7 +34,9 @@ Documents
 ------------
 
 The following documents show derivation of equations used for the modules
-https://toshiyan.github.io/clpdoc/doc/Doc_Normalization_Curvedsky
+
+* Normalization of quadratic estimator in curvedsky: https://toshiyan.github.io/clpdoc/doc/Doc_Normalization_Curvedsky.pdf
+* Other formulas: https://toshiyan.github.io/clpdoc/doc/Doc_Other_Formulas.pdf
 
 
 Indices and tables

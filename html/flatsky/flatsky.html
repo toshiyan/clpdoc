@@ -88,12 +88,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../curvedsky/curvedsky.html"><code class="docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">flatsky</span></code> – Flatsky analysis tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#module-flatsky.rec_lens"><code class="docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-flatsky.norm_lens"><code class="docutils literal notranslate"><span class="pre">norm_lens</span></code> – normalization of quadratic lensing reconstruction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-flatsky.rec_rot"><code class="docutils literal notranslate"><span class="pre">rec_rot</span></code> – quadratic pol. rot. reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-flatsky.norm_rot"><code class="docutils literal notranslate"><span class="pre">norm_rot</span></code> – normalization of quadratic pol. rot. reconstruction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-flatsky.rec_tau"><code class="docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic patchy tau reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-flatsky.norm_tau"><code class="docutils literal notranslate"><span class="pre">norm_tau</span></code> – normalization of quadratic patchy tay reconstruction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-flatsky.rec_src"><code class="docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-src reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flatsky.norm_lens"><code class="docutils literal notranslate"><span class="pre">norm_lens</span></code> – normalization of quadratic lensing reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flatsky.norm_rot"><code class="docutils literal notranslate"><span class="pre">norm_rot</span></code> – normalization of quadratic pol. rot. reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flatsky.norm_tau"><code class="docutils literal notranslate"><span class="pre">norm_tau</span></code> – normalization of quadratic patchy tay reconstruction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-flatsky.ffttools"><code class="docutils literal notranslate"><span class="pre">ffttools</span></code> – FFT tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-flatsky.utils"><code class="docutils literal notranslate"><span class="pre">utils</span></code> – other tools</a></li>
 </ul>
@@ -242,69 +242,6 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-flatsky.norm_lens">
-<span id="norm-lens-normalization-of-quadratic-lensing-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_lens</span></code> – normalization of quadratic lensing reconstruction<a class="headerlink" href="#module-flatsky.norm_lens" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="flatsky.norm_lens.qtt">
-<code class="descclassname">flatsky.norm_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>OC</em>, <em>CT</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_lens.qtt" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., Ag,Ac = flatsky.norm_lens.qtt(nx,ny,D,rL,OC,CT,eL)</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="flatsky.norm_lens.qte">
-<code class="descclassname">flatsky.norm_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>OT</em>, <em>OE</em>, <em>TE</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_lens.qte" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., Ag,Ac = flatsky.norm_lens.qte(nx,ny,D,rL,OT,OE,TE,eL)</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="flatsky.norm_lens.qtb">
-<code class="descclassname">flatsky.norm_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>OT</em>, <em>OB</em>, <em>TE</em>, <em>rL</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_lens.qtb" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., Ag,Ac = flatsky.norm_lens.qtb(nx,ny,D,OT,OB,TE,rL,eL)</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="flatsky.norm_lens.qee">
-<code class="descclassname">flatsky.norm_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>OE</em>, <em>EE</em>, <em>rL</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_lens.qee" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., Ag,Ac = flatsky.norm_lens.qee(nx,ny,D,OE,EE,rL,eL)</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="flatsky.norm_lens.qeb">
-<code class="descclassname">flatsky.norm_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>OE</em>, <em>OB</em>, <em>EE</em>, <em>rL</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_lens.qeb" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., Ag,Ac = flatsky.norm_lens.qeb(nx,ny,D,OE,OB,EE,rL,eL)</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
 <div class="section" id="module-flatsky.rec_rot">
 <span id="rec-rot-quadratic-pol-rot-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_rot</span></code> – quadratic pol. rot. reconstruction<a class="headerlink" href="#module-flatsky.rec_rot" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
@@ -351,21 +288,6 @@ Usage:</p>
 <blockquote>
 <div><ul class="simple">
 <li>e.g., alm = flatsky.rec_rot.qeb(nx,ny,D,rL,EE,E,B,BB)</li>
-</ul>
-</div></blockquote>
-</dd></dl>
-
-</div>
-<div class="section" id="module-flatsky.norm_rot">
-<span id="norm-rot-normalization-of-quadratic-pol-rot-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_rot</span></code> – normalization of quadratic pol. rot. reconstruction<a class="headerlink" href="#module-flatsky.norm_rot" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="flatsky.norm_rot.qeb">
-<code class="descclassname">flatsky.norm_rot.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>IE</em>, <em>IB</em>, <em>EE</em>, <em>eL</em>, <em>BB=None</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_rot.qeb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return normalization of EB quadratic estimator for anisotropic pol. rot. angles
-Usage:</p>
-<blockquote>
-<div><ul class="simple">
-<li>e.g., Aa = flatsky.norm_rot.qeb(nx,ny,D,rL,IE,IB,EE,eL,BB)</li>
 </ul>
 </div></blockquote>
 </dd></dl>
@@ -434,21 +356,6 @@ Usage:</p>
 </dd></dl>
 
 </div>
-<div class="section" id="module-flatsky.norm_tau">
-<span id="norm-tau-normalization-of-quadratic-patchy-tay-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_tau</span></code> – normalization of quadratic patchy tay reconstruction<a class="headerlink" href="#module-flatsky.norm_tau" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="flatsky.norm_tau.qeb">
-<code class="descclassname">flatsky.norm_tau.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>IE</em>, <em>IB</em>, <em>EE</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_tau.qeb" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., At = flatsky.norm_tau.qeb(nx,ny,D,rL,IE,IB,EE,eL)</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-</div>
 <div class="section" id="module-flatsky.rec_src">
 <span id="rec-src-quadratic-point-src-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-src reconstruction<a class="headerlink" href="#module-flatsky.rec_src" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
@@ -506,6 +413,99 @@ Usage:</p>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
 <li>e.g., slm = flatsky.rec_src.qeb(nx,ny,D,rL,E,B)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-flatsky.norm_lens">
+<span id="norm-lens-normalization-of-quadratic-lensing-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_lens</span></code> – normalization of quadratic lensing reconstruction<a class="headerlink" href="#module-flatsky.norm_lens" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="flatsky.norm_lens.qtt">
+<code class="descclassname">flatsky.norm_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>OC</em>, <em>CT</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_lens.qtt" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ag,Ac = flatsky.norm_lens.qtt(nx,ny,D,rL,OC,CT,eL)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.norm_lens.qte">
+<code class="descclassname">flatsky.norm_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>OT</em>, <em>OE</em>, <em>TE</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_lens.qte" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ag,Ac = flatsky.norm_lens.qte(nx,ny,D,rL,OT,OE,TE,eL)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.norm_lens.qtb">
+<code class="descclassname">flatsky.norm_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>OT</em>, <em>OB</em>, <em>TE</em>, <em>rL</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_lens.qtb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ag,Ac = flatsky.norm_lens.qtb(nx,ny,D,OT,OB,TE,rL,eL)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.norm_lens.qee">
+<code class="descclassname">flatsky.norm_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>OE</em>, <em>EE</em>, <em>rL</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_lens.qee" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ag,Ac = flatsky.norm_lens.qee(nx,ny,D,OE,EE,rL,eL)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.norm_lens.qeb">
+<code class="descclassname">flatsky.norm_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>OE</em>, <em>OB</em>, <em>EE</em>, <em>rL</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_lens.qeb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., Ag,Ac = flatsky.norm_lens.qeb(nx,ny,D,OE,OB,EE,rL,eL)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-flatsky.norm_rot">
+<span id="norm-rot-normalization-of-quadratic-pol-rot-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_rot</span></code> – normalization of quadratic pol. rot. reconstruction<a class="headerlink" href="#module-flatsky.norm_rot" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="flatsky.norm_rot.qeb">
+<code class="descclassname">flatsky.norm_rot.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>IE</em>, <em>IB</em>, <em>EE</em>, <em>eL</em>, <em>BB=None</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_rot.qeb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return normalization of EB quadratic estimator for anisotropic pol. rot. angles
+Usage:</p>
+<blockquote>
+<div><ul class="simple">
+<li>e.g., Aa = flatsky.norm_rot.qeb(nx,ny,D,rL,IE,IB,EE,eL,BB)</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="module-flatsky.norm_tau">
+<span id="norm-tau-normalization-of-quadratic-patchy-tay-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_tau</span></code> – normalization of quadratic patchy tay reconstruction<a class="headerlink" href="#module-flatsky.norm_tau" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="flatsky.norm_tau.qeb">
+<code class="descclassname">flatsky.norm_tau.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>IE</em>, <em>IB</em>, <em>EE</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_tau.qeb" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., At = flatsky.norm_tau.qeb(nx,ny,D,rL,IE,IB,EE,eL)</li>
 </ul>
 </dd>
 </dl>

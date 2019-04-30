@@ -177,17 +177,18 @@
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the temperature quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><dl class="first docutils">
+<dd><dl class="first last docutils">
 <dt>lmax <em>(int)</em>:</dt>
 <dd>maximum multipole of output lensing potential alms</dd>
 <dt>rlmin/rlmax <em>(int)</em>:</dt>
 <dd>minimum/maximum multipole of CMB for reconstruction</dd>
+<dt>fC**[<em>l</em>]** <em>(double)</em>: </dt>
+<dd>temperature angular power spectrum, with bounds (0:rlmax)</dd>
+<dt>Tlm1 <strong>[*l*,*m*]</strong> <em>(dcmplx)</em>: </dt>
+<dd>1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</dd>
+<dt>Tlm2 <strong>[*l*,*m*]</strong> <em>(dcmplx)</em>: </dt>
+<dd>2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</dd>
 </dl>
-<ul class="last simple">
-<li>fC[l] (double)    : temperature angular power spectrum, with bounds (0:rlmax)</li>
-<li>Tlm1[l,m] (dcmplx): 1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
-<li>Tlm2[l,m] (dcmplx): 2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
-</ul>
 </dd>
 <dt>Args(optional):</dt>
 <dd><ul class="first last simple">

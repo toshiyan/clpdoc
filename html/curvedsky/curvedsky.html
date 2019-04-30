@@ -203,7 +203,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside for the convolution calculation, default to lmax</td>
+<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside for the convolution calculation, default to <em>lmax</em></td>
 </tr>
 <tr class="field-even field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of outputs, i.e., lensing potential (<em>None</em>, default), or convergence (‘k’)</td>
 </tr>
@@ -216,7 +216,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">glm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential alm, with bounds (<strong>0:lmax,0:lmax</strong>)</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential alm, with bounds (** <em>0:lmax,0:lmax</em> <a href="#id1"><span class="problematic" id="id2">**</span></a>)</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">clm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body">curl mode (pseudo lensing potential) alm, with bounds (<strong>0:lmax,0:lmax</strong>)</td>
@@ -224,12 +224,12 @@
 </tbody>
 </table>
 </dd>
-<dt>Usage:</dt>
+<dt>Example:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">e.g., glm,clm = curvedsky.rec_lens.qtt(lmax,rlmin,rlmax,fC,Tlm1,Tlm2,nside,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">glm, clm = curvedsky.rec_lens.qtt(lmax,rlmin,rlmax,fC,Tlm1,Tlm2,nside,gtype=’k’):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>

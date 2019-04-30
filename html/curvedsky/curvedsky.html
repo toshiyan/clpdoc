@@ -177,18 +177,20 @@
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the temperature quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><dl class="first last docutils">
-<dt>lmax <em>(int)</em>:</dt>
-<dd>maximum multipole of output lensing potential alms</dd>
-<dt>rlmin/rlmax <em>(int)</em>:</dt>
-<dd>minimum/maximum multipole of CMB for reconstruction</dd>
-<dt>fC**[<em>l</em>]** <em>(double)</em>: </dt>
-<dd>temperature angular power spectrum, with bounds (0:rlmax)</dd>
-<dt>Tlm1 <strong>[*l*,*m*]</strong> <em>(dcmplx)</em>: </dt>
-<dd>1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</dd>
-<dt>Tlm2 <strong>[*l*,*m*]</strong> <em>(dcmplx)</em>: </dt>
-<dd>2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</dd>
-</dl>
+<dd><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax <em>(int)</em>:</th><td class="field-body">Maximum multipole of output lensing potential alms</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax <em>(int)</em>:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
+</tr>
+</tbody>
+</table>
+<p class="last">fC [<em>l</em>] <em>(double)</em>: Temperature power spectrum as a function of multipole, with bounds (0:rlmax)
+Tlm1 [<em>l</em>,*m*] <em>(dcmplx)</em>: 1st inverse-variance filtered temperature multipoles, with bounds (0:rlmax,0:rlmax)
+Tlm2 [<em>l</em>,*m*] <em>(dcmplx)</em>: 2nd inverse-variance filtered temperature multipoles, with bounds (0:rlmax,0:rlmax)</p>
 </dd>
 <dt>Args(optional):</dt>
 <dd><ul class="first last simple">

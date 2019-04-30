@@ -177,11 +177,19 @@
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the temperature quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>:lmax (<em>int</em>) : Maximum multipole of output lensing potential alms
-:rlmin/rlmax (<em>int</em>)  : Minimum/Maximum multipole of CMB for reconstruction
+<dd><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output lensing potential alms</td>
+</tr>
+</tbody>
+</table>
+<p class="last">:rlmin/rlmax (<em>int</em>)  : Minimum/Maximum multipole of CMB for reconstruction
 :fC [<em>l</em>] (<em>double</em>)    : Temperature power spectrum, with bounds (0:rlmax)
 :Tlm1 [<em>l,m</em>] (<em>dcmplx</em>): 1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)
-:Tlm2 [<em>l,m</em>] (<em>dcmplx</em>): 2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</dd>
+:Tlm2 [<em>l,m</em>] (<em>dcmplx</em>): 2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
 <dt>Args(optional):</dt>
 <dd>:nside (<em>int</em>) : Nside for the convolution calculation, default to lmax
 :gtype (<em>str</em>) : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</dd>

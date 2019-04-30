@@ -10,6 +10,11 @@
 .. automodule:: curvedsky.rec_lens
    :members:
 
+:mod:`rec_rot` -- quadratic rotation reconstruction
+----------------------------------------------------
+.. automodule:: curvedsky.rec_rot
+   :members:
+
 :mod:`rec_tau` -- quadratic tau reconstruction
 ----------------------------------------------------
 .. automodule:: curvedsky.rec_tau

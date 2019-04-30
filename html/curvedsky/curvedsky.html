@@ -87,6 +87,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../basic/basic.html"><code class="docutils literal notranslate"><span class="pre">basic</span></code> – Supplemental tools</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.rec_lens"><code class="docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.rec_rot"><code class="docutils literal notranslate"><span class="pre">rec_rot</span></code> – quadratic rotation reconstruction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.rec_tau"><code class="docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic tau reconstruction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.rec_src"><code class="docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-soruce reconstruction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.norm_lens"><code class="docutils literal notranslate"><span class="pre">norm_lens</span></code> – normalization of quadratic lensing reconstruction</a></li>
@@ -371,6 +372,41 @@
 <dt>Usage:</dt>
 <dd><ul class="first last simple">
 <li>e.g., glm,clm = curvedsky.rec_lens.qbb(lmax,rlmin,rlmax,fC,Blm1,Blm2,nside,gtype)</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-curvedsky.rec_rot">
+<span id="rec-rot-quadratic-rotation-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_rot</span></code> – quadratic rotation reconstruction<a class="headerlink" href="#module-curvedsky.rec_rot" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="curvedsky.rec_rot.qeb">
+<code class="descclassname">curvedsky.rec_rot.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCE</em>, <em>Elm</em>, <em>Blm</em>, <em>nside=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_rot.qeb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing pol rotation angle from the EB quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>lmax (int)   : maximum multipole of output lensing potential alms</li>
+<li>rL   (int)   : minimum rL[0] and maximum multipoles rlmax of CMB, with bounds (2)</li>
+<li>fCE[l] (double): E-mode angular power spectrum, with bounds (0:rlmax)</li>
+<li>Elm  (dcmplx): inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</li>
+<li>Blm  (dcmplx): inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</li>
+</ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>nside (int)  : Nside for the convolution calculation, default to lmax</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><ul class="first last simple">
+<li>alm (dcmplx) : pol rotation angle, with bounds (0:lmax,0:lmax)</li>
+</ul>
+</dd>
+<dt>Usage:</dt>
+<dd><ul class="first last simple">
+<li>e.g., alm = curvedsky.rec_rot.qeb(lmax,rlmin,rlmax,fCE,Elm,Blm,nside)</li>
 </ul>
 </dd>
 </dl>

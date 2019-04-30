@@ -177,7 +177,7 @@
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the temperature quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><table class="first docutils field-list" frame="void" rules="none">
+<dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -191,7 +191,7 @@
 </table>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">rlmin/rlmax:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<tr class="field-even field"><th class="field-name">rlmin/rlmax:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -201,23 +201,94 @@
 </table>
 </td>
 </tr>
+<tr class="field-even field"><th class="field-name">fC [<em>l</em>]:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name"><em>(double)</em>:</th><td class="field-body">Temperature power spectrum as a function of multipole, with bounds (0:rlmax)</td>
+</tr>
 </tbody>
 </table>
-<p class="last">fC [<em>l</em>] <em>(double)</em>: Temperature power spectrum as a function of multipole, with bounds (0:rlmax)
-Tlm1 [<em>l</em>,*m*] <em>(dcmplx)</em>: 1st inverse-variance filtered temperature multipoles, with bounds (0:rlmax,0:rlmax)
-Tlm2 [<em>l</em>,*m*] <em>(dcmplx)</em>: 2nd inverse-variance filtered temperature multipoles, with bounds (0:rlmax,0:rlmax)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Tlm1 [<em>l</em>,*m*]:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name"><em>(dcmplx)</em>:</th><td class="field-body">1st inverse-variance filtered temperature multipoles, with bounds (0:rlmax,0:rlmax)</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Tlm2 [<em>l</em>,*m*]:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name"><em>(dcmplx)</em>:</th><td class="field-body">2nd inverse-variance filtered temperature multipoles, with bounds (0:rlmax,0:rlmax)</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>nside (int)       : Nside for the convolution calculation, default to lmax</li>
-<li>gtype (str)       : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nside:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name"><em>(int)</em>:</th><td class="field-body">Nside for the convolution calculation, default to lmax</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">gtype:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name"><em>(str)</em>:</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>glm[l,m] (dcmplx) : CMB lensing potential alm, with bounds (0:lmax,0:lmax)</li>
-<li>clm[l,m] (dcmplx) : curl mode (pseudo lensing potential) alm, with bounds (0:lmax,0:lmax)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">glm[l,m]:</th><td class="field-body"><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">(<em>dcmplx</em>):</th><td class="field-body">CMB lensing potential alm, with bounds (0:lmax,0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">clm[l,m]:</th><td class="field-body"><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">(<em>dcmplx</em>):</th><td class="field-body">curl mode (pseudo lensing potential) alm, with bounds (0:lmax,0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Usage:</dt>
 <dd><ul class="first last simple">

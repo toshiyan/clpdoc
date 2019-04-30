@@ -177,23 +177,39 @@
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the temperature quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
+<dd><ul class="first simple">
+<li><table class="first docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output lensing potential alm</td>
 </tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
+</tbody>
+</table>
+</li>
+<li><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
 </tr>
+</tbody>
+</table>
+</li>
+</ul>
+<table class="last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Temperature power spectrum as a function of multipole, with bounds (0:rlmax)</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Temperature power spectrum as a function of multipole, with bounds (<em>0:rlmax</em>)</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Tlm1 [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">1st inverse-variance filtered temperature alm, with bounds (<em>0:rlmax,0:rlmax</em>)</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">Tlm2 [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2nd inverse-variance filtered temperature alm, with bounds (<em>0:rlmax,0:rlmax</em>)</td>
 </tr>
 </tbody>
 </table>
@@ -216,7 +232,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">glm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential alm, with bounds (** <em>0:lmax,0:lmax</em> <a href="#id1"><span class="problematic" id="id2">**</span></a>)</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential alm, with bounds (<a href="#id1"><span class="problematic" id="id2">**</span></a>0:lmax,0:lmax* <a href="#id3"><span class="problematic" id="id4">**</span></a>)</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">clm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body">curl mode (pseudo lensing potential) alm, with bounds (<strong>0:lmax,0:lmax</strong>)</td>

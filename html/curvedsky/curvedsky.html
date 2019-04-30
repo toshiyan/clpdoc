@@ -177,59 +177,23 @@
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the temperature quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output lensing potential alm</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Temperature power spectrum as a function of multipole, with bounds (<em>0:rlmax</em>)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Tlm1 [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">1st inverse-variance filtered temperature alm, with bounds (<em>0:rlmax,0:rlmax</em>)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">Tlm2 [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">2nd inverse-variance filtered temperature alm, with bounds (<em>0:rlmax,0:rlmax</em>)</td>
-</tr>
-</tbody>
-</table>
-</dd>
+<dd>:lmax (<em>int</em>)         : Maximum multipole of output lensing potential alms
+:rlmin/rlmax (<em>int</em>)  : Minimum/Maximum multipole of CMB for reconstruction
+:fC [<em>l</em>] (<em>double</em>)    : Temperature power spectrum, with bounds (0:rlmax)
+:Tlm1 [<em>l,m</em>] (<em>dcmplx</em>): 1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)
+:Tlm2 [<em>l,m</em>] (<em>dcmplx</em>): 2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</dd>
 <dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside for the convolution calculation, default to <em>lmax</em></td>
-</tr>
-<tr class="field-even field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of outputs, i.e., lensing potential (<em>None</em>, default), or convergence (‘k’)</td>
-</tr>
-</tbody>
-</table>
-</dd>
+<dd>:nside (<em>int</em>) : Nside for the convolution calculation, default to lmax
+:gtype (<em>str</em>) : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</dd>
 <dt>Returns:</dt>
+<dd>:glm [<em>l,m</em>] (<em>dcmplx</em>) : CMB lensing potential alm, with bounds (0:lmax,0:lmax)
+:clm [<em>l,m</em>] (<em>dcmplx</em>) : Curl mode (pseudo lensing potential) alm, with bounds (0:lmax,0:lmax)</dd>
+<dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">glm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential alm, with bounds (<strong>0:lmax,0:lmax</strong>)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">clm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">curl mode (pseudo lensing potential) alm, with bounds (<strong>0:lmax,0:lmax</strong>)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Example:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">glm, clm = curvedsky.rec_lens.qtt(lmax,rlmin,rlmax,fC,Tlm1,Tlm2,nside,gtype=’k’):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qtt(lmax,rlmin,rlmax,fC,Tlm1,Tlm2,nside,gtype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -244,31 +208,27 @@
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the TE quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)   : maximum multipole of output lensing potential alms</li>
-<li>rlmin (int)  : minimum multipole of CMB for reconstruction</li>
-<li>rlmax (int)  : maximum multipole of CMB for reconstruction</li>
-<li>fC[l] (double): temperature-E cross-angular power spectrum, with bounds (0:rlmax)</li>
-<li>Tlm  (dcmplx): inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
-<li>Elm  (dcmplx): inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</li>
-</ul>
-</dd>
+<dd>:lmax (<em>int</em>)         : Maximum multipole of output lensing potential alms
+:rlmin/rlmax (<em>int</em>)  : Minimum/Maximum multipole of CMB for reconstruction
+:fC [<em>l</em>] (<em>double</em>)    : Temperature-E cross-angular power spectrum, with bounds (0:rlmax)
+:Tlm [<em>l,m</em>] (<em>dcmplx</em>) : Inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)
+:Elm [<em>l,m</em>] (<em>dcmplx</em>) : Inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>nside (int)  : Nside for the convolution calculation, default to lmax</li>
-<li>gtype (str)       : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</li>
-</ul>
-</dd>
+<dd>:nside (<em>int</em>) : Nside for the convolution calculation, default to lmax
+:gtype (<em>str</em>) : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>glm (dcmplx) : CMB lensing potential, with bounds (0:lmax,0:lmax)</li>
-<li>clm (dcmplx) : curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
+<dd>:glm [<em>l,m</em>] (<em>dcmplx</em>) : CMB lensing potential, with bounds (0:lmax,0:lmax)
+:clm [<em>l,m</em>] (<em>dcmplx</em>) : Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., glm,clm = curvedsky.rec_lens.qte(lmax,rlmin,rlmax,fC,Tlm,Elm,nside,gtype)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qte(lmax,rlmin,rlmax,fC,Tlm,Elm,nside,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -279,30 +239,27 @@
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the TB quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)   : maximum multipole of output lensing potential alms</li>
-<li>rL   (int)   : minimum rL[0] and maximum multipoles rlmax of CMB, with bounds (2)</li>
-<li>fC[l] (double): temperature-E cross-angular power spectrum, with bounds (0:rlmax)</li>
-<li>Tlm  (dcmplx): inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
-<li>Blm  (dcmplx): inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</li>
-</ul>
-</dd>
+<dd>:lmax (<em>int</em>)         : Maximum multipole of output lensing potential alms
+:rlmin/rlmax (<em>int</em>)  : Minimum/Maximum multipole of CMB for reconstruction
+:fC [<em>l</em>] (<em>double</em>)    : Temperature-E cross-angular power spectrum, with bounds (0:rlmax)
+:Tlm [<em>l,m</em>] (<em>dcmplx</em>) : Inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)
+:Blm [<em>l,m</em>] (<em>dcmplx</em>) : Inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>nside (int)  : Nside for the convolution calculation, default to lmax</li>
-<li>gtype (str)       : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</li>
-</ul>
-</dd>
+<dd>:nside (<em>int</em>)  : Nside for the convolution calculation, default to lmax
+:gtype (<em>str</em>)  : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>glm (dcmplx) : CMB lensing potential, with bounds (0:lmax,0:lmax)</li>
-<li>clm (dcmplx) : curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
+<dd>:glm (<em>dcmplx</em>) : CMB lensing potential, with bounds (0:lmax,0:lmax)
+:clm (<em>dcmplx</em>) : Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., glm,clm = curvedsky.rec_lens.qtb(lmax,rlmin,rlmax,fC,Tlm,Blm,nside,gtype)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qtb(lmax,rlmin,rlmax,fC,Tlm,Blm,nside,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -313,30 +270,27 @@
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the EE quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)   : maximum multipole of output lensing potential alms</li>
-<li>rL   (int)   : minimum rL[0] and maximum multipoles rlmax of CMB, with bounds (2)</li>
-<li>fC[l] (double): E-mode angular power spectrum, with bounds (0:rlmax)</li>
-<li>Elm1 (dcmplx): 1st inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</li>
-<li>Elm2 (dcmplx): 2nd inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</li>
-</ul>
-</dd>
+<dd>:lmax (<em>int</em>)        : Maximum multipole of output lensing potential alms
+:rlmin/rlmax (<em>int</em>) : Minimum/Maximum multipole of CMB for reconstruction
+:fC [<em>l</em>] (<em>double</em>) : E-mode angular power spectrum, with bounds (0:rlmax)
+:Elm1 [<em>l,m</em>] (<em>dcmplx</em>): 1st inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)
+:Elm2 [<em>l,m</em>] (<em>dcmplx</em>): 2nd inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>nside (int)  : Nside for the convolution calculation, default to lmax</li>
-<li>gtype (str)       : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</li>
-</ul>
-</dd>
+<dd>:nside (<em>int</em>)  : Nside for the convolution calculation, default to lmax
+:gtype (<em>str</em>)  : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>glm (dcmplx) : CMB lensing potential, with bounds (0:lmax,0:lmax)</li>
-<li>clm (dcmplx) : curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
+<dd>:glm (<em>dcmplx</em>) : CMB lensing potential, with bounds (0:lmax,0:lmax)
+:clm (<em>dcmplx</em>) : Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., glm,clm = curvedsky.rec_lens.qee(lmax,rlmin,rlmax,fC,Elm1,Elm2,nside,gtype)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qee(lmax,rlmin,rlmax,fC,Elm1,Elm2,nside,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -347,30 +301,27 @@
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the EB quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)   : maximum multipole of output lensing potential alms</li>
-<li>rL   (int)   : minimum rL[0] and maximum multipoles rlmax of CMB, with bounds (2)</li>
-<li>fC[l] (double): E-mode angular power spectrum, with bounds (0:rlmax)</li>
-<li>Elm  (dcmplx): inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</li>
-<li>Blm  (dcmplx): inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</li>
-</ul>
-</dd>
+<dd>:lmax (<em>int</em>)         : Maximum multipole of output lensing potential alms
+:rlmin/rlmax (<em>int</em>)  : Minimum/Maximum multipole of CMB for reconstruction
+:fC [<em>l</em>] (<em>double</em>)    : E-mode angular power spectrum, with bounds (0:rlmax)
+:Elm [<em>l,m</em>] (<em>dcmplx</em>) : Inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)
+:Blm [<em>l,m</em>] (<em>dcmplx</em>) : Inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>nside (int)  : Nside for the convolution calculation, default to lmax</li>
-<li>gtype (str)       : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</li>
-</ul>
-</dd>
+<dd>:nside (<em>int</em>)  : Nside for the convolution calculation, default to lmax
+:gtype (<em>str</em>)  : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>glm (dcmplx) : CMB lensing potential, with bounds (0:lmax,0:lmax)</li>
-<li>clm (dcmplx) : curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
+<dd>:glm (<em>dcmplx</em>) : CMB lensing potential, with bounds (0:lmax,0:lmax)
+:clm (<em>dcmplx</em>) : Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., glm,clm = curvedsky.rec_lens.qeb(lmax,rlmin,rlmax,fC,Elm,Blm,nside,gtype)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qeb(lmax,rlmin,rlmax,fC,Elm,Blm,nside,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -381,30 +332,27 @@
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the BB quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)   : maximum multipole of output lensing potential alms</li>
-<li>rL   (int)   : minimum rL[0] and maximum multipoles rlmax of CMB, with bounds (2)</li>
-<li>fC[l] (double): B-mode angular power spectrum, with bounds (0:rlmax)</li>
-<li>Blm1 (dcmplx): 1st inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</li>
-<li>Blm2 (dcmplx): 2nd inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</li>
-</ul>
-</dd>
+<dd>:lmax (<em>int</em>)    : Maximum multipole of output lensing potential alms
+:rlmin/rlmax (<em>int</em>) : Minimum/Maximum multipoles of CMB for reconstruction
+:fC [<em>l</em>] (<em>double</em>): B-mode angular power spectrum, with bounds (0:rlmax)
+:Blm1 [<em>l,m</em>] (<em>dcmplx</em>) : 1st inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)
+:Blm2 [<em>l,m</em>] (<em>dcmplx</em>) : 2nd inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>nside (int)  : Nside for the convolution calculation, default to lmax</li>
-<li>gtype (str)       : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</li>
-</ul>
-</dd>
+<dd>:nside (<em>int</em>)  : Nside for the convolution calculation, default to lmax
+:gtype (<em>str</em>)  : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>glm (dcmplx) : CMB lensing potential, with bounds (0:lmax,0:lmax)</li>
-<li>clm (dcmplx) : curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
+<dd>:glm (<em>dcmplx</em>) : CMB lensing potential, with bounds (0:lmax,0:lmax)
+:clm (<em>dcmplx</em>) : Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., glm,clm = curvedsky.rec_lens.qbb(lmax,rlmin,rlmax,fC,Blm1,Blm2,nside,gtype)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qbb(lmax,rlmin,rlmax,fC,Blm1,Blm2,nside,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -418,28 +366,25 @@
 <dd><p>Reconstructing pol rotation angle from the EB quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)   : maximum multipole of output lensing potential alms</li>
-<li>rL   (int)   : minimum rL[0] and maximum multipoles rlmax of CMB, with bounds (2)</li>
-<li>fCE[l] (double): E-mode angular power spectrum, with bounds (0:rlmax)</li>
-<li>Elm  (dcmplx): inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</li>
-<li>Blm  (dcmplx): inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</li>
-</ul>
-</dd>
+<dd>:lmax (<em>int</em>)         : Maximum multipole of output lensing potential alms
+:rlmin/rlmax (<em>int</em>)  : Minimum/Maximum multipole of CMB for reconstruction
+:fCE [<em>l</em>] (<em>double</em>)   : E-mode angular power spectrum, with bounds (0:rlmax)
+:Elm [<em>l,m</em>] (<em>dcmplx</em>) : Inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)
+:Blm [<em>l,m</em>] (<em>dcmplx</em>) : Inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>nside (int)  : Nside for the convolution calculation, default to lmax</li>
-</ul>
-</dd>
+<dd>:nside (<em>int</em>)  : Nside for the convolution calculation, default to lmax</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>alm (dcmplx) : pol rotation angle, with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
+<dd>:alm [<em>l,m</em>] (<em>dcmplx</em>) : Rotation angle alm, with bounds (0:lmax,0:lmax)</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., alm = curvedsky.rec_rot.qeb(lmax,rlmin,rlmax,fCE,Elm,Blm,nside)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.rec_rot.qeb(lmax,rlmin,rlmax,fCE,Elm,Blm,nside):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -453,28 +398,24 @@
 <dd><p>Reconstructing inhomogeneous tau from the temperature quadratic estimator, assuming Tlm1=Tlm2</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)        : maximum multipole of output tau alms</li>
-<li>rlmin (int)       : minimum multipole of CMB for reconstruction</li>
-<li>rlmax (int)       : maximum multipole of CMB for reconstruction</li>
-<li>fC[l] (double)    : temperature angular power spectrum, with bounds (1:rlmax)</li>
-<li>Tlm[l,m] (dcmplx) : inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
-</ul>
-</dd>
+<dd>:lmax (<em>int</em>)         : Maximum multipole of output tau alms
+:rlmin/rlmax (<em>int</em>)   : Minimum/Maximum multipole of CMB for reconstruction
+:fC [<em>l</em>] (<em>double</em>)    : Temperature angular power spectrum, with bounds (1:rlmax)
+:Tlm [<em>l,m</em>] (<em>dcmplx</em>) : Inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>nside (int)       : Nside for the convolution calculation, default to lmax</li>
-</ul>
-</dd>
+<dd>:nside (<em>int</em>)       : Nside for the convolution calculation, default to lmax</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>xlm[l,m] (dcmplx) : inhomogeneous tau alm, with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
+<dd>:xlm [<em>l,m</em>] (<em>dcmplx</em>) : Inhomogeneous tau alm, with bounds (0:lmax,0:lmax)</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., xlm = curvedsky.rec_tau.qtt_sym(lmax,rlmin,rlmax,fC,Tlm,nside)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">xlm = curvedsky.rec_tau.qtt_sym(lmax,rlmin,rlmax,fC,Tlm,nside):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -485,29 +426,25 @@
 <dd><p>Reconstructing inhomogeneous tau from the temperature quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)        : maximum multipole of output tau alms</li>
-<li>rlmin (int)       : minimum multipole of CMB for reconstruction</li>
-<li>rlmax (int)       : maximum multipole of CMB for reconstruction</li>
-<li>fC[l] (double)    : temperature angular power spectrum, with bounds (1:rlmax)</li>
-<li>Tlm1[l,m] (dcmplx): 1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
-<li>Tlm2[l,m] (dcmplx): 2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
-</ul>
-</dd>
+<dd>:lmax (<em>int</em>)         : Maximum multipole of output tau alms
+:rlmin/rlmax (<em>int</em>)   : Minimum/Maximum multipole of CMB for reconstruction
+:fC [<em>l</em>] (<em>double</em>)    : Temperature angular power spectrum, with bounds (1:rlmax)
+:Tlm1 [<em>l,m</em>] (<em>dcmplx</em>): 1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)
+:Tlm2 [<em>l,m</em>] (<em>dcmplx</em>): 2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>nside (int)       : Nside for the convolution calculation, default to lmax</li>
-</ul>
-</dd>
+<dd>:nside (<em>int</em>)       : Nside for the convolution calculation, default to lmax</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>xlm[l,m] (dcmplx) : inhomogeneous tau alm, with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
+<dd>:xlm [<em>l,m</em>] (<em>dcmplx</em>) : Inhomogeneous tau alm, with bounds (0:lmax,0:lmax)</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., xlm = curvedsky.rec_tau.qtt(lmax,rlmin,rlmax,fC,Tlm1,Tlm2,nside)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">xlm = curvedsky.rec_tau.qtt(lmax,rlmin,rlmax,fC,Tlm1,Tlm2,nside):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -521,31 +458,27 @@
 <dd><p>Reconstructing point sources from the temperature quadratic estimator, assuming Tlm1=Tlm2</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)        : maximum multipole of output point-source alms</li>
-<li>rlmin (int)       : minimum multipole of CMB for reconstruction</li>
-<li>rlmax (int)       : maximum multipole of CMB for reconstruction</li>
-<li>Tlm[l,m] (dcmplx) : inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
-</ul>
-</dd>
+<dd>:lmax (<em>int</em>)         : Maximum multipole of output point-source alms
+:rlmin/rlmax (<em>int</em>)   : Minimum/Maximum multipole of CMB for reconstruction
+:Tlm [<em>l,m</em>] (<em>dcmplx</em>) : Inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>nside (int)       : Nside for the convolution calculation, default to lmax</li>
-</ul>
-</dd>
+<dd>:nside (<em>int</em>)       : Nside for the convolution calculation, default to lmax</dd>
 <dt>Returns:</dt>
 <dd><blockquote class="first">
-<div><ul class="simple">
-<li>slm[l,m] (dcmplx) : point-source alm, with bounds (0:lmax,0:lmax)</li>
-</ul>
-</div></blockquote>
+<div>:slm [<em>l,m</em>] (<em>dcmplx</em>) : Point-source alm, with bounds (0:lmax,0:lmax)</div></blockquote>
 <p class="last">alm to map 
 map to alm</p>
 </dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., slm = curvedsky.rec_src.qtt_sym(lmax,rlmin,rlmax,Tlm,nside)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">slm = curvedsky.rec_src.qtt_sym(lmax,rlmin,rlmax,Tlm,nside):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -556,32 +489,28 @@ map to alm</p>
 <dd><p>Reconstructing point sources from the temperature quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)        : maximum multipole of output point-source alms</li>
-<li>rlmin (int)       : minimum multipole of CMB for reconstruction</li>
-<li>rlmax (int)       : maximum multipole of CMB for reconstruction</li>
-<li>Tlm1[l,m] (dcmplx): 1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
-<li>Tlm2[l,m] (dcmplx): 2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</li>
-</ul>
-</dd>
+<dd>:lmax (<em>int</em>)         : Maximum multipole of output point-source alms
+:rlmin/rlmax (<em>int</em>)   : Minimum/Maximum multipole of CMB for reconstruction
+:Tlm1 [<em>l,m</em>] (<em>dcmplx</em>): 1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)
+:Tlm2 [<em>l,m</em>] (<em>dcmplx</em>): 2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>nside (int)       : Nside for the convolution calculation, default to lmax</li>
-</ul>
-</dd>
+<dd>:nside (<em>int</em>)       : Nside for the convolution calculation, default to lmax</dd>
 <dt>Returns:</dt>
 <dd><blockquote class="first">
-<div><ul class="simple">
-<li>slm[l,m] (dcmplx) : point-source alm, with bounds (0:lmax,0:lmax)</li>
-</ul>
-</div></blockquote>
+<div>:slm [<em>l,m</em>] (<em>dcmplx</em>) : Point-source alm, with bounds (0:lmax,0:lmax)</div></blockquote>
 <p class="last">alm to map 
 map to alm</p>
 </dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., slm = curvedsky.rec_src.qtt(lmax,rlmin,rlmax,Tlm1,Tlm2,nside)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">slm = curvedsky.rec_src.qtt(lmax,rlmin,rlmax,Tlm1,Tlm2,nside):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -595,29 +524,33 @@ map to alm</p>
 <dd><p>Normalization of reconstructed CMB lensing potential and its curl mode from the temperature quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)     : maximum multipole of output lensing potential alms</li>
-<li>rlmin (int)    : minimum multipole of CMB for reconstruction</li>
-<li>rlmax (int)    : maximum multipole of CMB for reconstruction</li>
-<li>fC[l] (double) : theory temperature angular power spectrum, with bounds (0:rlmax)</li>
-<li>OCT[l] (double): observed temperature angular power spectrum, with bounds (0:rlmax)</li>
-</ul>
+<dd><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output lensing potential alms</td>
+</tr>
+</tbody>
+</table>
+<p class="last">:rlmin/rlmax (<em>int</em>)   : Minimum/Maximum multipole of CMB for reconstruction
+:fC [<em>l</em>] (<em>double</em>) : Theory temperature angular power spectrum, with bounds (0:rlmax)
+:OCT [<em>l</em>] (<em>double</em>): Observed temperature angular power spectrum, with bounds (0:rlmax)</p>
 </dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>gtype (str)    : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</li>
-</ul>
-</dd>
+<dd>:gtype (<em>str</em>)    : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>Ag[l] (double) : CMB lensing potential normalization, with bounds (0:lmax)</li>
-<li>Ac[l] (double) : curl mode (pseudo lensing potential) normalization, with bounds (0:lmax)</li>
-</ul>
-</dd>
+<dd>:Ag [<em>l</em>] (<em>double</em>) : CMB lensing potential normalization, with bounds (0:lmax)
+:Ac [<em>l</em>] (<em>double</em>) : Curl mode (pseudo lensing potential) normalization, with bounds (0:lmax)</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., Ag,Ac = curvedsky.norm_lens.qtt(lmax,rlmin,rlmax,fC,OCT,gtype)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = curvedsky.norm_lens.qtt(lmax,rlmin,rlmax,fC,OCT,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -627,9 +560,15 @@ map to alm</p>
 <code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>OCE</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qte" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., Ag,Ac = curvedsky.norm_lens.qte(lmax,rlmin,rlmax,fC,OCT,OCE,gtype)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = curvedsky.norm_lens.qte(lmax,rlmin,rlmax,fC,OCT,OCE,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -639,9 +578,15 @@ map to alm</p>
 <code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>OCB</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qtb" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., Ag,Ac = curvedsky.norm_lens.qtb(lmax,rlmin,rlmax,fC,OCT,OCB,gtype)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = curvedsky.norm_lens.qtb(lmax,rlmin,rlmax,fC,OCT,OCB,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -651,9 +596,15 @@ map to alm</p>
 <code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCE</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qee" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., Ag,Ac = curvedsky.norm_lens.qee(lmax,rlmin,rlmax,fC,OCE,gtype)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = curvedsky.norm_lens.qee(lmax,rlmin,rlmax,fC,OCE,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -663,9 +614,15 @@ map to alm</p>
 <code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCE</em>, <em>OCB</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qeb" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., Ag,Ac = curvedsky.norm_lens.qeb(lmax,rlmin,rlmax,fC,OCE,OCB,gtype)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = curvedsky.norm_lens.qeb(lmax,rlmin,rlmax,fC,OCE,OCB,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -675,9 +632,15 @@ map to alm</p>
 <code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCB</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qbb" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., Ag,Ac = curvedsky.norm_lens.qbb(lmax,rlmin,rlmax,fC,OCB,gtype)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = curvedsky.norm_lens.qbb(lmax,rlmin,rlmax,fC,OCB,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -687,9 +650,15 @@ map to alm</p>
 <code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qttte</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCTT</em>, <em>fCTE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCTE</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qttte" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., Ig,Ic = curvedsky.norm_lens.qttte(lmax,rlmin,rlmax,fCTT,fCTE,OCT,OCE,OCTE,gtype)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ig,Ic = curvedsky.norm_lens.qttte(lmax,rlmin,rlmax,fCTT,fCTE,OCT,OCE,OCTE,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -699,9 +668,15 @@ map to alm</p>
 <code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qttee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCTT</em>, <em>fCEE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCTE</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qttee" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., Ig,Ic = curvedsky.norm_lens.qttee(lmax,rlmin,rlmax,fCTT,fCEE,OCT,OCE,OCTE,gtype)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ig,Ic = curvedsky.norm_lens.qttee(lmax,rlmin,rlmax,fCTT,fCEE,OCT,OCE,OCTE,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -711,9 +686,15 @@ map to alm</p>
 <code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qteee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCEE</em>, <em>fCTE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCTE</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qteee" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., Ig,Ic = curvedsky.norm_lens.qteee(lmax,rlmin,rlmax,fCEE,fCTE,OCT,OCE,OCTE,gtype)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ig,Ic = curvedsky.norm_lens.qteee(lmax,rlmin,rlmax,fCEE,fCTE,OCT,OCE,OCTE,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -723,9 +704,15 @@ map to alm</p>
 <code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qtbeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCEE</em>, <em>fCBB</em>, <em>fCTE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCB</em>, <em>OCTE</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qtbeb" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., Ig,Ic = curvedsky.norm_lens.qtbeb(lmax,rlmin,rlmax,fCEE,fCBB,fCTE,OCT,OCE,OCB,OCTE,gtype)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ig,Ic = curvedsky.norm_lens.qtbeb(lmax,rlmin,rlmax,fCEE,fCBB,fCTE,OCT,OCE,OCB,OCTE,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -733,29 +720,96 @@ map to alm</p>
 <dl class="function">
 <dt id="curvedsky.norm_lens.qmv">
 <code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qmv</code><span class="sig-paren">(</span><em>lmax</em>, <em>QDO</em>, <em>Al</em>, <em>Il</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qmv" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute MV estimator
-lmax         — Maximum multipole of MV(l)
-QDO(6)       — T/F array, specifying which estimators to be used for MV
-Oder of QDO: TT, TE, EE, TB, EB</p>
-<blockquote>
-<div><dl class="docutils">
+<dd><p>Compute MV estimator normalization. Currently BB is ignored.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the output power spectra</td>
+</tr>
+<tr class="field-even field"><th class="field-name">QDO[<em>6</em>] (<em>bool</em>):</th><td class="field-body">Specifying which estimators to be combined for the minimum variance estimator, with size (6). The oder is TT, TE, EE, TB, EB and BB.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Al [<em>5,l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Normalizations of each estimator (TT, TE, EE, TB, EB).</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Il [<em>4,l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Correlation between different estimators (TTxTE, TTxEE, TExEE, TBxEB).</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">MV [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Normalization of the MV estimator, with bounds (0:lmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Nl [<em>6,l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Weights for each estimator (TT, TE, EE, TB, EB, BB=0), with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., MV,Nl = curvedsky.norm_lens.qmv(lmax,QDO,Al,Il)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">MV,Nl = curvedsky.norm_lens.qmv(lmax,QDO,Al,Il):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
-</div></blockquote>
 </dd></dl>
 
 <dl class="function">
 <dt id="curvedsky.norm_lens.qall">
 <code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qall</code><span class="sig-paren">(</span><em>QDO</em>, <em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OC</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qall" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>Compute MV estimator normalization. Currently BB is ignored.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">QDO[<em>6</em>] (<em>bool</em>):</th><td class="field-body">Specifying which estimators to be combined for the minimum variance estimator, with size (6). The oder is TT, TE, EE, TB, EB and BB.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the output power spectra</td>
+</tr>
+</tbody>
+</table>
+<p class="last">:rlmin/rlmax (<em>int</em>)   : Minimum/Maximum multipole of CMB for reconstruction
+:fC/OC [<em>l</em>] (<em>double</em>): Theory/Observed CMB angular power spectra (TT, EE, BB, TE), with bounds (0:rlmax)</p>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd>:Ag/Ac [<em>6,l</em>] (<em>double</em>)   : Normalization of the TT, TE, EE, TB, EB, and MV estimators for gradient/curl modes, with bounds (6,0:lmax)
+:Nlg/Nlc [<em>6,l</em>] (<em>double</em>) : Weights for TT, TE, EE, TB, EB, and BB (=0) estimators for gradient/curl modes, with bounds (6,0:lmax)</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., Ag,Ac,Nlg,Nlc = curvedsky.norm_lens.qall(QDO,lmax,rlmin,rlmax,fC,OC,gtype)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac,Nlg,Nlc = curvedsky.norm_lens.qall(QDO,lmax,rlmin,rlmax,fC,OC,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -765,9 +819,15 @@ Oder of QDO: TT, TE, EE, TB, EB</p>
 <code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qeb_iter</code><span class="sig-paren">(</span><em>rlmin</em>, <em>rlmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>fCEE</em>, <em>Cpp</em>, <em>oEE</em>, <em>oBB</em>, <em>iter=None</em>, <em>conv=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qeb_iter" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., Alg,Alc = curvedsky.norm_lens.qeb_iter(rlmin,rlmax,dlmin,dlmax,fCEE,Cpp,oEE,oBB,iter,conv)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Alg,Alc = curvedsky.norm_lens.qeb_iter(rlmin,rlmax,dlmin,dlmax,fCEE,Cpp,oEE,oBB,iter,conv):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -780,9 +840,15 @@ Oder of QDO: TT, TE, EE, TB, EB</p>
 <code class="descclassname">curvedsky.norm_rot.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCEE</em>, <em>OCEE</em>, <em>OCBB</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_rot.qeb" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., Al = curvedsky.norm_rot.qeb(lmax,rlmin,rlmax,fCEE,OCEE,OCBB)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Al = curvedsky.norm_rot.qeb(lmax,rlmin,rlmax,fCEE,OCEE,OCBB):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -795,9 +861,15 @@ Oder of QDO: TT, TE, EE, TB, EB</p>
 <code class="descclassname">curvedsky.norm_tau.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCTT</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_tau.qtt" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., Al = curvedsky.norm_tau.qtt(lmax,rlmin,rlmax,fC,OCTT)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Al = curvedsky.norm_tau.qtt(lmax,rlmin,rlmax,fC,OCTT):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -810,9 +882,15 @@ Oder of QDO: TT, TE, EE, TB, EB</p>
 <code class="descclassname">curvedsky.norm_src.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>OCTT</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_src.qtt" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., Al = curvedsky.norm_src.qtt(lmax,rlmin,rlmax,OCTT)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Al = curvedsky.norm_src.qtt(lmax,rlmin,rlmax,OCTT):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -826,30 +904,36 @@ Oder of QDO: TT, TE, EE, TB, EB</p>
 <dd><p>Computing lensing B mode as a convolution of wiener-filtered E-mode and lensing potential</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)        : maximum multipole of output lensing B-mode alm</li>
-<li>elmin (int)       : minimum multipole of wiener-filtered E-mode alm</li>
-<li>elmax (int)       : maximum multipole of wiener-filtered E-mode alm</li>
-<li>plmin (int)       : minimum multipole of wiener-filtered lensing potential alm</li>
-<li>plmax (int)       : maximum multipole of wiener-filtered lensing potential alm</li>
-<li>wElm[l,m] (dcmplx): wiener-filtered E-mode alm, with bounds (0:elmax,0:elmax)</li>
-<li>wplm[l,m] (dcmplx): wiener-filtered lensing potential alm, with bounds (0:plmax,0:plmax)</li>
-</ul>
-</dd>
+<dd>:lmax (<em>int</em>)         : Maximum multipole of output lensing B-mode alm
+:elmin (<em>int</em>)        : Minimum multipole of wiener-filtered E-mode alm
+:elmax (<em>int</em>)        : Maximum multipole of wiener-filtered E-mode alm
+:plmin (<em>int</em>)        : Minimum multipole of wiener-filtered lensing potential alm
+:plmax (<em>int</em>)        : Maximum multipole of wiener-filtered lensing potential alm
+:wElm [<em>l,m</em>] (<em>dcmplx</em>): Wiener-filtered E-mode alm, with bounds (0:elmax,0:elmax)
+:wplm [<em>l,m</em>] (<em>dcmplx</em>): Wiener-filtered lensing potential alm, with bounds (0:plmax,0:plmax)</dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>nside (int)       : Nside for the convolution calculation, default to lmax</li>
-</ul>
-</dd>
+<dd>:nside (<em>int</em>)        : Nside for the convolution calculation, default to lmax</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>lBlm[l,m] (dcmplx): Lensing B-mode alm, with bounds (0:lmax,0:lmax)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">lBlm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Lensing B-mode alm, with bounds (0:lmax,0:lmax)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., lBlm = curvedsky.delens.lensingb(lmax,elmin,elmax,plmin,plmax,wElm,wplm,nside)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">lBlm = curvedsky.delens.lensingb(lmax,elmin,elmax,plmin,plmax,wElm,wplm,nside):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -863,26 +947,32 @@ Oder of QDO: TT, TE, EE, TB, EB</p>
 <p>and alphaw is the filtered lensing deflection vector (see arXiv:1701.01712).</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>npix (int)          : pixel number of output shift vector</li>
-<li>lmax (int)          : maximum multipole of the input plm</li>
-<li>plm[l,m] (dcmplx)   : wiener-filtered lensing potential alm, with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
+<dd>:npix (<em>int</em>)           : Pixel number of output shift vector
+:lmax (<em>int</em>)           : Maximum multipole of the input plm
+:plm [<em>l,m</em>] (<em>dcmplx</em>)   : Wiener-filtered lensing potential alm, with bounds (0:lmax,0:lmax)</dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>nremap (int)        : number of iteration for computing the shift vector</li>
-</ul>
-</dd>
+<dd>:nremap (<em>int</em>)         : Number of iteration for computing the shift vector</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>beta[pix,2] (double): 2D shift vector, with bounds (0:npix-1,1:2)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">beta [<em>pix,2</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D shift vector, with bounds (0:npix-1,1:2)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., beta = curvedsky.delens.shiftvec(npix,lmax,plm,nremap)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">beta = curvedsky.delens.shiftvec(npix,lmax,plm,nremap):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -891,25 +981,25 @@ Oder of QDO: TT, TE, EE, TB, EB</p>
 <dt id="curvedsky.delens.remap_tp">
 <code class="descclassname">curvedsky.delens.</code><code class="descname">remap_tp</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>beta</em>, <em>alm_in</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.delens.remap_tp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remapping CMB temperaure and polarization with a given shift vector, grad, based on a simple implementation of LensPix. 
-alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
+alm[<em>0,:,:</em>] is temperature, alm[<em>1,:,:</em>] is E mode, and alm[<em>2,:,:</em>] is B mode.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>npix (int)               : pixel number of output shift vector</li>
-<li>lmax (int)               : maximum multipole of the input plm</li>
-<li>beta[pix,2] (double)     : 2D shift vector, with bounds (0:npix-1,1:2)</li>
-<li>alm_in[TEB,l,m] (dcmplx) : input T/E/B alms to be remapped, with bounds (1:3,0:lmax,0:lmax).</li>
-</ul>
-</dd>
+<dd>:npix (<em>int</em>)                : Pixel number of output shift vector
+:lmax (<em>int</em>)                : Maximum multipole of the input plm
+:beta [<em>pix,2</em>] (<em>double</em>)     : 2D shift vector, with bounds (0:npix-1,1:2)
+:alm_in [<em>TEB,l,m</em>] (<em>dcmplx</em>) : Input T/E/B alms to be remapped, with bounds (1:3,0:lmax,0:lmax).</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>alm_re[TEB,l,m] (dcmplx) : remapped T/E/B alms, with bounds (1:3,0:lmax,0:lmax).</li>
-</ul>
-</dd>
+<dd>:alm_re [<em>TEB,l,m</em>] (<em>dcmplx</em>) : Remapped T/E/B alms, with bounds (1:3,0:lmax,0:lmax).</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., alm_re = curvedsky.delens.remap_tp(npix,lmax,beta,alm_in)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm_re = curvedsky.delens.remap_tp(npix,lmax,beta,alm_in):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -926,20 +1016,20 @@ alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
 <p>where delta^L(n) is a gaussian field obtained from the input alm.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)        : maximum multipole of alm</li>
-<li>alm[l,m] (dcmplx) : input harmonic coefficients, with bounds (0:lmax,0:lmax).</li>
-</ul>
-</dd>
+<dd>:lmax (<em>int</em>)         : Maximum multipole of alm
+:alm [<em>l,m</em>] (<em>dcmplx</em>) : Input harmonic coefficients, with bounds (0:lmax,0:lmax).</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>qlm[l,m] (dcmplx) : output harmonic coefficients of the non-Gaussian fields, with bounds (0:lmax,0:lmax).</li>
-</ul>
-</dd>
+<dd>:qlm [<em>l,m</em>] (<em>dcmplx</em>) : Output harmonic coefficients of the non-Gaussian fields, with bounds (0:lmax,0:lmax).</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., qlm = curvedsky.bispec.make_quad_gauss(lmax,alm)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">qlm = curvedsky.bispec.make_quad_gauss(lmax,alm):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -950,27 +1040,24 @@ alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
 <dd><p>Return normalization of the binned reduced bispectrum for a given multipole bin</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>bn (int)          : number of multipole bins</li>
-<li>bp[edge] (double) : bin edges, with bounds (bn+1)</li>
-</ul>
-</dd>
+<dd>:bn (<em>int</em>)           : Number of multipole bins
+:bp [<em>edge</em>] (<em>double</em>) : Bin edges, with bounds (bn+1)</dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>bstype (str) : configuration of the bispectrum, default to equilateral</li>
-<li>bst (int)    : a parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</li>
-<li>sL[2] (int)  : the fixed bin for the squeezed configuration, b[sL,eL,eL], default to the lowest multipole bin</li>
-</ul>
-</dd>
+<dd>:bstype (<em>str</em>)  : Configuration of the bispectrum, default to equilateral
+:bst (<em>int</em>)     : A parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.
+:sL[<em>2</em>] (<em>int</em>)   : The fixed bin for the squeezed configuration, b[<em>sL,eL,eL</em>], default to the lowest multipole bin</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>norm[bin] (double) : normalization of the binned reduced bispectrum at each bin, with bounds (bn)</li>
-</ul>
-</dd>
+<dd>:norm [<em>bin</em>] (<em>double</em>) : Normalization of the binned reduced bispectrum at each bin, with bounds (bn)</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., norm = curvedsky.bispec.bispec_norm(bn,bp,bstype,bst,sL)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">norm = curvedsky.bispec.bispec_norm(bn,bp,bstype,bst,sL):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -981,29 +1068,26 @@ alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
 <dd><p>Return the unnormalized binned reduced bispectrum for a given multipole bin</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>bn (int)          : number of multipole bins</li>
-<li>bp[edge] (double) : bin edges, with bounds (bn+1)</li>
-<li>lmax (int)        : maximum multipole of the input alm</li>
-<li>alm[l,m] (dcmplx) : input harmonic coefficients, with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
+<dd>:bn (<em>int</em>)           : Number of multipole bins
+:bp [<em>edge</em>] (<em>double</em>) : Bin edges, with bounds (bn+1)
+:lmax (<em>int</em>)         : Maximum multipole of the input alm
+:alm [<em>l,m</em>] (<em>dcmplx</em>) : Input harmonic coefficients, with bounds (0:lmax,0:lmax)</dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>bstype (str) : configuration of the bispectrum, default to equilateral</li>
-<li>bst (int) : a parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</li>
-<li>sL[2] (int)  : the fixed bin for the squeezed configuration, b[sL,eL,eL], default to the lowest multipole bin</li>
-</ul>
-</dd>
+<dd>:bstype (<em>str</em>)  : Configuration of the bispectrum, default to equilateral
+:bst (<em>int</em>)     : A parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.
+:sL[<em>2</em>] (<em>int</em>)   : The fixed bin for the squeezed configuration, b[<em>sL,eL,eL</em>], default to the lowest multipole bin</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>bis[bin] (double) : the unnormalized binned reduced bispectrum at each bin, with bounds (bn)</li>
-</ul>
-</dd>
+<dd>:bis [<em>bin</em>] (<em>double</em>) : The unnormalized binned reduced bispectrum at each bin, with bounds (bn)</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., bis = curvedsky.bispec.bispec_bin(bn,bp,lmax,alm,bstype,bst,sL)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">bis = curvedsky.bispec.bispec_bin(bn,bp,lmax,alm,bstype,bst,sL):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -1011,29 +1095,26 @@ alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
 <dl class="function">
 <dt id="curvedsky.bispec.equi">
 <code class="descclassname">curvedsky.bispec.</code><code class="descname">equi</code><span class="sig-paren">(</span><em>lmin</em>, <em>lmax</em>, <em>alm</em>, <em>bst=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.bispec.equi" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute equilateral shape of the unnormalized binned reduced bispectrum for a given alm, b[l,l,l]</p>
+<dd><p>Compute equilateral shape of the unnormalized binned reduced bispectrum for a given alm, b[<em>l,l,l</em>]</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmin (int)        : minimum multipole of the bin</li>
-<li>lmax (int)        : maximum multipole of the bin</li>
-<li>alm[l,m] (dcmplx) : input harmonic coefficients, with bounds (0:lmax,0:lmax).</li>
-</ul>
-</dd>
+<dd>:lmin (<em>int</em>)        : Minimum multipole of the bin
+:lmax (<em>int</em>)        : Maximum multipole of the bin
+:alm [<em>l,m</em>] (<em>dcmplx</em>) : Input harmonic coefficients, with bounds (0:lmax,0:lmax).</dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>bst (int)         : a parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</li>
-</ul>
-</dd>
+<dd>:bst (<em>int</em>)         : A parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>bispec (double)   : unnormalized binned reduced bispectrum at the bin, [lmin,lmax]</li>
-</ul>
-</dd>
+<dd>:bispec (<em>double</em>)   : Unnormalized binned reduced bispectrum at the bin, [<em>lmin,lmax</em>]</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., bispec = curvedsky.bispec.equi(lmin,lmax,alm,bst)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">bispec = curvedsky.bispec.equi(lmin,lmax,alm,bst):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -1041,29 +1122,26 @@ alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
 <dl class="function">
 <dt id="curvedsky.bispec.fold">
 <code class="descclassname">curvedsky.bispec.</code><code class="descname">fold</code><span class="sig-paren">(</span><em>lmin</em>, <em>lmax</em>, <em>alm</em>, <em>bst=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.bispec.fold" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute folded shape of the unnormalized binned reduced bispectrum for a given alm, b[l,l/2,l/2]</p>
+<dd><p>Compute folded shape of the unnormalized binned reduced bispectrum for a given alm, b[<em>l,l/2,l/2</em>]</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmin (int)        : minimum multipole of the bin</li>
-<li>lmax (int)        : maximum multipole of the bin</li>
-<li>alm[l,m] (dcmplx) : input harmonic coefficients, with bounds (0:lmax,0:lmax).</li>
-</ul>
-</dd>
+<dd>:lmin (<em>int</em>)        : Minimum multipole of the bin
+:lmax (<em>int</em>)        : Maximum multipole of the bin
+:alm [<em>l,m</em>] (<em>dcmplx</em>) : Input harmonic coefficients, with bounds (0:lmax,0:lmax).</dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>bst (int)         : a parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</li>
-</ul>
-</dd>
+<dd>:bst (<em>int</em>)         : A parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>bispec (double)   : unnormalized binned reduced bispectrum at the bin, [lmin,lmax]</li>
-</ul>
-</dd>
+<dd>:bispec (<em>double</em>)   : Unnormalized binned reduced bispectrum at the bin, [<em>lmin,lmax</em>]</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., bispec = curvedsky.bispec.fold(lmin,lmax,alm,bst)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">bispec = curvedsky.bispec.fold(lmin,lmax,alm,bst):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -1071,30 +1149,27 @@ alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
 <dl class="function">
 <dt id="curvedsky.bispec.sque">
 <code class="descclassname">curvedsky.bispec.</code><code class="descname">sque</code><span class="sig-paren">(</span><em>eL</em>, <em>sL</em>, <em>l1</em>, <em>alm</em>, <em>bst=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.bispec.sque" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute squeezed shape of the unnormalized binned reduced bispectrum for a given alm, b[sL,eL,eL]</p>
+<dd><p>Compute squeezed shape of the unnormalized binned reduced bispectrum for a given alm, b[<em>sL,eL,eL</em>]</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>eL[] (int)        : minimum and maximum multipoles of the bin, with bounds (2)</li>
-<li>sL[] (int)        : minimum and maximum multipoles of the fixed bin, with bounds (2)</li>
-<li>l1 (int)          : maximum multipole of the input alm, satisfying eLmax,sLmax&lt;=l1</li>
-<li>alm[l,m] (dcmplx) : input harmonic coefficients, with bounds (0:lmax,0:lmax).</li>
-</ul>
-</dd>
+<dd>:eL[<em>2</em>] (<em>int</em>)        : Minimum and maximum multipoles of the bin, with bounds (2)
+:sL[<em>2</em>] (<em>int</em>)        : Minimum and maximum multipoles of the fixed bin, with bounds (2)
+:l1 (<em>int</em>)           : Maximum multipole of the input alm, satisfying eLmax,sLmax&lt;=l1
+:alm [<em>l,m</em>] (<em>dcmplx</em>) : Input harmonic coefficients, with bounds (0:lmax,0:lmax).</dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>bst (int)         : a parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</li>
-</ul>
-</dd>
+<dd>:bst (<em>int</em>)         : A parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>bispec (double)   : unnormalized binned reduced bispectrum at the bin, [lmin,lmax]</li>
-</ul>
-</dd>
+<dd>:bispec (<em>double</em>)   : Unnormalized binned reduced bispectrum at the bin, [<em>lmin,lmax</em>]</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., bispec = curvedsky.bispec.sque(eL,sL,l1,alm,bst)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">bispec = curvedsky.bispec.sque(eL,sL,l1,alm,bst):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -1102,30 +1177,27 @@ alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
 <dl class="function">
 <dt id="curvedsky.bispec.isos">
 <code class="descclassname">curvedsky.bispec.</code><code class="descname">isos</code><span class="sig-paren">(</span><em>eL</em>, <em>aL</em>, <em>l1</em>, <em>alm</em>, <em>bst=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.bispec.isos" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute isosceles shape of the unnormalized binned reduced bispectrum for a given alm, b[eL,aL,aL]</p>
+<dd><p>Compute isosceles shape of the unnormalized binned reduced bispectrum for a given alm, b[<em>eL,aL,aL</em>]</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>eL[] (int)        : minimum and maximum multipoles of the bin, with bounds (2)</li>
-<li>aL[] (int)        : minimum and maximum multipoles of the fixed bin, with bounds (2)</li>
-<li>l1 (int)          : maximum multipole of the input alm, satisfying eLmax,sLmax&lt;=l1</li>
-<li>alm[l,m] (dcmplx) : input harmonic coefficients, with bounds (0:lmax,0:lmax).</li>
-</ul>
-</dd>
+<dd>:eL[<em>2</em>] (<em>int</em>)        : Minimum and maximum multipoles of the bin, with bounds (2)
+:aL[<em>2</em>] (<em>int</em>)        : Minimum and maximum multipoles of the fixed bin, with bounds (2)
+:l1 (<em>int</em>)           : Maximum multipole of the input alm, satisfying eLmax,sLmax&lt;=l1
+:alm [<em>l,m</em>] (<em>dcmplx</em>) : Input harmonic coefficients, with bounds (0:lmax,0:lmax).</dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>bst (int)         : a parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</li>
-</ul>
-</dd>
+<dd>:bst (<em>int</em>)         : A parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>bispec (double)   : unnormalized binned reduced bispectrum at the bin, [lmin,lmax]</li>
-</ul>
-</dd>
+<dd>:bispec (<em>double</em>)   : Unnormalized binned reduced bispectrum at the bin, [<em>lmin,lmax</em>]</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., bispec = curvedsky.bispec.isos(eL,aL,l1,alm,bst)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">bispec = curvedsky.bispec.isos(eL,aL,l1,alm,bst):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -1136,24 +1208,23 @@ alm[0,:,:] is temperature, alm[1,:,:] is E mode, and alm[2,:,:] is B mode.</p>
 <dl class="function">
 <dt id="curvedsky.utils.gauss1alm">
 <code class="descclassname">curvedsky.utils.</code><code class="descname">gauss1alm</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.gauss1alm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generating alm as a random Gaussian field whose power spectrum is cl.
-The output alm is given by a 2D array.</p>
+<dd><p>Generating alm as a random Gaussian field whose power spectrum is cl. The output alm is given by a 2D array.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)        : maximum multipole of the output alm</li>
-<li>Cl[l] (double)    : angular power spectrum, with bounds (1:lmax)</li>
-</ul>
-</dd>
+<dd>:lmax (<em>int</em>)         : Maximum multipole of the output alm
+:Cl [<em>l</em>] (<em>double</em>)    : Angular power spectrum, with bounds (0:lmax)</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>alm[l,m] (dcmplx) : random Gaussian alm, with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
+<dd>:alm [<em>l,m</em>] (<em>dcmplx</em>) : Random Gaussian alm, with bounds (0:lmax,0:lmax)</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., alm = curvedsky.utils.gauss1alm(lmax,cl)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.utils.gauss1alm(lmax,cl):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -1164,22 +1235,31 @@ The output alm is given by a 2D array.</p>
 <dd><p>Generating two alms as random Gaussian fields whose power spectra are cl1, cl2 and the cross spectrum is xl.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)      : maximum multipole of the output alm</li>
-<li>cl1[l] (double) : angular power spectrum of the 1st alm, with bounds (1:lmax)</li>
-<li>cl2[l] (double) : angular power spectrum of the 2nd alm, with bounds (1:lmax)</li>
-<li>xl[l] (double)  : cross-power spectrum between alm1 and alm2, with bounds (1:lmax)</li>
-</ul>
-</dd>
+<dd>:lmax (<em>int</em>)       : Maximum multipole of the output alm
+:cl1 [<em>l</em>] (<em>double</em>) : Angular power spectrum of the 1st alm, with bounds (0:lmax)
+:cl2 [<em>l</em>] (<em>double</em>) : Angular power spectrum of the 2nd alm, with bounds (0:lmax)
+:xl [<em>l</em>] (<em>double</em>)  : Cross-power spectrum between alm1 and alm2, with bounds (0:lmax)</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>alm[2,l,m] (dcmplx): random Gaussian alms, with bounds (2,0:lmax,0:lmax)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm [<em>2,l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Random Gaussian alms, with bounds (2,0:lmax,0:lmax)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., alm = curvedsky.utils.gauss2alm(lmax,cl1,cl2,xl)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.utils.gauss2alm(lmax,cl1,cl2,xl):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -1190,23 +1270,32 @@ The output alm is given by a 2D array.</p>
 <dd><p>Generating T/E/B alms as random Gaussian fields whose power spectra are TT, EE, BB and the cross spectrum is TE.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)     : maximum multipole of the output alms</li>
-<li>TT[l] (double) : angular power spectrum of temperature, with bounds (1:lmax)</li>
-<li>EE[l] (double) : angular power spectrum of E mode, with bounds (1:lmax)</li>
-<li>BB[l] (double) : angular power spectrum of B mode, with bounds (1:lmax)</li>
-<li>TE[l] (double) : TE cross-power spectrum, with bounds (1:lmax)</li>
-</ul>
-</dd>
+<dd>:lmax (<em>int</em>)      : Maximum multipole of the output alms
+:TT [<em>l</em>] (<em>double</em>) : Angular power spectrum of temperature, with bounds (0:lmax)
+:EE [<em>l</em>] (<em>double</em>) : Angular power spectrum of E mode, with bounds (0:lmax)
+:BB [<em>l</em>] (<em>double</em>) : Angular power spectrum of B mode, with bounds (0:lmax)
+:TE [<em>l</em>] (<em>double</em>) : TE cross-power spectrum, with bounds (0:lmax)</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>alm[3,l,m] (dcmplx): random Gaussian T/E/B alms, with bounds (3,0:lmax,0:lmax)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm [<em>3,l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Random Gaussian T/E/B alms, with bounds (3,0:lmax,0:lmax)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., alm = curvedsky.utils.gaussTEB(lmax,TT,EE,BB,TE)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.utils.gaussTEB(lmax,TT,EE,BB,TE):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -1214,23 +1303,32 @@ The output alm is given by a 2D array.</p>
 <dl class="function">
 <dt id="curvedsky.utils.gauss3alm">
 <code class="descclassname">curvedsky.utils.</code><code class="descname">gauss3alm</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.gauss3alm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generating three alms as random Gaussian fields whose covariance is given by cl[i,j].</p>
+<dd><p>Generating three alms as random Gaussian fields whose covariance is given by cl[<em>i,j</em>].</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)         : maximum multipole of the output alm</li>
-<li>cl[i,j,l] (double) : covariance between the gaussian fields, with bounds (3,3,1:lmax)</li>
-</ul>
-</dd>
+<dd>:lmax (<em>int</em>)          : Maximum multipole of the output alm
+:cl [<em>i,j,l</em>] (<em>double</em>) : Covariance between the gaussian fields, with bounds (3,3,0:lmax)</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>alm[3,l,m] (dcmplx): random Gaussian alms, with bounds (3,0:lmax,0:lmax)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm [<em>3,l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Random Gaussian alms, with bounds (3,0:lmax,0:lmax)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., alm = curvedsky.utils.gauss3alm(lmax,cl)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.utils.gauss3alm(lmax,cl):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -1238,23 +1336,32 @@ The output alm is given by a 2D array.</p>
 <dl class="function">
 <dt id="curvedsky.utils.gauss4alm">
 <code class="descclassname">curvedsky.utils.</code><code class="descname">gauss4alm</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.gauss4alm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generating four alms as random Gaussian fields whose covariance is given by cl[i,j].</p>
+<dd><p>Generating four alms as random Gaussian fields whose covariance is given by cl[<em>i,j</em>].</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)         : maximum multipole of the output alm</li>
-<li>cl[i,j,l] (double) : covariance between the gaussian fields, with bounds (4,4,1:lmax)</li>
-</ul>
-</dd>
+<dd>:lmax (<em>int</em>)          : Maximum multipole of the output alm
+:cl [<em>i,j,l</em>] (<em>double</em>) : Covariance between the gaussian fields, with bounds (4,4,0:lmax)</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>alm[4,l,m] (dcmplx): random Gaussian alms, with bounds (4,0:lmax,0:lmax)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm [<em>4,l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Random Gaussian alms, with bounds (4,0:lmax,0:lmax)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., alm = curvedsky.utils.gauss4alm(lmax,cl)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.utils.gauss4alm(lmax,cl):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -1266,21 +1373,30 @@ The output alm is given by a 2D array.</p>
 Written by Ryo Nagata.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>npix (int)           : pixel number of the full map</li>
-<li>nside_subpatch (int) : Nside of sub patch</li>
-<li>QU[pix,2] (double)   : Q/U maps, with bounds (0:npix-1,2)</li>
-</ul>
-</dd>
+<dd>:npix (<em>int</em>)            : pixel number of the full map
+:nside_subpatch (<em>int</em>)  : Nside of sub patch
+:QU [<em>pix,2</em>] (<em>double</em>)   : Q/U maps, with bounds (0:npix-1,2)</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>blmap[pix,2] (double): baseline maps, with bounds (0:npix-1,2)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">blmap [<em>pix,2</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">baseline maps, with bounds (0:npix-1,2)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., blmap = curvedsky.utils.get_baseline(npix,nside_subpatch,QU)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">blmap = curvedsky.utils.get_baseline(npix,nside_subpatch,QU):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -1292,22 +1408,22 @@ Written by Ryo Nagata.</p>
 Written by Ryo Nagata.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>nside_large (int) : Nside of sub patch</li>
-<li>nside_small (int) : full Nside</li>
-<li>ipix_pix (int)    : pixel index of full map</li>
-<li>apod (double)     : apodization length</li>
-</ul>
-</dd>
+<dd>:nside_large (<em>int</em>) : Nside of sub patch
+:nside_small (<em>int</em>) : full Nside
+:ipix_pix (<em>int</em>)    : pixel index of full map
+:apod (<em>double</em>)     : apodization length</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>wind_out (double) : aporization window at ipix_pix</li>
-</ul>
-</dd>
+<dd>:wind_out (<em>double</em>) : aporization window at ipix_pix</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., win_out = curvedsky.utils.get_winmap(nside_large,nside_small,ipix_pix,apod)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">win_out = curvedsky.utils.get_winmap(nside_large,nside_small,ipix_pix,apod):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -1318,20 +1434,20 @@ Written by Ryo Nagata.</p>
 <dd><p>A sine apodization window</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>s (double) : distance from the center of the window</li>
-<li>a (double) : apodization length, nothing (a=1) to all (a=0)</li>
-</ul>
-</dd>
+<dd>:s (<em>double</em>) : Distance from the center of the window
+:a (<em>double</em>) : Apodization length, nothing (a=1) to all (a=0)</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>w (double) : aporization window</li>
-</ul>
-</dd>
+<dd>:w (<em>double</em>) : Aporization window</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., w = curvedsky.utils.get_apod_window(s,a)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">w = curvedsky.utils.get_apod_window(s,a):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -1342,22 +1458,22 @@ Written by Ryo Nagata.</p>
 <dd><p>E/B mode seperation based on the chi-field estimator.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>npix (int)           : pixel number of the desired map</li>
-<li>lmax (int)           : maximum multipole used for the harmonic transform internally</li>
-<li>W[pix,2] (double)    : window function satisfying zero 1st and 2nd derivatives at the boundary, with bounds (0:npix-1,2)</li>
-<li>QUin[pix,2] (double) : input QU map, with bounds (0:npix-1,2)</li>
-</ul>
-</dd>
+<dd>:npix (<em>int</em>)           : Pixel number of the desired map
+:lmax (<em>int</em>)           : Maximum multipole used for the harmonic transform internally
+:W[<em>pix,2</em>] (<em>double</em>)    : Window function satisfying zero 1st and 2nd derivatives at the boundary, with bounds (0:npix-1,2)
+:QUin[<em>pix,2</em>] (<em>double</em>) : Input QU map, with bounds (0:npix-1,2)</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>QUou[pix,2] (double) : E/B separated QU map, with bounds (0:npix-1,2)</li>
-</ul>
-</dd>
+<dd>:QUou[<em>pix,2</em>] (<em>double</em>) : E/B separated QU map, with bounds (0:npix-1,2)</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., QUou = curvedsky.utils.eb_separate(npix,lmax,W,QUin)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">QUou = curvedsky.utils.eb_separate(npix,lmax,W,QUin):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -1368,55 +1484,50 @@ Written by Ryo Nagata.</p>
 <dd><p>From alm to angular power spectrum</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>lmax (int)           : maximum multipole of the input alm</li>
-<li>alm1[l,m] (dcmplx)   : 1st harmonic coefficient, with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
+<dd>:lmax (<em>int</em>)           : Maximum multipole of the input alm
+:alm1 [<em>l,m</em>] (<em>dcmplx</em>)  : 1st harmonic coefficient, with bounds (0:lmax,0:lmax)</dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>alm2[l,m] (dcmplx)   : 2nd harmonic coefficient, with bounds (0:lmax,0:lmax), default to alm1</li>
-</ul>
-</dd>
+<dd>:alm2 [<em>l,m</em>] (<em>dcmplx</em>)  : 2nd harmonic coefficient, with bounds (0:lmax,0:lmax), default to alm1</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>cl[l] (double) : auto or cross angular power spectrum, with bounds (0:lmax)</li>
-</ul>
-</dd>
+<dd>:cl [<em>l</em>] (<em>double</em>) : Auto or cross angular power spectrum, with bounds (0:lmax)</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., cl = curvedsky.utils.alm2cl(lmax,alm1,alm2)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">cl = curvedsky.utils.alm2cl(lmax,alm1,alm2):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="curvedsky.utils.alm2bcl">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">alm2bcl</code><span class="sig-paren">(</span><em>bn</em>, <em>lmax</em>, <em>alm1</em>, <em>alm2=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.alm2bcl" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.utils.</code><code class="descname">alm2bcl</code><span class="sig-paren">(</span><em>bn</em>, <em>lmax</em>, <em>alm1</em>, <em>alm2=None</em>, <em>spc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.alm2bcl" title="Permalink to this definition">¶</a></dt>
 <dd><p>From alm to angular power spectrum with multipole binning</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>bn (int)             : number of multipole bins</li>
-<li>lmax (int)           : maximum multipole of the input alm</li>
-<li>alm1[l,m] (dcmplx)   : 1st harmonic coefficient, with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
+<dd>:bn (<em>int</em>)             : Number of multipole bins
+:lmax (<em>int</em>)           : maximum multipole of the input alm
+:alm1 [<em>l,m</em>] (<em>dcmplx</em>)  : 1st harmonic coefficient, with bounds (0:lmax,0:lmax)</dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>alm2[l,m] (dcmplx)   : 2nd harmonic coefficient, with bounds (0:lmax,0:lmax), default to alm1</li>
-</ul>
-</dd>
+<dd>:alm2 [<em>l,m</em>] (<em>dcmplx</em>)  : 2nd harmonic coefficient, with bounds (0:lmax,0:lmax), default to alm1
+:spc (<em>str</em>) : Specify bin spacing, ‘’ = linear (default), ‘log’ = log spacing, ‘log10’ = log10 spacing, ‘p2’ = power of 2 spacing, ‘p3’ = power of 3 spacing</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>cb[bin] (double) : auto or cross angular power spectrum with multipole binning, with bounds (0:bn-1)</li>
-</ul>
-</dd>
+<dd>:cb [<em>bin</em>] (<em>double</em>) : Auto or cross angular power spectrum with multipole binning, with bounds (0:bn-1)</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., cb = curvedsky.utils.alm2bcl(bn,lmax,alm1,alm2)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">cb = curvedsky.utils.alm2bcl(bn,lmax,alm1,alm2,spc):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -1427,27 +1538,33 @@ Written by Ryo Nagata.</p>
 <dd><p>Compute apodized window function. Partially use Healpix’s process_mask code.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>npix (int)         : number of pixel</li>
-<li>rmask[pix] (double): input window function, with bounds (0:pix-1)</li>
-<li>ascale (double)    : apodization length [deg] from the closest masked pixel</li>
-</ul>
-</dd>
+<dd>:npix (<em>int</em>)         : Number of pixel
+:rmask[<em>pix</em>] (<em>double</em>): Input window function, with bounds (0:pix-1)
+:ascale (<em>double</em>)    : Apodization length [<em>deg</em>] from the closest masked pixel</dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>order           : pixel order, 1 for RING (default), otherwize NESTED</li>
-<li>holeminsize     : minimum hole size [arcmin] (i.e., holes within this size in filled), default to 0</li>
-</ul>
-</dd>
+<dd>:order           : Pixel order, 1 for RING (default), otherwize NESTED
+:holeminsize     : Minimum hole size [<em>arcmin</em>] (i.e., holes within this size in filled), default to 0</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>amask[pix] (double): apodization window, with bounds (0:npix-1), using the same ordering as input</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">amask[<em>pix</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Apodization window, with bounds (0:npix-1), using the same ordering as input</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., amask = curvedsky.utils.apodize(npix,rmask,ascale,order,holeminsize)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">amask = curvedsky.utils.apodize(npix,rmask,ascale,order,holeminsize):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -1458,22 +1575,31 @@ Written by Ryo Nagata.</p>
 <dd><p>Ylm transform of the map to alm with the healpix (l,m) order</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>nside (int)       : Nside of the input map</li>
-<li>lmax (int)        : maximum multipole of the input alm</li>
-<li>mmax (int)        : maximum m of the input alm</li>
-<li>map[pix] (double) : input map, with bounds (0:npix-1)</li>
-</ul>
-</dd>
+<dd>:nside (<em>int</em>)         : Nside of the input map
+:lmax (<em>int</em>)          : Maximum multipole of the input alm
+:mmax (<em>int</em>)          : Maximum m of the input alm
+:map [<em>pix</em>] (<em>double</em>)  : Input map, with bounds (0:npix-1)</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>alm1[l,m] (dcmplx): harmonic coefficient obtained from the input map, with bounds (0:lmax,0:mmax)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm1 [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Harmonic coefficient obtained from the input map, with bounds (0:lmax,0:mmax)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., alm = curvedsky.utils.hp_map2alm(nside,lmax,mmax,map)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.utils.hp_map2alm(nside,lmax,mmax,map):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -1485,24 +1611,33 @@ Written by Ryo Nagata.</p>
 the alm contains E-mode and B-mode.</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>nside (int)        : Nside of the input map</li>
-<li>lmax (int)         : maximum multipole of the input alm</li>
-<li>mmax (int)         : maximum m of the input alm</li>
-<li>spin (int)         : spin of the transform</li>
-<li>map0[pix] (double) : real part of the input map, with bounds (0:npix-1)</li>
-<li>map1[pix] (double) : imaginary part of the input map, with bounds (0:npix-1)</li>
-</ul>
-</dd>
+<dd>:nside (<em>int</em>)         : Nside of the input map
+:lmax (<em>int</em>)          : Maximum multipole of the input alm
+:mmax (<em>int</em>)          : Maximum m of the input alm
+:spin (<em>int</em>)          : Spin of the transform
+:map0 [<em>pix</em>] (<em>double</em>) : Real part of the input map, with bounds (0:npix-1)
+:map1 [<em>pix</em>] (<em>double</em>) : Imaginary part of the input map, with bounds (0:npix-1)</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>alm[2,l,m] (dcmplx): parity-eve/odd harmonic coefficients obtained from the input map, with bounds (2,0:lmax,0:mmax)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm [<em>2,l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Parity-eve/odd harmonic coefficients obtained from the input map, with bounds (2,0:lmax,0:mmax)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., alm = curvedsky.utils.hp_map2alm_spin(nside,lmax,mmax,spin,map0,map1)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.utils.hp_map2alm_spin(nside,lmax,mmax,spin,map0,map1):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -1510,24 +1645,15 @@ the alm contains E-mode and B-mode.</p>
 <dl class="function">
 <dt id="curvedsky.utils.cosin_healpix">
 <code class="descclassname">curvedsky.utils.</code><code class="descname">cosin_healpix</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.cosin_healpix" title="Permalink to this definition">¶</a></dt>
-<dd><p>cos(theta) as a function of the Healpix pixel index</p>
+<dd><p>Return cos(theta) as a function of the Healpix pixel index</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>npix (int) : pixel number of the desired map</li>
-<li>lmax (int) : maximum multipole</li>
-</ul>
-</dd>
+<dd>:npix (<em>int</em>) : Pixel number of the desired map
+:lmax (<em>int</em>) : Maximum multipole</dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>cosin[pix] (double) : cos(theta), with bounds (0:npix-1)</li>
-</ul>
-</dd>
+<dd>:cosin [<em>pix</em>] (<em>double</em>) : cos(theta), with bounds (0:npix-1)</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., cosin = curvedsky.utils.cosin_healpix(npix,lmax)</li>
-</ul>
-</dd>
+<dd>:cosin = curvedsky.utils.cosin_healpix(npix,lmax) :</dd>
 </dl>
 </dd></dl>
 
@@ -1537,27 +1663,41 @@ the alm contains E-mode and B-mode.</p>
 <dd><p>Compute 2D Minkowski functionals</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>bn (int)           : number of nu bins</li>
-<li>nu[bin] (double)   : nu bins, with bounds (bn)</li>
-<li>lmax (int)         : maximum multipole of the input walm</li>
-<li>walm[l,m] (dcmplx) : alm with filtering, possibly divided by the map variance, with bounds (0:lmax,0:lmax)</li>
-</ul>
-</dd>
+<dd>:bn (<em>int</em>)            : Number of nu bins
+:nu [<em>bin</em>] (<em>double</em>)   : Nu bins, with bounds (bn)
+:lmax (<em>int</em>)          : Maximum multipole of the input walm
+:walm [<em>l,m</em>] (<em>dcmplx</em>) : Alm with filtering, possibly divided by the map variance, with bounds (0:lmax,0:lmax)</dd>
 <dt>Args(optional): </dt>
-<dd><ul class="first last simple">
-<li>nside (int): Nside of the intermediate map, default to lmax</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside of the intermediate map, default to lmax</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>V[bin,type] (double): the three Minkowski functionals, V0, V1 and V2, at each nu bin, with bounds (bn,0:2)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">V [<em>bin,type</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The three Minkowski functionals, V0, V1 and V2, at each nu bin, with bounds (bn,0:2)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., V = curvedsky.utils.calc_mfs(bn,nu,lmax,walm,nside)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">V = curvedsky.utils.calc_mfs(bn,nu,lmax,walm,nside):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>

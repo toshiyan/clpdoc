@@ -2,7 +2,7 @@
 
 .. currentmodule:: basic
 
-:mod:`basic` -- Supplemental tools
+:mod:`basic` -- Some basic tools
 ===============================================
 
 :mod:`aps` -- angular power spectrum tools

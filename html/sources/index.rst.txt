@@ -18,6 +18,15 @@ Installation
 
    install
 
+Documents
+------------
+
+The following documents show derivation of equations used for the modules
+
+* Curvedsky implementation of quadratic estimators and delensing: https://toshiyan.github.io/clpdoc/doc/Doc_Normalization_Curvedsky.pdf
+* Other formulas: https://toshiyan.github.io/clpdoc/doc/Doc_Other_Formulas.pdf
+
+
 Modules
 ---------
 
@@ -29,14 +38,6 @@ Modules
    curvedsky/curvedsky
 
    flatsky/flatsky
-
-Documents
-------------
-
-The following documents show derivation of equations used for the modules
-
-* Normalization of quadratic estimator in curvedsky: https://toshiyan.github.io/clpdoc/doc/Doc_Normalization_Curvedsky.pdf
-* Other formulas: https://toshiyan.github.io/clpdoc/doc/Doc_Other_Formulas.pdf
 
 
 Indices and tables

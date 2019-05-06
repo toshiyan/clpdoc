@@ -789,8 +789,7 @@
 </table>
 </dd>
 <dt>Returns:</dt>
-<dd><blockquote class="first">
-<div><table class="docutils field-list" frame="void" rules="none">
+<dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -799,9 +798,6 @@
 </tr>
 </tbody>
 </table>
-</div></blockquote>
-<p class="last">alm to map 
-map to alm</p>
 </dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -852,8 +848,7 @@ map to alm</p>
 </table>
 </dd>
 <dt>Returns:</dt>
-<dd><blockquote class="first">
-<div><table class="docutils field-list" frame="void" rules="none">
+<dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -862,9 +857,6 @@ map to alm</p>
 </tr>
 </tbody>
 </table>
-</div></blockquote>
-<p class="last">alm to map 
-map to alm</p>
 </dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -2238,8 +2230,8 @@ Written by Ryo Nagata.</p>
 
 <dl class="function">
 <dt id="curvedsky.utils.eb_separate">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">eb_separate</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>W</em>, <em>QUin</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.eb_separate" title="Permalink to this definition">¶</a></dt>
-<dd><p>E/B mode seperation based on the chi-field estimator.</p>
+<code class="descclassname">curvedsky.utils.</code><code class="descname">eb_separate</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>W</em>, <em>Q</em>, <em>U</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.eb_separate" title="Permalink to this definition">¶</a></dt>
+<dd><p>E/B mode seperation based on the chi-field estimator. See e.g. Sec.III.2 of arXiv:1305.7441 for numerical implimentation.</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -2250,11 +2242,11 @@ Written by Ryo Nagata.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole used for the harmonic transform internally</td>
 </tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">W[<em>pix,2</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Window function satisfying zero 1st and 2nd derivatives at the boundary, with bounds (0:npix-1,2)</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">W[<em>pix</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Window function satisfying zero 1st and 2nd derivatives at the boundary, with bounds (0:npix-1)</td>
 </tr>
-<tr class="field-even field"><th class="field-name" colspan="2">QUin[<em>pix,2</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Input QU map, with bounds (0:npix-1,2)</td>
+<tr class="field-even field"><th class="field-name" colspan="2">Q/U[<em>pix</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Input Q/U map, with bounds (0:npix-1)</td>
 </tr>
 </tbody>
 </table>
@@ -2264,8 +2256,8 @@ Written by Ryo Nagata.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">QUou[<em>pix,2</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">E/B separated QU map, with bounds (0:npix-1,2)</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">Elm/Blm[<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Seperated E/B modes, with bounds (0:lmax,0:lmax)</td>
 </tr>
 </tbody>
 </table>
@@ -2275,7 +2267,7 @@ Written by Ryo Nagata.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">QUou = curvedsky.utils.eb_separate(npix,lmax,W,QUin):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Elm,Blm = curvedsky.utils.eb_separate(npix,lmax,W,Q,U):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -2537,6 +2529,51 @@ the alm contains E-mode and B-mode.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.utils.hp_map2alm_spin(nside,lmax,mmax,spin,map0,map1):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.utils.lm_healpy2healpix">
+<code class="descclassname">curvedsky.utils.</code><code class="descname">lm_healpy2healpix</code><span class="sig-paren">(</span><em>lmpy</em>, <em>almpy</em>, <em>lmax</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.lm_healpy2healpix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform healpy alm to healpix alm</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmpy (<em>int</em>):</th><td class="field-body">Length of healpy alm</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">almpy[<em>index</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Healpy alm, with bounds (0:lmpy-1)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">almpix [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Healpix alm, with bounds (0:lmax,0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">almpix = curvedsky.utils.lm_healpy2healpix(lmpy,almpy,lmax):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>

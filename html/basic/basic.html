@@ -165,11 +165,39 @@
 <dl class="function">
 <dt id="basic.aps.binning">
 <code class="descclassname">basic.aps.</code><code class="descname">binning</code><span class="sig-paren">(</span><em>bn</em>, <em>eL</em>, <em>spc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.aps.binning" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
+<dd><p>Return multipole-bin edges and centers</p>
+<dl class="docutils">
+<dt>Args:</dt>
 <dd><ul class="first last simple">
-<li>e.g., bp,bc = basic.aps.binning(bn,eL,spc)</li>
+<li>bn (<em>int</em>): number of bins</li>
+<li>eL[<em>2</em>] (<em>int</em>): bin edges</li>
 </ul>
+</dd>
+<dt>Args(optional):</dt>
+<dd><ul class="first last simple">
+<li>spc (<em>str</em>): bin spacing, ‘’ = linear (default), ‘log’ = log spacing, ‘log10’ = log10 spacing, ‘p2’ = power of 2 spacing, ‘p3’ = power of 3 spacing</li>
+</ul>
+</dd>
+<dt>Returns:</dt>
+<dd><blockquote class="first">
+<div><ul class="simple">
+<li>bp (<em>double</em>): bin edges, with bounds (0:bn)</li>
+<li>bc (<em>double</em>): bin centers, with bounds (bn)</li>
+</ul>
+</div></blockquote>
+<dl class="last docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">bp,bc = basic.aps.binning(bn,eL,spc):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -179,9 +207,15 @@
 <code class="descclassname">basic.aps.</code><code class="descname">read_cambcls</code><span class="sig-paren">(</span><em>f</em>, <em>lmin</em>, <em>lmax</em>, <em>numcls</em>, <em>bb=None</em>, <em>raw=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.aps.read_cambcls" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., cl = basic.aps.read_cambcls(f,lmin,lmax,numcls,bb,raw)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">cl = basic.aps.read_cambcls(f,lmin,lmax,numcls,bb,raw):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -191,34 +225,59 @@
 <code class="descclassname">basic.aps.</code><code class="descname">map_vars</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.aps.map_vars" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., sigma = basic.aps.map_vars(lmax,cl)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">sigma = basic.aps.map_vars(lmax,cl):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="basic.aps.cl2bcl">
-<code class="descclassname">basic.aps.</code><code class="descname">cl2bcl</code><span class="sig-paren">(</span><em>bn</em>, <em>lmax</em>, <em>cl</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.aps.cl2bcl" title="Permalink to this definition">¶</a></dt>
-<dd><p>From unbinned to binned angular power spectrum</p>
+<code class="descclassname">basic.aps.</code><code class="descname">cl2bcl</code><span class="sig-paren">(</span><em>bn</em>, <em>lmax</em>, <em>cl</em>, <em>spc=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.aps.cl2bcl" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div><p>From unbinned to binned angular power spectrum</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><ul class="first last simple">
-<li>bn (int)         : number of multipole bins</li>
-<li>lmax (int)       : maximum multipole of the input alm</li>
-<li>cl[l] (double)   : 1st harmonic coefficient, with bounds (0:lmax)</li>
+<li>bn (<em>int</em>): number of multipole bins</li>
+<li>lmax (<em>int</em>): maximum multipole of the input angular power spectrum</li>
+<li>cl[<em>l</em>] (<em>double</em>): angular power spectrum, with bounds (0:lmax)</li>
 </ul>
 </dd>
+</dl>
+</div></blockquote>
+<dl class="docutils">
+<dt>Args(optional):</dt>
+<dd><blockquote class="first">
+<div><ul class="simple">
+<li>spc (<em>str</em>): bin spacing, ‘’ = linear (default), ‘log’ = log spacing, ‘log10’ = log10 spacing, ‘p2’ = power of 2 spacing, ‘p3’ = power of 3 spacing</li>
+</ul>
+</div></blockquote>
+<dl class="last docutils">
 <dt>Returns:</dt>
 <dd><ul class="first last simple">
-<li>cb[bin] (double) : auto or cross angular power spectrum with multipole binning, with bounds (0:bn-1)</li>
+<li>cb[<em>bin</em>] (<em>double</em>): auto or cross angular power spectrum with multipole binning, with bounds (0:bn-1)</li>
 </ul>
 </dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., cb = basic.aps.cl2bcl(bn,lmax,cl)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">cb = basic.aps.cl2bcl(bn,lmax,cl,spc):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -232,19 +291,25 @@
 <dd><p>Residual B-mode spectrum; ClBB = ClBB^lin - ClBB^est</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>lmax (int)     : maximum multipole of residual ClBB
-dlmin (int)    : minimum multipole of E and lensing for delensing
-dlmax (int)    : maximum multipole of E and lensing for delensing
-CE[l] (double) : power spectrum of E-mode, with bounds (0:dlmax)
-Cp[l] (double) : power spectrum of lensing pontential, with bounds (0:dlmax)
-WE[l] (double) : Wiener filter of E-mode, with bounds (0:dlmax)
-Wp[l] (double) : Wiener filter of lensing potential, with bountd (0:dlmax)</dd>
+<dd>lmax (<em>int</em>): maximum multipole of residual ClBB
+dlmin (<em>int</em>): minimum multipole of E and lensing for delensing
+dlmax (<em>int</em>): maximum multipole of E and lensing for delensing
+CE[<em>l</em>] (<em>double</em>): power spectrum of E-mode, with bounds (0:dlmax)
+Cp[<em>l</em>] (<em>double</em>): power spectrum of lensing pontential, with bounds (0:dlmax)
+WE[<em>l</em>] (<em>double</em>): Wiener filter of E-mode, with bounds (0:dlmax)
+Wp[<em>l</em>] (<em>double</em>): Wiener filter of lensing potential, with bountd (0:dlmax)</dd>
 <dt>Returns:</dt>
-<dd>CB[l] (double) : residual B-mode spectrum, with bounds (0:lmax)</dd>
+<dd>CB[<em>l</em>] (<em>double</em>): residual B-mode spectrum, with bounds (0:lmax)</dd>
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., lmax,CB = basic.delens.resbb(lmax,dlmin,dlmax,CE,Cp,WE,Wp)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">lmax,CB = basic.delens.resbb(lmax,dlmin,dlmax,CE,Cp,WE,Wp):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -254,9 +319,15 @@ Wp[l] (double) : Wiener filter of lensing potential, with bountd (0:dlmax)</dd>
 <code class="descclassname">basic.delens.</code><code class="descname">lintemplate</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>Cp</em>, <em>WE</em>, <em>Wp</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.delens.lintemplate" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., lmax,Cl = basic.delens.lintemplate(lmax,dlmin,dlmax,CE,Cp,WE,Wp)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">lmax,Cl = basic.delens.lintemplate(lmax,dlmin,dlmax,CE,Cp,WE,Wp):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -266,9 +337,15 @@ Wp[l] (double) : Wiener filter of lensing potential, with bountd (0:dlmax)</dd>
 <code class="descclassname">basic.delens.</code><code class="descname">lensingbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>Cp</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.delens.lensingbb" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., lmax,CB = basic.delens.lensingbb(lmax,dlmin,dlmax,CE,Cp)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">lmax,CB = basic.delens.lensingbb(lmax,dlmin,dlmax,CE,Cp):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>
@@ -278,9 +355,15 @@ Wp[l] (double) : Wiener filter of lensing potential, with bountd (0:dlmax)</dd>
 <code class="descclassname">basic.delens.</code><code class="descname">delensbias_dom</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>EE</em>, <em>BB</em>, <em>pp</em>, <em>NP1</em>, <em>NP2</em>, <em>Ag</em>, <em>DBl</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.delens.delensbias_dom" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Usage:</dt>
-<dd><ul class="first last simple">
-<li>e.g., lmax = basic.delens.delensbias_dom(lmax,dlmin,dlmax,EE,BB,pp,NP1,NP2,Ag,DBl)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">lmax = basic.delens.delensbias_dom(lmax,dlmin,dlmax,EE,BB,pp,NP1,NP2,Ag,DBl):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </dd></dl>

@@ -83,6 +83,7 @@
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
 </ul>
 </li>
 </ul>
@@ -161,8 +162,17 @@
 <h1>Installation Guide<a class="headerlink" href="#installation-guide" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<p>The package depends on Fortran Libraries, FFTW, LAPACK, HEALPix, cfitsio and LensPix.
-Source code for those is included with this package.</p>
+<p>The package depends on Fortran Libraries, FFTW, HEALPix, cfitsio and LensPix.
+Source code for those is included with this package. You also need F2py and a fortran compiler to compile Fortran sources.</p>
+</div>
+<div class="section" id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Using a fortran compiler, compile public packages, FFTW for flatsky code and HEALPix, cfitsio and LensPix for curvedsky code.</li>
+<li>Type ./MAKEALL.sh all</li>
+</ol>
+<p>This command compiles Fortran source codes in F90/src_utils, F90/src_dft and then produce a python module using f2py.
+The python modules can be found in wrap/ for python 3 and wrap_py2 for python 2</p>
 </div>
 </div>
 

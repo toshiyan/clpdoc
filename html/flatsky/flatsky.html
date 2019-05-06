@@ -690,8 +690,7 @@ Usage:</p>
 </tr>
 <tr class="field-even field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Total number of grids (npix=nx*ny)</td>
 </tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">trans (1 or -1):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">1 (map to Fourier) or -1 (Fourier to map)</td>
+<tr class="field-odd field"><th class="field-name">trans (<em>int</em>):</th><td class="field-body">1 (map to Fourier) or -1 (Fourier to map)</td>
 </tr>
 <tr class="field-even field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
 </tr>
@@ -738,8 +737,7 @@ Usage:</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
 </tr>
-<tr class="field-even field"><th class="field-name" colspan="2">trans (1 or -1):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">1 (map to Fourier) or -1 (Fourier to map)</td>
+<tr class="field-even field"><th class="field-name">trans (<em>int</em>):</th><td class="field-body">1 (map to Fourier) or -1 (Fourier to map)</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
 </tr>
@@ -786,8 +784,7 @@ Usage:</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
 </tr>
-<tr class="field-even field"><th class="field-name" colspan="2">trans (1 or -1):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">1 (map to Fourier) or -1 (Fourier to map)</td>
+<tr class="field-even field"><th class="field-name">trans (<em>int</em>):</th><td class="field-body">1 (map to Fourier) or -1 (Fourier to map)</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
 </tr>
@@ -834,8 +831,7 @@ Usage:</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
 </tr>
-<tr class="field-even field"><th class="field-name" colspan="2">trans (1 or -1):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">1 (map to Fourier) or -1 (Fourier to map)</td>
+<tr class="field-even field"><th class="field-name">trans (<em>int</em>):</th><td class="field-body">1 (map to Fourier) or -1 (Fourier to map)</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
 </tr>
@@ -882,8 +878,7 @@ Usage:</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
 </tr>
-<tr class="field-even field"><th class="field-name" colspan="2">trans (1 or -1):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">1 (map to Fourier) or -1 (Fourier to map)</td>
+<tr class="field-even field"><th class="field-name">trans (<em>int</em>):</th><td class="field-body">1 (map to Fourier) or -1 (Fourier to map)</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
 </tr>
@@ -924,7 +919,7 @@ Usage:</p>
 <dd><p>Compute Smith’s pure EB estimator in flatsky</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><table class="first docutils field-list" frame="void" rules="none">
+<dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -940,8 +935,17 @@ Usage:</p>
 </tr>
 </tbody>
 </table>
-<p class="last">Args(optional):
-:Wd[<em>5,x,y</em>] (<em>double</em>): Derivatives of window function, dW/dx, dW/dw, d^2W/dx^2, d^2W/dxdy, d^2W/dy^2, with bounds (5,nx,ny)</p>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Wd[<em>5,x,y</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Precomputed window function derivaives, dW/dx, dW/dw, d^2W/dx^2, d^2W/dxdy, d^2W/dy^2, with bounds (5,nx,ny)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Returns:</dt>
 <dd><blockquote class="first">
@@ -1074,7 +1078,7 @@ add corrections</p>
 <dd><p>Compute angular power spectrum from Fourier modes, with multipole binning</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><table class="first docutils field-list" frame="void" rules="none">
+<dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1091,9 +1095,19 @@ add corrections</p>
 </tr>
 </tbody>
 </table>
-<p class="last">Args(optional):
-:alm2[<em>nx,ny</em>] (<em>dcmplx</em>): Fourier mode, with bounds (nx,ny), default to None
-:spc (<em>str</em>): type of multipole binning, i.e., linear spacing (spc=’‘, default), or log spacing (spc=’log’)</p>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm2[<em>nx,ny</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Fourier mode, with bounds (nx,ny), default to None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">spc (<em>str</em>):</th><td class="field-body">type of multipole binning, i.e., linear spacing (spc=’‘, default), or log spacing (spc=’log’)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Returns:</dt>
 <dd><blockquote class="first">
@@ -1130,7 +1144,7 @@ to 1D power spectrum</p>
 <dd><p>Return 1D angular power spectrum with multipole binning from a 2D power spectrum</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><table class="first docutils field-list" frame="void" rules="none">
+<dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1147,8 +1161,16 @@ to 1D power spectrum</p>
 </tr>
 </tbody>
 </table>
-<p class="last">Args(optional):
-:spc (<em>str</em>): type of multipole binning, i.e., linear spacing (spc=’‘, default), or log spacing (spc=’log’)</p>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">spc (<em>str</em>):</th><td class="field-body">type of multipole binning, i.e., linear spacing (spc=’‘, default), or log spacing (spc=’log’)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Returns:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -1229,7 +1251,7 @@ to 1D power spectrum</p>
 <dd><p>Assign values of 1D angular power spectrum on to 2D grid with linear interpolation</p>
 <dl class="docutils">
 <dt>Args: </dt>
-<dd><table class="first docutils field-list" frame="void" rules="none">
+<dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1251,8 +1273,16 @@ to 1D power spectrum</p>
 </tr>
 </tbody>
 </table>
-<p class="last">Args(optional):
-:method (<em>str</em>): interpolation method from binned to unbinned angular spectrum, i.e., spline (‘’, default), or linear (‘linear’) interpolation</p>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">method (<em>str</em>):</th><td class="field-body">interpolation method from binned to unbinned angular spectrum, i.e., spline (‘’, default), or linear (‘linear’) interpolation</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Returns:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -1314,11 +1344,10 @@ to 1D power spectrum</p>
 </tbody>
 </table>
 </div></blockquote>
-<p>make cl on 2d grid
-alm=0 if i=1 or j=1 for symmetry</p>
-<blockquote>
-<div>center: (ic,jc) = (nx/2+1, ny/2+1)</div></blockquote>
-<p class="last">maximum nn
+<p class="last">make cl on 2d grid
+alm=0 if i=1 or j=1 for symmetry
+center: (ic,jc) = (nx/2+1, ny/2+1)
+maximum nn
 check</p>
 </dd>
 <dt>Usage:</dt>

@@ -679,7 +679,34 @@ Usage:</p>
 <dl class="function">
 <dt id="flatsky.ffttools.dft1d">
 <code class="descclassname">flatsky.ffttools.</code><code class="descname">dft1d</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft1d" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>DFT for 1D array.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Total number of grids (npix=nx*ny)</td>
+</tr>
+</tbody>
+</table>
+<p class="last">:trans (1 or -1)   : 1 (map to Fourier) or -1 (Fourier to map)
+:D[<em>2</em>] (<em>double</em>): Side length (x and y) of map
+:map0[<em>pix</em>] (<em>dcmplx</em>): Data on 2D grid to be transformed, with bounds (npix)</p>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">map1[<em>pix</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Transformed data on 2D grid, with bounds (npix)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -697,7 +724,32 @@ Usage:</p>
 <dl class="function">
 <dt id="flatsky.ffttools.dft2d">
 <code class="descclassname">flatsky.ffttools.</code><code class="descname">dft2d</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft2d" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>DFT for 2D array.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
+</tr>
+</tbody>
+</table>
+<p class="last">:trans (1 or -1)   : 1 (map to Fourier) or -1 (Fourier to map)
+:D[<em>2</em>] (<em>double</em>): Side length (x and y) of map
+:map0[<em>x,y</em>] (<em>dcmplx</em>): Data on 2D grid to be transformed, with bounds (nx,ny)</p>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">map1[<em>x,y</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Transformed data on 2D grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -715,7 +767,32 @@ Usage:</p>
 <dl class="function">
 <dt id="flatsky.ffttools.dft2dr">
 <code class="descclassname">flatsky.ffttools.</code><code class="descname">dft2dr</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft2dr" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>DFT for 2D array.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
+</tr>
+</tbody>
+</table>
+<p class="last">:trans (1 or -1)   : 1 (map to Fourier) or -1 (Fourier to map)
+:D[<em>2</em>] (<em>double</em>): Side length (x and y) of map
+:map0[<em>x,y</em>] (<em>double</em>): Data on 2D grid to be transformed, with bounds (nx,ny)</p>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">map1[<em>x,y</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Transformed data on 2D grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -733,7 +810,32 @@ Usage:</p>
 <dl class="function">
 <dt id="flatsky.ffttools.dft2drc">
 <code class="descclassname">flatsky.ffttools.</code><code class="descname">dft2drc</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft2drc" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>DFT for 2D array.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
+</tr>
+</tbody>
+</table>
+<p class="last">:trans (1 or -1)   : 1 (map to Fourier) or -1 (Fourier to map)
+:D[<em>2</em>] (<em>double</em>): Side length (x and y) of map
+:map0[<em>x,y</em>] (<em>double</em>): Data on 2D grid to be transformed, with bounds (nx,ny)</p>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">map1[<em>x,y</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Transformed data on 2D grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -751,7 +853,32 @@ Usage:</p>
 <dl class="function">
 <dt id="flatsky.ffttools.dft2dcr">
 <code class="descclassname">flatsky.ffttools.</code><code class="descname">dft2dcr</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft2dcr" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>DFT for 2D array.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
+</tr>
+</tbody>
+</table>
+<p class="last">:trans (1 or -1)   : 1 (map to Fourier) or -1 (Fourier to map)
+:D[<em>2</em>] (<em>double</em>): Side length (x and y) of map
+:map0[<em>x,y</em>] (<em>dcmplx</em>): Data on 2D grid to be transformed, with bounds (nx,ny)</p>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">map1[<em>x,y</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Transformed data on 2D grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -769,10 +896,52 @@ Usage:</p>
 <dl class="function">
 <dt id="flatsky.ffttools.eb_separate">
 <code class="descclassname">flatsky.ffttools.</code><code class="descname">eb_separate</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>QU</em>, <em>W=None</em>, <em>Wd=None</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.eb_separate" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div>Transform to Fourier Space
-add corrections</div></blockquote>
+<dd><p>Compute Smith’s pure EB estimator in flatsky</p>
 <dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">W[<em>x,y</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Window function, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">QU[<em>x,y,2</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Q and U maps, with bounds (nx,ny,2)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Wd[<em>5,x,y</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Derivatives of window function, dW/dx, dW/dw, d^2W/dx^2, d^2W/dxdy, d^2W/dy^2, with bounds (5,nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><blockquote class="first">
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">EB[<em>2,x,y</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">E and B modes in 2D Fourier grid, with bounds (2,nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p class="last">Transform to Fourier Space
+add corrections</p>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -796,15 +965,27 @@ add corrections</div></blockquote>
 <dd><p>Return absolute value of multipole in 2D grids</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>nx, ny (<em>int</em>): number of Lx and Ly grids</li>
-<li>D[<em>xy</em>] (<em>double</em>): map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>els[<em>nx,ny</em>] (<em>double</em>): absolute value of Fourier mode, (Lx**2+Ly**2)**0.5, with bounds (nx,ny)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">els[<em>nx,ny</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">absolute value of Fourier mode, (Lx**2+Ly**2)**0.5, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -826,18 +1007,36 @@ add corrections</div></blockquote>
 <dd><p>Return Lx, Ly, absolute value of multipole, and its inverse in 2D grids</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>nx, ny (<em>int</em>): number of Lx and Ly grids</li>
-<li>D[<em>xy</em>] (<em>double</em>): map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>elx[<em>nx,ny</em>] (<em>double</em>): Lx, with bounds (nx,ny)</li>
-<li>ely[<em>nx,ny</em>] (<em>double</em>): Ly, with bounds (nx,ny)</li>
-<li>els[<em>nx,ny</em>] (<em>double</em>): absolute value of Fourier mode, (Lx**2+Ly**2)**0.5, with bounds (nx,ny)</li>
-<li>eli[<em>nx,ny</em>] (<em>double</em>): inverse of els, with bounds (nx,ny)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">elx[<em>nx,ny</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Lx, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">ely[<em>nx,ny</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Ly, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">els[<em>nx,ny</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">absolute value of Fourier mode, (Lx**2+Ly**2)**0.5, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">eli[<em>nx,ny</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">inverse of els, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -859,25 +1058,48 @@ add corrections</div></blockquote>
 <dd><p>Compute angular power spectrum from Fourier modes, with multipole binning</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>bn (<em>int</em>): number of multipole bin</li>
-<li>oL[<em>2</em>] (<em>int</em>): minimum and maximum multipoles of the output cl</li>
-<li>nx, ny (<em>int</em>): number of Lx and Ly grids</li>
-<li>D[<em>xy</em>] (<em>double</em>): map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</li>
-<li>alm1[<em>nx,ny</em>] (<em>dcmplx</em>): Fourier mode, with bounds (nx,ny)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">bn (<em>int</em>):</th><td class="field-body">number of multipole bin</td>
+</tr>
+<tr class="field-even field"><th class="field-name">oL[<em>2</em>] (<em>int</em>):</th><td class="field-body">minimum and maximum multipoles of the output cl</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">alm1[<em>nx,ny</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Fourier mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>alm2[<em>nx,ny</em>] (<em>dcmplx</em>): Fourier mode, with bounds (nx,ny), default to None</li>
-<li>spc (<em>str</em>): type of multipole binning, i.e., linear spacing (spc=’‘, default), or log spacing (spc=’log’)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm2[<em>nx,ny</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Fourier mode, with bounds (nx,ny), default to None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">spc (<em>str</em>):</th><td class="field-body">type of multipole binning, i.e., linear spacing (spc=’‘, default), or log spacing (spc=’log’)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Returns:</dt>
 <dd><blockquote class="first">
-<div><ul class="simple">
-<li>Cb[<em>bin</em>] (<em>double</em>): angular power spectrum with multipole binning, with bounds (bn)</li>
-</ul>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Cb[<em>bin</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">angular power spectrum with multipole binning, with bounds (bn)</td>
+</tr>
+</tbody>
+</table>
 </div></blockquote>
 <p class="last">2D power spectrum
 to 1D power spectrum</p>
@@ -902,23 +1124,44 @@ to 1D power spectrum</p>
 <dd><p>Return 1D angular power spectrum with multipole binning from a 2D power spectrum</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>nx, ny (<em>int</em>): number of Lx and Ly grids</li>
-<li>D[<em>xy</em>] (<em>double</em>): map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</li>
-<li>c2d[<em>nx,ny</em>] (<em>double</em>): 2D power spectrum, with bounds (nx,ny)</li>
-<li>bn (<em>int</em>): number of multipole bin</li>
-<li>oL[<em>2</em>] (<em>int</em>): minimum and maximum multipoles of the output cl</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">c2d[<em>nx,ny</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D power spectrum, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">bn (<em>int</em>):</th><td class="field-body">number of multipole bin</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">oL[<em>2</em>] (<em>int</em>):</th><td class="field-body">minimum and maximum multipoles of the output cl</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>spc (<em>str</em>): type of multipole binning, i.e., linear spacing (spc=’‘, default), or log spacing (spc=’log’)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">spc (<em>str</em>):</th><td class="field-body">type of multipole binning, i.e., linear spacing (spc=’‘, default), or log spacing (spc=’log’)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>Cb[<em>bin</em>] (<em>double</em>): angular power spectrum with multipole binning, with bounds (bn)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Cb[<em>bin</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">angular power spectrum with multipole binning, with bounds (bn)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -940,18 +1183,33 @@ to 1D power spectrum</p>
 <dd><p>Assign values of 1D angular power spectrum on to 2D grid with linear interpolation</p>
 <dl class="docutils">
 <dt>Args: </dt>
-<dd><ul class="first last simple">
-<li>nx, ny (<em>int</em>): number of Lx and Ly grids</li>
-<li>D[<em>xy</em>] (<em>double</em>): map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</li>
-<li>lmin (<em>int</em>): minimum multipole of cl to be interpolated</li>
-<li>lmax (<em>int</em>): maximum multipole of cl to be interpolated</li>
-<li>Cl[<em>l</em>] (<em>double</em>): 1D power spectrum, with bounds (0:lmax)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">lmin (<em>int</em>):</th><td class="field-body">minimum multipole of cl to be interpolated</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">maximum multipole of cl to be interpolated</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Cl[<em>l</em>] (<em>double</em>):</th><td class="field-body">1D power spectrum, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>c2d[<em>nx,ny</em>] (<em>double</em>): 2D power spectrum, with bounds (nx,ny)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">c2d[<em>nx,ny</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D power spectrum, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -973,25 +1231,49 @@ to 1D power spectrum</p>
 <dd><p>Assign values of 1D angular power spectrum on to 2D grid with linear interpolation</p>
 <dl class="docutils">
 <dt>Args: </dt>
-<dd><ul class="first last simple">
-<li>bn (<em>int</em>): number of multipole bins</li>
-<li>bc[<em>bin</em>] (<em>double</em>): multipole bin center, with bounds (bn)</li>
-<li>nx, ny (<em>int</em>): number of Lx and Ly grids</li>
-<li>D[<em>xy</em>] (<em>double</em>): map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</li>
-<li>lmin (<em>int</em>): minimum multipole of cl to be interpolated</li>
-<li>lmax (<em>int</em>): maximum multipole of cl to be interpolated</li>
-<li>Cb[<em>bin</em>] (<em>double</em>): 1D power spectrum with multipole binning, with bounds (bn)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">bn (<em>int</em>):</th><td class="field-body">number of multipole bins</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">bc[<em>bin</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">multipole bin center, with bounds (bn)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">lmin (<em>int</em>):</th><td class="field-body">minimum multipole of cl to be interpolated</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">maximum multipole of cl to be interpolated</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Cb[<em>bin</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">1D power spectrum with multipole binning, with bounds (bn)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>method (<em>str</em>): interpolation method from binned to unbinned angular spectrum, i.e., spline (‘’, default), or linear (‘linear’) interpolation</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">method (<em>str</em>):</th><td class="field-body">interpolation method from binned to unbinned angular spectrum, i.e., spline (‘’, default), or linear (‘linear’) interpolation</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>c2d[<em>nx,ny</em>] (<em>double</em>): 2D power spectrum, with bounds (nx,ny)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">c2d[<em>nx,ny</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D power spectrum, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -1013,19 +1295,34 @@ to 1D power spectrum</p>
 <dd><p>Generate random gaussian fields in 2D Fourier space for a given isotropic spectrum, satisfying a^*_l = a_{-l}</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>nx, ny (<em>int</em>): number of Lx and Ly grids</li>
-<li>D[<em>xy</em>] (<em>double</em>): map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</li>
-<li>lmin (<em>int</em>): minimum multipole of cl to be interpolated</li>
-<li>lmax (<em>int</em>): maximum multipole of cl to be interpolated</li>
-<li>Cl[<em>l</em>] (<em>double</em>): 1D power spectrum, with bounds (0:lmax)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">lmin (<em>int</em>):</th><td class="field-body">minimum multipole of cl to be interpolated</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">maximum multipole of cl to be interpolated</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Cl[<em>l</em>] (<em>double</em>):</th><td class="field-body">1D power spectrum, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Returns:</dt>
 <dd><blockquote class="first">
-<div><ul class="simple">
-<li>alm[<em>lx,ly</em>] (<em>dcmplx</em>): random gaussian fields on 2D Fourier plane, with bounds (nx,ny)</li>
-</ul>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">random gaussian fields on 2D Fourier plane, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
 </div></blockquote>
 <p class="last">make cl on 2d grid
 alm=0 if i=1 or j=1 for symmetry
@@ -1053,21 +1350,40 @@ check</p>
 <dd><p>Generate two correlated random gaussian fields in 2D Fourier space for a given isotropic spectrum</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>nx, ny (<em>int</em>): number of Lx and Ly grids</li>
-<li>D[<em>xy</em>] (<em>double</em>): map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</li>
-<li>lmin (<em>int</em>): minimum multipole of cl to be interpolated</li>
-<li>lmax (<em>int</em>): maximum multipole of cl to be interpolated</li>
-<li>TT[<em>l</em>] (<em>double</em>): the 1st 1D power spectrum, with bounds (0:lmax)</li>
-<li>TE[<em>l</em>] (<em>double</em>): the cross 1D power spectrum, with bounds (0:lmax)</li>
-<li>EE[<em>l</em>] (<em>double</em>): the 2nd 1D power spectrum, with bounds (0:lmax)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">lmin (<em>int</em>):</th><td class="field-body">minimum multipole of cl to be interpolated</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">maximum multipole of cl to be interpolated</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">TT[<em>l</em>] (<em>double</em>):</th><td class="field-body">the 1st 1D power spectrum, with bounds (0:lmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">TE[<em>l</em>] (<em>double</em>):</th><td class="field-body">the cross 1D power spectrum, with bounds (0:lmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">EE[<em>l</em>] (<em>double</em>):</th><td class="field-body">the 2nd 1D power spectrum, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>tlm[<em>lx,ly</em>] (<em>dcmplx</em>): the 1st random gaussian fields on 2D Fourier plane, with bounds (nx,ny)</li>
-<li>elm[<em>lx,ly</em>] (<em>dcmplx</em>): the 2nd random gaussian fields on 2D Fourier plane, with bounds (nx,ny)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">tlm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">the 1st random gaussian fields on 2D Fourier plane, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">elm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">the 2nd random gaussian fields on 2D Fourier plane, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">

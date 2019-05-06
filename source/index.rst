@@ -23,8 +23,9 @@ Documents
 
 The following documents show derivation of equations used for the modules
 
-* Curvedsky implementation of quadratic estimators and delensing: https://toshiyan.github.io/clpdoc/doc/Doc_Normalization_Curvedsky.pdf
-* Other formulas: https://toshiyan.github.io/clpdoc/doc/Doc_Other_Formulas.pdf
+* `Curvedsky implementation of quadratic estimators and delensing <https://toshiyan.github.io/clpdoc/doc/Doc_Normalization_Curvedsky.pdf>`_
+* `Flatsky implementation of quadratic estimators and delensing <https://toshiyan.github.io/clpdoc/doc/Doc_Flatsky_Analysis.pdf>`_
+* `Other formulas <https://toshiyan.github.io/clpdoc/doc/Doc_Other_Formulas.pdf>`_
 
 
 Modules

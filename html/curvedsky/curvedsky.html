@@ -349,9 +349,11 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">glm (<em>dcmplx</em>):</th><td class="field-body">CMB lensing potential, with bounds (0:lmax,0:lmax)</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">glm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential, with bounds (0:lmax,0:lmax)</td>
 </tr>
-<tr class="field-even field"><th class="field-name">clm (<em>dcmplx</em>):</th><td class="field-body">Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</td>
+<tr class="field-even field"><th class="field-name" colspan="2">clm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</td>
 </tr>
 </tbody>
 </table>
@@ -414,9 +416,11 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">glm (<em>dcmplx</em>):</th><td class="field-body">CMB lensing potential, with bounds (0:lmax,0:lmax)</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">glm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential, with bounds (0:lmax,0:lmax)</td>
 </tr>
-<tr class="field-even field"><th class="field-name">clm (<em>dcmplx</em>):</th><td class="field-body">Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</td>
+<tr class="field-even field"><th class="field-name" colspan="2">clm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</td>
 </tr>
 </tbody>
 </table>
@@ -479,9 +483,11 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">glm (<em>dcmplx</em>):</th><td class="field-body">CMB lensing potential, with bounds (0:lmax,0:lmax)</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">glm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential, with bounds (0:lmax,0:lmax)</td>
 </tr>
-<tr class="field-even field"><th class="field-name">clm (<em>dcmplx</em>):</th><td class="field-body">Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</td>
+<tr class="field-even field"><th class="field-name" colspan="2">clm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</td>
 </tr>
 </tbody>
 </table>
@@ -544,9 +550,11 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">glm (<em>dcmplx</em>):</th><td class="field-body">CMB lensing potential, with bounds (0:lmax,0:lmax)</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">glm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential, with bounds (0:lmax,0:lmax)</td>
 </tr>
-<tr class="field-even field"><th class="field-name">clm (<em>dcmplx</em>):</th><td class="field-body">Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</td>
+<tr class="field-even field"><th class="field-name" colspan="2">clm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</td>
 </tr>
 </tbody>
 </table>
@@ -3054,8 +3062,18 @@ Written by Ryo Nagata.</p>
 </table>
 </dd>
 <dt>Args(optional):</dt>
-<dd>:order           : Pixel order, 1 for RING (default), otherwize NESTED
-:holeminsize     : Minimum hole size [<em>arcmin</em>] (i.e., holes within this size in filled), default to 0</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">order (<em>int</em>):</th><td class="field-body">Pixel order, 1 for RING (default), otherwize NESTED</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">holeminsize (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum hole size [<em>arcmin</em>] (i.e., holes within this size in filled), default to 0</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Returns:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -3249,13 +3267,22 @@ the alm contains E-mode and B-mode.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">cosin [<em>pix</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">cos(theta), with bounds (0:npix-1)</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">cosin(theta), with bounds (0:npix-1)</td>
 </tr>
 </tbody>
 </table>
 </dd>
 <dt>Usage:</dt>
-<dd>:cosin = curvedsky.utils.cosin_healpix(npix,lmax) :</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">cosin = curvedsky.utils.cosin_healpix(npix,lmax):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
 </dl>
 </dd></dl>
 

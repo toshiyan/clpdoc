@@ -168,22 +168,39 @@
 <dd><p>Return multipole-bin edges and centers</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>bn (<em>int</em>): number of bins</li>
-<li>eL[<em>2</em>] (<em>int</em>): bin edges</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">bn (<em>int</em>):</th><td class="field-body">number of bins</td>
+</tr>
+<tr class="field-even field"><th class="field-name">eL[<em>2</em>] (<em>int</em>):</th><td class="field-body">bin edges</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Args(optional):</dt>
-<dd><ul class="first last simple">
-<li>spc (<em>str</em>): bin spacing, ‘’ = linear (default), ‘log’ = log spacing, ‘log10’ = log10 spacing, ‘p2’ = power of 2 spacing, ‘p3’ = power of 3 spacing</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">spc (<em>str</em>):</th><td class="field-body">bin spacing, ‘’ = linear (default), ‘log’ = log spacing, ‘log10’ = log10 spacing, ‘p2’ = power of 2 spacing, ‘p3’ = power of 3 spacing</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Returns:</dt>
 <dd><blockquote class="first">
-<div><ul class="simple">
-<li>bp (<em>double</em>): bin edges, with bounds (0:bn)</li>
-<li>bc (<em>double</em>): bin centers, with bounds (bn)</li>
-</ul>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">bp (<em>double</em>):</th><td class="field-body">bin edges, with bounds (0:bn)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">bc (<em>double</em>):</th><td class="field-body">bin centers, with bounds (bn)</td>
+</tr>
+</tbody>
+</table>
 </div></blockquote>
 <dl class="last docutils">
 <dt>Usage:</dt>
@@ -205,7 +222,38 @@
 <dl class="function">
 <dt id="basic.aps.read_cambcls">
 <code class="descclassname">basic.aps.</code><code class="descname">read_cambcls</code><span class="sig-paren">(</span><em>f</em>, <em>lmin</em>, <em>lmax</em>, <em>numcls</em>, <em>bb=None</em>, <em>raw=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.aps.read_cambcls" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>Return CMB cls from CAMB output files</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">f (<em>str</em>):</th><td class="field-body">Filename</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lmin (<em>int</em>):</th><td class="field-body">Minimum multipole of the output Cl</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the output Cl</td>
+</tr>
+<tr class="field-even field"><th class="field-name">numcls (<em>int</em>):</th><td class="field-body">Number of cls to be read</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(Optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">bb (<em>bool</em>):</th><td class="field-body">Including BB in the file or not. The data should be TT, EE, TE, dd, Td (,Ed) if bb = False (default), and TT, EE, BB, TE if bb = True.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">raw (<em>bool</em>):</th><td class="field-body">The cls in the file are multiplied by l(l+1)/2pi if raw = False (default)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd>:cl[<em>:,l</em>] (<em>double</em>): Angular power spectra, with bountd (numcls,0:lmax)</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -223,7 +271,22 @@
 <dl class="function">
 <dt id="basic.aps.map_vars">
 <code class="descclassname">basic.aps.</code><code class="descname">map_vars</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.aps.map_vars" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>Variance of a map and its derivative</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input cl</td>
+</tr>
+<tr class="field-even field"><th class="field-name">cl[<em>l</em>] (<em>double</em>):</th><td class="field-body">Angular power spectrum, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd>:sigma[<em>:</em>] (<em>double</em>): Variance of the map and of map derivative, with bounds (2)</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -245,26 +308,44 @@
 <div><p>From unbinned to binned angular power spectrum</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd><ul class="first last simple">
-<li>bn (<em>int</em>): number of multipole bins</li>
-<li>lmax (<em>int</em>): maximum multipole of the input angular power spectrum</li>
-<li>cl[<em>l</em>] (<em>double</em>): angular power spectrum, with bounds (0:lmax)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">bn (<em>int</em>):</th><td class="field-body">number of multipole bins</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">maximum multipole of the input angular power spectrum</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">cl[<em>l</em>] (<em>double</em>):</th><td class="field-body">angular power spectrum, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 </dl>
 </div></blockquote>
 <dl class="docutils">
 <dt>Args(optional):</dt>
 <dd><blockquote class="first">
-<div><ul class="simple">
-<li>spc (<em>str</em>): bin spacing, ‘’ = linear (default), ‘log’ = log spacing, ‘log10’ = log10 spacing, ‘p2’ = power of 2 spacing, ‘p3’ = power of 3 spacing</li>
-</ul>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">spc (<em>str</em>):</th><td class="field-body">bin spacing, ‘’ = linear (default), ‘log’ = log spacing, ‘log10’ = log10 spacing, ‘p2’ = power of 2 spacing, ‘p3’ = power of 3 spacing</td>
+</tr>
+</tbody>
+</table>
 </div></blockquote>
 <dl class="last docutils">
 <dt>Returns:</dt>
-<dd><ul class="first last simple">
-<li>cb[<em>bin</em>] (<em>double</em>): auto or cross angular power spectrum with multipole binning, with bounds (0:bn-1)</li>
-</ul>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">cb[<em>bin</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">auto or cross angular power spectrum with multipole binning, with bounds (0:bn-1)</td>
+</tr>
+</tbody>
+</table>
 </dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -287,43 +368,89 @@
 <span id="delens-analytic-calculation-for-delensing"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">delens</span></code> – analytic calculation for delensing<a class="headerlink" href="#module-basic.delens" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="basic.delens.resbb">
-<code class="descclassname">basic.delens.</code><code class="descname">resbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>Cp</em>, <em>WE</em>, <em>Wp</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.delens.resbb" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">basic.delens.</code><code class="descname">resbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>Cp</em>, <em>WE</em>, <em>Wp</em>, <em>CB</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.delens.resbb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Residual B-mode spectrum; ClBB = ClBB^lin - ClBB^est</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>lmax (<em>int</em>): maximum multipole of residual ClBB
-dlmin (<em>int</em>): minimum multipole of E and lensing for delensing
-dlmax (<em>int</em>): maximum multipole of E and lensing for delensing
-CE[<em>l</em>] (<em>double</em>): power spectrum of E-mode, with bounds (0:dlmax)
-Cp[<em>l</em>] (<em>double</em>): power spectrum of lensing pontential, with bounds (0:dlmax)
-WE[<em>l</em>] (<em>double</em>): Wiener filter of E-mode, with bounds (0:dlmax)
-Wp[<em>l</em>] (<em>double</em>): Wiener filter of lensing potential, with bountd (0:dlmax)</dd>
-<dt>Returns:</dt>
-<dd>CB[<em>l</em>] (<em>double</em>): residual B-mode spectrum, with bounds (0:lmax)</dd>
-<dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">lmax,CB = basic.delens.resbb(lmax,dlmin,dlmax,CE,Cp,WE,Wp):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of residual ClBB</td>
+</tr>
+<tr class="field-even field"><th class="field-name">dlmin (<em>int</em>):</th><td class="field-body">Minimum multipole of E and lensing for delensing</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">dlmax (<em>int</em>):</th><td class="field-body">Maximum multipole of E and lensing for delensing</td>
+</tr>
+<tr class="field-even field"><th class="field-name">CE[<em>l</em>] (<em>double</em>):</th><td class="field-body">Power spectrum of E-mode, with bounds (0:dlmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Cp[<em>l</em>] (<em>double</em>):</th><td class="field-body">Power spectrum of lensing pontential, with bounds (0:dlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">WE[<em>l</em>] (<em>double</em>):</th><td class="field-body">Wiener filter of E-mode, with bounds (0:dlmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Wp[<em>l</em>] (<em>double</em>):</th><td class="field-body">Wiener filter of lensing potential, with bountd (0:dlmax)</td>
 </tr>
 </tbody>
 </table>
 </dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">CB[<em>l</em>] (<em>double</em>):</th><td class="field-body">Residual B-mode spectrum, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd>: = basic.delens.resbb(lmax,dlmin,dlmax,CE,Cp,WE,Wp,CB):</dd>
 </dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="basic.delens.lintemplate">
 <code class="descclassname">basic.delens.</code><code class="descname">lintemplate</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>Cp</em>, <em>WE</em>, <em>Wp</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.delens.lintemplate" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>Estimate of lensing template B-mode power spectrum (Wiener filters as inputs)</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output spectrum</td>
+</tr>
+<tr class="field-even field"><th class="field-name">dlmin (<em>int</em>):</th><td class="field-body">Minimum multipole of E and lensing for delensing</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">dlmax (<em>int</em>):</th><td class="field-body">Maximum multipole of E and lensing for delensing</td>
+</tr>
+<tr class="field-even field"><th class="field-name">CE[<em>l</em>] (<em>double</em>):</th><td class="field-body">Power spectrum of E-mode, with bounds (0:dlmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Cp[<em>l</em>] (<em>double</em>):</th><td class="field-body">Power spectrum of lensing pontential, with bounds (0:dlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">WE[<em>l</em>] (<em>double</em>):</th><td class="field-body">Wiener filter of E-mode, with bounds (0:dlmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Wp[<em>l</em>] (<em>double</em>):</th><td class="field-body">Wiener filter of lensing potential, with bountd (0:dlmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">CB[<em>l</em>] (<em>double</em>):</th><td class="field-body">Lensing B-mode power spectrum, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">lmax,Cl = basic.delens.lintemplate(lmax,dlmin,dlmax,CE,Cp,WE,Wp):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">CB = basic.delens.lintemplate(lmax,dlmin,dlmax,CE,Cp,WE,Wp):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -335,31 +462,101 @@ Wp[<em>l</em>] (<em>double</em>): Wiener filter of lensing potential, with bount
 <dl class="function">
 <dt id="basic.delens.lensingbb">
 <code class="descclassname">basic.delens.</code><code class="descname">lensingbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>Cp</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.delens.lensingbb" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>Lensing B-mode power spectrum as a convolution of ClEE and Clpp</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output spectrum</td>
+</tr>
+<tr class="field-even field"><th class="field-name">dlmin (<em>int</em>):</th><td class="field-body">Minimum multipole of E and lensing for delensing</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">dlmax (<em>int</em>):</th><td class="field-body">Maximum multipole of E and lensing for delensing</td>
+</tr>
+<tr class="field-even field"><th class="field-name">CE[<em>l</em>] (<em>double</em>):</th><td class="field-body">Power spectrum of E-mode, with bounds (0:dlmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Cp[<em>l</em>] (<em>double</em>):</th><td class="field-body">Power spectrum of lensing pontential, with bounds (0:dlmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">CB[<em>l</em>] (<em>double</em>):</th><td class="field-body">Lensing B-mode power spectrum, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">lmax,CB = basic.delens.lensingbb(lmax,dlmin,dlmax,CE,Cp):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">CB = basic.delens.lensingbb(lmax,dlmin,dlmax,CE,Cp):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
 </dd>
 </dl>
+</div></blockquote>
 </dd></dl>
 
 <dl class="function">
 <dt id="basic.delens.delensbias_dom">
-<code class="descclassname">basic.delens.</code><code class="descname">delensbias_dom</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>EE</em>, <em>BB</em>, <em>pp</em>, <em>NP1</em>, <em>NP2</em>, <em>Ag</em>, <em>DBl</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.delens.delensbias_dom" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<code class="descclassname">basic.delens.</code><code class="descname">delensbias_dom</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>CB</em>, <em>Cp</em>, <em>NP1</em>, <em>NP2</em>, <em>Ag</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.delens.delensbias_dom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dominant term of the delensing bias in the B-mode internal delensing</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output spectrum</td>
+</tr>
+<tr class="field-even field"><th class="field-name">dlmin (<em>int</em>):</th><td class="field-body">Minimum multipole of E and lensing for delensing</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">dlmax (<em>int</em>):</th><td class="field-body">Maximum multipole of E and lensing for delensing</td>
+</tr>
+<tr class="field-even field"><th class="field-name">CE[<em>l</em>] (<em>double</em>):</th><td class="field-body">Power spectrum of E-mode, with bounds (0:dlmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">CB[<em>l</em>] (<em>double</em>):</th><td class="field-body">Power spectrum of B-mode, with bounds (0:dlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Cp[<em>l</em>] (<em>double</em>):</th><td class="field-body">Power spectrum of lensing pontential, with bounds (0:dlmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">NP1[<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Pol. noise spectrum for lensing reconstruction, with bounds (0:dlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">NP2[<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Pol. noise spectrum for B-mode to be delensed, with bounds (0:dlmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Ag[<em>l</em>] (<em>double</em>):</th><td class="field-body">Lensing reconstruction noise, with bounds (0:dlmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">DB[<em>l</em>] (<em>double</em>):</th><td class="field-body">Lensing B-mode power spectrum, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">lmax = basic.delens.delensbias_dom(lmax,dlmin,dlmax,EE,BB,pp,NP1,NP2,Ag,DBl):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">DB = basic.delens.delensbias_dom(lmax,dlmin,dlmax,CE,CB,Cp,NP1,NP2,Ag):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>

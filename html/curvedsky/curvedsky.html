@@ -173,7 +173,7 @@
 <span id="rec-lens-quadratic-lensing-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction<a class="headerlink" href="#module-curvedsky.rec_lens" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="curvedsky.rec_lens.qtt">
-<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm1</em>, <em>Tlm2</em>, <em>nside=None</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qtt" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm1</em>, <em>Tlm2</em>, <em>glm</em>, <em>nside=None</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qtt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the temperature quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -229,7 +229,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qtt(lmax,rlmin,rlmax,fC,Tlm1,Tlm2,nside,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">clm = curvedsky.rec_lens.qtt(lmax,rlmin,rlmax,fC,Tlm1,Tlm2,glm,nside,gtype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -240,7 +240,7 @@
 
 <dl class="function">
 <dt id="curvedsky.rec_lens.qte">
-<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm</em>, <em>Elm</em>, <em>nside=None</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qte" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm</em>, <em>Elm</em>, <em>glm</em>, <em>nside=None</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qte" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the TE quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -296,7 +296,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qte(lmax,rlmin,rlmax,fC,Tlm,Elm,nside,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">clm = curvedsky.rec_lens.qte(lmax,rlmin,rlmax,fC,Tlm,Elm,glm,nside,gtype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -307,7 +307,7 @@
 
 <dl class="function">
 <dt id="curvedsky.rec_lens.qtb">
-<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm</em>, <em>Blm</em>, <em>nside=None</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qtb" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm</em>, <em>Blm</em>, <em>glm</em>, <em>nside=None</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qtb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the TB quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -361,7 +361,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qtb(lmax,rlmin,rlmax,fC,Tlm,Blm,nside,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">clm = curvedsky.rec_lens.qtb(lmax,rlmin,rlmax,fC,Tlm,Blm,glm,nside,gtype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -372,7 +372,7 @@
 
 <dl class="function">
 <dt id="curvedsky.rec_lens.qee">
-<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Elm1</em>, <em>Elm2</em>, <em>nside=None</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qee" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Elm1</em>, <em>Elm2</em>, <em>glm</em>, <em>nside=None</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qee" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the EE quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -426,7 +426,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qee(lmax,rlmin,rlmax,fC,Elm1,Elm2,nside,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">clm = curvedsky.rec_lens.qee(lmax,rlmin,rlmax,fC,Elm1,Elm2,glm,nside,gtype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -437,7 +437,7 @@
 
 <dl class="function">
 <dt id="curvedsky.rec_lens.qeb">
-<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Elm</em>, <em>Blm</em>, <em>nside=None</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qeb" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Elm</em>, <em>Blm</em>, <em>glm</em>, <em>nside=None</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qeb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the EB quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -491,7 +491,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qeb(lmax,rlmin,rlmax,fC,Elm,Blm,nside,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">clm = curvedsky.rec_lens.qeb(lmax,rlmin,rlmax,fC,Elm,Blm,glm,nside,gtype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -502,7 +502,7 @@
 
 <dl class="function">
 <dt id="curvedsky.rec_lens.qbb">
-<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Blm1</em>, <em>Blm2</em>, <em>nside=None</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qbb" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Blm1</em>, <em>Blm2</em>, <em>glm</em>, <em>nside=None</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qbb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the BB quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -556,7 +556,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qbb(lmax,rlmin,rlmax,fC,Blm1,Blm2,nside,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">clm = curvedsky.rec_lens.qbb(lmax,rlmin,rlmax,fC,Blm1,Blm2,glm,nside,gtype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -877,7 +877,7 @@
 <span id="norm-lens-normalization-of-quadratic-lensing-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_lens</span></code> – normalization of quadratic lensing reconstruction<a class="headerlink" href="#module-curvedsky.norm_lens" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="curvedsky.norm_lens.qtt">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qtt" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>Ag</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qtt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Normalization of reconstructed CMB lensing potential and its curl mode from the temperature quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -928,7 +928,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = curvedsky.norm_lens.qtt(lmax,rlmin,rlmax,fC,OCT,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Ac = curvedsky.norm_lens.qtt(lmax,rlmin,rlmax,fC,OCT,Ag,gtype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -939,14 +939,61 @@
 
 <dl class="function">
 <dt id="curvedsky.norm_lens.qte">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>OCE</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qte" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>OCE</em>, <em>Ag</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalization of reconstructed CMB lensing potential and its curl mode from the TE quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output lensing potential alms</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory TE angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">OCT [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed temperature angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">OCE [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed E-mode angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential normalization, with bounds (0:lmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Ac [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Curl mode (pseudo lensing potential) normalization, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = curvedsky.norm_lens.qte(lmax,rlmin,rlmax,fC,OCT,OCE,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Ac = curvedsky.norm_lens.qte(lmax,rlmin,rlmax,fC,OCT,OCE,Ag,gtype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -957,14 +1004,61 @@
 
 <dl class="function">
 <dt id="curvedsky.norm_lens.qtb">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>OCB</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qtb" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>OCB</em>, <em>Ag</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qtb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalization of reconstructed CMB lensing potential and its curl mode from the TB quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output lensing potential alms</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory TE angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">OCT [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed temperature angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">OCB [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed B-mode angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential normalization, with bounds (0:lmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Ac [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Curl mode (pseudo lensing potential) normalization, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = curvedsky.norm_lens.qtb(lmax,rlmin,rlmax,fC,OCT,OCB,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Ac = curvedsky.norm_lens.qtb(lmax,rlmin,rlmax,fC,OCT,OCB,Ag,gtype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -975,14 +1069,58 @@
 
 <dl class="function">
 <dt id="curvedsky.norm_lens.qee">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCE</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qee" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCE</em>, <em>Ag</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalization of reconstructed CMB lensing potential and its curl mode from the E-mode quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output lensing potential alms</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory EE angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">OCE [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed E-mode angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential normalization, with bounds (0:lmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Ac [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Curl mode (pseudo lensing potential) normalization, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = curvedsky.norm_lens.qee(lmax,rlmin,rlmax,fC,OCE,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Ac = curvedsky.norm_lens.qee(lmax,rlmin,rlmax,fC,OCE,Ag,gtype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -993,14 +1131,61 @@
 
 <dl class="function">
 <dt id="curvedsky.norm_lens.qeb">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCE</em>, <em>OCB</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qeb" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCE</em>, <em>OCB</em>, <em>Ag</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qeb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalization of reconstructed CMB lensing potential and its curl mode from the EB quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output lensing potential alms</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory EE angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">OCE [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed E-mode angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">OCB [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed B-mode angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential normalization, with bounds (0:lmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Ac [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Curl mode (pseudo lensing potential) normalization, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = curvedsky.norm_lens.qeb(lmax,rlmin,rlmax,fC,OCE,OCB,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Ac = curvedsky.norm_lens.qeb(lmax,rlmin,rlmax,fC,OCE,OCB,Ag,gtype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -1011,14 +1196,58 @@
 
 <dl class="function">
 <dt id="curvedsky.norm_lens.qbb">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCB</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qbb" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCB</em>, <em>Ag</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qbb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalization of reconstructed CMB lensing potential and its curl mode from the B-mode quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output lensing potential alms</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory BB angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">OCB [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed B-mode angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential normalization, with bounds (0:lmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Ac [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Curl mode (pseudo lensing potential) normalization, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = curvedsky.norm_lens.qbb(lmax,rlmin,rlmax,fC,OCB,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Ac = curvedsky.norm_lens.qbb(lmax,rlmin,rlmax,fC,OCB,Ag,gtype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -1029,14 +1258,67 @@
 
 <dl class="function">
 <dt id="curvedsky.norm_lens.qttte">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qttte</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCTT</em>, <em>fCTE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCTE</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qttte" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qttte</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCTT</em>, <em>fCTE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCTE</em>, <em>Ig</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qttte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Correlation between unnormalized TT and TE quadratic estimators</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output lensing potential alms</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">fCTT [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory temperature angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fCTE [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Theory TE angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">OCT [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed temperature angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">OCE [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed E-mode angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">OCTE [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed TE angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ig [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Correlation between lensing potential estimators, with bounds (0:lmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Ic [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Correlation between curl mode estimators, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ig,Ic = curvedsky.norm_lens.qttte(lmax,rlmin,rlmax,fCTT,fCTE,OCT,OCE,OCTE,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Ic = curvedsky.norm_lens.qttte(lmax,rlmin,rlmax,fCTT,fCTE,OCT,OCE,OCTE,Ig,gtype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -1047,14 +1329,67 @@
 
 <dl class="function">
 <dt id="curvedsky.norm_lens.qttee">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qttee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCTT</em>, <em>fCEE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCTE</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qttee" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qttee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCTT</em>, <em>fCEE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCTE</em>, <em>Ig</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qttee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Correlation between unnormalized TT and EE quadratic estimators</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output lensing potential alms</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">fCTT [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory temperature angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fCEE [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Theory E-mode angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">OCT [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed temperature angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">OCE [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed E-mode angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">OCTE [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed TE angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ig [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Correlation between lensing potential estimators, with bounds (0:lmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Ic [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Correlation between curl mode estimators, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ig,Ic = curvedsky.norm_lens.qttee(lmax,rlmin,rlmax,fCTT,fCEE,OCT,OCE,OCTE,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Ic = curvedsky.norm_lens.qttee(lmax,rlmin,rlmax,fCTT,fCEE,OCT,OCE,OCTE,Ig,gtype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -1065,14 +1400,67 @@
 
 <dl class="function">
 <dt id="curvedsky.norm_lens.qteee">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qteee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCEE</em>, <em>fCTE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCTE</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qteee" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qteee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCEE</em>, <em>fCTE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCTE</em>, <em>Ig</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qteee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Correlation between unnormalized TE and EE quadratic estimators</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output lensing potential alms</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">fCEE [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory E-mode angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fCTE [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Theory TE angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">OCT [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed temperature angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">OCE [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed E-mode angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">OCTE [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed TE angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ig [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Correlation between lensing potential estimators, with bounds (0:lmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Ic [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Correlation between curl mode estimators, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ig,Ic = curvedsky.norm_lens.qteee(lmax,rlmin,rlmax,fCEE,fCTE,OCT,OCE,OCTE,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Ic = curvedsky.norm_lens.qteee(lmax,rlmin,rlmax,fCEE,fCTE,OCT,OCE,OCTE,Ig,gtype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -1083,14 +1471,70 @@
 
 <dl class="function">
 <dt id="curvedsky.norm_lens.qtbeb">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qtbeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCEE</em>, <em>fCBB</em>, <em>fCTE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCB</em>, <em>OCTE</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qtbeb" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qtbeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCEE</em>, <em>fCBB</em>, <em>fCTE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCB</em>, <em>OCTE</em>, <em>Ig</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qtbeb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Correlation between unnormalized TB and EB quadratic estimators</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output lensing potential alms</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">fCEE [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory E-mode angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fCBB [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Theory B-mode angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">OCT [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed temperature angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">OCE [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed E-mode angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">OCB [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed B-mode angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">OCTE [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed TE angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ig [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Correlation between lensing potential estimators, with bounds (0:lmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Ic [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Correlation between curl mode estimators, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ig,Ic = curvedsky.norm_lens.qtbeb(lmax,rlmin,rlmax,fCEE,fCBB,fCTE,OCT,OCE,OCB,OCTE,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Ic = curvedsky.norm_lens.qtbeb(lmax,rlmin,rlmax,fCEE,fCBB,fCTE,OCT,OCE,OCB,OCTE,Ig,gtype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -1111,7 +1555,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the output power spectra</td>
 </tr>
-<tr class="field-even field"><th class="field-name">QDO[<em>6</em>] (<em>bool</em>):</th><td class="field-body">Specifying which estimators to be combined for the minimum variance estimator, with size (6). The oder is TT, TE, EE, TB, EB and BB.</td>
+<tr class="field-even field"><th class="field-name">QDO[<em>6</em>] (<em>bool</em>):</th><td class="field-body">Specifying which estimators to be combined for the minimum variance estimator, with size (6). The oder is TT, TE, EE, TB, EB and BB. Currently, BB is always False</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">Al [<em>5,l</em>] (<em>double</em>):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">Normalizations of each estimator (TT, TE, EE, TB, EB).</td>
@@ -1152,7 +1596,7 @@
 
 <dl class="function">
 <dt id="curvedsky.norm_lens.qall">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qall</code><span class="sig-paren">(</span><em>QDO</em>, <em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OC</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qall" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qall</code><span class="sig-paren">(</span><em>QDO</em>, <em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OC</em>, <em>Ag</em>, <em>Ac</em>, <em>Nlg</em>, <em>gtype=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qall" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute MV estimator normalization. Currently BB is ignored.</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -1202,7 +1646,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac,Nlg,Nlc = curvedsky.norm_lens.qall(QDO,lmax,rlmin,rlmax,fC,OC,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Nlc = curvedsky.norm_lens.qall(QDO,lmax,rlmin,rlmax,fC,OC,Ag,Ac,Nlg,gtype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -1213,14 +1657,67 @@
 
 <dl class="function">
 <dt id="curvedsky.norm_lens.qeb_iter">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qeb_iter</code><span class="sig-paren">(</span><em>rlmin</em>, <em>rlmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>fCEE</em>, <em>Cpp</em>, <em>oEE</em>, <em>oBB</em>, <em>iter=None</em>, <em>conv=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qeb_iter" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qeb_iter</code><span class="sig-paren">(</span><em>rlmin</em>, <em>rlmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>fC</em>, <em>OCE</em>, <em>OCB</em>, <em>Cpp</em>, <em>Ag</em>, <em>iter=None</em>, <em>conv=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qeb_iter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalization of reconstructed CMB lensing potential and its curl mode from the EB quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">dlmin/dlmax (<em>int</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of E mode and lensing potential for delensing</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory EE angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">OCE [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed E-mode angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">OCB [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed B-mode angular power spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Cpp [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Theory lensing potential angular power spectrum, with bounds (0:dlmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">iter (<em>int</em>):</th><td class="field-body">number of iteration, default to 1 (no iteration)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">conv (<em>double</em>):</th><td class="field-body">a parameter for convergence the iteration, default to 0.001</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential normalization, with bounds (0:lmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Ac [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Curl mode (pseudo lensing potential) normalization, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Alg,Alc = curvedsky.norm_lens.qeb_iter(rlmin,rlmax,dlmin,dlmax,fCEE,Cpp,oEE,oBB,iter,conv):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Ac = curvedsky.norm_lens.qeb_iter(rlmin,rlmax,dlmin,dlmax,fC,OCE,OCB,Cpp,Ag,iter,conv):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -1409,6 +1906,51 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">beta = curvedsky.delens.shiftvec(npix,lmax,plm,nremap):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.delens.phi2grad">
+<code class="descclassname">curvedsky.delens.</code><code class="descname">phi2grad</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>plm</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.delens.phi2grad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the deflection vector, grad, at the Healpix pixel</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Pixel number of output deflection vector</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input plm/clm</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">plm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Lensing potential alm, with bounds (0:lmax,0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">grad [<em>pix,2</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D deflection vector, with bounds (0:npix-1,1:2)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">grad = curvedsky.delens.phi2grad(npix,lmax,plm):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -2230,7 +2772,7 @@ Written by Ryo Nagata.</p>
 
 <dl class="function">
 <dt id="curvedsky.utils.eb_separate">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">eb_separate</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>W</em>, <em>Q</em>, <em>U</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.eb_separate" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.utils.</code><code class="descname">eb_separate</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>W</em>, <em>Q</em>, <em>U</em>, <em>Elm</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.eb_separate" title="Permalink to this definition">¶</a></dt>
 <dd><p>E/B mode seperation based on the chi-field estimator. See e.g. Sec.III.2 of arXiv:1305.7441 for numerical implimentation.</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -2267,7 +2809,7 @@ Written by Ryo Nagata.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Elm,Blm = curvedsky.utils.eb_separate(npix,lmax,W,Q,U):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Blm = curvedsky.utils.eb_separate(npix,lmax,W,Q,U,Elm):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>

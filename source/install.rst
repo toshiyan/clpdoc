@@ -12,7 +12,7 @@ Install
 
 0) The pakage can be downloaded from https://github.com/toshiyan/cmblensplus or type 
 
-  git clode git@github.com:toshiyan/cmblensplus.git
+  git clone git@github.com:toshiyan/cmblensplus.git
 
 1) Using a fortran compiler, compile public packages, FFTW for flatsky code, and HEALPix and cfitsio for curvedsky code.
 

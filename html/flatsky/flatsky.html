@@ -755,6 +755,17 @@
 </tbody>
 </table>
 </dd>
+<dt>Args(Optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">BB[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory B-mode spectrum on 2D grid, with bounds (nx,ny), default to BB=0</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Returns:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -786,7 +797,42 @@
 <dl class="function">
 <dt id="flatsky.rec_tau.qtt">
 <code class="descclassname">flatsky.rec_tau.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>T1</em>, <em>T2</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_tau.qtt" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>Reconstructing patchy tau from the temperature quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Temperature power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">T1[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of 1st inverse-variance filtered temperature, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">T2[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of 2nd inverse-variance filtered temperature, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">tlm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of patchy tau, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -804,7 +850,42 @@
 <dl class="function">
 <dt id="flatsky.rec_tau.qte">
 <code class="descclassname">flatsky.rec_tau.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>T</em>, <em>E</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_tau.qte" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>Reconstructing patchy tau from the suboptimal TE quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">TE cross power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">T[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">E[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">tlm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of patchy tau, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -822,7 +903,42 @@
 <dl class="function">
 <dt id="flatsky.rec_tau.qtb">
 <code class="descclassname">flatsky.rec_tau.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>T</em>, <em>B</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_tau.qtb" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>Reconstructing patchy tau from the TB quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">TE cross power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">T[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">B[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">tlm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of patchy tau, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -840,7 +956,42 @@
 <dl class="function">
 <dt id="flatsky.rec_tau.qee">
 <code class="descclassname">flatsky.rec_tau.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>E1</em>, <em>E2</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_tau.qee" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>Reconstructing patchy tau from the EE quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">EE power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">E1[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of 1st inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">E2[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of 2nd inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">tlm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of patchy tau, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -858,7 +1009,42 @@
 <dl class="function">
 <dt id="flatsky.rec_tau.qeb">
 <code class="descclassname">flatsky.rec_tau.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>E</em>, <em>B</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_tau.qeb" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>Reconstructing patchy tau from the EB quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">EE power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">E[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">B[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">tlm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of patchy tau, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -986,7 +1172,7 @@
 <tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">OT[<em>lx,ly</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed temperature power spectrum on 2D grid, with bounds (nx,ny)</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Inverse of Observed temperature power spectrum on 2D grid, with bounds (nx,ny)</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">TT[<em>lx,ly</em>] (<em>double</em>):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory temperature power spectrum on 2D grid, with bounds (nx,ny)</td>
@@ -1041,10 +1227,10 @@
 <tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">OT[<em>lx,ly</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed temperature power spectrum on 2D grid, with bounds (nx,ny)</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Inverse of Observed temperature power spectrum on 2D grid, with bounds (nx,ny)</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">OE[<em>lx,ly</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed E-mode power spectrum on 2D grid, with bounds (nx,ny)</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse of Observed E-mode power spectrum on 2D grid, with bounds (nx,ny)</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">TE[<em>lx,ly</em>] (<em>double</em>):</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body">Theory TE cross spectrum on 2D grid, with bounds (nx,ny)</td>
@@ -1099,10 +1285,10 @@
 <tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">OT[<em>lx,ly</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed temperature power spectrum on 2D grid, with bounds (nx,ny)</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Inverse of Observed temperature power spectrum on 2D grid, with bounds (nx,ny)</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">OB[<em>lx,ly</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed B-mode power spectrum on 2D grid, with bounds (nx,ny)</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse of Observed B-mode power spectrum on 2D grid, with bounds (nx,ny)</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">TE[<em>lx,ly</em>] (<em>double</em>):</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body">Theory TE cross spectrum on 2D grid, with bounds (nx,ny)</td>
@@ -1157,7 +1343,7 @@
 <tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">OE[<em>lx,ly</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed E-mode power spectrum on 2D grid, with bounds (nx,ny)</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Inverse of Observed E-mode power spectrum on 2D grid, with bounds (nx,ny)</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">EE[<em>lx,ly</em>] (<em>double</em>):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory E-mode spectrum on 2D grid, with bounds (nx,ny)</td>
@@ -1212,10 +1398,10 @@
 <tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">OE[<em>lx,ly</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed E-mode power spectrum on 2D grid, with bounds (nx,ny)</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Inverse of Observed E-mode power spectrum on 2D grid, with bounds (nx,ny)</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">OB[<em>lx,ly</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed B-mode power spectrum on 2D grid, with bounds (nx,ny)</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse of Observed B-mode power spectrum on 2D grid, with bounds (nx,ny)</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">EE[<em>lx,ly</em>] (<em>double</em>):</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body">Theory E-mode spectrum on 2D grid, with bounds (nx,ny)</td>
@@ -1259,10 +1445,57 @@
 <dl class="function">
 <dt id="flatsky.norm_rot.qeb">
 <code class="descclassname">flatsky.norm_rot.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>IE</em>, <em>IB</em>, <em>EE</em>, <em>eL</em>, <em>BB=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_rot.qeb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return normalization of EB quadratic estimator for anisotropic pol. rot. angles
-Usage:</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Normalization of the EB quadratic estimator for anisotropic pol. rot. angles</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">IE[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Inverse of observed E-mode power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">IB[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse of observed B-mode power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">EE[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Theory E-mode spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">eL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of output normalization spectrum, with bounds (2)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(Optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">BB[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory B-mode spectrum on 2D grid, with bounds (nx,ny), default to BB=0</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Aa[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Normalization of anisotropic pol. rot. angles on 2D grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -1271,7 +1504,8 @@ Usage:</p>
 </tr>
 </tbody>
 </table>
-</div></blockquote>
+</dd>
+</dl>
 </dd></dl>
 
 </div>

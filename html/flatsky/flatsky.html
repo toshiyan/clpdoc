@@ -571,10 +571,44 @@
 <dl class="function">
 <dt id="flatsky.rec_rot.qte">
 <code class="descclassname">flatsky.rec_rot.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>T</em>, <em>E</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_rot.qte" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reconstructing anisotropic pol. rot. angles from TE quadratic estimator
-Usage:</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Reconstructing anisotropic pol. rot. angles from TE quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">TE cross power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">T[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">E[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of anisotropic pol. rot. angles, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -583,16 +617,51 @@ Usage:</p>
 </tr>
 </tbody>
 </table>
-</div></blockquote>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="flatsky.rec_rot.qtb">
 <code class="descclassname">flatsky.rec_rot.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>T</em>, <em>B</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_rot.qtb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reconstructing anisotropic pol. rot. angles from TB quadratic estimator
-Usage:</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Reconstructing anisotropic pol. rot. angles from TB quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">TE cross power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">T[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">B[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of anisotropic pol. rot. angles, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -601,16 +670,51 @@ Usage:</p>
 </tr>
 </tbody>
 </table>
-</div></blockquote>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="flatsky.rec_rot.qee">
 <code class="descclassname">flatsky.rec_rot.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>E1</em>, <em>E2</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_rot.qee" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reconstructing anisotropic pol. rot. angles from EE quadratic estimator
-Usage:</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
+<dd><p>Reconstructing anisotropic pol. rot. angles from EE quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">EE power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">E1[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of 1st inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">E2[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of 2nd inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of anisotropic pol. rot. angles, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -619,16 +723,51 @@ Usage:</p>
 </tr>
 </tbody>
 </table>
-</div></blockquote>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="flatsky.rec_rot.qeb">
-<code class="descclassname">flatsky.rec_rot.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>EE</em>, <em>E</em>, <em>B</em>, <em>BB=''</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_rot.qeb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reconstructing anisotropic pol. rot. angles from EB quadratic estimator
-Usage:</p>
-<blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
+<code class="descclassname">flatsky.rec_rot.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>EE</em>, <em>E</em>, <em>B</em>, <em>BB=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_rot.qeb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing anisotropic pol. rot. angles from EB quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">EE power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">E[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">B[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of anisotropic pol. rot. angles, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
@@ -637,7 +776,8 @@ Usage:</p>
 </tr>
 </tbody>
 </table>
-</div></blockquote>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
@@ -1118,7 +1258,7 @@ Usage:</p>
 <span id="norm-rot-normalization-of-quadratic-pol-rot-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_rot</span></code> – normalization of quadratic pol. rot. reconstruction<a class="headerlink" href="#module-flatsky.norm_rot" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="flatsky.norm_rot.qeb">
-<code class="descclassname">flatsky.norm_rot.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>IE</em>, <em>IB</em>, <em>EE</em>, <em>eL</em>, <em>BB=''</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_rot.qeb" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">flatsky.norm_rot.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>IE</em>, <em>IB</em>, <em>EE</em>, <em>eL</em>, <em>BB=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_rot.qeb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return normalization of EB quadratic estimator for anisotropic pol. rot. angles
 Usage:</p>
 <blockquote>

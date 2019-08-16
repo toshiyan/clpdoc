@@ -17,4 +17,10 @@
 .. automodule:: basic.delens
    :members:
 
+:mod:`bispec` -- analytic calculation of bispectrum
+---------------------------------------------------
+
+.. automodule:: basic.bispec
+   :members:
+
 

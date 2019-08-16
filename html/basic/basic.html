@@ -87,6 +87,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">basic</span></code> – Some basic tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#module-basic.aps"><code class="docutils literal notranslate"><span class="pre">aps</span></code> – angular power spectrum tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-basic.delens"><code class="docutils literal notranslate"><span class="pre">delens</span></code> – analytic calculation for delensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-basic.bispec"><code class="docutils literal notranslate"><span class="pre">bispec</span></code> – analytic calculation of bispectrum</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../curvedsky/curvedsky.html"><code class="docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools</a></li>
@@ -584,6 +585,81 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">DB = basic.delens.delensbias_dom(lmax,dlmin,dlmax,CE,CB,Cp,NP1,NP2,Ag):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-basic.bispec">
+<span id="bispec-analytic-calculation-of-bispectrum"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">bispec</span></code> – analytic calculation of bispectrum<a class="headerlink" href="#module-basic.bispec" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="basic.bispec.bispeclens">
+<code class="descclassname">basic.bispec.</code><code class="descname">bispeclens</code><span class="sig-paren">(</span><em>shap</em>, <em>cpmodel</em>, <em>model</em>, <em>z</em>, <em>dz</em>, <em>zn</em>, <em>zs</em>, <em>lmin</em>, <em>lmax</em>, <em>k</em>, <em>pk0</em>, <em>kn</em>, <em>lan</em>, <em>kan</em>, <em>pktype='T12'</em>, <em>ltype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.bispec.bispeclens" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">bl0,bl1 = basic.bispec.bispeclens(shap,cpmodel,model,z,dz,zn,zs,lmin,lmax,k,pk0,kn,lan,kan,pktype,ltype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.bispec.bispeclens_bin">
+<code class="descclassname">basic.bispec.</code><code class="descname">bispeclens_bin</code><span class="sig-paren">(</span><em>shap</em>, <em>cpmodel</em>, <em>model</em>, <em>z</em>, <em>dz</em>, <em>zn</em>, <em>zs</em>, <em>lmin</em>, <em>lmax</em>, <em>bn</em>, <em>k</em>, <em>pk0</em>, <em>kn</em>, <em>lan</em>, <em>kan</em>, <em>pktype='T12'</em>, <em>ltype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.bispec.bispeclens_bin" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">bc,bl0,bl1 = basic.bispec.bispeclens_bin(shap,cpmodel,model,z,dz,zn,zs,lmin,lmax,bn,k,pk0,kn,lan,kan,pktype,ltype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.bispec.zpoints">
+<code class="descclassname">basic.bispec.</code><code class="descname">zpoints</code><span class="sig-paren">(</span><em>zmin</em>, <em>zmax</em>, <em>zn</em>, <em>zspace=1</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.bispec.zpoints" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">z,dz = basic.bispec.zpoints(zmin,zmax,zn,zspace):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.bispec.skewspeclens">
+<code class="descclassname">basic.bispec.</code><code class="descname">skewspeclens</code><span class="sig-paren">(</span><em>cpmodel</em>, <em>model</em>, <em>z</em>, <em>dz</em>, <em>zn</em>, <em>zs</em>, <em>olmin</em>, <em>olmax</em>, <em>lmin</em>, <em>lmax</em>, <em>k</em>, <em>pk0</em>, <em>kn</em>, <em>sigma</em>, <em>W</em>, <em>pktype='T12'</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.bispec.skewspeclens" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">skew = basic.bispec.skewspeclens(cpmodel,model,z,dz,zn,zs,olmin,olmax,lmin,lmax,k,pk0,kn,sigma,W,pktype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>

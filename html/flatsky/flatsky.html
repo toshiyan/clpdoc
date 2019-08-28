@@ -1,0 +1,2883 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>flatsky – Flatsky analysis tools &mdash; cmblensplus  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../static/documentation_options.js"></script>
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script>
+        <script type="text/javascript" src="../static/doctools.js"></script>
+        <script type="text/javascript" src="../static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Licenses" href="../license.html" />
+    <link rel="prev" title="curvedsky – Curvedsky analysis tools" href="../curvedsky/curvedsky.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> cmblensplus
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation Guide</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../basic/basic.html"><code class="docutils literal notranslate"><span class="pre">basic</span></code> – Some basic tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../curvedsky/curvedsky.html"><code class="docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">flatsky</span></code> – Flatsky analysis tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-flatsky.rec_lens"><code class="docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flatsky.rec_rot"><code class="docutils literal notranslate"><span class="pre">rec_rot</span></code> – quadratic pol. rot. reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flatsky.rec_tau"><code class="docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic patchy tau reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flatsky.rec_src"><code class="docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-src reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flatsky.norm_lens"><code class="docutils literal notranslate"><span class="pre">norm_lens</span></code> – normalization of quadratic lensing reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flatsky.norm_rot"><code class="docutils literal notranslate"><span class="pre">norm_rot</span></code> – normalization of quadratic pol. rot. reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flatsky.norm_tau"><code class="docutils literal notranslate"><span class="pre">norm_tau</span></code> – normalization of quadratic patchy tay reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flatsky.ffttools"><code class="docutils literal notranslate"><span class="pre">ffttools</span></code> – FFT tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flatsky.utils"><code class="docutils literal notranslate"><span class="pre">utils</span></code> – other tools</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">Licenses</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cmblensplus</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li><code class="docutils literal notranslate"><span class="pre">flatsky</span></code> – Flatsky analysis tools</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../sources/flatsky/flatsky.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flatsky-flatsky-analysis-tools">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">flatsky</span></code> – Flatsky analysis tools<a class="headerlink" href="#flatsky-flatsky-analysis-tools" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-flatsky.rec_lens">
+<span id="rec-lens-quadratic-lensing-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction<a class="headerlink" href="#module-flatsky.rec_lens" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="flatsky.rec_lens.qtt">
+<code class="descclassname">flatsky.rec_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>T1</em>, <em>T2</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_lens.qtt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing CMB lensing potential and its curl mode from the temperature quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Temperature power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">T1[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of 1st inverse-variance filtered temperature, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">T2[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of 2nd inverse-variance filtered temperature, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">glm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of CMB lensing potential, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">clm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of Curl mode (pseudo lensing potential), with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = flatsky.rec_lens.qtt(nx,ny,D,rL,fC,T1,T2,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.rec_lens.qte">
+<code class="descclassname">flatsky.rec_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>T</em>, <em>E</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_lens.qte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing CMB lensing potential and its curl mode from the suboptimal TE quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">TE cross power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">T[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">E[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">glm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of CMB lensing potential, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">clm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of Curl mode (pseudo lensing potential), with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = flatsky.rec_lens.qte(nx,ny,D,rL,fC,T,E,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.rec_lens.qtb">
+<code class="descclassname">flatsky.rec_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>T</em>, <em>B</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_lens.qtb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing CMB lensing potential and its curl mode from the TB quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">TE cross power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">T[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">B[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">glm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of CMB lensing potential, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">clm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of Curl mode (pseudo lensing potential), with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = flatsky.rec_lens.qtb(nx,ny,D,rL,fC,T,B,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.rec_lens.qee">
+<code class="descclassname">flatsky.rec_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>E1</em>, <em>E2</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_lens.qee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing CMB lensing potential and its curl mode from the EE quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">EE power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">E1[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of 1st inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">E2[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of 2nd inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">glm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of CMB lensing potential, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">clm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of Curl mode (pseudo lensing potential), with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = flatsky.rec_lens.qee(nx,ny,D,rL,fC,E1,E2,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.rec_lens.qeb">
+<code class="descclassname">flatsky.rec_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>E</em>, <em>B</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_lens.qeb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing CMB lensing potential and its curl mode from the EB quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">EE power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">E[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">B[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">glm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of CMB lensing potential, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">clm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of Curl mode (pseudo lensing potential), with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = flatsky.rec_lens.qeb(nx,ny,D,rL,fC,E,B,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.rec_lens.qbb">
+<code class="descclassname">flatsky.rec_lens.</code><code class="descname">qbb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>B1</em>, <em>B2</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_lens.qbb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing CMB lensing potential and its curl mode from the BB quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">BB power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">B1[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of 1st inverse-variance filtered B-mode, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">B2[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of 2nd inverse-variance filtered B-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">glm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of CMB lensing potential, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">clm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of Curl mode (pseudo lensing potential), with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = flatsky.rec_lens.qbb(nx,ny,D,rL,fC,B1,B2,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-flatsky.rec_rot">
+<span id="rec-rot-quadratic-pol-rot-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_rot</span></code> – quadratic pol. rot. reconstruction<a class="headerlink" href="#module-flatsky.rec_rot" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="flatsky.rec_rot.qte">
+<code class="descclassname">flatsky.rec_rot.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>T</em>, <em>E</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_rot.qte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing anisotropic pol. rot. angles from TE quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">TE cross power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">T[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">E[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of anisotropic pol. rot. angles, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = flatsky.rec_rot.qte(nx,ny,D,rL,fC,T,E):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.rec_rot.qtb">
+<code class="descclassname">flatsky.rec_rot.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>T</em>, <em>B</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_rot.qtb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing anisotropic pol. rot. angles from TB quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">TE cross power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">T[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">B[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of anisotropic pol. rot. angles, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = flatsky.rec_rot.qtb(nx,ny,D,rL,fC,T,B):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.rec_rot.qee">
+<code class="descclassname">flatsky.rec_rot.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>E1</em>, <em>E2</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_rot.qee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing anisotropic pol. rot. angles from EE quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">EE power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">E1[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of 1st inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">E2[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of 2nd inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of anisotropic pol. rot. angles, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = flatsky.rec_rot.qee(nx,ny,D,rL,fC,E1,E2):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.rec_rot.qeb">
+<code class="descclassname">flatsky.rec_rot.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>EE</em>, <em>E</em>, <em>B</em>, <em>BB=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_rot.qeb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing anisotropic pol. rot. angles from EB quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">EE power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">E[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">B[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(Optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">BB[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory B-mode spectrum on 2D grid, with bounds (nx,ny), default to BB=0</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of anisotropic pol. rot. angles, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = flatsky.rec_rot.qeb(nx,ny,D,rL,EE,E,B,BB):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-flatsky.rec_tau">
+<span id="rec-tau-quadratic-patchy-tau-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic patchy tau reconstruction<a class="headerlink" href="#module-flatsky.rec_tau" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="flatsky.rec_tau.qtt">
+<code class="descclassname">flatsky.rec_tau.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>T1</em>, <em>T2</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_tau.qtt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing patchy tau from the temperature quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Temperature power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">T1[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of 1st inverse-variance filtered temperature, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">T2[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of 2nd inverse-variance filtered temperature, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">tlm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of patchy tau, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">tlm = flatsky.rec_tau.qtt(nx,ny,D,rL,fC,T1,T2):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.rec_tau.qte">
+<code class="descclassname">flatsky.rec_tau.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>T</em>, <em>E</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_tau.qte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing patchy tau from the suboptimal TE quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">TE cross power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">T[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">E[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">tlm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of patchy tau, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">tlm = flatsky.rec_tau.qte(nx,ny,D,rL,fC,T,E):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.rec_tau.qtb">
+<code class="descclassname">flatsky.rec_tau.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>T</em>, <em>B</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_tau.qtb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing patchy tau from the TB quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">TE cross power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">T[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">B[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">tlm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of patchy tau, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">tlm = flatsky.rec_tau.qtb(nx,ny,D,rL,fC,T,B):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.rec_tau.qee">
+<code class="descclassname">flatsky.rec_tau.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fC</em>, <em>E1</em>, <em>E2</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_tau.qee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing patchy tau from the EE quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">EE power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">E1[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of 1st inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">E2[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of 2nd inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">tlm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of patchy tau, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">tlm = flatsky.rec_tau.qee(nx,ny,D,rL,fC,E1,E2):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.rec_tau.qeb">
+<code class="descclassname">flatsky.rec_tau.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>fE</em>, <em>fB</em>, <em>E</em>, <em>B</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_tau.qeb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing patchy tau from the EB quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fE[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">EE power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">fB[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">BB power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">E[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">B[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">tlm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of patchy tau, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">tlm = flatsky.rec_tau.qeb(nx,ny,D,rL,fE,fB,E,B):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-flatsky.rec_src">
+<span id="rec-src-quadratic-point-src-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-src reconstruction<a class="headerlink" href="#module-flatsky.rec_src" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="flatsky.rec_src.qtt">
+<code class="descclassname">flatsky.rec_src.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>T1</em>, <em>T2</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_src.qtt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing point source fields from the temperature quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Temperature power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">T1[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of 1st inverse-variance filtered temperature, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">T2[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of 2nd inverse-variance filtered temperature, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">slm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of point source fields, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">slm = flatsky.rec_src.qtt(nx,ny,D,rL,T1,T2):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.rec_src.qte">
+<code class="descclassname">flatsky.rec_src.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>T</em>, <em>E</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_src.qte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing point source fields from the suboptimal TE quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">TE cross power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">T[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">E[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">slm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of point source fields, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">slm = flatsky.rec_src.qte(nx,ny,D,rL,T,E):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.rec_src.qtb">
+<code class="descclassname">flatsky.rec_src.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>T</em>, <em>B</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_src.qtb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing point source fields from the TB quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">TE cross power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">T[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">B[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">slm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of point source fields, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">slm = flatsky.rec_src.qtb(nx,ny,D,rL,T,B):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.rec_src.qee">
+<code class="descclassname">flatsky.rec_src.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>E1</em>, <em>E2</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_src.qee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing point source fields from the EE quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">EE power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">E1[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of 1st inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">E2[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of 2nd inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">slm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of point source fields, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">slm = flatsky.rec_src.qee(nx,ny,D,rL,E1,E2):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.rec_src.qeb">
+<code class="descclassname">flatsky.rec_src.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>E</em>, <em>B</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.rec_src.qeb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reconstructing point source fields from the EB quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">fC[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">EE power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">E[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">B[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">slm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D Fourier modes of point source fields, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">slm = flatsky.rec_src.qeb(nx,ny,D,rL,E,B):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-flatsky.norm_lens">
+<span id="norm-lens-normalization-of-quadratic-lensing-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_lens</span></code> – normalization of quadratic lensing reconstruction<a class="headerlink" href="#module-flatsky.norm_lens" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="flatsky.norm_lens.qtt">
+<code class="descclassname">flatsky.norm_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>OT</em>, <em>TT</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_lens.qtt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalization of the temperature quadratic estimator for CMB lensing potential and its curl mode</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">OT[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Inverse of Observed temperature power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">TT[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory temperature power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">eL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of output normalization spectrum, with bounds (2)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Normalization of CMB lensing potential on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Ac[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Normalization of Curl mode (pseudo lensing potential) on 2D grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = flatsky.norm_lens.qtt(nx,ny,D,rL,OT,TT,eL):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.norm_lens.qte">
+<code class="descclassname">flatsky.norm_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>OT</em>, <em>OE</em>, <em>TE</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_lens.qte" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalization of the TE quadratic estimator for CMB lensing potential and its curl mode</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">OT[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Inverse of Observed temperature power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">OE[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse of Observed E-mode power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">TE[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Theory TE cross spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">eL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of output normalization spectrum, with bounds (2)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Normalization of CMB lensing potential on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Ac[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Normalization of Curl mode (pseudo lensing potential) on 2D grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = flatsky.norm_lens.qte(nx,ny,D,rL,OT,OE,TE,eL):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.norm_lens.qtb">
+<code class="descclassname">flatsky.norm_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>OT</em>, <em>OB</em>, <em>TE</em>, <em>rL</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_lens.qtb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalization of the TB quadratic estimator for CMB lensing potential and its curl mode</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">OT[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Inverse of Observed temperature power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">OB[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse of Observed B-mode power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">TE[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Theory TE cross spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">eL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of output normalization spectrum, with bounds (2)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Normalization of CMB lensing potential on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Ac[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Normalization of Curl mode (pseudo lensing potential) on 2D grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = flatsky.norm_lens.qtb(nx,ny,D,OT,OB,TE,rL,eL):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.norm_lens.qee">
+<code class="descclassname">flatsky.norm_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>OE</em>, <em>EE</em>, <em>rL</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_lens.qee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalization of the EE quadratic estimator for CMB lensing potential and its curl mode</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">OE[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Inverse of Observed E-mode power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">EE[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory E-mode spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">eL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of output normalization spectrum, with bounds (2)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Normalization of CMB lensing potential on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Ac[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Normalization of Curl mode (pseudo lensing potential) on 2D grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = flatsky.norm_lens.qee(nx,ny,D,OE,EE,rL,eL):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.norm_lens.qeb">
+<code class="descclassname">flatsky.norm_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>OE</em>, <em>OB</em>, <em>EE</em>, <em>rL</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_lens.qeb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalization of the EB quadratic estimator for CMB lensing potential and its curl mode</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">OE[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Inverse of Observed E-mode power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">OB[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse of Observed B-mode power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">EE[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Theory E-mode spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">eL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of output normalization spectrum, with bounds (2)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Normalization of CMB lensing potential on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Ac[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Normalization of Curl mode (pseudo lensing potential) on 2D grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = flatsky.norm_lens.qeb(nx,ny,D,OE,OB,EE,rL,eL):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-flatsky.norm_rot">
+<span id="norm-rot-normalization-of-quadratic-pol-rot-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_rot</span></code> – normalization of quadratic pol. rot. reconstruction<a class="headerlink" href="#module-flatsky.norm_rot" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="flatsky.norm_rot.qeb">
+<code class="descclassname">flatsky.norm_rot.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>IE</em>, <em>IB</em>, <em>EE</em>, <em>eL</em>, <em>BB=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_rot.qeb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalization of the EB quadratic estimator for anisotropic pol. rot. angles</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">IE[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Inverse of observed E-mode power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">IB[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse of observed B-mode power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">EE[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Theory E-mode spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">eL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of output normalization spectrum, with bounds (2)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(Optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">BB[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory B-mode spectrum on 2D grid, with bounds (nx,ny), default to BB=0</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Aa[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Normalization of anisotropic pol. rot. angles on 2D grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Aa = flatsky.norm_rot.qeb(nx,ny,D,rL,IE,IB,EE,eL,BB):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-flatsky.norm_tau">
+<span id="norm-tau-normalization-of-quadratic-patchy-tay-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_tau</span></code> – normalization of quadratic patchy tay reconstruction<a class="headerlink" href="#module-flatsky.norm_tau" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="flatsky.norm_tau.qtt">
+<code class="descclassname">flatsky.norm_tau.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>OT</em>, <em>TT</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_tau.qtt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalization of the temperature quadratic estimator for patchy tau</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">OT[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Inverse of Observed temperature power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">TT[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory temperature power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">eL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of output normalization spectrum, with bounds (2)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">At[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Normalization of patchy tau on 2D grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">At = flatsky.norm_tau.qtt(nx,ny,D,rL,OT,TT,eL):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.norm_tau.qeb">
+<code class="descclassname">flatsky.norm_tau.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>rL</em>, <em>IE</em>, <em>IB</em>, <em>EE</em>, <em>eL</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.norm_tau.qeb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalization of the EB quadratic estimator for patchy tau</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">rL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">IE[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Inverse of observed E-mode power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">IB[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse of observed B-mode power spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">EE[<em>lx,ly</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Theory E-mode spectrum on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">eL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipole of output normalization spectrum, with bounds (2)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">At[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Normalization of patchy tau on 2D grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">At = flatsky.norm_tau.qeb(nx,ny,D,rL,IE,IB,EE,eL):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-flatsky.ffttools">
+<span id="ffttools-fft-tools"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">ffttools</span></code> – FFT tools<a class="headerlink" href="#module-flatsky.ffttools" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="flatsky.ffttools.dft1d">
+<code class="descclassname">flatsky.ffttools.</code><code class="descname">dft1d</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>npix</em>, <em>D</em>, <em>trans</em>, <em>map1</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>DFT for 1D array.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Total number of grids (npix=nx*ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">trans (<em>int</em>):</th><td class="field-body">1 (map to Fourier) or -1 (Fourier to map)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">map0[<em>pix</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Data on 2D grid to be transformed, with bounds (npix)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">map1[<em>pix</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Transformed data on 2D grid, with bounds (npix)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd>: = flatsky.ffttools.dft1d(map0,nx,ny,npix,D,trans,map1):</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.ffttools.dft2d">
+<code class="descclassname">flatsky.ffttools.</code><code class="descname">dft2d</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>DFT for 2D array.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">trans (<em>int</em>):</th><td class="field-body">1 (map to Fourier) or -1 (Fourier to map)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">map0[<em>x,y</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Data on 2D grid to be transformed, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">map1[<em>x,y</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Transformed data on 2D grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">map1 = flatsky.ffttools.dft2d(map0,nx,ny,D,trans):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.ffttools.dft2dr">
+<code class="descclassname">flatsky.ffttools.</code><code class="descname">dft2dr</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft2dr" title="Permalink to this definition">¶</a></dt>
+<dd><p>DFT for 2D array.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">trans (<em>int</em>):</th><td class="field-body">1 (map to Fourier) or -1 (Fourier to map)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">map0[<em>x,y</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Data on 2D grid to be transformed, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">map1[<em>x,y</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Transformed data on 2D grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">map1 = flatsky.ffttools.dft2dr(map0,nx,ny,D,trans):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.ffttools.dft2drc">
+<code class="descclassname">flatsky.ffttools.</code><code class="descname">dft2drc</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft2drc" title="Permalink to this definition">¶</a></dt>
+<dd><p>DFT for 2D array.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">trans (<em>int</em>):</th><td class="field-body">1 (map to Fourier) or -1 (Fourier to map)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">map0[<em>x,y</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Data on 2D grid to be transformed, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">map1[<em>x,y</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Transformed data on 2D grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">map1 = flatsky.ffttools.dft2drc(map0,nx,ny,D,trans):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.ffttools.dft2dcr">
+<code class="descclassname">flatsky.ffttools.</code><code class="descname">dft2dcr</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft2dcr" title="Permalink to this definition">¶</a></dt>
+<dd><p>DFT for 2D array.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">trans (<em>int</em>):</th><td class="field-body">1 (map to Fourier) or -1 (Fourier to map)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">map0[<em>x,y</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Data on 2D grid to be transformed, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">map1[<em>x,y</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Transformed data on 2D grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">map1 = flatsky.ffttools.dft2dcr(map0,nx,ny,D,trans):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.ffttools.dft2dpol">
+<code class="descclassname">flatsky.ffttools.</code><code class="descname">dft2dpol</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>Q</em>, <em>U</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft2dpol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spin-2 DFT for 2D array.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Q[<em>x,y</em>] (doub;e):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Q on 2D grid to be transformed, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">U[<em>x,y</em>] (doub;e):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">U on 2D grid to be transformed, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">E[<em>x,y</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">E on 2D Fourier grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">B[<em>x,y</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">B on 2D Fourier grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">E,B = flatsky.ffttools.dft2dpol(nx,ny,D,Q,U):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.ffttools.idft2dpol">
+<code class="descclassname">flatsky.ffttools.</code><code class="descname">idft2dpol</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>E</em>, <em>B</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.idft2dpol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spin-2 Inverse DFT for 2D array.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">E[<em>x,y</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">E on 2D Fourier grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">B[<em>x,y</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">B on 2D Fourier grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Q[<em>x,y</em>] (doub;e):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Q on 2D grid, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">U[<em>x,y</em>] (doub;e):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">U on 2D grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Q,U = flatsky.ffttools.idft2dpol(nx,ny,D,E,B):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.ffttools.eb_separate">
+<code class="descclassname">flatsky.ffttools.</code><code class="descname">eb_separate</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>QU</em>, <em>W</em>, <em>Wd=None</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.eb_separate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute Smith’s pure EB estimator in flatsky</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">W[<em>x,y</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Window function, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">QU[<em>x,y,2</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">unmasked Q and U maps, with bounds (nx,ny,2)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Wd[<em>5,x,y</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Precomputed window function derivaives, dW/dx, dW/dw, d^2W/dx^2, d^2W/dxdy, d^2W/dy^2, with bounds (5,nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">EB[<em>2,x,y</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">E and B modes in 2D Fourier grid, with bounds (2,nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">EB = flatsky.ffttools.eb_separate(nx,ny,D,QU,W,Wd):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-flatsky.utils">
+<span id="utils-other-tools"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code> – other tools<a class="headerlink" href="#module-flatsky.utils" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="flatsky.utils.el2d">
+<code class="descclassname">flatsky.utils.</code><code class="descname">el2d</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.el2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return absolute value of multipole in 2D grids</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">els[<em>nx,ny</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">absolute value of Fourier mode, (Lx**2+Ly**2)**0.5, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">els = flatsky.utils.el2d(nx,ny,D):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.utils.elarrays">
+<code class="descclassname">flatsky.utils.</code><code class="descname">elarrays</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.elarrays" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return Lx, Ly, absolute value of multipole, and its inverse in 2D grids</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">elx[<em>nx,ny</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Lx, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">ely[<em>nx,ny</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Ly, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">els[<em>nx,ny</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">absolute value of Fourier mode, (Lx**2+Ly**2)**0.5, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">eli[<em>nx,ny</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">inverse of els, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">elx,ely,els,eli = flatsky.utils.elarrays(nx,ny,D):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.utils.elmask">
+<code class="descclassname">flatsky.utils.</code><code class="descname">elmask</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>lmin=0</em>, <em>lmax=1000</em>, <em>lxcut=0</em>, <em>lycut=0</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.elmask" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return mask in 2D Fourier space. The lmask is unity at lmin&lt;=|L|&lt;=lmax, <a href="#id1"><span class="problematic" id="id2">|Lx|</span></a>&gt;=lxcut, <a href="#id3"><span class="problematic" id="id4">|Ly|</span></a>&gt;=lycut, and otherwize zero.</p>
+<dl class="docutils">
+<dt>Args: </dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><blockquote class="first">
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">lmin/lmax (<em>int</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Minimum/Maximum of multipoles</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">lxcut/lycut (<em>int</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Lx/ly cut of multipoles</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<dl class="last docutils">
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">lmask[<em>nx,ny</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Mask, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">lmask = flatsky.utils.elmask(nx,ny,D,lmin,lmax,lxcut,lycut):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.utils.alm2bcl">
+<code class="descclassname">flatsky.utils.</code><code class="descname">alm2bcl</code><span class="sig-paren">(</span><em>bn</em>, <em>oL</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>alm1</em>, <em>alm2=None</em>, <em>spc=''</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.alm2bcl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute angular power spectrum from Fourier modes, with multipole binning</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">bn (<em>int</em>):</th><td class="field-body">number of multipole bin</td>
+</tr>
+<tr class="field-even field"><th class="field-name">oL[<em>2</em>] (<em>int</em>):</th><td class="field-body">minimum and maximum multipoles of the output cl</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">alm1[<em>nx,ny</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Fourier mode, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm2[<em>nx,ny</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Fourier mode, with bounds (nx,ny), default to None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">spc (<em>str</em>):</th><td class="field-body">type of multipole binning, i.e., linear spacing (spc=’‘, default), or log spacing (spc=’log’)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><blockquote class="first">
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Cb[<em>bin</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">angular power spectrum with multipole binning, with bounds (bn)</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p class="last">2D power spectrum
+to 1D power spectrum</p>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Cb = flatsky.utils.alm2bcl(bn,oL,nx,ny,D,alm1,alm2,spc):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.utils.c2d2bcl">
+<code class="descclassname">flatsky.utils.</code><code class="descname">c2d2bcl</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>c2d</em>, <em>bn</em>, <em>oL</em>, <em>spc=''</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.c2d2bcl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return 1D angular power spectrum with multipole binning from a 2D power spectrum</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">c2d[<em>nx,ny</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D power spectrum, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">bn (<em>int</em>):</th><td class="field-body">number of multipole bin</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">oL[<em>2</em>] (<em>int</em>):</th><td class="field-body">minimum and maximum multipoles of the output cl</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">spc (<em>str</em>):</th><td class="field-body">type of multipole binning, i.e., linear spacing (spc=’‘, default), or log spacing (spc=’log’)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Cb[<em>bin</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">angular power spectrum with multipole binning, with bounds (bn)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Cb = flatsky.utils.c2d2bcl(nx,ny,D,c2d,bn,oL,spc):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.utils.cl2c2d">
+<code class="descclassname">flatsky.utils.</code><code class="descname">cl2c2d</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>lmin</em>, <em>lmax</em>, <em>Cl</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.cl2c2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign values of 1D angular power spectrum on to 2D grid with linear interpolation</p>
+<dl class="docutils">
+<dt>Args: </dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">lmin (<em>int</em>):</th><td class="field-body">minimum multipole of cl to be interpolated</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">maximum multipole of cl to be interpolated</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Cl[<em>l</em>] (<em>double</em>):</th><td class="field-body">1D power spectrum, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">c2d[<em>nx,ny</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D power spectrum, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">c2d = flatsky.utils.cl2c2d(nx,ny,D,lmin,lmax,Cl):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.utils.cb2c2d">
+<code class="descclassname">flatsky.utils.</code><code class="descname">cb2c2d</code><span class="sig-paren">(</span><em>bn</em>, <em>bc</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>lmin</em>, <em>lmax</em>, <em>Cb</em>, <em>method=''</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.cb2c2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign values of 1D angular power spectrum on to 2D grid with linear interpolation</p>
+<dl class="docutils">
+<dt>Args: </dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">bn (<em>int</em>):</th><td class="field-body">number of multipole bins</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">bc[<em>bin</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">multipole bin center, with bounds (bn)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">lmin (<em>int</em>):</th><td class="field-body">minimum multipole of cl to be interpolated</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">maximum multipole of cl to be interpolated</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Cb[<em>bin</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">1D power spectrum with multipole binning, with bounds (bn)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">method (<em>str</em>):</th><td class="field-body">interpolation method from binned to unbinned angular spectrum, i.e., spline (‘’, default), or linear (‘linear’) interpolation</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">c2d[<em>nx,ny</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D power spectrum, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">C2d = flatsky.utils.cb2c2d(bn,bc,nx,ny,D,lmin,lmax,Cb,method):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.utils.gauss1alm">
+<code class="descclassname">flatsky.utils.</code><code class="descname">gauss1alm</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>lmin</em>, <em>lmax</em>, <em>Cl</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.gauss1alm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate random gaussian fields in 2D Fourier space for a given isotropic spectrum, satisfying a^*_l = a_{-l}</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">lmin (<em>int</em>):</th><td class="field-body">minimum multipole of cl to be interpolated</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">maximum multipole of cl to be interpolated</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Cl[<em>l</em>] (<em>double</em>):</th><td class="field-body">1D power spectrum, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">random gaussian fields on 2D Fourier plane, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = flatsky.utils.gauss1alm(nx,ny,D,lmin,lmax,Cl):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.utils.gauss2alm">
+<code class="descclassname">flatsky.utils.</code><code class="descname">gauss2alm</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>lmin</em>, <em>lmax</em>, <em>TT</em>, <em>TE</em>, <em>EE</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.gauss2alm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate two correlated random gaussian fields in 2D Fourier space for a given isotropic spectrum</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">lmin (<em>int</em>):</th><td class="field-body">minimum multipole of cl to be interpolated</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">maximum multipole of cl to be interpolated</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">TT[<em>l</em>] (<em>double</em>):</th><td class="field-body">the 1st 1D power spectrum, with bounds (0:lmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">TE[<em>l</em>] (<em>double</em>):</th><td class="field-body">the cross 1D power spectrum, with bounds (0:lmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">EE[<em>l</em>] (<em>double</em>):</th><td class="field-body">the 2nd 1D power spectrum, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">tlm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">the 1st random gaussian fields on 2D Fourier plane, with bounds (nx,ny)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">elm[<em>lx,ly</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">the 2nd random gaussian fields on 2D Fourier plane, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">tlm,elm = flatsky.utils.gauss2alm(nx,ny,D,lmin,lmax,TT,TE,EE):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.utils.window_sin">
+<code class="descclassname">flatsky.utils.</code><code class="descname">window_sin</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>ap=1</em>, <em>cut=1</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.window_sin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a sin window function.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>xy</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(Optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ap (<em>double</em>):</th><td class="field-body">Apodization parameter defined by apodized-range = (1-ap) x (cut)mapsize, from 0 (full apodization) to 1 (no apodization). Default to 1.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">cut (<em>double</em>):</th><td class="field-body">Map cut scale defined by cutmapsize = cut x mapsize, from 0 (full cut) to 1 (no cut). Default to 1.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Return:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">W[<em>x,y</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Window function, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">W = flatsky.utils.window_sin(nx,ny,D,ap,cut):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.utils.window_norm">
+<code class="descclassname">flatsky.utils.</code><code class="descname">window_norm</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>wind</em>, <em>num</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.window_norm" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">wn = flatsky.utils.window_norm(nx,ny,wind,num):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.utils.window_norm_x">
+<code class="descclassname">flatsky.utils.</code><code class="descname">window_norm_x</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>W1</em>, <em>W2</em>, <em>num</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.window_norm_x" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Wn = flatsky.utils.window_norm_x(nx,ny,W1,W2,num):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.utils.rotation">
+<code class="descclassname">flatsky.utils.</code><code class="descname">rotation</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>rot</em>, <em>QU</em>, <em>rtype</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.rotation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">rQU = flatsky.utils.rotation(nx,ny,rot,QU,rtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.utils.get_angle">
+<code class="descclassname">flatsky.utils.</code><code class="descname">get_angle</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.get_angle" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">theta,phi = flatsky.utils.get_angle(nx,ny,D):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.utils.cutmap">
+<code class="descclassname">flatsky.utils.</code><code class="descname">cutmap</code><span class="sig-paren">(</span><em>ox</em>, <em>oy</em>, <em>cx</em>, <em>cy</em>, <em>omap</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.cutmap" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">cmap = flatsky.utils.cutmap(ox,oy,cx,cy,omap):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../license.html" class="btn btn-neutral float-right" title="Licenses" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../curvedsky/curvedsky.html" class="btn btn-neutral float-left" title="curvedsky – Curvedsky analysis tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Toshiya Namikawa
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

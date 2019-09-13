@@ -55,6 +55,11 @@
 .. automodule:: curvedsky.bispec
    :members:
 
+:mod:`cninv` -- Filtering Anisotropies
+----------------------------------------------------
+.. automodule:: curvedsky.cninv
+   :members:
+
 :mod:`utils` -- other tools
 ----------------------------------------------------
 .. automodule:: curvedsky.utils

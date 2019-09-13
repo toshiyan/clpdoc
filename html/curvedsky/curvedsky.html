@@ -96,6 +96,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.norm_src"><code class="docutils literal notranslate"><span class="pre">norm_src</span></code> – normalization of quadratic point-source reconstruction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.delens"><code class="docutils literal notranslate"><span class="pre">delens</span></code> – delensing for simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.bispec"><code class="docutils literal notranslate"><span class="pre">bispec</span></code> – binned reduced bispectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.cninv"><code class="docutils literal notranslate"><span class="pre">cninv</span></code> – Filtering Anisotropies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.utils"><code class="docutils literal notranslate"><span class="pre">utils</span></code> – other tools</a></li>
 </ul>
 </li>
@@ -2757,6 +2758,181 @@ The kernels are the same as the rotation normalization but with a factor 4.</p>
 </tr>
 </tbody>
 </table>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-curvedsky.cninv">
+<span id="cninv-filtering-anisotropies"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">cninv</span></code> – Filtering Anisotropies<a class="headerlink" href="#module-curvedsky.cninv" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="curvedsky.cninv.cnfilter">
+<code class="descclassname">curvedsky.cninv.</code><code class="descname">cnfilter</code><span class="sig-paren">(</span><em>n</em>, <em>npix</em>, <em>lmax</em>, <em>cl</em>, <em>nij</em>, <em>alm</em>, <em>itern</em>, <em>eps=1e-06</em>, <em>filter=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cnfilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computing inverse-variance (default) or Wiener filtered multipoles: C^-1d
+This code assumes</p>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li>The signal power spectrum is isotropic Gaussian.</li>
+<li>Inverse noise covariance is given in pixel space and diagonal (nij = sigma x delta_ij).</li>
+<li>The data model is bxS+N</li>
+</ul>
+</div></blockquote>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">n (<em>int</em>):</th><td class="field-body">Number of maps</td>
+</tr>
+<tr class="field-even field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Number of pixel</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of alm</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">cl[<em>n,l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Angular power spectrum of alm, with bounds (0:n-1,0:lmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">nij[<em>n,pix</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse of the noise variance at each pixel, with bounds (0:n-1,0:npix-1)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">alm[<em>n,l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Input alm, with bouds (0:n-1,0:lmax,0:lmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">itern (<em>int</em>):</th><td class="field-body">Number of interation</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional): </dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">eps (<em>double</em>):</th><td class="field-body">Numerical parameter to finish the iteration if ave(<a href="#id1"><span class="problematic" id="id2">|Ax-b|</span></a>)&lt;eps, default to 1e-6</td>
+</tr>
+<tr class="field-even field"><th class="field-name">filter (<em>str</em>):</th><td class="field-body">C-inverse (‘’) or Wiener filter (W), default to C-inverse.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">xlm[<em>n,l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">C-inverse / Wiener filtered multipoles, with bounds (0:n-1,0:lmax,0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">xlm = curvedsky.cninv.cnfilter(n,npix,lmax,cl,nij,alm,itern,eps,filter):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.cninv.cg_algorithm">
+<code class="descclassname">curvedsky.cninv.</code><code class="descname">cg_algorithm</code><span class="sig-paren">(</span><em>n</em>, <em>npix</em>, <em>lmax</em>, <em>clh</em>, <em>nij</em>, <em>b</em>, <em>itern</em>, <em>eps=1e-06</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cg_algorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Searching for a solution x of Ax = b with the Conjugate Gradient iteratively
+The code assumes</p>
+<blockquote>
+<div><ul class="simple">
+<li>A = [1 + C^1/2 N^-1 C^1/2]</li>
+<li>C^1/2 is diagonal</li>
+<li>N is diagonal in pixel space (statistically isotropic noise)</li>
+</ul>
+</div></blockquote>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">n (<em>int</em>):</th><td class="field-body">Number of maps</td>
+</tr>
+<tr class="field-even field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Number of pixel</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of alm</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">clh[<em>n,l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Square root of angular spectrum (C^1/2), with bounds (0:n-1,0:lmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">nij[<em>n,pix</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse of the noise variance (N^-1) at each pixel, with bounds (0:n-1,0:npix-1)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">b[<em>n,l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">RHS, with bounds (0:n-1,0:lmax,0:lmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">itern (<em>int</em>):</th><td class="field-body">Number of interation</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional): </dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">eps (<em>double</em>):</th><td class="field-body">Numerical parameter to finish the iteration if ave(<a href="#id3"><span class="problematic" id="id4">|Ax-b|</span></a>)&lt;eps, default to 1e-6</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">x[<em>n,l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">C-inverse filtered multipoles, with bounds (0:n-1,0:lmax,0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">x = curvedsky.cninv.cg_algorithm(n,npix,lmax,clh,nij,b,itern,eps):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.cninv.mat_multi">
+<code class="descclassname">curvedsky.cninv.</code><code class="descname">mat_multi</code><span class="sig-paren">(</span><em>n</em>, <em>npix</em>, <em>lmax</em>, <em>clh</em>, <em>nij</em>, <em>x</em>, <em>mtype</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.mat_multi" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>multiplying matrix</dt>
+<dd><dl class="first last docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">v = curvedsky.cninv.mat_multi(n,npix,lmax,clh,nij,x,mtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>

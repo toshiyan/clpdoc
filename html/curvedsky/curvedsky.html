@@ -2723,21 +2723,26 @@ The kernels are the same as the rotation normalization but with a factor 4.</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedsky.bispec.equi">
-<code class="descclassname">curvedsky.bispec.</code><code class="descname">equi</code><span class="sig-paren">(</span><em>lmin</em>, <em>lmax</em>, <em>alm</em>, <em>bst=2</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.bispec.equi" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute equilateral shape of the unnormalized binned reduced bispectrum for a given alm, b[l,l,l]</p>
+<dt id="curvedsky.bispec.xbispec_bin">
+<code class="descclassname">curvedsky.bispec.</code><code class="descname">xbispec_bin</code><span class="sig-paren">(</span><em>bn, bp, lmax, n, alm, bstype='equi', bst=2, sL=[0, 0]</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.bispec.xbispec_bin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the unnormalized binned reduced cross-bispectrum for a given multipole bin</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmin (<em>int</em>):</th><td class="field-body">Minimum multipole of the bin</td>
+<tr class="field-odd field"><th class="field-name">bn (<em>int</em>):</th><td class="field-body">Number of multipole bins</td>
 </tr>
-<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the bin</td>
+<tr class="field-even field"><th class="field-name" colspan="2">bp [<em>edge</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Bin edges, with bounds (bn+1)</td>
 </tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">alm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Input harmonic coefficients, with bounds (0:lmax,0:lmax).</td>
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input alm</td>
+</tr>
+<tr class="field-even field"><th class="field-name">n (<em>int</em>):</th><td class="field-body">Number of alms</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">alm [<em>n,l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Input harmonic coefficients, with bounds (0:n-1,0:lmax,0:lmax)</td>
 </tr>
 </tbody>
 </table>
@@ -2747,7 +2752,11 @@ The kernels are the same as the rotation normalization but with a factor 4.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">bst (<em>int</em>):</th><td class="field-body">A parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</td>
+<tr class="field-odd field"><th class="field-name">bstype (<em>str</em>):</th><td class="field-body">Configuration of the bispectrum, default to equilateral</td>
+</tr>
+<tr class="field-even field"><th class="field-name">bst (<em>int</em>):</th><td class="field-body">A parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">sL[<em>2</em>] (<em>int</em>):</th><td class="field-body">The fixed bin for the squeezed configuration, b[<em>sL,eL,eL</em>], default to the lowest multipole bin</td>
 </tr>
 </tbody>
 </table>
@@ -2757,8 +2766,8 @@ The kernels are the same as the rotation normalization but with a factor 4.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">bispec (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Unnormalized binned reduced bispectrum at the bin, [<em>lmin,lmax</em>]</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">bis [<em>bin</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The unnormalized binned reduced bispectrum at each bin, with bounds (bn)</td>
 </tr>
 </tbody>
 </table>
@@ -2768,176 +2777,7 @@ The kernels are the same as the rotation normalization but with a factor 4.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">bispec = curvedsky.bispec.equi(lmin,lmax,alm,bst):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.bispec.fold">
-<code class="descclassname">curvedsky.bispec.</code><code class="descname">fold</code><span class="sig-paren">(</span><em>lmin</em>, <em>lmax</em>, <em>alm</em>, <em>bst=2</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.bispec.fold" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute folded shape of the unnormalized binned reduced bispectrum for a given alm, b[l,l/2,l/2]</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmin (<em>int</em>):</th><td class="field-body">Minimum multipole of the bin</td>
-</tr>
-<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the bin</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">alm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Input harmonic coefficients, with bounds (0:lmax,0:lmax).</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">bst (<em>int</em>):</th><td class="field-body">A parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">bispec (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Unnormalized binned reduced bispectrum at the bin, [<em>lmin,lmax</em>]</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">bispec = curvedsky.bispec.fold(lmin,lmax,alm,bst):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.bispec.sque">
-<code class="descclassname">curvedsky.bispec.</code><code class="descname">sque</code><span class="sig-paren">(</span><em>eL</em>, <em>sL</em>, <em>l1</em>, <em>alm</em>, <em>bst=2</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.bispec.sque" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute squeezed shape of the unnormalized binned reduced bispectrum for a given alm, b[sL,eL,eL]</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">eL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipoles of the bin, with bounds (2)</td>
-</tr>
-<tr class="field-even field"><th class="field-name">sL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipoles of the fixed bin, with bounds (2)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">l1 (<em>int</em>):</th><td class="field-body">Maximum multipole of the input alm, satisfying eLmax,sLmax&lt;=l1</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">alm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Input harmonic coefficients, with bounds (0:lmax,0:lmax).</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">bst (<em>int</em>):</th><td class="field-body">A parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">bispec (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Unnormalized binned reduced bispectrum at the bin, [<em>lmin,lmax</em>]</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">bispec = curvedsky.bispec.sque(eL,sL,l1,alm,bst):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.bispec.isos">
-<code class="descclassname">curvedsky.bispec.</code><code class="descname">isos</code><span class="sig-paren">(</span><em>eL</em>, <em>aL</em>, <em>l1</em>, <em>alm</em>, <em>bst=2</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.bispec.isos" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute isosceles shape of the unnormalized binned reduced bispectrum for a given alm, b[eL,aL,aL]</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">eL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipoles of the bin, with bounds (2)</td>
-</tr>
-<tr class="field-even field"><th class="field-name">aL[<em>2</em>] (<em>int</em>):</th><td class="field-body">Minimum and maximum multipoles of the fixed bin, with bounds (2)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">l1 (<em>int</em>):</th><td class="field-body">Maximum multipole of the input alm, satisfying eLmax,sLmax&lt;=l1</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">alm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Input harmonic coefficients, with bounds (0:lmax,0:lmax).</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">bst (<em>int</em>):</th><td class="field-body">A parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">bispec (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Unnormalized binned reduced bispectrum at the bin, [<em>lmin,lmax</em>]</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">bispec = curvedsky.bispec.isos(eL,aL,l1,alm,bst):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">bis = curvedsky.bispec.xbispec_bin(bn,bp,lmax,n,alm,bstype,bst,sL):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -2956,11 +2796,11 @@ The kernels are the same as the rotation normalization but with a factor 4.</p>
 This code assumes</p>
 <blockquote>
 <div><blockquote>
-<div><ul class="simple">
+<div><ol class="arabic simple">
 <li>The signal power spectrum is isotropic Gaussian.</li>
 <li>Inverse noise covariance is given in pixel space and diagonal (nij = sigma x delta_ij).</li>
 <li>The data model is bxS+N</li>
-</ul>
+</ol>
 </div></blockquote>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -3031,11 +2871,11 @@ This code assumes</p>
 This code assumes</p>
 <blockquote>
 <div><blockquote>
-<div><ul class="simple">
+<div><ol class="arabic simple">
 <li>The signal power spectrum is isotropic Gaussian.</li>
 <li>Inverse noise covariance is given in pixel space and diagonal (nij = sigma x delta_ij).</li>
 <li>The data model is bxS+N</li>
-</ul>
+</ol>
 </div></blockquote>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -3102,17 +2942,90 @@ This code assumes</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="curvedsky.cninv.cg_algorithm">
+<code class="descclassname">curvedsky.cninv.</code><code class="descname">cg_algorithm</code><span class="sig-paren">(</span><em>n</em>, <em>npix</em>, <em>lmax</em>, <em>clh</em>, <em>nij</em>, <em>b</em>, <em>itern</em>, <em>eps=1e-06</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cg_algorithm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Searching for a solution x of Ax = b with the Conjugate Gradient iteratively
+The code assumes</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>A = [1 + C^1/2 N^-1 C^1/2]</li>
+<li>C^1/2 is diagonal</li>
+<li>N is diagonal in pixel space (statistically isotropic noise)</li>
+</ol>
+</div></blockquote>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">n (<em>int</em>):</th><td class="field-body">Number of maps</td>
+</tr>
+<tr class="field-even field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Number of pixel</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of alm</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">clh[<em>n,l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Square root of angular spectrum (C^1/2), with bounds (0:n-1,0:lmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">nij[<em>n,pix</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse of the noise variance (N^-1) at each pixel, with bounds (0:n-1,0:npix-1)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">b[<em>n,l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">RHS, with bounds (0:n-1,0:lmax,0:lmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">itern (<em>int</em>):</th><td class="field-body">Number of interation</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional): </dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">eps (<em>double</em>):</th><td class="field-body">Numerical parameter to finish the iteration if ave(<a href="#id5"><span class="problematic" id="id6">|Ax-b|</span></a>)&lt;eps, default to 1e-6</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">x[<em>n,l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">C-inverse filtered multipoles, with bounds (0:n-1,0:lmax,0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">x = curvedsky.cninv.cg_algorithm(n,npix,lmax,clh,nij,b,itern,eps):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="curvedsky.cninv.cnfilter_lat">
 <code class="descclassname">curvedsky.cninv.</code><code class="descname">cnfilter_lat</code><span class="sig-paren">(</span><em>n</em>, <em>k1</em>, <em>lmax</em>, <em>cl</em>, <em>bl1</em>, <em>npix1</em>, <em>nij1</em>, <em>map1</em>, <em>itern</em>, <em>eps=1e-06</em>, <em>filter=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cnfilter_lat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computing inverse-variance (default) or Wiener filtered multipoles: C^-1d
 This code assumes</p>
 <blockquote>
 <div><blockquote>
-<div><ul class="simple">
+<div><ol class="arabic simple">
 <li>The signal power spectrum is isotropic Gaussian.</li>
 <li>Inverse noise covariance is given in pixel space and diagonal (nij = sigma x delta_ij).</li>
 <li>The data model is bxS+N</li>
-</ul>
+</ol>
 </div></blockquote>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -3150,7 +3063,7 @@ This code assumes</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">eps (<em>double</em>):</th><td class="field-body">Numerical parameter to finish the iteration if ave(<a href="#id5"><span class="problematic" id="id6">|Ax-b|</span></a>)&lt;eps, default to 1e-6</td>
+<tr class="field-odd field"><th class="field-name">eps (<em>double</em>):</th><td class="field-body">Numerical parameter to finish the iteration if ave(<a href="#id7"><span class="problematic" id="id8">|Ax-b|</span></a>)&lt;eps, default to 1e-6</td>
 </tr>
 <tr class="field-even field"><th class="field-name">filter (<em>str</em>):</th><td class="field-body">C-inverse (‘’) or Wiener filter (W), default to C-inverse.</td>
 </tr>
@@ -3189,11 +3102,11 @@ This code assumes</p>
 <dd><p>Searching for a solution x of Ax = b with the Conjugate Gradient iteratively
 The code assumes</p>
 <blockquote>
-<div><ul class="simple">
+<div><ol class="arabic simple">
 <li>A = [1 + C^1/2 N^-1 C^1/2]</li>
 <li>C^1/2 is diagonal</li>
 <li>N is diagonal in pixel space (statistically isotropic noise)</li>
-</ul>
+</ol>
 </div></blockquote>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -3228,7 +3141,7 @@ The code assumes</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">eps (<em>double</em>):</th><td class="field-body">Numerical parameter to finish the iteration if ave(<a href="#id7"><span class="problematic" id="id8">|Ax-b|</span></a>)&lt;eps, default to 1e-6</td>
+<tr class="field-odd field"><th class="field-name">eps (<em>double</em>):</th><td class="field-body">Numerical parameter to finish the iteration if ave(<a href="#id9"><span class="problematic" id="id10">|Ax-b|</span></a>)&lt;eps, default to 1e-6</td>
 </tr>
 </tbody>
 </table>
@@ -3265,11 +3178,11 @@ The code assumes</p>
 This code assumes</p>
 <blockquote>
 <div><blockquote>
-<div><ul class="simple">
+<div><ol class="arabic simple">
 <li>The signal power spectrum is isotropic Gaussian.</li>
 <li>Inverse noise covariance is given in pixel space and diagonal (nij = sigma x delta_ij).</li>
 <li>The data model is bxS+N</li>
-</ul>
+</ol>
 </div></blockquote>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -3320,7 +3233,7 @@ This code assumes</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">eps (<em>double</em>):</th><td class="field-body">Numerical parameter to finish the iteration if ave(<a href="#id9"><span class="problematic" id="id10">|Ax-b|</span></a>)&lt;eps, default to 1e-6</td>
+<tr class="field-odd field"><th class="field-name">eps (<em>double</em>):</th><td class="field-body">Numerical parameter to finish the iteration if ave(<a href="#id11"><span class="problematic" id="id12">|Ax-b|</span></a>)&lt;eps, default to 1e-6</td>
 </tr>
 <tr class="field-even field"><th class="field-name">filter (<em>str</em>):</th><td class="field-body">C-inverse (‘’) or Wiener filter (W), default to C-inverse.</td>
 </tr>
@@ -3359,11 +3272,11 @@ This code assumes</p>
 <dd><p>Searching for a solution x of Ax = b with the Conjugate Gradient iteratively
 The code assumes</p>
 <blockquote>
-<div><ul class="simple">
+<div><ol class="arabic simple">
 <li>A = [1 + C^1/2 N^-1 C^1/2]</li>
 <li>C^1/2 is diagonal</li>
 <li>N is diagonal in pixel space (statistically isotropic noise)</li>
-</ul>
+</ol>
 </div></blockquote>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -3408,79 +3321,6 @@ The code assumes</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">eps (<em>double</em>):</th><td class="field-body">Numerical parameter to finish the iteration if ave(<a href="#id11"><span class="problematic" id="id12">|Ax-b|</span></a>)&lt;eps, default to 1e-6</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">x[<em>n,l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">C-inverse filtered multipoles, with bounds (0:n-1,0:lmax,0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">x = curvedsky.cninv.cg_algorithm_so(n,k1,k2,lmax,clh1,clh2,npix1,npix2,nij1,nij2,b,itern,eps):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.cninv.cg_algorithm">
-<code class="descclassname">curvedsky.cninv.</code><code class="descname">cg_algorithm</code><span class="sig-paren">(</span><em>n</em>, <em>npix</em>, <em>lmax</em>, <em>clh</em>, <em>nij</em>, <em>b</em>, <em>itern</em>, <em>eps=1e-06</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cg_algorithm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Searching for a solution x of Ax = b with the Conjugate Gradient iteratively
-The code assumes</p>
-<blockquote>
-<div><ul class="simple">
-<li>A = [1 + C^1/2 N^-1 C^1/2]</li>
-<li>C^1/2 is diagonal</li>
-<li>N is diagonal in pixel space (statistically isotropic noise)</li>
-</ul>
-</div></blockquote>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">n (<em>int</em>):</th><td class="field-body">Number of maps</td>
-</tr>
-<tr class="field-even field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Number of pixel</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of alm</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">clh[<em>n,l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Square root of angular spectrum (C^1/2), with bounds (0:n-1,0:lmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">nij[<em>n,pix</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse of the noise variance (N^-1) at each pixel, with bounds (0:n-1,0:npix-1)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">b[<em>n,l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">RHS, with bounds (0:n-1,0:lmax,0:lmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">itern (<em>int</em>):</th><td class="field-body">Number of interation</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional): </dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
 <tr class="field-odd field"><th class="field-name">eps (<em>double</em>):</th><td class="field-body">Numerical parameter to finish the iteration if ave(<a href="#id13"><span class="problematic" id="id14">|Ax-b|</span></a>)&lt;eps, default to 1e-6</td>
 </tr>
 </tbody>
@@ -3502,7 +3342,7 @@ The code assumes</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">x = curvedsky.cninv.cg_algorithm(n,npix,lmax,clh,nij,b,itern,eps):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">x = curvedsky.cninv.cg_algorithm_so(n,k1,k2,lmax,clh1,clh2,npix1,npix2,nij1,nij2,b,itern,eps):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>

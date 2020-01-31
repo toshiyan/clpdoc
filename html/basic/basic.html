@@ -209,7 +209,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">bc,bp = basic.aps.binning(bn,eL,spc):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">bp,bc = basic.aps.binning(bn,eL,spc):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -322,7 +322,7 @@
 
 <dl class="function">
 <dt id="basic.aps.cl2bcl">
-<code class="descclassname">basic.aps.</code><code class="descname">cl2bcl</code><span class="sig-paren">(</span><em>bn</em>, <em>lmax</em>, <em>cl</em>, <em>spc=''</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.aps.cl2bcl" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">basic.aps.</code><code class="descname">cl2bcl</code><span class="sig-paren">(</span><em>bn</em>, <em>lmax</em>, <em>cl</em>, <em>lmin=1</em>, <em>spc=''</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.aps.cl2bcl" title="Permalink to this definition">¶</a></dt>
 <dd><blockquote>
 <div><p>From unbinned to binned angular power spectrum</p>
 <dl class="docutils">
@@ -349,7 +349,9 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">spc (<em>str</em>):</th><td class="field-body">bin spacing, ‘’ = linear (default), ‘log’ = log spacing, ‘log10’ = log10 spacing, ‘p2’ = power of 2 spacing, ‘p3’ = power of 3 spacing</td>
+<tr class="field-odd field"><th class="field-name">lmin (<em>int</em>):</th><td class="field-body">minimum multipole</td>
+</tr>
+<tr class="field-even field"><th class="field-name">spc (<em>str</em>):</th><td class="field-body">bin spacing, ‘’ = linear (default), ‘log’ = log spacing, ‘log10’ = log10 spacing, ‘p2’ = power of 2 spacing, ‘p3’ = power of 3 spacing</td>
 </tr>
 </tbody>
 </table>
@@ -371,7 +373,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">cb = basic.aps.cl2bcl(bn,lmax,cl,spc):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">cb = basic.aps.cl2bcl(bn,lmax,cl,lmin,spc):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -760,6 +762,77 @@
 </dd></dl>
 
 <dl class="function">
+<dt id="basic.bispec.bispeclens_snr">
+<code class="descclassname">basic.bispec.</code><code class="descname">bispeclens_snr</code><span class="sig-paren">(</span><em>cpmodel</em>, <em>model</em>, <em>z</em>, <em>dz</em>, <em>zn</em>, <em>zs</em>, <em>lmin</em>, <em>lmax</em>, <em>cl</em>, <em>k</em>, <em>pk0</em>, <em>kn</em>, <em>pktype='T12'</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.bispec.bispeclens_snr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute SNR of lensing bispectrum analytically</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">cpmodel (<em>str</em>):</th><td class="field-body">cosmological parameter model (model0, modelw, or modelp)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">model (<em>str</em>):</th><td class="field-body">fitting formula of the matter bispectrum (LN=linear, SC=SC03, GM=Gil-Marin+12, 3B=3-shape-bispectrum, or RT=Takahashi+19)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">z[<em>zn</em>] (<em>double</em>):</th><td class="field-body">redshift points for the z-integral</td>
+</tr>
+<tr class="field-even field"><th class="field-name">zn (<em>int</em>):</th><td class="field-body">number of redshifts for the z-integral</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">dz[<em>zn</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">interval of z</td>
+</tr>
+<tr class="field-even field"><th class="field-name">zs (<em>double</em>):</th><td class="field-body">source redshift</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">lmin/lmax (<em>int</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">minimum/maximum multipoles of the bispectrum</td>
+</tr>
+<tr class="field-even field"><th class="field-name">cl[<em>l</em>] (<em>int</em>):</th><td class="field-body">observed lensing spectrum at 0&lt;=l&lt;=lmax</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">k[<em>kn</em>] (<em>double</em>):</th><td class="field-body">k for the matter power spectrum</td>
+</tr>
+<tr class="field-even field"><th class="field-name">pk0 (<em>double</em>):</th><td class="field-body">the linear matter power spectrum at z=0</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">kn (<em>int</em>):</th><td class="field-body">size of k</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">pktype (<em>str</em>):</th><td class="field-body">fitting formula for the matter power spectrum (Lin, S02 or T12)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">snr (<em>double</em>):</th><td class="field-body">total SNR</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">snr = basic.bispec.bispeclens_snr(cpmodel,model,z,dz,zn,zs,lmin,lmax,cl,k,pk0,kn,pktype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="basic.bispec.bispeclens_gauss_bin">
 <code class="descclassname">basic.bispec.</code><code class="descname">bispeclens_gauss_bin</code><span class="sig-paren">(</span><em>shap</em>, <em>bn</em>, <em>lmin</em>, <em>lmax</em>, <em>cl</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.bispec.bispeclens_gauss_bin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute binned bispectrum analytically for the quadratic gaussian model</p>
@@ -866,19 +939,77 @@
 
 <dl class="function">
 <dt id="basic.bispec.skewspeclens">
-<code class="descclassname">basic.bispec.</code><code class="descname">skewspeclens</code><span class="sig-paren">(</span><em>cpmodel</em>, <em>model</em>, <em>z</em>, <em>dz</em>, <em>zn</em>, <em>zs</em>, <em>olmin</em>, <em>olmax</em>, <em>lmin</em>, <em>lmax</em>, <em>k</em>, <em>pk0</em>, <em>kn</em>, <em>sigma</em>, <em>W</em>, <em>pktype='T12'</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.bispec.skewspeclens" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute skewspectrum analytically
-Usage:</p>
+<code class="descclassname">basic.bispec.</code><code class="descname">skewspeclens</code><span class="sig-paren">(</span><em>cpmodel</em>, <em>model</em>, <em>z</em>, <em>dz</em>, <em>zn</em>, <em>zs</em>, <em>bn</em>, <em>ols</em>, <em>lmin</em>, <em>lmax</em>, <em>k</em>, <em>pk0</em>, <em>kn</em>, <em>pktype='T12'</em>, <em>pb=True</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.bispec.skewspeclens" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute skew spectrum analytically</p>
 <blockquote>
-<div><table class="docutils field-list" frame="void" rules="none">
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">skew = basic.bispec.skewspeclens(cpmodel,model,z,dz,zn,zs,olmin,olmax,lmin,lmax,k,pk0,kn,sigma,W,pktype):</th></tr>
+<tr class="field-odd field"><th class="field-name">cpmodel (<em>str</em>):</th><td class="field-body">cosmological parameter model (model0, modelw, or modelp)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">model (<em>str</em>):</th><td class="field-body">fitting formula of the matter bispectrum (LN=linear, SC=SC03, GM=Gil-Marin+12, 3B=3-shape-bispectrum, or RT=Takahashi+19)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">z[<em>zn</em>] (<em>double</em>):</th><td class="field-body">redshift points for the z-integral</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">dz[<em>zn</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">interval of z</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">zn (<em>int</em>):</th><td class="field-body">number of redshifts for the z-integral</td>
+</tr>
+<tr class="field-even field"><th class="field-name">zs (<em>double</em>):</th><td class="field-body">source redshift</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">lmin/lmax (<em>int</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">minimum/maximum multipoles of the bispectrum</td>
+</tr>
+<tr class="field-even field"><th class="field-name">bn (<em>int</em>):</th><td class="field-body">number of multipoles for skew spectrum</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">ols[<em>bn</em>] (<em>int</em>):</th><td class="field-body">multipoles to be computed for skew spectrum</td>
+</tr>
+<tr class="field-even field"><th class="field-name">k[<em>kn</em>] (<em>double</em>):</th><td class="field-body">k for the matter power spectrum</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">pk0 (<em>double</em>):</th><td class="field-body">the linear matter power spectrum at z=0</td>
+</tr>
+<tr class="field-even field"><th class="field-name">kn (<em>int</em>):</th><td class="field-body">size of k</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">pktype (<em>str</em>):</th><td class="field-body">fitting formula for the matter power spectrum (Lin, S02 or T12)</td>
+</tr>
+</tbody>
+</table>
+<p class="last">:pb (boolean) : with post-Born correction or not (default=True)</p>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">skew (<em>double</em>):</th><td class="field-body">skew-spectrum</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">skew = basic.bispec.skewspeclens(cpmodel,model,z,dz,zn,zs,bn,ols,lmin,lmax,k,pk0,kn,pktype,pb):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
+</dd>
+</dl>
 </div></blockquote>
 </dd></dl>
 

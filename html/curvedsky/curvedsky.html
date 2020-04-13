@@ -2792,7 +2792,8 @@ The kernels are the same as the rotation normalization but with a factor 4.</p>
 <dl class="function">
 <dt id="curvedsky.cninv.cnfilter_freq">
 <code class="descclassname">curvedsky.cninv.</code><code class="descname">cnfilter_freq</code><span class="sig-paren">(</span><em>n, mn, npix, lmax, cl, bl, iNcov, maps, chn=1, lmaxs=[0], nsides=[0], itns=[1], eps=[1e-06], fratio='', filter='', verbose=False, ro=50, stat=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cnfilter_freq" title="Permalink to this definition">¶</a></dt>
-<dd><p>Same as cnfilter but combining multiple frequency maps and these maps are divided into two different nside groups.</p>
+<dd><p>Same as cnfilter but combining multiple frequency maps and these maps are divided into two different nside groups. 
+The filtering would work if the noise variance is not significantly varied with scale (multipole).</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -2928,14 +2929,14 @@ The kernels are the same as the rotation normalization but with a factor 4.</p>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">Nside(s) of preconditoner and nsides[<em>0</em>] should be consistent with the input map’s nside.</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">eps[<em>chain</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Numerical parameter to finish the iteration if ave(<a href="#id5"><span class="problematic" id="id6">|Ax-b|</span></a>)&lt;eps, default to 1e-6</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Numerical parameter to finish the iteration if ave(|Ax-b|)&lt;eps, default to 1e-6</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">itns[<em>chain</em>] (<em>int</em>):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">Number of interation(s)</td>
 </tr>
 <tr class="field-even field"><th class="field-name">filter (<em>str</em>):</th><td class="field-body">C-inverse (‘’) or Wiener filter (W), default to C-inverse.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">fratio (<em>str</em>):</th><td class="field-body">Output status filename of <a href="#id7"><span class="problematic" id="id8">|r|^2/|b^2|</span></a></td>
+<tr class="field-odd field"><th class="field-name">fratio (<em>str</em>):</th><td class="field-body">Output status filename of |r|^2/|b^2|</td>
 </tr>
 <tr class="field-even field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Check the matrix at the coarsest grid.</td>
 </tr>
@@ -3813,20 +3814,33 @@ the alm contains E-mode and B-mode.</p>
 <dl class="function">
 <dt id="curvedsky.utils.map_mul_lfunc">
 <code class="descclassname">curvedsky.utils.</code><code class="descname">map_mul_lfunc</code><span class="sig-paren">(</span><em>nside</em>, <em>imap</em>, <em>lmax</em>, <em>lfunc</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.map_mul_lfunc" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate xlm[l,m] = alm[l,m] x cl[l]</p>
+<dd><p>Convert map to alm, multiply a function to alm and convert back again to map</p>
 <dl class="docutils">
 <dt>Args:</dt>
-<dd>:nside (Int)          : Nside of map
-:imap [<em>pix</em>] (<em>double</em>): Input map, with bounds (0:npix-1)
-:lmax (<em>int</em>): Maximum multipole of the input alm
-:lfunc [<em>l</em>] (<em>double</em>): 1D spectrum to be multiplied to alm, with bounds (0:lmax)</dd>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside of map</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">imap [<em>pix</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Input map, with bounds (0:12*nside**2-1)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input alm</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">lfunc [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">1D spectrum to be multiplied to alm, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Returns:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">omap [<em>pix</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Output map, with bounds (0:npix-1)</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Output map, with bounds (0:12*nside**2-1)</td>
 </tr>
 </tbody>
 </table>

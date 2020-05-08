@@ -174,7 +174,7 @@
 <span id="rec-lens-quadratic-lensing-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction<a class="headerlink" href="#module-curvedsky.rec_lens" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="curvedsky.rec_lens.qtt">
-<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm1</em>, <em>Tlm2</em>, <em>nside=None</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qtt" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm1</em>, <em>Tlm2</em>, <em>nside=0</em>, <em>gtype=''</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qtt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the temperature quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -208,6 +208,8 @@
 </tr>
 <tr class="field-even field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
 </tr>
+<tr class="field-odd field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Output messages, default to False</td>
+</tr>
 </tbody>
 </table>
 </dd>
@@ -230,7 +232,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qtt(lmax,rlmin,rlmax,fC,Tlm1,Tlm2,nside,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qtt(lmax,rlmin,rlmax,fC,Tlm1,Tlm2,nside,gtype,verbose):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -241,7 +243,7 @@
 
 <dl class="function">
 <dt id="curvedsky.rec_lens.qte">
-<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm</em>, <em>Elm</em>, <em>nside=None</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qte" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm</em>, <em>Elm</em>, <em>nside=0</em>, <em>gtype=''</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qte" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the TE quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -275,6 +277,8 @@
 </tr>
 <tr class="field-even field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
 </tr>
+<tr class="field-odd field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Output messages, default to False</td>
+</tr>
 </tbody>
 </table>
 </dd>
@@ -297,7 +301,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qte(lmax,rlmin,rlmax,fC,Tlm,Elm,nside,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qte(lmax,rlmin,rlmax,fC,Tlm,Elm,nside,gtype,verbose):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -308,7 +312,7 @@
 
 <dl class="function">
 <dt id="curvedsky.rec_lens.qtb">
-<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm</em>, <em>Blm</em>, <em>nside=None</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qtb" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm</em>, <em>Blm</em>, <em>nside=0</em>, <em>gtype=''</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qtb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the TB quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -342,6 +346,8 @@
 </tr>
 <tr class="field-even field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
 </tr>
+<tr class="field-odd field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Output messages, default to False</td>
+</tr>
 </tbody>
 </table>
 </dd>
@@ -364,7 +370,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qtb(lmax,rlmin,rlmax,fC,Tlm,Blm,nside,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qtb(lmax,rlmin,rlmax,fC,Tlm,Blm,nside,gtype,verbose):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -375,7 +381,7 @@
 
 <dl class="function">
 <dt id="curvedsky.rec_lens.qee">
-<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Elm1</em>, <em>Elm2</em>, <em>nside=None</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qee" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Elm1</em>, <em>Elm2</em>, <em>nside=0</em>, <em>gtype=''</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qee" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the EE quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -409,6 +415,8 @@
 </tr>
 <tr class="field-even field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
 </tr>
+<tr class="field-odd field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Output messages, default to False</td>
+</tr>
 </tbody>
 </table>
 </dd>
@@ -431,7 +439,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qee(lmax,rlmin,rlmax,fC,Elm1,Elm2,nside,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qee(lmax,rlmin,rlmax,fC,Elm1,Elm2,nside,gtype,verbose):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -442,7 +450,7 @@
 
 <dl class="function">
 <dt id="curvedsky.rec_lens.qeb">
-<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Elm</em>, <em>Blm</em>, <em>nside=None</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qeb" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Elm</em>, <em>Blm</em>, <em>nside=0</em>, <em>gtype=''</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qeb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the EB quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -476,6 +484,8 @@
 </tr>
 <tr class="field-even field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
 </tr>
+<tr class="field-odd field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Output messages, default to False</td>
+</tr>
 </tbody>
 </table>
 </dd>
@@ -498,7 +508,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qeb(lmax,rlmin,rlmax,fC,Elm,Blm,nside,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qeb(lmax,rlmin,rlmax,fC,Elm,Blm,nside,gtype,verbose):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -509,7 +519,7 @@
 
 <dl class="function">
 <dt id="curvedsky.rec_lens.qbb">
-<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Blm1</em>, <em>Blm2</em>, <em>nside=None</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qbb" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.rec_lens.</code><code class="descname">qbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Blm1</em>, <em>Blm2</em>, <em>nside=0</em>, <em>gtype=''</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_lens.qbb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the BB quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -543,6 +553,8 @@
 </tr>
 <tr class="field-even field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
 </tr>
+<tr class="field-odd field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Output messages, default to False</td>
+</tr>
 </tbody>
 </table>
 </dd>
@@ -565,7 +577,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qbb(lmax,rlmin,rlmax,fC,Blm1,Blm2,nside,gtype):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">glm,clm = curvedsky.rec_lens.qbb(lmax,rlmin,rlmax,fC,Blm1,Blm2,nside,gtype,verbose):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -579,7 +591,7 @@
 <span id="rec-rot-quadratic-rotation-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_rot</span></code> – quadratic rotation reconstruction<a class="headerlink" href="#module-curvedsky.rec_rot" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="curvedsky.rec_rot.qeb">
-<code class="descclassname">curvedsky.rec_rot.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCE</em>, <em>Elm</em>, <em>Blm</em>, <em>nside=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_rot.qeb" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.rec_rot.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCE</em>, <em>Elm</em>, <em>Blm</em>, <em>nside=0</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_rot.qeb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing pol rotation angle from the EB quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -611,6 +623,8 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside for the convolution calculation, default to lmax</td>
 </tr>
+<tr class="field-even field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Output messages, default to False</td>
+</tr>
 </tbody>
 </table>
 </dd>
@@ -630,7 +644,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.rec_rot.qeb(lmax,rlmin,rlmax,fCE,Elm,Blm,nside):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.rec_rot.qeb(lmax,rlmin,rlmax,fCE,Elm,Blm,nside,verbose):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -643,67 +657,8 @@
 <div class="section" id="module-curvedsky.rec_tau">
 <span id="rec-tau-quadratic-tau-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic tau reconstruction<a class="headerlink" href="#module-curvedsky.rec_tau" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="curvedsky.rec_tau.qtt_sym">
-<code class="descclassname">curvedsky.rec_tau.</code><code class="descname">qtt_sym</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm</em>, <em>nside=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_tau.qtt_sym" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reconstructing inhomogeneous tau from the temperature quadratic estimator, assuming Tlm1=Tlm2</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output tau alms</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">TT spectrum, with bounds (1:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Tlm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside for the convolution calculation, default to lmax</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">alm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Amplitude modulation alm, with bounds (0:lmax,0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.rec_tau.qtt_sym(lmax,rlmin,rlmax,fC,Tlm,nside):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
 <dt id="curvedsky.rec_tau.qtt">
-<code class="descclassname">curvedsky.rec_tau.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm1</em>, <em>Tlm2</em>, <em>nside=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_tau.qtt" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.rec_tau.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>Tlm1</em>, <em>Tlm2</em>, <em>nside=0</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_tau.qtt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing inhomogeneous tau from the temperature quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -735,6 +690,8 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside for the convolution calculation, default to lmax</td>
 </tr>
+<tr class="field-even field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Output messages, default to False</td>
+</tr>
 </tbody>
 </table>
 </dd>
@@ -754,7 +711,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.rec_tau.qtt(lmax,rlmin,rlmax,fC,Tlm1,Tlm2,nside):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.rec_tau.qtt(lmax,rlmin,rlmax,fC,Tlm1,Tlm2,nside,verbose):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -765,7 +722,7 @@
 
 <dl class="function">
 <dt id="curvedsky.rec_tau.qeb">
-<code class="descclassname">curvedsky.rec_tau.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCE</em>, <em>Elm</em>, <em>Blm</em>, <em>nside=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_tau.qeb" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.rec_tau.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCE</em>, <em>Elm</em>, <em>Blm</em>, <em>nside=0</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_tau.qeb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing amplitude modulation from the EB quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -797,6 +754,8 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside for the convolution calculation, default to lmax</td>
 </tr>
+<tr class="field-even field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Output messages, default to False</td>
+</tr>
 </tbody>
 </table>
 </dd>
@@ -816,7 +775,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.rec_tau.qeb(lmax,rlmin,rlmax,fCE,Elm,Blm,nside):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.rec_tau.qeb(lmax,rlmin,rlmax,fCE,Elm,Blm,nside,verbose):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -827,7 +786,7 @@
 
 <dl class="function">
 <dt id="curvedsky.rec_tau.oeb">
-<code class="descclassname">curvedsky.rec_tau.</code><code class="descname">oeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fEB</em>, <em>Elm</em>, <em>Blm</em>, <em>nside=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_tau.oeb" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.rec_tau.</code><code class="descname">oeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fEB</em>, <em>Elm</em>, <em>Blm</em>, <em>nside=0</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_tau.oeb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing amplitude modulation by the odd EB quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -859,6 +818,8 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside for the convolution calculation, default to lmax</td>
 </tr>
+<tr class="field-even field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Output messages, default to False</td>
+</tr>
 </tbody>
 </table>
 </dd>
@@ -878,7 +839,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.rec_tau.oeb(lmax,rlmin,rlmax,fEB,Elm,Blm,nside):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.rec_tau.oeb(lmax,rlmin,rlmax,fEB,Elm,Blm,nside,verbose):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -891,64 +852,8 @@
 <div class="section" id="module-curvedsky.rec_src">
 <span id="rec-src-quadratic-point-soruce-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-soruce reconstruction<a class="headerlink" href="#module-curvedsky.rec_src" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="curvedsky.rec_src.qtt_sym">
-<code class="descclassname">curvedsky.rec_src.</code><code class="descname">qtt_sym</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>Tlm</em>, <em>nside=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_src.qtt_sym" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reconstructing point sources from the temperature quadratic estimator, assuming Tlm1=Tlm2</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output point-source alms</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">Tlm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside for the convolution calculation, default to lmax</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">slm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Point-source alm, with bounds (0:lmax,0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">slm = curvedsky.rec_src.qtt_sym(lmax,rlmin,rlmax,Tlm,nside):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
 <dt id="curvedsky.rec_src.qtt">
-<code class="descclassname">curvedsky.rec_src.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>Tlm1</em>, <em>Tlm2</em>, <em>nside=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_src.qtt" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.rec_src.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>Tlm1</em>, <em>Tlm2</em>, <em>nside=0</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_src.qtt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reconstructing point sources from the temperature quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -977,6 +882,8 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside for the convolution calculation, default to lmax</td>
 </tr>
+<tr class="field-even field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Output messages, default to False</td>
+</tr>
 </tbody>
 </table>
 </dd>
@@ -996,7 +903,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">slm = curvedsky.rec_src.qtt(lmax,rlmin,rlmax,Tlm1,Tlm2,nside):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">slm = curvedsky.rec_src.qtt(lmax,rlmin,rlmax,Tlm1,Tlm2,nside,verbose):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -1872,7 +1779,7 @@
 <dl class="function">
 <dt id="curvedsky.norm_lens.ttt">
 <code class="descclassname">curvedsky.norm_lens.</code><code class="descname">ttt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.ttt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Cross normalization between lensing potential and amplitude modulation from the temperature quadratic estimator</p>
+<dd><p>Unnormalized response between lensing potential and amplitude modulation from the temperature quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -1920,6 +1827,65 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">Ag = curvedsky.norm_lens.ttt(lmax,rlmin,rlmax,fC,OCT,gtype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.norm_lens.stt">
+<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">stt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.stt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unnormalized response between lensing potential and poisson sources/inhomogeneous nosie with the temperature quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory TT spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">OCT [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed TT spectrum, with bounds (0:rlmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Cross normalization, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag = curvedsky.norm_lens.stt(lmax,rlmin,rlmax,fC,OCT,gtype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -2231,7 +2197,7 @@
 <dt id="curvedsky.norm_tau.oeb">
 <code class="descclassname">curvedsky.norm_tau.</code><code class="descname">oeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>EB</em>, <em>OCE</em>, <em>OCB</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_tau.oeb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Normalization of reconstructed amplitude from the EB quadratic estimator
-The kernels are the same as the rotation normalization but with a factor 4.</p>
+The kernels are the same as the rotation normalization but with a factor of 4.</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -2272,6 +2238,55 @@ The kernels are the same as the rotation normalization but with a factor 4.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">At = curvedsky.norm_tau.oeb(lmax,rlmin,rlmax,EB,OCE,OCB):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.norm_tau.stt">
+<code class="descclassname">curvedsky.norm_tau.</code><code class="descname">stt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_tau.stt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unnormalized response between patchy tau and poisson sources/inhomogeneous noise with the temperature quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory TT spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">OCT [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed TT spectrum, with bounds (0:rlmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">At [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">tau normalization, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">At = curvedsky.norm_tau.stt(lmax,rlmin,rlmax,fC,OCT):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -2337,7 +2352,7 @@ The kernels are the same as the rotation normalization but with a factor 4.</p>
 <span id="delens-delensing-for-simulation"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">delens</span></code> – delensing for simulation<a class="headerlink" href="#module-curvedsky.delens" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="curvedsky.delens.lensingb">
-<code class="descclassname">curvedsky.delens.</code><code class="descname">lensingb</code><span class="sig-paren">(</span><em>lmax</em>, <em>elmin</em>, <em>elmax</em>, <em>plmin</em>, <em>plmax</em>, <em>wElm</em>, <em>wplm</em>, <em>nside=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.delens.lensingb" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.delens.</code><code class="descname">lensingb</code><span class="sig-paren">(</span><em>lmax</em>, <em>elmin</em>, <em>elmax</em>, <em>plmin</em>, <em>plmax</em>, <em>wElm</em>, <em>wplm</em>, <em>nside=0</em>, <em>gtype='p'</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.delens.lensingb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computing lensing B mode as a convolution of wiener-filtered E-mode and lensing potential</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -2359,7 +2374,7 @@ The kernels are the same as the rotation normalization but with a factor 4.</p>
 <tr class="field-even field"><td>&#160;</td><td class="field-body">Wiener-filtered E-mode alm, with bounds (0:elmax,0:elmax)</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">wplm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Wiener-filtered lensing potential alm, with bounds (0:plmax,0:plmax)</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Wiener-filtered lensing potential (or kappa) alm, with bounds (0:plmax,0:plmax)</td>
 </tr>
 </tbody>
 </table>
@@ -2370,6 +2385,8 @@ The kernels are the same as the rotation normalization but with a factor 4.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside for the convolution calculation, default to lmax</td>
+</tr>
+<tr class="field-even field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of input wplm (‘p’=phi or ‘k’=kappa), default to ‘p’ (phi).</td>
 </tr>
 </tbody>
 </table>
@@ -2390,7 +2407,7 @@ The kernels are the same as the rotation normalization but with a factor 4.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">lBlm = curvedsky.delens.lensingb(lmax,elmin,elmax,plmin,plmax,wElm,wplm,nside):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">lBlm = curvedsky.delens.lensingb(lmax,elmin,elmax,plmin,plmax,wElm,wplm,nside,gtype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -2401,7 +2418,7 @@ The kernels are the same as the rotation normalization but with a factor 4.</p>
 
 <dl class="function">
 <dt id="curvedsky.delens.shiftvec">
-<code class="descclassname">curvedsky.delens.</code><code class="descname">shiftvec</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>plm</em>, <em>nremap=3</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.delens.shiftvec" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.delens.</code><code class="descname">shiftvec</code><span class="sig-paren">(</span><em>nside</em>, <em>lmax</em>, <em>plm</em>, <em>nremap</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.delens.shiftvec" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the anti deflection vector, beta, at the Healpix pixel for the delensing where</p>
 <blockquote>
 <div>beta(n) + alphaiw(n+beta(n)) = 0</div></blockquote>
@@ -2412,7 +2429,7 @@ The kernels are the same as the rotation normalization but with a factor 4.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Pixel number of output shift vector</td>
+<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside of output shift vector</td>
 </tr>
 <tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input plm</td>
 </tr>
@@ -2448,7 +2465,7 @@ The kernels are the same as the rotation normalization but with a factor 4.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">beta = curvedsky.delens.shiftvec(npix,lmax,plm,nremap):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">beta = curvedsky.delens.shiftvec(nside,lmax,plm,nremap):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -2459,7 +2476,7 @@ The kernels are the same as the rotation normalization but with a factor 4.</p>
 
 <dl class="function">
 <dt id="curvedsky.delens.phi2grad">
-<code class="descclassname">curvedsky.delens.</code><code class="descname">phi2grad</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>plm</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.delens.phi2grad" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.delens.</code><code class="descname">phi2grad</code><span class="sig-paren">(</span><em>nside</em>, <em>lmax</em>, <em>plm</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.delens.phi2grad" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the deflection vector, grad, at the Healpix pixel</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -2467,7 +2484,7 @@ The kernels are the same as the rotation normalization but with a factor 4.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Pixel number of output deflection vector</td>
+<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside of output deflection vector</td>
 </tr>
 <tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input plm/clm</td>
 </tr>
@@ -2493,7 +2510,7 @@ The kernels are the same as the rotation normalization but with a factor 4.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">grad = curvedsky.delens.phi2grad(npix,lmax,plm):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">grad = curvedsky.delens.phi2grad(nside,lmax,plm):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -2504,7 +2521,7 @@ The kernels are the same as the rotation normalization but with a factor 4.</p>
 
 <dl class="function">
 <dt id="curvedsky.delens.remap_tp">
-<code class="descclassname">curvedsky.delens.</code><code class="descname">remap_tp</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>beta</em>, <em>alm_in</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.delens.remap_tp" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.delens.</code><code class="descname">remap_tp</code><span class="sig-paren">(</span><em>nside</em>, <em>lmax</em>, <em>beta</em>, <em>alm_in</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.delens.remap_tp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remapping CMB temperaure and polarization with a given shift vector based on a simple implementation of LensPix
 This function returs X(n+beta) where n is the original direction and beta is the shift vector
 The output is given by alms where alm[0,l,m] is temperature, alm[1,l,m] is E mode, and alm[2,l,m] is B mode.</p>
@@ -2514,7 +2531,7 @@ The output is given by alms where alm[0,l,m] is temperature, alm[1,l,m] is E mod
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Pixel number of output shift vector</td>
+<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside of input shift vector</td>
 </tr>
 <tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input plm</td>
 </tr>
@@ -2543,7 +2560,7 @@ The output is given by alms where alm[0,l,m] is temperature, alm[1,l,m] is E mod
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">alm_re = curvedsky.delens.remap_tp(npix,lmax,beta,alm_in):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">alm_re = curvedsky.delens.remap_tp(nside,lmax,beta,alm_in):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -2789,7 +2806,7 @@ The output is given by alms where alm[0,l,m] is temperature, alm[1,l,m] is E mod
 <span id="cninv-filtering-anisotropies"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">cninv</span></code> – Filtering Anisotropies<a class="headerlink" href="#module-curvedsky.cninv" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="curvedsky.cninv.cnfilter_freq">
-<code class="descclassname">curvedsky.cninv.</code><code class="descname">cnfilter_freq</code><span class="sig-paren">(</span><em>n, mn, npix, lmax, cl, bl, iNcov, maps, chn=1, lmaxs=[0], nsides=[0], itns=[1], eps=[1e-06], fratio='', filter='', verbose=False, ro=50, stat=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cnfilter_freq" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.cninv.</code><code class="descname">cnfilter_freq</code><span class="sig-paren">(</span><em>n, mn, nside, lmax, cl, bl, iNcov, maps, chn=1, lmaxs=[0], nsides=[0], itns=[1], eps=[1e-06], filter='', verbose=False, ro=50, stat=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cnfilter_freq" title="Permalink to this definition">¶</a></dt>
 <dd><p>Same as cnfilter but combining multiple frequency maps and these maps are divided into two different nside groups. 
 The filtering would work if the noise variance is not significantly varied with scale (multipole).</p>
 <dl class="docutils">
@@ -2802,7 +2819,7 @@ The filtering would work if the noise variance is not significantly varied with 
 </tr>
 <tr class="field-even field"><th class="field-name">mn (<em>int</em>):</th><td class="field-body">Number of frequencies</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Number of pixels of input map</td>
+<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside of input map</td>
 </tr>
 <tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input cl</td>
 </tr>
@@ -2842,11 +2859,9 @@ The filtering would work if the noise variance is not significantly varied with 
 </tr>
 <tr class="field-even field"><th class="field-name">filter (<em>str</em>):</th><td class="field-body">C-inverse (‘’) or Wiener filter (W), default to C-inverse.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">fratio (<em>str</em>):</th><td class="field-body">Output filename of |r|^2/|b^2|</td>
+<tr class="field-odd field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Output messages, default to False</td>
 </tr>
-<tr class="field-even field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Check the matrix at the coarsest grid.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">stat (<em>str</em>):</th><td class="field-body">Realtime status filename</td>
+<tr class="field-even field"><th class="field-name">stat (<em>str</em>):</th><td class="field-body">Realtime status filename, default to no output file</td>
 </tr>
 </tbody>
 </table>
@@ -2869,7 +2884,7 @@ The filtering would work if the noise variance is not significantly varied with 
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">xlm = curvedsky.cninv.cnfilter_freq(n,mn,npix,lmax,cl,bl,iNcov,maps,chn,lmaxs,nsides,itns,eps,fratio,filter,verbose,ro,stat):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">xlm = curvedsky.cninv.cnfilter_freq(n,mn,nside,lmax,cl,bl,iNcov,maps,chn,lmaxs,nsides,itns,eps,filter,verbose,ro,stat):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -2882,7 +2897,7 @@ The filtering would work if the noise variance is not significantly varied with 
 
 <dl class="function">
 <dt id="curvedsky.cninv.cnfilter_freq_nside">
-<code class="descclassname">curvedsky.cninv.</code><code class="descname">cnfilter_freq_nside</code><span class="sig-paren">(</span><em>n, mn0, mn1, npix0, npix1, lmax, cl, bl0, bl1, iNcov0, iNcov1, maps0, maps1, chn=1, lmaxs=[0], nsides0=[0], nsides1=[0], itns=[1], eps=[1e-06], fratio='', filter='', verbose=False, reducmn=0, ro=50, stat=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cnfilter_freq_nside" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.cninv.</code><code class="descname">cnfilter_freq_nside</code><span class="sig-paren">(</span><em>n, mn0, mn1, npix0, npix1, lmax, cl, bl0, bl1, iNcov0, iNcov1, maps0, maps1, chn=1, lmaxs=[0], nsides0=[0], nsides1=[0], itns=[1], eps=[1e-06], filter='', verbose=False, reducmn=0, ro=50, stat=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cnfilter_freq_nside" title="Permalink to this definition">¶</a></dt>
 <dd><p>Same as cnfilter but combining multiple frequency maps and these maps are divided into two different nside groups.</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -2894,7 +2909,7 @@ The filtering would work if the noise variance is not significantly varied with 
 </tr>
 <tr class="field-even field"><th class="field-name">mn0/1 (<em>int</em>):</th><td class="field-body">Number of frequencies</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">npix0/1 (<em>int</em>):</th><td class="field-body">Number of pixels of input map(s)</td>
+<tr class="field-odd field"><th class="field-name">nside0/1 (<em>int</em>):</th><td class="field-body">Nsides of input map(s)</td>
 </tr>
 <tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input cl</td>
 </tr>
@@ -2934,9 +2949,9 @@ The filtering would work if the noise variance is not significantly varied with 
 </tr>
 <tr class="field-even field"><th class="field-name">filter (<em>str</em>):</th><td class="field-body">C-inverse (‘’) or Wiener filter (W), default to C-inverse.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">fratio (<em>str</em>):</th><td class="field-body">Output status filename of |r|^2/|b^2|</td>
+<tr class="field-odd field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Output messages</td>
 </tr>
-<tr class="field-even field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Check the matrix at the coarsest grid.</td>
+<tr class="field-even field"><th class="field-name">stat (<em>str</em>):</th><td class="field-body">Realtime status filename</td>
 </tr>
 </tbody>
 </table>
@@ -2959,7 +2974,7 @@ The filtering would work if the noise variance is not significantly varied with 
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">xlm = curvedsky.cninv.cnfilter_freq_nside(n,mn0,mn1,npix0,npix1,lmax,cl,bl0,bl1,iNcov0,iNcov1,maps0,maps1,chn,lmaxs,nsides0,nsides1,itns,eps,fratio,filter,verbose,reducmn,ro,stat):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">xlm = curvedsky.cninv.cnfilter_freq_nside(n,mn0,mn1,npix0,npix1,lmax,cl,bl0,bl1,iNcov0,iNcov1,maps0,maps1,chn,lmaxs,nsides0,nsides1,itns,eps,filter,verbose,reducmn,ro,stat):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -3018,7 +3033,7 @@ The filtering would work if the noise variance is not significantly varied with 
 
 <dl class="function">
 <dt id="curvedsky.utils.gauss2alm">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">gauss2alm</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl1</em>, <em>cl2</em>, <em>xl</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.gauss2alm" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.utils.</code><code class="descname">gauss2alm</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl1</em>, <em>cl2</em>, <em>xl</em>, <em>flm=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.gauss2alm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generating two alms as random Gaussian fields whose power spectra are cl1, cl2 and the cross spectrum is xl.</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -3040,6 +3055,17 @@ The filtering would work if the noise variance is not significantly varied with 
 </tbody>
 </table>
 </dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">flm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">pre-computed Gaussian fields whose spectrum is cl1, with bounds (0:lmax,0:lmax), default to None</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Returns:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -3056,7 +3082,7 @@ The filtering would work if the noise variance is not significantly varied with 
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.utils.gauss2alm(lmax,cl1,cl2,xl):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.utils.gauss2alm(lmax,cl1,cl2,xl,flm):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -3342,7 +3368,7 @@ Written by Ryo Nagata.</p>
 
 <dl class="function">
 <dt id="curvedsky.utils.eb_separate">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">eb_separate</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>W</em>, <em>Q</em>, <em>U</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.eb_separate" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.utils.</code><code class="descname">eb_separate</code><span class="sig-paren">(</span><em>nside</em>, <em>lmax</em>, <em>W</em>, <em>Q</em>, <em>U</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.eb_separate" title="Permalink to this definition">¶</a></dt>
 <dd><p>E/B mode seperation based on the chi-field estimator. See e.g. Sec.III.2 of arXiv:1305.7441 for numerical implimentation.</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -3379,7 +3405,7 @@ Written by Ryo Nagata.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Elm,Blm = curvedsky.utils.eb_separate(npix,lmax,W,Q,U):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Elm,Blm = curvedsky.utils.eb_separate(nside,lmax,W,Q,U):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -3502,7 +3528,7 @@ Written by Ryo Nagata.</p>
 
 <dl class="function">
 <dt id="curvedsky.utils.apodize">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">apodize</code><span class="sig-paren">(</span><em>npix</em>, <em>rmask</em>, <em>ascale</em>, <em>order=1</em>, <em>holeminsize=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.apodize" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.utils.</code><code class="descname">apodize</code><span class="sig-paren">(</span><em>nside</em>, <em>rmask</em>, <em>ascale</em>, <em>order=1</em>, <em>holeminsize=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.apodize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute apodized window function. Partially use Healpix’s process_mask code.</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -3510,7 +3536,7 @@ Written by Ryo Nagata.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Number of pixel</td>
+<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside of the input map</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">rmask[<em>pix</em>] (<em>double</em>):</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body">Input window function, with bounds (0:pix-1). Pixels at rmask=0 is considered as masked pixels.</td>
@@ -3550,7 +3576,7 @@ Written by Ryo Nagata.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">amask = curvedsky.utils.apodize(npix,rmask,ascale,order,holeminsize):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">amask = curvedsky.utils.apodize(nside,rmask,ascale,order,holeminsize):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -3609,7 +3635,7 @@ Written by Ryo Nagata.</p>
 
 <dl class="function">
 <dt id="curvedsky.utils.hp_alm2map">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">hp_alm2map</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>mmax</em>, <em>alm</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.hp_alm2map" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.utils.</code><code class="descname">hp_alm2map</code><span class="sig-paren">(</span><em>nside</em>, <em>lmax</em>, <em>mmax</em>, <em>alm</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.hp_alm2map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ylm transform of the map to alm with the healpix (l,m) order</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -3617,7 +3643,7 @@ Written by Ryo Nagata.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Pixel number of the output map</td>
+<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside of the input map</td>
 </tr>
 <tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input alm</td>
 </tr>
@@ -3645,7 +3671,7 @@ Written by Ryo Nagata.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">map = curvedsky.utils.hp_alm2map(npix,lmax,mmax,alm):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">map = curvedsky.utils.hp_alm2map(nside,lmax,mmax,alm):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -3656,7 +3682,7 @@ Written by Ryo Nagata.</p>
 
 <dl class="function">
 <dt id="curvedsky.utils.hp_alm2map_spin">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">hp_alm2map_spin</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>mmax</em>, <em>spin</em>, <em>elm</em>, <em>blm</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.hp_alm2map_spin" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.utils.</code><code class="descname">hp_alm2map_spin</code><span class="sig-paren">(</span><em>nside</em>, <em>lmax</em>, <em>mmax</em>, <em>spin</em>, <em>elm</em>, <em>blm</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.hp_alm2map_spin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ylm transform of the map to alm with the healpix (l,m) order</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -3664,7 +3690,7 @@ Written by Ryo Nagata.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Pixel number of the output map</td>
+<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside of the input map</td>
 </tr>
 <tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input alm</td>
 </tr>
@@ -3700,7 +3726,7 @@ Written by Ryo Nagata.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">map0,map1 = curvedsky.utils.hp_alm2map_spin(npix,lmax,mmax,spin,elm,blm):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">map0,map1 = curvedsky.utils.hp_alm2map_spin(nside,lmax,mmax,spin,elm,blm):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -3819,7 +3845,7 @@ the alm contains E-mode and B-mode.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside of map</td>
+<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside of input map</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">imap [<em>pix</em>] (<em>double</em>):</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body">Input map, with bounds (0:12*nside**2-1)</td>
@@ -3859,7 +3885,7 @@ the alm contains E-mode and B-mode.</p>
 
 <dl class="function">
 <dt id="curvedsky.utils.mulwin">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">mulwin</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>mmax</em>, <em>alm</em>, <em>win</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.mulwin" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.utils.</code><code class="descname">mulwin</code><span class="sig-paren">(</span><em>nside</em>, <em>lmax</em>, <em>mmax</em>, <em>alm</em>, <em>win</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.mulwin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Multiply window to a map obtained from alm</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -3867,7 +3893,7 @@ the alm contains E-mode and B-mode.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Pixel number of the window</td>
+<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside of input map</td>
 </tr>
 <tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input alm</td>
 </tr>
@@ -3898,7 +3924,7 @@ the alm contains E-mode and B-mode.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">wlm = curvedsky.utils.mulwin(npix,lmax,mmax,alm,win):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">wlm = curvedsky.utils.mulwin(nside,lmax,mmax,alm,win):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -3909,7 +3935,7 @@ the alm contains E-mode and B-mode.</p>
 
 <dl class="function">
 <dt id="curvedsky.utils.mulwin_spin">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">mulwin_spin</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em>, <em>mmax</em>, <em>spin</em>, <em>elm</em>, <em>blm</em>, <em>win</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.mulwin_spin" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.utils.</code><code class="descname">mulwin_spin</code><span class="sig-paren">(</span><em>nside</em>, <em>lmax</em>, <em>mmax</em>, <em>spin</em>, <em>elm</em>, <em>blm</em>, <em>win</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.mulwin_spin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ylm transform of the map to alm with the healpix (l,m) order</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -3917,7 +3943,7 @@ the alm contains E-mode and B-mode.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Pixel number of the window</td>
+<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside of input map</td>
 </tr>
 <tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input alm</td>
 </tr>
@@ -3953,7 +3979,7 @@ the alm contains E-mode and B-mode.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">wlm = curvedsky.utils.mulwin_spin(npix,lmax,mmax,spin,elm,blm,win):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">wlm = curvedsky.utils.mulwin_spin(nside,lmax,mmax,spin,elm,blm,win):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -3974,7 +4000,7 @@ the alm contains E-mode and B-mode.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">lmpy (<em>int</em>):</th><td class="field-body">Length of healpy alm</td>
 </tr>
-<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the output alm</td>
+<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input/output alm satisfying 2 x lmpy = (lmax+1) x (lmax+2)</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">almpy[<em>index</em>] (<em>dcmplx</em>):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">Healpy alm, with bounds (0:lmpy-1)</td>
@@ -4009,7 +4035,7 @@ the alm contains E-mode and B-mode.</p>
 
 <dl class="function">
 <dt id="curvedsky.utils.cosin_healpix">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">cosin_healpix</code><span class="sig-paren">(</span><em>npix</em>, <em>lmax</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.cosin_healpix" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.utils.</code><code class="descname">cosin_healpix</code><span class="sig-paren">(</span><em>nside</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.cosin_healpix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return cos(theta) as a function of the Healpix pixel index</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -4017,9 +4043,7 @@ the alm contains E-mode and B-mode.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Pixel number of the desired map</td>
-</tr>
-<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole</td>
+<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside of the desired map</td>
 </tr>
 </tbody>
 </table>
@@ -4040,7 +4064,7 @@ the alm contains E-mode and B-mode.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">cosin = curvedsky.utils.cosin_healpix(npix,lmax):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">cosin = curvedsky.utils.cosin_healpix(nside):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -4105,7 +4129,7 @@ the alm contains E-mode and B-mode.</p>
 
 <dl class="function">
 <dt id="curvedsky.utils.calc_mfs">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">calc_mfs</code><span class="sig-paren">(</span><em>bn</em>, <em>nu</em>, <em>lmax</em>, <em>walm</em>, <em>nside=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.calc_mfs" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.utils.</code><code class="descname">calc_mfs</code><span class="sig-paren">(</span><em>bn</em>, <em>nu</em>, <em>lmax</em>, <em>walm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.calc_mfs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute 2D Minkowski functionals</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -4163,14 +4187,60 @@ the alm contains E-mode and B-mode.</p>
 
 <dl class="function">
 <dt id="curvedsky.utils.mock_galaxy_takahashi">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">mock_galaxy_takahashi</code><span class="sig-paren">(</span><em>fname</em>, <em>zn</em>, <em>ngz</em>, <em>zi</em>, <em>b0=1.0</em>, <em>btype='sqrtz'</em>, <em>a=2.0</em>, <em>b=1.0</em>, <em>z0=1.0</em>, <em>sz=0.0</em>, <em>zbias=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.mock_galaxy_takahashi" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<code class="descclassname">curvedsky.utils.</code><code class="descname">mock_galaxy_takahashi</code><span class="sig-paren">(</span><em>fname</em>, <em>zn</em>, <em>ngz</em>, <em>zi</em>, <em>b0=1.0</em>, <em>btype='sqrtz'</em>, <em>a=2.0</em>, <em>b=1.0</em>, <em>zm=1.0</em>, <em>sz=0.0</em>, <em>zbias=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.mock_galaxy_takahashi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute galaxy overdensity map from dark matter density map</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">fname (<em>str</em>):</th><td class="field-body">Filename of density map</td>
+</tr>
+<tr class="field-even field"><th class="field-name">zn (<em>int</em>):</th><td class="field-body">Number of tomographic bins</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">ngz[<em>zn</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Total number of galaxies at each z-bin</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">zi[<em>zn+1</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Redshift intervals of the tomographic bins</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional): </dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">a (<em>double</em>):</th><td class="field-body">galaxy distribution shape parameter</td>
+</tr>
+<tr class="field-even field"><th class="field-name">b (<em>double</em>):</th><td class="field-body">galaxy distribution shape parameter</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">zm (<em>double</em>):</th><td class="field-body">mean redshift of galaxy distribution</td>
+</tr>
+<tr class="field-even field"><th class="field-name">b0 (<em>double</em>):</th><td class="field-body">constant galaxy bias at z=0</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">V [<em>bin,type</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The three Minkowski functionals, V0, V1 and V2, at each nu bin, with bounds (bn,0:2)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">gmap = curvedsky.utils.mock_galaxy_takahashi(fname,zn,ngz,zi,b0,btype,a,b,z0,sz,zbias):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">gmap = curvedsky.utils.mock_galaxy_takahashi(fname,zn,ngz,zi,b0,btype,a,b,zm,sz,zbias):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>

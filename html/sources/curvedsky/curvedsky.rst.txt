@@ -25,14 +25,14 @@
 .. automodule:: curvedsky.rec_src
    :members:
 
-:mod:`norm_lens` -- normalization of quadratic estimator reconstruction
+:mod:`norm_quad` -- normalization of quadratic estimator reconstruction
 ---------------------------------------------------------------------
 .. automodule:: curvedsky.norm_quad
    :members:
 
 :mod:`norm_imag` -- normalization of imaginary quadratic estimator reconstruction
 -------------------------------------------------------------------------
-.. automodule:: curvedsky.norm_src
+.. automodule:: curvedsky.norm_imag
    :members:
 
 :mod:`delens` -- delensing for simulation

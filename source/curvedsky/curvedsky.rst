@@ -25,22 +25,12 @@
 .. automodule:: curvedsky.rec_src
    :members:
 
-:mod:`norm_lens` -- normalization of quadratic lensing reconstruction
+:mod:`norm_lens` -- normalization of quadratic estimator reconstruction
 ---------------------------------------------------------------------
-.. automodule:: curvedsky.norm_lens
+.. automodule:: curvedsky.norm_quad
    :members:
 
-:mod:`norm_rot` -- normalization of quadratic rotation reconstruction
----------------------------------------------------------------------
-.. automodule:: curvedsky.norm_rot
-   :members:
-
-:mod:`norm_tau` -- normalization of quadratic tau reconstruction
----------------------------------------------------------------------
-.. automodule:: curvedsky.norm_tau
-   :members:
-
-:mod:`norm_src` -- normalization of quadratic point-source reconstruction
+:mod:`norm_imag` -- normalization of imaginary quadratic estimator reconstruction
 -------------------------------------------------------------------------
 .. automodule:: curvedsky.norm_src
    :members:

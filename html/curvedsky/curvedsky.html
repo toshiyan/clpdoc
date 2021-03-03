@@ -90,10 +90,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.rec_rot"><code class="docutils literal notranslate"><span class="pre">rec_rot</span></code> – quadratic rotation reconstruction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.rec_tau"><code class="docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic tau reconstruction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.rec_src"><code class="docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-soruce reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.norm_lens"><code class="docutils literal notranslate"><span class="pre">norm_lens</span></code> – normalization of quadratic lensing reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.norm_rot"><code class="docutils literal notranslate"><span class="pre">norm_rot</span></code> – normalization of quadratic rotation reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.norm_tau"><code class="docutils literal notranslate"><span class="pre">norm_tau</span></code> – normalization of quadratic tau reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.norm_src"><code class="docutils literal notranslate"><span class="pre">norm_src</span></code> – normalization of quadratic point-source reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#norm-lens-normalization-of-quadratic-lensing-reconstruction"><code class="docutils literal notranslate"><span class="pre">norm_lens</span></code> – normalization of quadratic lensing reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#norm-rot-normalization-of-quadratic-rotation-reconstruction"><code class="docutils literal notranslate"><span class="pre">norm_rot</span></code> – normalization of quadratic rotation reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#norm-tau-normalization-of-quadratic-tau-reconstruction"><code class="docutils literal notranslate"><span class="pre">norm_tau</span></code> – normalization of quadratic tau reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#norm-src-normalization-of-quadratic-point-source-reconstruction"><code class="docutils literal notranslate"><span class="pre">norm_src</span></code> – normalization of quadratic point-source reconstruction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.delens"><code class="docutils literal notranslate"><span class="pre">delens</span></code> – delensing for simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.bispec"><code class="docutils literal notranslate"><span class="pre">bispec</span></code> – binned reduced bispectrum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-curvedsky.cninv"><code class="docutils literal notranslate"><span class="pre">cninv</span></code> – Filtering Anisotropies</a></li>
@@ -784,70 +784,6 @@
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="curvedsky.rec_tau.oeb">
-<code class="descclassname">curvedsky.rec_tau.</code><code class="descname">oeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fEB</em>, <em>Elm</em>, <em>Blm</em>, <em>nside_t=0</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.rec_tau.oeb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reconstructing amplitude modulation by the odd EB quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output lensing potential alms</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">fEB [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">EB spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Elm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">Blm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">nside_t (<em>int</em>):</th><td class="field-body">Nside for the convolution calculation</td>
-</tr>
-<tr class="field-even field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Output messages, default to False</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">alm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Reconstructed alm, with bounds (0:lmax,0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.rec_tau.oeb(lmax,rlmin,rlmax,fEB,Elm,Blm,nside_t,verbose):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
 </div>
 <div class="section" id="module-curvedsky.rec_src">
 <span id="rec-src-quadratic-point-soruce-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-soruce reconstruction<a class="headerlink" href="#module-curvedsky.rec_src" title="Permalink to this headline">¶</a></h2>
@@ -913,1440 +849,17 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-curvedsky.norm_lens">
-<span id="norm-lens-normalization-of-quadratic-lensing-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_lens</span></code> – normalization of quadratic lensing reconstruction<a class="headerlink" href="#module-curvedsky.norm_lens" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="curvedsky.norm_lens.qtt">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qtt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normalization of reconstructed CMB lensing potential and its curl mode from the temperature quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory TT spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCT [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed TT spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential normalization, with bounds (0:lmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Ac [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Curl mode (pseudo lensing potential) normalization, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = curvedsky.norm_lens.qtt(lmax,rlmin,rlmax,fC,OCT,gtype):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.norm_lens.qte">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qte</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>OCE</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qte" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normalization of reconstructed CMB lensing potential and its curl mode from the TE quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory TE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCT [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed TT spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">OCE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed EE spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential normalization, with bounds (0:lmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Ac [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Curl mode (pseudo lensing potential) normalization, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = curvedsky.norm_lens.qte(lmax,rlmin,rlmax,fC,OCT,OCE,gtype):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.norm_lens.qtb">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>OCB</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qtb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normalization of reconstructed CMB lensing potential and its curl mode from the TB quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory TE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCT [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed TT spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">OCB [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed BB spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential normalization, with bounds (0:lmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Ac [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Curl mode (pseudo lensing potential) normalization, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = curvedsky.norm_lens.qtb(lmax,rlmin,rlmax,fC,OCT,OCB,gtype):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.norm_lens.qee">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCE</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qee" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normalization of reconstructed CMB lensing potential and its curl mode from the E-mode quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory EE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed EE spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential normalization, with bounds (0:lmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Ac [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Curl mode (pseudo lensing potential) normalization, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = curvedsky.norm_lens.qee(lmax,rlmin,rlmax,fC,OCE,gtype):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.norm_lens.qeb">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCE</em>, <em>OCB</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qeb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normalization of reconstructed CMB lensing potential and its curl mode from the EB quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory EE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed EE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">OCB [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed BB spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential normalization, with bounds (0:lmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Ac [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Curl mode (pseudo lensing potential) normalization, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = curvedsky.norm_lens.qeb(lmax,rlmin,rlmax,fC,OCE,OCB,gtype):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.norm_lens.qbb">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCB</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qbb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normalization of reconstructed CMB lensing potential and its curl mode from the B-mode quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory BB spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCB [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed BB spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential normalization, with bounds (0:lmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Ac [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Curl mode (pseudo lensing potential) normalization, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = curvedsky.norm_lens.qbb(lmax,rlmin,rlmax,fC,OCB,gtype):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.norm_lens.qttte">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qttte</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCTT</em>, <em>fCTE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCTE</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qttte" title="Permalink to this definition">¶</a></dt>
-<dd><p>Correlation between unnormalized TT and TE quadratic estimators</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">fCTT [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory TT spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">fCTE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Theory TE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">OCT [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed TT spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed EE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">OCTE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed TE spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ig [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Correlation between lensing potential estimators, with bounds (0:lmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Ic [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Correlation between curl mode estimators, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ig,Ic = curvedsky.norm_lens.qttte(lmax,rlmin,rlmax,fCTT,fCTE,OCT,OCE,OCTE,gtype):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.norm_lens.qttee">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qttee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCTT</em>, <em>fCEE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCTE</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qttee" title="Permalink to this definition">¶</a></dt>
-<dd><p>Correlation between unnormalized TT and EE quadratic estimators</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">fCTT [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory TT spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">fCEE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Theory EE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">OCT [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed TT spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed EE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">OCTE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed TE spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ig [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Correlation between lensing potential estimators, with bounds (0:lmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Ic [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Correlation between curl mode estimators, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ig,Ic = curvedsky.norm_lens.qttee(lmax,rlmin,rlmax,fCTT,fCEE,OCT,OCE,OCTE,gtype):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.norm_lens.qteee">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qteee</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCEE</em>, <em>fCTE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCTE</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qteee" title="Permalink to this definition">¶</a></dt>
-<dd><p>Correlation between unnormalized TE and EE quadratic estimators</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">fCEE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory EE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">fCTE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Theory TE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">OCT [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed TT spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed EE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">OCTE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed TE spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ig [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Correlation between lensing potential estimators, with bounds (0:lmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Ic [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Correlation between curl mode estimators, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ig,Ic = curvedsky.norm_lens.qteee(lmax,rlmin,rlmax,fCEE,fCTE,OCT,OCE,OCTE,gtype):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.norm_lens.qtbeb">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qtbeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fCEE</em>, <em>fCBB</em>, <em>fCTE</em>, <em>OCT</em>, <em>OCE</em>, <em>OCB</em>, <em>OCTE</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qtbeb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Correlation between unnormalized TB and EB quadratic estimators</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">fCEE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory EE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">fCBB [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Theory BB spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">OCT [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed TT spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed EE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">OCB [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed BB spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCTE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed TE spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ig [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Correlation between lensing potential estimators, with bounds (0:lmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Ic [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Correlation between curl mode estimators, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ig,Ic = curvedsky.norm_lens.qtbeb(lmax,rlmin,rlmax,fCEE,fCBB,fCTE,OCT,OCE,OCB,OCTE,gtype):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.norm_lens.qmv">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qmv</code><span class="sig-paren">(</span><em>lmax</em>, <em>QDO</em>, <em>Al</em>, <em>Il</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qmv" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute MV estimator normalization. Currently BB is ignored.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the output power spectra</td>
-</tr>
-<tr class="field-even field"><th class="field-name">QDO[<em>6</em>] (<em>bool</em>):</th><td class="field-body">Specifying which estimators to be combined for the minimum variance estimator, with size (6). The oder is TT, TE, EE, TB, EB and BB. Currently, BB is always False</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">Al [<em>5,l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Normalizations of each estimator (TT, TE, EE, TB, EB).</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Il [<em>4,l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Correlation between different estimators (TTxTE, TTxEE, TExEE, TBxEB).</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">MV [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Normalization of the MV estimator, with bounds (0:lmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Nl [<em>6,l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Weights for each estimator (TT, TE, EE, TB, EB, BB=0), with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">MV,Nl = curvedsky.norm_lens.qmv(lmax,QDO,Al,Il):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.norm_lens.qall">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qall</code><span class="sig-paren">(</span><em>QDO</em>, <em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OC</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qall" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute MV estimator normalization. Currently BB is ignored.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">QDO[<em>6</em>] (<em>bool</em>):</th><td class="field-body">Specifying which estimators to be combined for the minimum variance estimator, with size (6). The oder is TT, TE, EE, TB, EB and BB.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the output power spectra</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">fC/OC [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Theory/Observed CMB angular power spectra (TT, EE, BB, TE), with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag [<em>6,l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Normalization of the TT, TE, EE, TB, EB, and MV estimators for lensing potential, with bounds (6,0:lmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Ac [<em>6,l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Same as Ag but for curl mode</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">Nlg [<em>6,l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Weights for TT, TE, EE, TB, EB, and BB (=0) estimators for lensing potential, with bounds (6,0:lmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Nlc [<em>6,l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Same as Nlg but for curl mode</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac,Nlg,Nlc = curvedsky.norm_lens.qall(QDO,lmax,rlmin,rlmax,fC,OC,gtype):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.norm_lens.qeb_iter">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">qeb_iter</code><span class="sig-paren">(</span><em>lmax</em>, <em>elmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>OCE</em>, <em>OCB</em>, <em>Cpp</em>, <em>iter=1</em>, <em>conv=1e-06</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.qeb_iter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normalization of reconstructed CMB lensing potential and its curl mode from the EB quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization</td>
-</tr>
-<tr class="field-even field"><th class="field-name">elmax (<em>int</em>):</th><td class="field-body">Maximum multipole of input EE spectra, CE and OCE</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">dlmin/dlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of E mode and lensing potential for delensing</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">CE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory EE angular power spectrum, with bounds (0:elmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed EE spectrum, with bounds (0:elmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">OCB [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed BB spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Cpp [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Theory lensing potential spectrum, with bounds (0:dlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">iter (<em>int</em>):</th><td class="field-body">number of iteration, default to 1 (no iteration)</td>
-</tr>
-<tr class="field-even field"><th class="field-name">conv (<em>double</em>):</th><td class="field-body">a parameter for convergence the iteration, default to 0.001</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">CMB lensing potential normalization, with bounds (0:lmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Ac [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Curl mode (pseudo lensing potential) normalization, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = curvedsky.norm_lens.qeb_iter(lmax,elmax,rlmin,rlmax,dlmin,dlmax,CE,OCE,OCB,Cpp,iter,conv):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.norm_lens.ttt">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">ttt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.ttt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Unnormalized response between lensing potential and amplitude modulation from the temperature quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory TT spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCT [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed TT spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Cross normalization, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag = curvedsky.norm_lens.ttt(lmax,rlmin,rlmax,fC,OCT,gtype):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.norm_lens.stt">
-<code class="descclassname">curvedsky.norm_lens.</code><code class="descname">stt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>gtype=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_lens.stt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Unnormalized response between lensing potential and poisson sources/inhomogeneous nosie with the temperature quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory TT spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCT [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed TT spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’‘, default)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Cross normalization, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Ag = curvedsky.norm_lens.stt(lmax,rlmin,rlmax,fC,OCT,gtype):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
+<div class="section" id="norm-lens-normalization-of-quadratic-lensing-reconstruction">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_lens</span></code> – normalization of quadratic lensing reconstruction<a class="headerlink" href="#norm-lens-normalization-of-quadratic-lensing-reconstruction" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-curvedsky.norm_rot">
-<span id="norm-rot-normalization-of-quadratic-rotation-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_rot</span></code> – normalization of quadratic rotation reconstruction<a class="headerlink" href="#module-curvedsky.norm_rot" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="curvedsky.norm_rot.qtb">
-<code class="descclassname">curvedsky.norm_rot.</code><code class="descname">qtb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em>, <em>OCB</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_rot.qtb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normalization of reconstructed pol. rot. angle from the TB quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory TE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCT [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed TT spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">OCB [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed BB spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Aa [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Pol. rot. angle normalization, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Aa = curvedsky.norm_rot.qtb(lmax,rlmin,rlmax,fC,OCT,OCB):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.norm_rot.qeb">
-<code class="descclassname">curvedsky.norm_rot.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>EE</em>, <em>OCE</em>, <em>OCB</em>, <em>BB=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_rot.qeb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normalization of reconstructed pol. rot. angle from the EB quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">EE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory EE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed EE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">OCB [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed BB spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optionals): </dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">BB [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory BB spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Aa [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Pol. rot. angle normalization, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Aa = curvedsky.norm_rot.qeb(lmax,rlmin,rlmax,EE,OCE,OCB,BB):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.norm_rot.teb">
-<code class="descclassname">curvedsky.norm_rot.</code><code class="descname">teb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>EE</em>, <em>EB</em>, <em>OCE</em>, <em>OCB</em>, <em>BB=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_rot.teb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Response of reconstructed pol. rot. angle to amplitude in the EB quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">EE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory EE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">EB [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Theory EB spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">OCE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed EE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCB [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed BB spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optionals): </dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">BB [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory BB spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Aa [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Pol. rot. angle normalization, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Aa = curvedsky.norm_rot.teb(lmax,rlmin,rlmax,EE,EB,OCE,OCB,BB):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
+<div class="section" id="norm-rot-normalization-of-quadratic-rotation-reconstruction">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_rot</span></code> – normalization of quadratic rotation reconstruction<a class="headerlink" href="#norm-rot-normalization-of-quadratic-rotation-reconstruction" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-curvedsky.norm_tau">
-<span id="norm-tau-normalization-of-quadratic-tau-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_tau</span></code> – normalization of quadratic tau reconstruction<a class="headerlink" href="#module-curvedsky.norm_tau" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="curvedsky.norm_tau.qtt">
-<code class="descclassname">curvedsky.norm_tau.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_tau.qtt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normalization of reconstructed amplitude modulation from the temperature quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory TT spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCT [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed TT spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">At [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">tau normalization, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">At = curvedsky.norm_tau.qtt(lmax,rlmin,rlmax,fC,OCT):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.norm_tau.qeb">
-<code class="descclassname">curvedsky.norm_tau.</code><code class="descname">qeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>EE</em>, <em>OCE</em>, <em>OCB</em>, <em>BB=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_tau.qeb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normalization of reconstructed amplitude modulation from the EB quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">EE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory EE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed EE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">OCB [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed BB spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optionals): </dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">BB [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory BB spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">At [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Amplitude modulation normalization, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">At = curvedsky.norm_tau.qeb(lmax,rlmin,rlmax,EE,OCE,OCB,BB):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.norm_tau.oeb">
-<code class="descclassname">curvedsky.norm_tau.</code><code class="descname">oeb</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>EB</em>, <em>OCE</em>, <em>OCB</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_tau.oeb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normalization of reconstructed amplitude from the EB quadratic estimator
-The kernels are the same as the rotation normalization but with a factor of 4.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">EB [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory EB spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCE [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed EE spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">OCB [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed BB spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">At [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Normalization, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">At = curvedsky.norm_tau.oeb(lmax,rlmin,rlmax,EB,OCE,OCB):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="curvedsky.norm_tau.stt">
-<code class="descclassname">curvedsky.norm_tau.</code><code class="descname">stt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCT</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_tau.stt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Unnormalized response between patchy tau and poisson sources/inhomogeneous noise with the temperature quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory TT spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCT [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed TT spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">At [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">tau normalization, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">At = curvedsky.norm_tau.stt(lmax,rlmin,rlmax,fC,OCT):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
+<div class="section" id="norm-tau-normalization-of-quadratic-tau-reconstruction">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_tau</span></code> – normalization of quadratic tau reconstruction<a class="headerlink" href="#norm-tau-normalization-of-quadratic-tau-reconstruction" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-curvedsky.norm_src">
-<span id="norm-src-normalization-of-quadratic-point-source-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_src</span></code> – normalization of quadratic point-source reconstruction<a class="headerlink" href="#module-curvedsky.norm_src" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="curvedsky.norm_src.qtt">
-<code class="descclassname">curvedsky.norm_src.</code><code class="descname">qtt</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>OCT</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_src.qtt" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normalization of reconstructed src field from the temperature quadratic estimator</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory TT spectrum, with bounds (0:rlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">OCT [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed TT spectrum, with bounds (0:rlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">As [<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">src field normalization, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">As = curvedsky.norm_src.qtt(lmax,rlmin,rlmax,OCT):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
+<div class="section" id="norm-src-normalization-of-quadratic-point-source-reconstruction">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_src</span></code> – normalization of quadratic point-source reconstruction<a class="headerlink" href="#norm-src-normalization-of-quadratic-point-source-reconstruction" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-curvedsky.delens">
 <span id="delens-delensing-for-simulation"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">delens</span></code> – delensing for simulation<a class="headerlink" href="#module-curvedsky.delens" title="Permalink to this headline">¶</a></h2>
@@ -2677,7 +1190,7 @@ The output is given by alms where alm[0,l,m] is temperature, alm[1,l,m] is E mod
 
 <dl class="function">
 <dt id="curvedsky.bispec.bispec_bin">
-<code class="descclassname">curvedsky.bispec.</code><code class="descname">bispec_bin</code><span class="sig-paren">(</span><em>bn, bp, lmax, alm, bstype='equi', bst=2, sL=[0, 0]</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.bispec.bispec_bin" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.bispec.</code><code class="descname">bispec_bin</code><span class="sig-paren">(</span><em>bn, bp, lmax, alm, bst=2, bstype='equi', sL=[0, 0]</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.bispec.bispec_bin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the unnormalized binned reduced bispectrum for a given multipole bin</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -2739,7 +1252,7 @@ The output is given by alms where alm[0,l,m] is temperature, alm[1,l,m] is E mod
 
 <dl class="function">
 <dt id="curvedsky.bispec.xbispec_bin">
-<code class="descclassname">curvedsky.bispec.</code><code class="descname">xbispec_bin</code><span class="sig-paren">(</span><em>bn, bp, lmax, n, alm, bstype='equi', bst=2, sL=[0, 0]</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.bispec.xbispec_bin" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.bispec.</code><code class="descname">xbispec_bin</code><span class="sig-paren">(</span><em>bn, bp, lmax, n, alm, bst=2, bstype='equi', sL=[0, 0]</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.bispec.xbispec_bin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the unnormalized binned reduced cross-bispectrum for a given multipole bin</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -2806,8 +1319,8 @@ The output is given by alms where alm[0,l,m] is temperature, alm[1,l,m] is E mod
 <span id="cninv-filtering-anisotropies"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">cninv</span></code> – Filtering Anisotropies<a class="headerlink" href="#module-curvedsky.cninv" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="curvedsky.cninv.cnfilter_freq">
-<code class="descclassname">curvedsky.cninv.</code><code class="descname">cnfilter_freq</code><span class="sig-paren">(</span><em>n, mn, nside, lmax, cl, bl, iNcov, maps, chn=1, lmaxs=[0], nsides=[0], itns=[1], eps=[1e-06], filter='', verbose=False, ro=50, stat=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cnfilter_freq" title="Permalink to this definition">¶</a></dt>
-<dd><p>Same as cnfilter but combining multiple frequency maps and these maps are divided into two different nside groups. 
+<code class="descclassname">curvedsky.cninv.</code><code class="descname">cnfilter_freq</code><span class="sig-paren">(</span><em>n, mn, nside, lmax, cl, bl, iNcov, maps, chn=1, lmaxs=[0], nsides=[0], itns=[1], eps=[1e-06], filter='', verbose=False, ro=50, stat='', inl=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cnfilter_freq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combining multiple frequency maps optimally. 
 The filtering would work if the noise variance is not significantly varied with scale (multipole).</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -2843,7 +1356,7 @@ The filtering would work if the noise variance is not significantly varied with 
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">chn (<em>int</em>):</th><td class="field-body">number of grids for preconsitioner (chn=1 for diagonal preconditioner, default)</td>
+<tr class="field-odd field"><th class="field-name">chn (<em>int</em>):</th><td class="field-body">Number of grids for preconsitioner (chn=1 for diagonal preconditioner, default)</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">lmaxs[<em>chain</em>] (<em>int</em>):</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body">Maximum multipole(s) at each preconditioning and lmaxs[<em>0</em>] is the input maximum multipole of cl</td>
@@ -2852,16 +1365,21 @@ The filtering would work if the noise variance is not significantly varied with 
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">Nside(s) of preconditoner and nsides[<em>0</em>] should be consistent with the input map’s nside.</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">eps[<em>chain</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Numerical parameter to finish the iteration if ave(|Ax-b|)&lt;eps, default to 1e-6</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Parameter to finish the iteration (i.e. terminate if the residul fraction becomes smaller than eps). Default to 1e-6.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">itns[<em>chain</em>] (<em>int</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Number of interation(s)</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Number of interations.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">filter (<em>str</em>):</th><td class="field-body">C-inverse (‘’) or Wiener filter (W), default to C-inverse.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Output messages, default to False</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">inl[<em>n,mn,l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse noise spectrum, 0 for non white noise case.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">stat (<em>str</em>):</th><td class="field-body">Realtime status filename, default to no output file</td>
+<tr class="field-even field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Output messages, default to False</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">ro (<em>int</em>):</th><td class="field-body">the residual fraction is output for every ro iteration (e.g. ro=2 means 1 output per 2 iterations). Default to 50. Useful for convergence speed.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">stat (<em>str</em>):</th><td class="field-body">Realtime status filename which contains the residual fraction, default to no output file</td>
 </tr>
 </tbody>
 </table>
@@ -2884,7 +1402,7 @@ The filtering would work if the noise variance is not significantly varied with 
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">xlm = curvedsky.cninv.cnfilter_freq(n,mn,nside,lmax,cl,bl,iNcov,maps,chn,lmaxs,nsides,itns,eps,filter,verbose,ro,stat):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">xlm = curvedsky.cninv.cnfilter_freq(n,mn,nside,lmax,cl,bl,iNcov,maps,chn,lmaxs,nsides,itns,eps,filter,inl,verbose,ro,stat):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -2897,8 +1415,8 @@ The filtering would work if the noise variance is not significantly varied with 
 
 <dl class="function">
 <dt id="curvedsky.cninv.cnfilter_freq_nside">
-<code class="descclassname">curvedsky.cninv.</code><code class="descname">cnfilter_freq_nside</code><span class="sig-paren">(</span><em>n, mn0, mn1, nside0, nside1, lmax, cl, bl0, bl1, iNcov0, iNcov1, maps0, maps1, chn=1, lmaxs=[0], nsides0=[0], nsides1=[0], itns=[1], eps=[1e-06], filter='', verbose=False, reducmn=0, ro=50, stat=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cnfilter_freq_nside" title="Permalink to this definition">¶</a></dt>
-<dd><p>Same as cnfilter but combining multiple frequency maps and these maps are divided into two different nside groups.</p>
+<code class="descclassname">curvedsky.cninv.</code><code class="descname">cnfilter_freq_nside</code><span class="sig-paren">(</span><em>n, mn0, mn1, nside0, nside1, lmax, cl, bl0, bl1, iNcov0, iNcov1, maps0, maps1, chn=1, lmaxs=[0], nsides0=[0], nsides1=[0], itns=[1], eps=[1e-06], filter='', verbose=False, reducmn=0, ro=50, stat='', inl=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cnfilter_freq_nside" title="Permalink to this definition">¶</a></dt>
+<dd><p>Same as cnfilter_freq but for the maps with two different Nsides.</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -2909,7 +1427,7 @@ The filtering would work if the noise variance is not significantly varied with 
 </tr>
 <tr class="field-even field"><th class="field-name">mn0/1 (<em>int</em>):</th><td class="field-body">Number of frequencies</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">nside0/1 (<em>int</em>):</th><td class="field-body">Nsides of input map(s)</td>
+<tr class="field-odd field"><th class="field-name">nside0/1 (<em>int</em>):</th><td class="field-body">Nsides of input maps</td>
 </tr>
 <tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input cl</td>
 </tr>
@@ -2917,7 +1435,7 @@ The filtering would work if the noise variance is not significantly varied with 
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory signal power spectrum, with bounds (0:n-1,0:lmax)</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">bl0/1[<em>mn,l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Beam spectrum, with bounds (0:n-1,0:lmax)</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Beam function, with bounds (0:n-1,0:lmax)</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">iNcov0/1[<em>n,mn,pix</em>] (<em>double</em>):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse of the noise variance at each pixel, with bounds (0:n-1,0:npix-1)</td>
@@ -2933,7 +1451,7 @@ The filtering would work if the noise variance is not significantly varied with 
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">chn (<em>int</em>):</th><td class="field-body">number of grids for preconsitioner (chn=1 for diagonal preconditioner, default)</td>
+<tr class="field-odd field"><th class="field-name">chn (<em>int</em>):</th><td class="field-body">Number of grids for preconsitioner (chn=1 for diagonal preconditioner, default)</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">lmaxs[<em>chain</em>] (<em>int</em>):</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body">Maximum multipole(s) at each preconditioning and lmaxs[<em>0</em>] is the input maximum multipole of cl</td>
@@ -2942,16 +1460,23 @@ The filtering would work if the noise variance is not significantly varied with 
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">Nside(s) of preconditoner and nsides[<em>0</em>] should be consistent with the input map’s nside.</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">eps[<em>chain</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Numerical parameter to finish the iteration if ave(|Ax-b|)&lt;eps, default to 1e-6</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Parameter to finish the iteration (i.e. terminate if the residul fraction becomes smaller than eps). Default to 1e-6.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">itns[<em>chain</em>] (<em>int</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Number of interation(s)</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Number of interations.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">filter (<em>str</em>):</th><td class="field-body">C-inverse (‘’) or Wiener filter (W), default to C-inverse.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Output messages</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">inl[<em>n,mn,l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse noise spectrum, 0 for non white noise case.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">stat (<em>str</em>):</th><td class="field-body">Realtime status filename</td>
+<tr class="field-even field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Output messages, default to False</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">ro (<em>int</em>):</th><td class="field-body">the residual fraction is output for every ro iteration (e.g. ro=2 means 1 output per 2 iterations). Default to 50. Useful for convergence speed.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">stat (<em>str</em>):</th><td class="field-body">Realtime status filename which contains the residual fraction, default to no output file</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">reducmn (<em>int</em>):</th><td class="field-body">Reducing number of maps per chain (1,2) or not (0, default). If 1, the maps are combined for the same nside inside the multigrid chain. If 2, in addition to the procedure of 1, the each nside maprs are further combined into a single map inside the second chain (chain&gt;=3).</td>
 </tr>
 </tbody>
 </table>
@@ -2963,7 +1488,10 @@ The filtering would work if the noise variance is not significantly varied with 
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">xlm[<em>n,l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">C-inverse / Wiener filtered multipoles, with bounds (0:n-1,0:lmax,0:lmax)</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">C-inverse / Wiener filtered multipoles, with bounds (0:n-1,0:lmax,0:lmax)</p>
+<p class="last">mgc%cv(1,mi)%nij = iNcov0(:,mi,:)maps0(:,mi,:)
+mgc%cv(1,mi)%nij = iNcov1(:,mi-mn0,:)maps1(:,mi-mn0,:)</p>
+</td>
 </tr>
 </tbody>
 </table>
@@ -2974,7 +1502,7 @@ The filtering would work if the noise variance is not significantly varied with 
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">xlm = curvedsky.cninv.cnfilter_freq_nside(n,mn0,mn1,nside0,nside1,lmax,cl,bl0,bl1,iNcov0,iNcov1,maps0,maps1,chn,lmaxs,nsides0,nsides1,itns,eps,filter,verbose,reducmn,ro,stat):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">xlm = curvedsky.cninv.cnfilter_freq_nside(n,mn0,mn1,nside0,nside1,lmax,cl,bl0,bl1,iNcov0,iNcov1,maps0,maps1,chn,lmaxs,nsides0,nsides1,itns,eps,filter,inl,verbose,reducmn,ro,stat):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -3033,7 +1561,7 @@ The filtering would work if the noise variance is not significantly varied with 
 
 <dl class="function">
 <dt id="curvedsky.utils.gauss2alm">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">gauss2alm</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl1</em>, <em>cl2</em>, <em>xl</em>, <em>flm=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.gauss2alm" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.utils.</code><code class="descname">gauss2alm</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl1</em>, <em>cl2</em>, <em>xl</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.gauss2alm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generating two alms as random Gaussian fields whose power spectra are cl1, cl2 and the cross spectrum is xl.</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -3055,13 +1583,54 @@ The filtering would work if the noise variance is not significantly varied with 
 </tbody>
 </table>
 </dd>
-<dt>Args(optional):</dt>
+<dt>Returns:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm [<em>2,l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Random Gaussian alms, with bounds (2,0:lmax,0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.utils.gauss2alm(lmax,cl1,cl2,xl):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.utils.gauss2alm_const">
+<code class="descclassname">curvedsky.utils.</code><code class="descname">gauss2alm_const</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl1</em>, <em>cl2</em>, <em>xl</em>, <em>flm</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.gauss2alm_const" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generating two alms as random Gaussian fields whose power spectra are cl1, cl2 and the cross spectrum is xl.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the output alm</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">cl1 [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Angular power spectrum of the 1st alm, with bounds (0:lmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">cl2 [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Angular power spectrum of the 2nd alm, with bounds (0:lmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">xl [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Cross-power spectrum between alm1 and alm2, with bounds (0:lmax)</td>
+</tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">flm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">pre-computed Gaussian fields whose spectrum is cl1, with bounds (0:lmax,0:lmax), default to None</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Constrained realiation of alms whose power is cl1</td>
 </tr>
 </tbody>
 </table>
@@ -3082,7 +1651,7 @@ The filtering would work if the noise variance is not significantly varied with 
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.utils.gauss2alm(lmax,cl1,cl2,xl,flm):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.utils.gauss2alm_const(lmax,cl1,cl2,xl,flm):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -3470,7 +2039,7 @@ Written by Ryo Nagata.</p>
 
 <dl class="function">
 <dt id="curvedsky.utils.alm2bcl">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">alm2bcl</code><span class="sig-paren">(</span><em>bn</em>, <em>lmax</em>, <em>alm1</em>, <em>alm2=None</em>, <em>spc=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.alm2bcl" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.utils.</code><code class="descname">alm2bcl</code><span class="sig-paren">(</span><em>bn</em>, <em>lmax</em>, <em>alm1</em>, <em>spc=''</em>, <em>alm2=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.alm2bcl" title="Permalink to this definition">¶</a></dt>
 <dd><p>From alm to angular power spectrum with multipole binning</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -3518,6 +2087,95 @@ Written by Ryo Nagata.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">cb = curvedsky.utils.alm2bcl(bn,lmax,alm1,alm2,spc):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.utils.alm2rho">
+<code class="descclassname">curvedsky.utils.</code><code class="descname">alm2rho</code><span class="sig-paren">(</span><em>lmax</em>, <em>alm1</em>, <em>alm2</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.alm2rho" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute correlation coefficients between two alms</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input alm</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">alm1 [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">1st harmonic coefficient, with bounds (0:lmax,0:lmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">alm2 [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2nd harmonic coefficient, with bounds (0:lmax,0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">rho [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Auto or cross angular power spectrum, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">rho = curvedsky.utils.alm2rho(lmax,alm1,alm2):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.utils.alm2cov">
+<code class="descclassname">curvedsky.utils.</code><code class="descname">alm2cov</code><span class="sig-paren">(</span><em>alm</em>, <em>n=0</em>, <em>lmax=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.alm2cov" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute correlation coefficients between two alms</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input alms</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">alm [<em>n,l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">1st harmonic coefficient, with bounds (0:lmax,0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">cov [<em>n,n,l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Auto and cross angular power spectra between alm[<em>i</em>] and alm[<em>j</em>]</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">cov = curvedsky.utils.alm2cov(n,lmax,alm):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -3885,7 +2543,7 @@ the alm contains E-mode and B-mode.</p>
 
 <dl class="function">
 <dt id="curvedsky.utils.mulwin">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">mulwin</code><span class="sig-paren">(</span><em>nside</em>, <em>lmax</em>, <em>mmax</em>, <em>alm</em>, <em>win</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.mulwin" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.utils.</code><code class="descname">mulwin</code><span class="sig-paren">(</span><em>alm</em>, <em>win</em>, <em>nside=0</em>, <em>lmax=0</em>, <em>mmax=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.mulwin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Multiply window to a map obtained from alm</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -3893,17 +2551,11 @@ the alm contains E-mode and B-mode.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside of input map</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">alm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Harmonic coefficient to be multiplied at window, with bounds (0:lmax,0:mmax)</td>
 </tr>
-<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input alm</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">mmax (<em>int</em>):</th><td class="field-body">Maximum m of the input alm</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">alm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Harmonic coefficient to be multiplied at window, with bounds (0:lmax,0:mmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">win [<em>pix</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Transformed map, with bounds (0:npix-1)</td>
+<tr class="field-even field"><th class="field-name" colspan="2">win [<em>pix</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Transformed map, with bounds (0:npix-1)</td>
 </tr>
 </tbody>
 </table>
@@ -3935,22 +2587,14 @@ the alm contains E-mode and B-mode.</p>
 
 <dl class="function">
 <dt id="curvedsky.utils.mulwin_spin">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">mulwin_spin</code><span class="sig-paren">(</span><em>nside</em>, <em>lmax</em>, <em>mmax</em>, <em>spin</em>, <em>elm</em>, <em>blm</em>, <em>win</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.mulwin_spin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Ylm transform of the map to alm with the healpix (l,m) order</p>
+<code class="descclassname">curvedsky.utils.</code><code class="descname">mulwin_spin</code><span class="sig-paren">(</span><em>elm</em>, <em>blm</em>, <em>win</em>, <em>nside=0</em>, <em>lmax=0</em>, <em>mmax=0</em>, <em>spin=2</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.mulwin_spin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Multiply window to a map obtained from alm</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside of input map</td>
-</tr>
-<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input alm</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">mmax (<em>int</em>):</th><td class="field-body">Maximum m of the input alm</td>
-</tr>
-<tr class="field-even field"><th class="field-name">spin (<em>int</em>):</th><td class="field-body">Spin of the transform</td>
-</tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">elm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">Spin-s E-like harmonic coefficient to be transformed to a map, with bounds (0:lmax,0:mmax)</td>
 </tr>
@@ -3959,6 +2603,16 @@ the alm contains E-mode and B-mode.</p>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">win [<em>pix</em>] (<em>double</em>):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">Transformed map, with bounds (0:npix-1)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args (Optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">spin (<em>int</em>):</th><td class="field-body">Spin of the transform, default to 2</td>
 </tr>
 </tbody>
 </table>
@@ -3990,7 +2644,7 @@ the alm contains E-mode and B-mode.</p>
 
 <dl class="function">
 <dt id="curvedsky.utils.lm_healpy2healpix">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">lm_healpy2healpix</code><span class="sig-paren">(</span><em>lmpy</em>, <em>almpy</em>, <em>lmax</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.lm_healpy2healpix" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.utils.</code><code class="descname">lm_healpy2healpix</code><span class="sig-paren">(</span><em>almpy</em>, <em>lmax</em>, <em>lmpy=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.lm_healpy2healpix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transform healpy alm to healpix alm</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -3998,12 +2652,10 @@ the alm contains E-mode and B-mode.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmpy (<em>int</em>):</th><td class="field-body">Length of healpy alm</td>
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input/output alm satisfying 2 x lmpy = (lmax+1) x (lmax+2)</td>
 </tr>
-<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input/output alm satisfying 2 x lmpy = (lmax+1) x (lmax+2)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">almpy[<em>index</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Healpy alm, with bounds (0:lmpy-1)</td>
+<tr class="field-even field"><th class="field-name" colspan="2">almpy[<em>index</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Healpy alm, with bounds (0:lmpy-1)</td>
 </tr>
 </tbody>
 </table>
@@ -4187,7 +2839,7 @@ the alm contains E-mode and B-mode.</p>
 
 <dl class="function">
 <dt id="curvedsky.utils.mock_galaxy_takahashi">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">mock_galaxy_takahashi</code><span class="sig-paren">(</span><em>fname</em>, <em>zn</em>, <em>ngz</em>, <em>zi</em>, <em>b0=1.0</em>, <em>btype='sqrtz'</em>, <em>a=2.0</em>, <em>b=1.0</em>, <em>zm=1.0</em>, <em>sz=0.0</em>, <em>zbias=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.mock_galaxy_takahashi" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.utils.</code><code class="descname">mock_galaxy_takahashi</code><span class="sig-paren">(</span><em>fname</em>, <em>zn</em>, <em>ngz</em>, <em>zi</em>, <em>a=2.0</em>, <em>b=1.0</em>, <em>zm=1.0</em>, <em>sz=0.0</em>, <em>zbias=0.0</em>, <em>b0=1.0</em>, <em>btype='sqrtz'</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.mock_galaxy_takahashi" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute galaxy overdensity map from dark matter density map</p>
 <dl class="docutils">
 <dt>Args:</dt>

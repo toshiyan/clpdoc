@@ -4041,7 +4041,8 @@ the alm contains E-mode and B-mode.</p>
 <dl class="function">
 <dt id="curvedsky.utils.mock_galaxy_takahashi">
 <code class="descclassname">curvedsky.utils.</code><code class="descname">mock_galaxy_takahashi</code><span class="sig-paren">(</span><em>fname</em>, <em>zn</em>, <em>ngz</em>, <em>zi</em>, <em>a=2.0</em>, <em>b=1.0</em>, <em>zm=1.0</em>, <em>sz=0.0</em>, <em>zbias=0.0</em>, <em>b0=1.0</em>, <em>btype='sqrtz'</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.mock_galaxy_takahashi" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute galaxy overdensity map from dark matter density map</p>
+<dd><p>Compute galaxy overdensity map from dark matter density map
+The galaxy z distribution is assumed to have the functional form given by Eq.(7) of <a class="reference external" href="https://arxiv.org/abs/1810.03346">https://arxiv.org/abs/1810.03346</a></p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -4082,8 +4083,8 @@ the alm contains E-mode and B-mode.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">V [<em>bin,type</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">The three Minkowski functionals, V0, V1 and V2, at each nu bin, with bounds (bn,0:2)</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">gmap [<em>pix,zbin</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The galaxy numberdensity map at each zbin</td>
 </tr>
 </tbody>
 </table>

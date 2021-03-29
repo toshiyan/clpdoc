@@ -16,8 +16,9 @@ Install
 
 1) Using a fortran compiler, please compile the following public packages
 
-  curvedsky module: cfitsio, HEALPix, LensPix
-  flatsky module: FFTW
+  - curvedsky module: cfitsio, HEALPix, LensPix
+  
+  - flatsky module: FFTW
 
 2) Type ./MAKEALL.sh all 
 

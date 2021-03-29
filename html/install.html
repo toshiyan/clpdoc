@@ -173,11 +173,17 @@ Source code for those is included with this package. You also need F2py and a fo
 <blockquote>
 <div>git clone <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:toshiyan/cmblensplus.git</div></blockquote>
 <ol class="arabic simple">
-<li>Using a fortran compiler, compile public packages, FFTW for flatsky code, and HEALPix and cfitsio for curvedsky code.</li>
+<li>Using a fortran compiler, please compile the following public packages</li>
+</ol>
+<blockquote>
+<div>curvedsky module: cfitsio, HEALPix, LensPix
+flatsky module: FFTW</div></blockquote>
+<ol class="arabic simple" start="2">
 <li>Type ./MAKEALL.sh all</li>
 </ol>
-<p>This command compiles Fortran source codes in F90/src_utils, F90/src_dft and then produce a python module using f2py.
-The python modules can be found in wrap/ for python 3 and wrap_py2 for python 2</p>
+<p>This command compiles Fortran source codes in F90/src_*** and then produce a python module using f2py.
+The python modules can be found in wrap/ for python 3.
+(wrap_py2 for python 2 is no longer supported)</p>
 </div>
 </div>
 

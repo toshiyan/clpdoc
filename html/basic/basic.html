@@ -601,7 +601,7 @@
 <dl class="function">
 <dt id="basic.bispec.cl_flat">
 <code class="descclassname">basic.bispec.</code><code class="descname">cl_flat</code><span class="sig-paren">(</span><em>cpmodel</em>, <em>z</em>, <em>dz</em>, <em>zs</em>, <em>lmax</em>, <em>k</em>, <em>pk0</em>, <em>zn=0</em>, <em>kn=0</em>, <em>pktype='T12'</em>, <em>cltype='kk'</em>, <em>dNdz=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.bispec.cl_flat" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute lensing bispectrum analytically</p>
+<dd><p>Compute flat-sky lensing powerspectrum analytically</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -615,7 +615,7 @@
 <tr class="field-odd field"><th class="field-name" colspan="2">dz[<em>zn</em>] (<em>double</em>):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">interval of z</td>
 </tr>
-<tr class="field-even field"><th class="field-name">zs[<em>3</em>] (<em>double</em>):</th><td class="field-body">source redshifts</td>
+<tr class="field-even field"><th class="field-name">zs[<em>2</em>] (<em>double</em>):</th><td class="field-body">two source redshifts</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">lmin/lmax (<em>int</em>):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">minimum/maximum multipoles of the bispectrum</td>
@@ -638,7 +638,7 @@
 <tr class="field-even field"><th class="field-name">cltype (<em>str</em>):</th><td class="field-body">kk, gk, or gg</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">dNdz[<em>zn</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">redshift distribution of galaxy, only used when btype includes g</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">redshift distribution of galaxy, only used when cltype includes g</td>
 </tr>
 </tbody>
 </table>
@@ -709,7 +709,7 @@
 <tr class="field-odd field"><th class="field-name" colspan="2">lan, kan (<em>double</em>):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">parameters for the modified gravity extension, default to lan=kan=1 (GR)</td>
 </tr>
-<tr class="field-even field"><th class="field-name">pktype (<em>str</em>):</th><td class="field-body">fitting formula for the matter power spectrum (Lin, S02 or T12)</td>
+<tr class="field-even field"><th class="field-name">pktype (<em>str</em>):</th><td class="field-body">fitting formula for the matter power spectrum (Lin=Linear, S02=Smith et al. 2002 or T12=Takahashi et al. 2012), default to T12</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">ltype (<em>str</em>):</th><td class="field-body">fullsky correction (full) or not</td>
 </tr>

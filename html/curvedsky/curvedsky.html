@@ -2689,7 +2689,7 @@ The filtering would work if the noise variance is not significantly varied with 
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">xlm[<em>n,l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">C-inverse / Wiener filtered multipoles, with bounds (0:n-1,0:lmax,0:lmax)</p>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"><p class="first">C-inverse or Wiener filtered multipoles, with bounds (0:n-1,0:lmax,0:lmax)</p>
 <p class="last">mgc%cv(1,mi)%nij = iNcov0(:,mi,:)maps0(:,mi,:)
 mgc%cv(1,mi)%nij = iNcov1(:,mi-mn0,:)maps1(:,mi-mn0,:)</p>
 </td>
@@ -3906,7 +3906,7 @@ the alm contains E-mode and B-mode.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">cosin [<em>pix</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">cosin[<em>pix</em>] (<em>double</em>):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">cosin(theta), with bounds (0:npix-1)</td>
 </tr>
 </tbody>
@@ -3929,7 +3929,44 @@ the alm contains E-mode and B-mode.</p>
 <dl class="function">
 <dt id="curvedsky.utils.load_defangle_takahashi">
 <code class="descclassname">curvedsky.utils.</code><code class="descname">load_defangle_takahashi</code><span class="sig-paren">(</span><em>fname</em>, <em>npix</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.load_defangle_takahashi" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>Read theta and phi coordinates at source plane obtained by Takahashi et al. (2017)</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">fname (<em>str</em>):</th><td class="field-body">file name</td>
+</tr>
+<tr class="field-even field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Number of pixels of theta and phi data</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args (optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">output messages, default to False</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">theta[<em>pix</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">theta, with bounds (0:npix-1)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">phi[<em>pix</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">phi, with bounds (0:npix-1)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -3947,7 +3984,46 @@ the alm contains E-mode and B-mode.</p>
 <dl class="function">
 <dt id="curvedsky.utils.polcoord2angle">
 <code class="descclassname">curvedsky.utils.</code><code class="descname">polcoord2angle</code><span class="sig-paren">(</span><em>npix</em>, <em>theta</em>, <em>phi</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.polcoord2angle" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>Converting theta and phi coordinates at source plane to deflection angle.
+The algorithm is provided by Takashi Hamana and Ryuichi Takahashi.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Number of pixels of theta and phi data</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">theta[<em>pix</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">theta, with bounds (0:npix-1)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">phi[<em>pix</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">phi, with bounds (0:npix-1)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args (optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">output messages, default to False</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">angle[<em>pix,2</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">deflection angle vector containing two components, with bounds (0:npix-1,1:2)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -3965,7 +4041,50 @@ the alm contains E-mode and B-mode.</p>
 <dl class="function">
 <dt id="curvedsky.utils.polcoord2angle_alm">
 <code class="descclassname">curvedsky.utils.</code><code class="descname">polcoord2angle_alm</code><span class="sig-paren">(</span><em>nside</em>, <em>lmax</em>, <em>theta</em>, <em>phi</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.polcoord2angle_alm" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>Converting theta and phi coordinates at source plane to deflection angle.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Number of pixels of theta and phi data</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of alms for gradient and curl modes</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">theta[<em>pix</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">theta, with bounds (0:npix-1)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">phi[<em>pix</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">phi, with bounds (0:npix-1)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args (optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">output messages, default to False</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">glm[<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">gradient mode, with bounds (0:lmax,0:lmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">clm[<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">curl mode, with bounds (0:lmax,0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -3983,7 +4102,7 @@ the alm contains E-mode and B-mode.</p>
 <dl class="function">
 <dt id="curvedsky.utils.calc_mfs">
 <code class="descclassname">curvedsky.utils.</code><code class="descname">calc_mfs</code><span class="sig-paren">(</span><em>bn</em>, <em>nu</em>, <em>lmax</em>, <em>walm</em>, <em>nside=0</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.calc_mfs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute 2D Minkowski functionals</p>
+<dd><p>Compute 2D Minkowski functionals from a given alm</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -4041,7 +4160,7 @@ the alm contains E-mode and B-mode.</p>
 <dl class="function">
 <dt id="curvedsky.utils.mock_galaxy_takahashi">
 <code class="descclassname">curvedsky.utils.</code><code class="descname">mock_galaxy_takahashi</code><span class="sig-paren">(</span><em>fname</em>, <em>zn</em>, <em>ngz</em>, <em>zi</em>, <em>a=2.0</em>, <em>b=1.0</em>, <em>zm=1.0</em>, <em>sz=0.0</em>, <em>zbias=0.0</em>, <em>b0=1.0</em>, <em>btype='sqrtz'</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.mock_galaxy_takahashi" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute galaxy overdensity map from dark matter density map
+<dd><p>Compute galaxy overdensity map from dark matter density map of Takahashi et al. (2017). 
 The galaxy z distribution is assumed to have the functional form given by Eq.(7) of <a class="reference external" href="https://arxiv.org/abs/1810.03346">https://arxiv.org/abs/1810.03346</a></p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -4084,7 +4203,7 @@ The galaxy z distribution is assumed to have the functional form given by Eq.(7)
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">gmap [<em>pix,zbin</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">The galaxy numberdensity map at each zbin</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The galaxy number density map at each zbin</td>
 </tr>
 </tbody>
 </table>

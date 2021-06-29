@@ -88,6 +88,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#module-basic.aps"><code class="docutils literal notranslate"><span class="pre">aps</span></code> – angular power spectrum tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-basic.delens"><code class="docutils literal notranslate"><span class="pre">delens</span></code> – analytic calculation for delensing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-basic.bispec"><code class="docutils literal notranslate"><span class="pre">bispec</span></code> – analytic calculation of bispectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-basic.galaxy"><code class="docutils literal notranslate"><span class="pre">galaxy</span></code> – tools for galaxy z distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cosmofuncs-tools-for-cosmology-related-functions"><code class="docutils literal notranslate"><span class="pre">cosmofuncs</span></code> – tools for cosmology related functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-basic.flat"><code class="docutils literal notranslate"><span class="pre">flat</span></code> – cross-check tools for flat-sky normalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-basic.wigner_funcs"><code class="docutils literal notranslate"><span class="pre">wigner_funcs</span></code> – Wigner 3j symbols</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../curvedsky/curvedsky.html"><code class="docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools</a></li>
@@ -1088,6 +1092,302 @@
 </dd>
 </dl>
 </div></blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="module-basic.galaxy">
+<span id="galaxy-tools-for-galaxy-z-distribution"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">galaxy</span></code> – tools for galaxy z distribution<a class="headerlink" href="#module-basic.galaxy" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="basic.galaxy.dndz_sf">
+<code class="descclassname">basic.galaxy.</code><code class="descname">dndz_sf</code><span class="sig-paren">(</span><em>z</em>, <em>a</em>, <em>b</em>, <em>zm</em>, <em>zn=0</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.galaxy.dndz_sf" title="Permalink to this definition">¶</a></dt>
+<dd><p>A model of galaxy z distribution</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">z[<em>zn</em>] (<em>double</em>):</th><td class="field-body">redshifts at which dNdz is returned</td>
+</tr>
+<tr class="field-even field"><th class="field-name">a, b (<em>double</em>):</th><td class="field-body">shape parameters of Schechter-like galaxy distribution</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">zm (<em>double</em>):</th><td class="field-body">mean redshift</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">dndz[<em>zn</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">galaxy z distribution</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">dndz = basic.galaxy.dndz_sf(zn,z,a,b,zm):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.galaxy.zbin">
+<code class="descclassname">basic.galaxy.</code><code class="descname">zbin</code><span class="sig-paren">(</span><em>zn</em>, <em>a</em>, <em>b</em>, <em>zm</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.galaxy.zbin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computing z-interval of z-bin so that number of galaxies at each z-bin is equal</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">zn (<em>int</em>):</th><td class="field-body">number of z-bins</td>
+</tr>
+<tr class="field-even field"><th class="field-name">a, b (<em>double</em>):</th><td class="field-body">shape parameters of Schechter-like galaxy distribution</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">zm (<em>double</em>):</th><td class="field-body">mean redshift</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">output messages (default to True)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">zb[<em>zn+1</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">z-intervals</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">zb = basic.galaxy.zbin(zn,a,b,zm,verbose):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.galaxy.frac">
+<code class="descclassname">basic.galaxy.</code><code class="descname">frac</code><span class="sig-paren">(</span><em>zn</em>, <em>zb</em>, <em>a</em>, <em>b</em>, <em>zm</em>, <em>verbose=False</em>, <em>zbias=0.0</em>, <em>sigma=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.galaxy.frac" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computing z-interval of z-bin so that number of galaxies at each z-bin is equal</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">zn (<em>int</em>):</th><td class="field-body">number of z-bins</td>
+</tr>
+<tr class="field-even field"><th class="field-name">a, b (<em>double</em>):</th><td class="field-body">shape parameters of Schechter-like galaxy distribution</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">zm (<em>double</em>):</th><td class="field-body">mean redshift</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">zb[<em>zn+1</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">z-intervals</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">output messages (default to True)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">zbias (<em>double</em>):</th><td class="field-body">constant bias to true photo-z</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">sigma (<em>double</em>):</th><td class="field-body">uncertaines of photo-z</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">nfrac[<em>zn</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">fraction of galaxy number at each bin, defined by int_zi^zi+1 dz N(z)/int dz N(z)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">nfrac = basic.galaxy.frac(zn,zb,a,b,zm,zbias,sigma,verbose):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="cosmofuncs-tools-for-cosmology-related-functions">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">cosmofuncs</span></code> – tools for cosmology related functions<a class="headerlink" href="#cosmofuncs-tools-for-cosmology-related-functions" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-basic.flat">
+<span id="flat-cross-check-tools-for-flat-sky-normalization"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">flat</span></code> – cross-check tools for flat-sky normalization<a class="headerlink" href="#module-basic.flat" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="basic.flat.alxy">
+<code class="descclassname">basic.flat.</code><code class="descname">alxy</code><span class="sig-paren">(</span><em>qest</em>, <em>qtype</em>, <em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>W1</em>, <em>W2</em>, <em>gln=100</em>, <em>lxcut=0</em>, <em>gle=1e-14</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.flat.alxy" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = basic.flat.alxy(qest,qtype,lmax,rlmin,rlmax,fC,W1,W2,gln,gle,lxcut):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.flat.alxy_asym">
+<code class="descclassname">basic.flat.</code><code class="descname">alxy_asym</code><span class="sig-paren">(</span><em>qest</em>, <em>qtype</em>, <em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>AA</em>, <em>BB</em>, <em>AB</em>, <em>gln=100</em>, <em>lxcut=0</em>, <em>gle=1e-14</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.flat.alxy_asym" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag,Ac = basic.flat.alxy_asym(qest,qtype,lmax,rlmin,rlmax,fC,AA,BB,AB,gln,gle,lxcut):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.flat.bbxy">
+<code class="descclassname">basic.flat.</code><code class="descname">bbxy</code><span class="sig-paren">(</span><em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>XX</em>, <em>YY</em>, <em>weight='lensing'</em>, <em>gln=100</em>, <em>gle=1e-14</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.flat.bbxy" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">BB = basic.flat.bbxy(lmax,rlmin,rlmax,XX,YY,weight,gln,gle):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-basic.wigner_funcs">
+<span id="wigner-funcs-wigner-3j-symbols"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">wigner_funcs</span></code> – Wigner 3j symbols<a class="headerlink" href="#module-basic.wigner_funcs" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="basic.wigner_funcs.wigner_3j">
+<code class="descclassname">basic.wigner_funcs.</code><code class="descname">wigner_3j</code><span class="sig-paren">(</span><em>l2</em>, <em>l3</em>, <em>m2</em>, <em>m3</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.wigner_funcs.wigner_3j" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute wigner3j for all possible l1 where w3j = (j1,j2,j3/m1,m2,m3)</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">shap (<em>str</em>):</th><td class="field-body">shape of the bispectrum (equi, fold, sque, or isos)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">cpmodel (<em>str</em>):</th><td class="field-body">cosmological parameter model (model0, modelw, or modelp)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">model (<em>str</em>):</th><td class="field-body">fitting formula of the matter bispectrum (LN=linear, SC=SC03, GM=Gil-Marin+12, 3B=3-shape-bispectrum, or RT=Takahashi+19)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">z[<em>zn</em>] (<em>double</em>):</th><td class="field-body">redshift points for the z-integral</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">zn (<em>int</em>):</th><td class="field-body">number of redshifts for the z-integral</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">dz[<em>zn</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">interval of z</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">zs[<em>3</em>] (<em>double</em>):</th><td class="field-body">source redshifts</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">lmin/lmax (<em>int</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">minimum/maximum multipoles of the bispectrum</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">k[<em>kn</em>] (<em>double</em>):</th><td class="field-body">k for the matter power spectrum</td>
+</tr>
+<tr class="field-even field"><th class="field-name">pk0 (<em>double</em>):</th><td class="field-body">the linear matter power spectrum at z=0</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">kn (<em>int</em>):</th><td class="field-body">size of k</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">bl0[<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">lensing bispectrum from LSS contributions at [<em>lmin,lmax</em>]</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">bl1[<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">lensing bispectrum from post-Born contributions at [<em>lmin,lmax</em>]</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">w3j = basic.wigner_funcs.wigner_3j(l2,l3,m2,m3):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
 </dd></dl>
 
 </div>

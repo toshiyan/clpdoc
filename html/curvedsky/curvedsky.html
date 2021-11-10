@@ -2914,19 +2914,17 @@ mgc%cv(1,mi)%nij = iNcov1(:,mi-mn0,:)maps1(:,mi-mn0,:)</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedsky.utils.gauss3alm">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">gauss3alm</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.gauss3alm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generating three alms as random Gaussian fields whose covariance is given by cl[i,j].</p>
+<dt id="curvedsky.utils.gaussalm">
+<code class="descclassname">curvedsky.utils.</code><code class="descname">gaussalm</code><span class="sig-paren">(</span><em>cl</em>, <em>n=None</em>, <em>lmax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.gaussalm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generating alms as random Gaussian fields whose covariance is given by cl[i,j].</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the output alm</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">cl [<em>i,j,l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Covariance between the gaussian fields, with bounds (3,3,0:lmax)</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">cl [<em>i,j,l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Covariance between the gaussian fields, with bounds (n,n,0:lmax)</td>
 </tr>
 </tbody>
 </table>
@@ -2936,8 +2934,8 @@ mgc%cv(1,mi)%nij = iNcov1(:,mi-mn0,:)maps1(:,mi-mn0,:)</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">alm [<em>3,l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Random Gaussian alms, with bounds (3,0:lmax,0:lmax)</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">alm [<em>i,l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Random Gaussian alms, with bounds (n,0:lmax,0:lmax)</td>
 </tr>
 </tbody>
 </table>
@@ -2947,7 +2945,7 @@ mgc%cv(1,mi)%nij = iNcov1(:,mi-mn0,:)maps1(:,mi-mn0,:)</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.utils.gauss3alm(lmax,cl):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.utils.gaussalm(n,lmax,cl):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -2957,40 +2955,15 @@ mgc%cv(1,mi)%nij = iNcov1(:,mi-mn0,:)maps1(:,mi-mn0,:)</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="curvedsky.utils.gauss4alm">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">gauss4alm</code><span class="sig-paren">(</span><em>lmax</em>, <em>cl</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.gauss4alm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generating four alms as random Gaussian fields whose covariance is given by cl[i,j].</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the output alm</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">cl [<em>i,j,l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Covariance between the gaussian fields, with bounds (4,4,0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">alm [<em>4,l,m</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Random Gaussian alms, with bounds (4,0:lmax,0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
+<dt id="curvedsky.utils.cov_diag_tri">
+<code class="descclassname">curvedsky.utils.</code><code class="descname">cov_diag_tri</code><span class="sig-paren">(</span><em>n</em>, <em>cl</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.cov_diag_tri" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.utils.gauss4alm(lmax,cl):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">A = curvedsky.utils.cov_diag_tri(n,cl):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>

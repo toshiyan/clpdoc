@@ -392,59 +392,8 @@
 <div class="section" id="module-basic.delens">
 <span id="delens-analytic-calculation-for-delensing"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">delens</span></code> – analytic calculation for delensing<a class="headerlink" href="#module-basic.delens" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="basic.delens.resbb">
-<code class="descclassname">basic.delens.</code><code class="descname">resbb</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>Cp</em>, <em>WE</em>, <em>Wp</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.delens.resbb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Residual B-mode spectrum; ClBB = ClBB^lin - ClBB^est</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of residual ClBB</td>
-</tr>
-<tr class="field-even field"><th class="field-name">dlmin (<em>int</em>):</th><td class="field-body">Minimum multipole of E and lensing for delensing</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">dlmax (<em>int</em>):</th><td class="field-body">Maximum multipole of E and lensing for delensing</td>
-</tr>
-<tr class="field-even field"><th class="field-name">CE[<em>l</em>] (<em>double</em>):</th><td class="field-body">Power spectrum of E-mode, with bounds (0:dlmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Cp[<em>l</em>] (<em>double</em>):</th><td class="field-body">Power spectrum of lensing pontential, with bounds (0:dlmax)</td>
-</tr>
-<tr class="field-even field"><th class="field-name">WE[<em>l</em>] (<em>double</em>):</th><td class="field-body">Wiener filter of E-mode, with bounds (0:dlmax)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Wp[<em>l</em>] (<em>double</em>):</th><td class="field-body">Wiener filter of lensing potential, with bountd (0:dlmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">CB[<em>l</em>] (<em>double</em>):</th><td class="field-body">Residual B-mode spectrum, with bounds (0:lmax)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">CB = basic.delens.resbb(lmax,dlmin,dlmax,CE,Cp,WE,Wp):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
 <dt id="basic.delens.lintemplate">
-<code class="descclassname">basic.delens.</code><code class="descname">lintemplate</code><span class="sig-paren">(</span><em>lmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>Cp</em>, <em>WE</em>, <em>Wp</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.delens.lintemplate" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">basic.delens.</code><code class="descname">lintemplate</code><span class="sig-paren">(</span><em>lmax</em>, <em>elmin</em>, <em>elmax</em>, <em>klmin</em>, <em>klmax</em>, <em>CE</em>, <em>Cm</em>, <em>WE</em>, <em>Wm</em>, <em>gtype='p'</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.delens.lintemplate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Estimate of lensing template B-mode power spectrum (Wiener filters as inputs)</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -454,9 +403,13 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output spectrum</td>
 </tr>
-<tr class="field-even field"><th class="field-name">dlmin (<em>int</em>):</th><td class="field-body">Minimum multipole of E and lensing for delensing</td>
+<tr class="field-even field"><th class="field-name">elmin (<em>int</em>):</th><td class="field-body">Minimum multipole of E</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">dlmax (<em>int</em>):</th><td class="field-body">Maximum multipole of E and lensing for delensing</td>
+<tr class="field-odd field"><th class="field-name">elmax (<em>int</em>):</th><td class="field-body">Maximum multipole of E</td>
+</tr>
+<tr class="field-even field"><th class="field-name">klmin (<em>int</em>):</th><td class="field-body">Minimum multipole of lensing mass</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">klmax (<em>int</em>):</th><td class="field-body">Maximum multipole of lensing mass</td>
 </tr>
 <tr class="field-even field"><th class="field-name">CE[<em>l</em>] (<em>double</em>):</th><td class="field-body">Power spectrum of E-mode, with bounds (0:dlmax)</td>
 </tr>
@@ -465,6 +418,16 @@
 <tr class="field-even field"><th class="field-name">WE[<em>l</em>] (<em>double</em>):</th><td class="field-body">Wiener filter of E-mode, with bounds (0:dlmax)</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Wp[<em>l</em>] (<em>double</em>):</th><td class="field-body">Wiener filter of lensing potential, with bountd (0:dlmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">gtype (<em>str</em>):</th><td class="field-body">specify type of the input Cp, p (default) or k.</td>
 </tr>
 </tbody>
 </table>
@@ -484,7 +447,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">CB = basic.delens.lintemplate(lmax,dlmin,dlmax,CE,Cp,WE,Wp):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">CB = basic.delens.lintemplate(lmax,elmin,elmax,klmin,klmax,CE,Cm,WE,Wm,gtype):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -1099,7 +1062,7 @@
 <span id="galaxy-tools-for-galaxy-z-distribution"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">galaxy</span></code> – tools for galaxy z distribution<a class="headerlink" href="#module-basic.galaxy" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="basic.galaxy.dndz_sf">
-<code class="descclassname">basic.galaxy.</code><code class="descname">dndz_sf</code><span class="sig-paren">(</span><em>z</em>, <em>a</em>, <em>b</em>, <em>zm</em>, <em>zn=0</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.galaxy.dndz_sf" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">basic.galaxy.</code><code class="descname">dndz_sf</code><span class="sig-paren">(</span><em>z</em>, <em>a</em>, <em>b</em>, <em>zm</em>, <em>zn=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.galaxy.dndz_sf" title="Permalink to this definition">¶</a></dt>
 <dd><p>A model of galaxy z distribution</p>
 <blockquote>
 <div><dl class="docutils">
@@ -1134,6 +1097,55 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">dndz = basic.galaxy.dndz_sf(zn,z,a,b,zm):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.galaxy.photoz_error">
+<code class="descclassname">basic.galaxy.</code><code class="descname">photoz_error</code><span class="sig-paren">(</span><em>z</em>, <em>zi</em>, <em>zn=None</em>, <em>sigma=0.03</em>, <em>zbias=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.galaxy.photoz_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Photo-z error on z distribution which is multiplied to original galaxy z distribution. 
+See Eq.(13) of arXiv:1103.1118 for details.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">z[<em>zn</em>] (<em>double</em>):</th><td class="field-body">redshifts at which photoz error function is returned</td>
+</tr>
+<tr class="field-even field"><th class="field-name">zi[<em>2</em>] (<em>double</em>):</th><td class="field-body">z-bin edges</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">sigma (<em>double</em>):</th><td class="field-body">a parameter of photo-z error which is given by, sigma x (1+z)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">zbias (<em>double</em>):</th><td class="field-body">photo-z mean bias</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">pz[<em>zn</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">photoz error function</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">pz = basic.galaxy.photoz_error(zn,z,zi,sigma,zbias):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>

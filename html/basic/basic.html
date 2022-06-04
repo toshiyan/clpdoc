@@ -1061,6 +1061,211 @@ See Eq.(13) of arXiv:1103.1118 for details.</p>
 </div></blockquote>
 </dd></dl>
 
+<p><code class="xref py py-mod docutils literal notranslate"><span class="pre">cosmofuncs</span></code> – tools for cosmology related functions
+#———————————————————-</p>
+<span class="target" id="module-basic.cosmofuncs"></span><dl class="function">
+<dt id="basic.cosmofuncs.hubble">
+<code class="descclassname">basic.cosmofuncs.</code><code class="descname">hubble</code><span class="sig-paren">(</span><em>z</em>, <em>H0=70.0</em>, <em>Ov=0.7</em>, <em>Om=0.3</em>, <em>w0=-1.0</em>, <em>wa=0.0</em>, <em>zn=0</em>, <em>divc=False</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.cosmofuncs.hubble" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the expansion rate in unit of 1/Mpc, H/c, or in unit of km/s/Mpc, H.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">z[<em>zn</em>] (<em>double</em>):</th><td class="field-body">Redshifts at which H is computed</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">H0 (<em>double</em>):</th><td class="field-body">The current value of hubble parameter in km/s/Mpc, default to 70 km/s/Mpc</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Om (<em>double</em>):</th><td class="field-body">The current value of Omega_matter, default to 0.3</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Ov (<em>double</em>):</th><td class="field-body">The current value of Omega_Dark-energy, default to 0.7</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">w0, wa (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">The EoS of Dark Energy, default to w0=-1 and wa=0.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">divc (<em>bool</em>):</th><td class="field-body">Divide H by c or not, default to False.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Hz[<em>zn</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The expansion rate, H(z), divided by c or not.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Hz = basic.cosmofuncs.hubble(z,H0,Om,Ov,w0,wa,zn,divc):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.cosmofuncs.dhubble_dz">
+<code class="descclassname">basic.cosmofuncs.</code><code class="descname">dhubble_dz</code><span class="sig-paren">(</span><em>z</em>, <em>H0=70.0</em>, <em>Ov=0.7</em>, <em>Om=0.3</em>, <em>w0=-1.0</em>, <em>wa=0.0</em>, <em>zn=0</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.cosmofuncs.dhubble_dz" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">dHdz = basic.cosmofuncs.dhubble_dz(z,H0,Om,Ov,w0,wa,zn):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.cosmofuncs.dist2z">
+<code class="descclassname">basic.cosmofuncs.</code><code class="descname">dist2z</code><span class="sig-paren">(</span><em>rz</em>, <em>H0=70.0</em>, <em>Ov=0.7</em>, <em>Om=0.3</em>, <em>w0=-1.0</em>, <em>wa=0.0</em>, <em>zn=0</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.cosmofuncs.dist2z" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">z = basic.cosmofuncs.dist2z(rz,H0,Om,Ov,w0,wa,zn):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.cosmofuncs.dist_comoving">
+<code class="descclassname">basic.cosmofuncs.</code><code class="descname">dist_comoving</code><span class="sig-paren">(</span><em>z</em>, <em>H0=70.0</em>, <em>Ov=0.7</em>, <em>Om=0.3</em>, <em>w0=-1.0</em>, <em>wa=0.0</em>, <em>zn=0</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.cosmofuncs.dist_comoving" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">rz = basic.cosmofuncs.dist_comoving(z,H0,Om,Ov,w0,wa,zn):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.cosmofuncs.dist_luminosity">
+<code class="descclassname">basic.cosmofuncs.</code><code class="descname">dist_luminosity</code><span class="sig-paren">(</span><em>z</em>, <em>H0=70.0</em>, <em>Ov=0.7</em>, <em>Om=0.3</em>, <em>w0=-1.0</em>, <em>wa=0.0</em>, <em>zn=0</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.cosmofuncs.dist_luminosity" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">DLz = basic.cosmofuncs.dist_luminosity(z,H0,Om,Ov,w0,wa,zn):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.cosmofuncs.growth_factor">
+<code class="descclassname">basic.cosmofuncs.</code><code class="descname">growth_factor</code><span class="sig-paren">(</span><em>z</em>, <em>normed=False</em>, <em>H0=70.0</em>, <em>Ov=0.7</em>, <em>Om=0.3</em>, <em>w0=-1.0</em>, <em>wa=0.0</em>, <em>zn=0</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.cosmofuncs.growth_factor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Dz = basic.cosmofuncs.growth_factor(z,H0,Om,Ov,w0,wa,zn,normed):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.cosmofuncs.growth_rate">
+<code class="descclassname">basic.cosmofuncs.</code><code class="descname">growth_rate</code><span class="sig-paren">(</span><em>z</em>, <em>H0=70.0</em>, <em>Ov=0.7</em>, <em>Om=0.3</em>, <em>w0=-1.0</em>, <em>wa=0.0</em>, <em>zn=0</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.cosmofuncs.growth_rate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">fz = basic.cosmofuncs.growth_rate(z,H0,Om,Ov,w0,wa,zn):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.cosmofuncs.nz_gw">
+<code class="descclassname">basic.cosmofuncs.</code><code class="descname">nz_gw</code><span class="sig-paren">(</span><em>z</em>, <em>Cz</em>, <em>Hz</em>, <em>ntype</em>, <em>dotn0=1e-06</em>, <em>Tobs=3.0</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.cosmofuncs.nz_gw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Distribution function of NS binary sources per redshift (dN/dz)
+Usage:</p>
+<blockquote>
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">nz = basic.cosmofuncs.nz_gw(z,Cz,Hz,ntype,dotn0,Tobs):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="basic.cosmofuncs.drate_dz">
+<code class="descclassname">basic.cosmofuncs.</code><code class="descname">drate_dz</code><span class="sig-paren">(</span><em>z</em>, <em>ntype='CH06'</em>, <em>zn=0</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.cosmofuncs.drate_dz" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">dndz = basic.cosmofuncs.drate_dz(z,zn,ntype):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 <div class="section" id="module-basic.flat">
 <span id="flat-cross-check-tools-for-flat-sky-normalization"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">flat</span></code> – cross-check tools for flat-sky normalization<a class="headerlink" href="#module-basic.flat" title="Permalink to this headline">¶</a></h2>

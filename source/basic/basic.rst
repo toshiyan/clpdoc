@@ -41,4 +41,3 @@
 .. automodule:: basic.wigner_funcs
    :members:
 
-

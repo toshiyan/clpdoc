@@ -23,11 +23,11 @@
 .. automodule:: basic.galaxy
    :members:
 
-:mod:`cosmofuncs` -- tools for cosmology related functions
-----------------------------------------------------------
-
-.. automodule:: basic.cosmofunc
-   :members:
+.. :mod:`cosmofuncs` -- tools for cosmology related functions
+.. #----------------------------------------------------------
+.. 
+.. .. automodule:: basic.cosmofunc
+..    :members:
 
 :mod:`flat` -- cross-check tools for flat-sky normalization
 -----------------------------------------------------------

@@ -2520,8 +2520,8 @@ The output is given by alms where alm[0,l,m] is temperature, alm[1,l,m] is E mod
 <span id="cninv-filtering-anisotropies"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">cninv</span></code> – Filtering Anisotropies<a class="headerlink" href="#module-curvedsky.cninv" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="curvedsky.cninv.cnfilter_freq">
-<code class="descclassname">curvedsky.cninv.</code><code class="descname">cnfilter_freq</code><span class="sig-paren">(</span><em>n, mn, nside, lmax, cl, bl, iNcov, maps, chn=1, lmaxs=[0], nsides=[0], itns=[1], eps=[1e-06], filter='', verbose=False, ro=50, stat='', inl=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cnfilter_freq" title="Permalink to this definition">¶</a></dt>
-<dd><p>Combining multiple frequency maps optimally. 
+<code class="descclassname">curvedsky.cninv.</code><code class="descname">cnfilter_freq</code><span class="sig-paren">(</span><em>n, mn, nside, lmax, cl, bl, iNcov, maps, chn=1, lmaxs=[0], nsides=[0], itns=[1], eps=[1e-06], filter='W', verbose=False, ro=50, stat='', inl=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cnfilter_freq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combining multiple frequency CMB maps optimally. 
 The filtering would work if the noise variance is not significantly varied with scale (multipole).</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -2571,10 +2571,10 @@ The filtering would work if the noise variance is not significantly varied with 
 <tr class="field-odd field"><th class="field-name" colspan="2">itns[<em>chain</em>] (<em>int</em>):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">Number of interations.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">filter (<em>str</em>):</th><td class="field-body">C-inverse (‘’) or Wiener filter (W), default to C-inverse.</td>
+<tr class="field-even field"><th class="field-name">filter (<em>str</em>):</th><td class="field-body">C-inverse (‘’) or Wiener filter (W), default to the Wiener filter.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">inl[<em>n,mn,l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse noise spectrum, 0 for non white noise case.</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse noise spectrum (0 for white noise case, default).</td>
 </tr>
 <tr class="field-even field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Output messages, default to False</td>
 </tr>
@@ -2615,8 +2615,96 @@ The filtering would work if the noise variance is not significantly varied with 
 </dd></dl>
 
 <dl class="function">
+<dt id="curvedsky.cninv.cnfilter_kappa">
+<code class="descclassname">curvedsky.cninv.</code><code class="descname">cnfilter_kappa</code><span class="sig-paren">(</span><em>n, nside, lmax, cov, iNcov, maps, chn=1, lmaxs=[0], nsides=[0], itns=[1], eps=[1e-06], verbose=False, ro=50, stat='', inl=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cnfilter_kappa" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computing C(C+N)^-1 for multiple mass-tracer kappa maps including their correlations.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">n (<em>int</em>):</th><td class="field-body">Number of input kappa maps to be combined</td>
+</tr>
+<tr class="field-even field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside of input maps</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input cl</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">cov[<em>n,n,l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Signal covariance matrix for each multipole, with bounds (0:n-1,0:n-1,0:lmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">iNcov[<em>n,pix</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse of the noise variance at each pixel, with bounds (0:n-1,0:npix-1)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">maps[<em>n,pix</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Input kappa maps, with bouds (0:n-1,0:npix-1)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">chn (<em>int</em>):</th><td class="field-body">Number of grids for preconsitioner (chn=1 for diagonal preconditioner, default)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">lmaxs[<em>chain</em>] (<em>int</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Maximum multipole(s) at each preconditioning and lmaxs[<em>0</em>] is the input maximum multipole of cl</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">nsides[<em>chain</em>] (<em>int</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Nside(s) of preconditoner and nsides[<em>0</em>] should be consistent with the input map’s nside.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">eps[<em>chain</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Parameter to finish the iteration (i.e. terminate if the residul fraction becomes smaller than eps). Default to 1e-6.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">itns[<em>chain</em>] (<em>int</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Number of interations.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">inl[<em>n,l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Inverse noise spectrum for each mass map (0 for white noise case, default).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Output messages, default to False</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ro (<em>int</em>):</th><td class="field-body">the residual fraction is output for every ro iteration (e.g. ro=2 means 1 output per 2 iterations). Default to 50. Useful for convergence speed.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">stat (<em>str</em>):</th><td class="field-body">Realtime status filename which contains the residual fraction, default to no output file</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><blockquote class="first">
+<div><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">xlm[<em>n,l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Wiener filtered multipoles, with bounds (n,0:lmax,0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<dl class="last docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">xlm = curvedsky.cninv.cnfilter_kappa(n,nside,lmax,cov,iNcov,maps,chn,lmaxs,nsides,itns,eps,inl,verbose,ro,stat):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="curvedsky.cninv.cnfilter_freq_nside">
-<code class="descclassname">curvedsky.cninv.</code><code class="descname">cnfilter_freq_nside</code><span class="sig-paren">(</span><em>n, mn0, mn1, nside0, nside1, lmax, cl, bl0, bl1, iNcov0, iNcov1, maps0, maps1, chn=1, lmaxs=[0], nsides0=[0], nsides1=[0], itns=[1], eps=[1e-06], filter='', verbose=False, reducmn=0, ro=50, stat='', inl=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cnfilter_freq_nside" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.cninv.</code><code class="descname">cnfilter_freq_nside</code><span class="sig-paren">(</span><em>n, mn0, mn1, nside0, nside1, lmax, cl, bl0, bl1, iNcov0, iNcov1, maps0, maps1, chn=1, lmaxs=[0], nsides0=[0], nsides1=[0], itns=[1], eps=[1e-06], filter='W', verbose=False, reducmn=0, ro=50, stat='', inl=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cnfilter_freq_nside" title="Permalink to this definition">¶</a></dt>
 <dd><p>Same as cnfilter_freq but for the maps with two different Nsides.</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -2666,10 +2754,10 @@ The filtering would work if the noise variance is not significantly varied with 
 <tr class="field-odd field"><th class="field-name" colspan="2">itns[<em>chain</em>] (<em>int</em>):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">Number of interations.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">filter (<em>str</em>):</th><td class="field-body">C-inverse (‘’) or Wiener filter (W), default to C-inverse.</td>
+<tr class="field-even field"><th class="field-name">filter (<em>str</em>):</th><td class="field-body">C-inverse (‘’) or Wiener filter (W), default to the Wiener filter.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name" colspan="2">inl[<em>n,mn,l</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse noise spectrum, 0 for non white noise case.</td>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse noise spectrum, 0 for white noise case.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">Output messages, default to False</td>
 </tr>
@@ -2915,7 +3003,7 @@ mgc%cv(1,mi)%nij = iNcov1(:,mi-mn0,:)maps1(:,mi-mn0,:)</p>
 
 <dl class="function">
 <dt id="curvedsky.utils.gaussalm">
-<code class="descclassname">curvedsky.utils.</code><code class="descname">gaussalm</code><span class="sig-paren">(</span><em>cl</em>, <em>n=None</em>, <em>lmax=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.gaussalm" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.utils.</code><code class="descname">gaussalm</code><span class="sig-paren">(</span><em>cl</em>, <em>n=None</em>, <em>lmax=None</em>, <em>ilm=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.gaussalm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generating alms as random Gaussian fields whose covariance is given by cl[i,j].</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -2925,6 +3013,17 @@ mgc%cv(1,mi)%nij = iNcov1(:,mi-mn0,:)maps1(:,mi-mn0,:)</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">cl [<em>i,j,l</em>] (<em>double</em>):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">Covariance between the gaussian fields, with bounds (n,n,0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">ilm [<em>l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Input alm for the cl[<em>0,0</em>] element (default to None). The other alms are generated to be correlated with ilm.</td>
 </tr>
 </tbody>
 </table>
@@ -2945,7 +3044,7 @@ mgc%cv(1,mi)%nij = iNcov1(:,mi-mn0,:)maps1(:,mi-mn0,:)</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.utils.gaussalm(n,lmax,cl):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = curvedsky.utils.gaussalm(n,lmax,cl,ilm):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -3808,6 +3907,24 @@ the alm contains E-mode and B-mode.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">wlm = curvedsky.utils.mulwin_spin(nside,lmax,mmax,spin,elm,blm,win):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.utils.lmpy2lmax">
+<code class="descclassname">curvedsky.utils.</code><code class="descname">lmpy2lmax</code><span class="sig-paren">(</span><em>lmpy</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.utils.lmpy2lmax" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">lmax = curvedsky.utils.lmpy2lmax(lmpy):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>

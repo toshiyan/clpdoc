@@ -1234,9 +1234,47 @@ See Eq.(13) of arXiv:1103.1118 for details.</p>
 
 <dl class="function">
 <dt id="basic.cosmofuncs.nz_gw">
-<code class="descclassname">basic.cosmofuncs.</code><code class="descname">nz_gw</code><span class="sig-paren">(</span><em>z</em>, <em>Cz</em>, <em>Hz</em>, <em>ntype</em>, <em>dotn0=1e-06</em>, <em>Tobs=3.0</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.cosmofuncs.nz_gw" title="Permalink to this definition">¶</a></dt>
-<dd><p>Distribution function of NS binary sources per redshift (dN/dz)</p>
+<code class="descclassname">basic.cosmofuncs.</code><code class="descname">nz_gw</code><span class="sig-paren">(</span><em>z</em>, <em>Cz</em>, <em>Hz</em>, <em>ntype='CH06'</em>, <em>dotn0=1e-06</em>, <em>Tobs=3.0</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.cosmofuncs.nz_gw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Distribution function of NS binary sources per redshift (dN/dz) at z</p>
 <dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">z (<em>double</em>):</th><td class="field-body">redshift</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Cz (<em>double</em>):</th><td class="field-body">comoving distance</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Hz (<em>double</em>):</th><td class="field-body">expansion rate</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ntype (<em>str</em>):</th><td class="field-body">type of dotn functional form, i.e, CH06 (default) or none.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">dotn0 (<em>double</em>):</th><td class="field-body">current merger-rate</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Tobs (<em>double</em>):</th><td class="field-body">total observation time</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nz (<em>double</em>):</th><td class="field-body">distribution function at z</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />

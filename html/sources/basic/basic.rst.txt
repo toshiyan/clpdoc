@@ -24,7 +24,7 @@
    :members:
 
 :mod:`cosmofuncs` -- tools for cosmology related functions
-#----------------------------------------------------------
+-----------------------------------------------------------
 
 .. automodule:: basic.cosmofuncs
    :members:

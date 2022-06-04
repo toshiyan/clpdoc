@@ -14,17 +14,12 @@ Install
 
   git clone git@github.com:toshiyan/cmblensplus.git
 
-1) Using a fortran compiler, please compile the following public packages
+1) ./install.sh all 
 
-  - curvedsky module: cfitsio, HEALPix, LensPix
-  
-  - flatsky module: FFTW
-
-2) Type ./MAKEALL.sh all 
-
-This command compiles Fortran source codes in F90/src_*** and then produce a python module using f2py. 
+The install.sh script automatically install the public codes (FFTW, cfitsio, Healpix, Lenspix, and Lapack) at F90/pub/, and then the local sources at F90/. 
+Note that the F90 sources are written assuming the intel Fortran compiler. 
+Then the script produces python modules using f2py. 
 The python modules can be found in wrap/ for python 3.
 (wrap_py2 for python 2 is no longer supported)
-
 
 

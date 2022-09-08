@@ -40,9 +40,9 @@
 .. automodule:: flatsky.norm_tau
    :members:
 
-:mod:`ffttools` -- FFT tools
+:mod:`bispec` -- bispectrum tools
 ----------------------------------------------------
-.. automodule:: flatsky.ffttools
+.. automodule:: flatsky.bispec
    :members:
 
 :mod:`utils` -- other tools

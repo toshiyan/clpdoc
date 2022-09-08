@@ -94,7 +94,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#module-flatsky.norm_lens"><code class="docutils literal notranslate"><span class="pre">norm_lens</span></code> – normalization of quadratic lensing reconstruction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-flatsky.norm_rot"><code class="docutils literal notranslate"><span class="pre">norm_rot</span></code> – normalization of quadratic pol. rot. reconstruction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-flatsky.norm_tau"><code class="docutils literal notranslate"><span class="pre">norm_tau</span></code> – normalization of quadratic patchy tay reconstruction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-flatsky.ffttools"><code class="docutils literal notranslate"><span class="pre">ffttools</span></code> – FFT tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-flatsky.bispec"><code class="docutils literal notranslate"><span class="pre">bispec</span></code> – bispectrum tools</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-flatsky.utils"><code class="docutils literal notranslate"><span class="pre">utils</span></code> – other tools</a></li>
 </ul>
 </li>
@@ -1797,49 +1797,18 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-flatsky.ffttools">
-<span id="ffttools-fft-tools"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">ffttools</span></code> – FFT tools<a class="headerlink" href="#module-flatsky.ffttools" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-flatsky.bispec">
+<span id="bispec-bispectrum-tools"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">bispec</span></code> – bispectrum tools<a class="headerlink" href="#module-flatsky.bispec" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
-<dt id="flatsky.ffttools.dft1d">
-<code class="descclassname">flatsky.ffttools.</code><code class="descname">dft1d</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>npix</em>, <em>D</em>, <em>trans</em>, <em>map1</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft1d" title="Permalink to this definition">¶</a></dt>
-<dd><p>DFT for 1D array.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
-</tr>
-<tr class="field-even field"><th class="field-name">npix (<em>int</em>):</th><td class="field-body">Total number of grids (npix=nx*ny)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">trans (<em>int</em>):</th><td class="field-body">1 (map to Fourier) or -1 (Fourier to map)</td>
-</tr>
-<tr class="field-even field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">map0[<em>pix</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Data on 2D grid to be transformed, with bounds (npix)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">map1[<em>pix</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Transformed data on 2D grid, with bounds (npix)</td>
-</tr>
-</tbody>
-</table>
-</dd>
+<dt id="flatsky.bispec.bispec_norm">
+<code class="descclassname">flatsky.bispec.</code><code class="descname">bispec_norm</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>bp</em>, <em>bn=1</em>, <em>dbin_max=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.bispec.bispec_norm" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">map1(npix) = flatsky.ffttools.dft1d(map0,nx,ny,npix,D,trans,map1):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">norm = flatsky.bispec.bispec_norm(nx,ny,D,bp,dbin_max,bn):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -1849,44 +1818,15 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="flatsky.ffttools.dft2d">
-<code class="descclassname">flatsky.ffttools.</code><code class="descname">dft2d</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft2d" title="Permalink to this definition">¶</a></dt>
-<dd><p>DFT for 2D array.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
-</tr>
-<tr class="field-even field"><th class="field-name">trans (<em>int</em>):</th><td class="field-body">1 (map to Fourier) or -1 (Fourier to map)</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">map0[<em>x,y</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Data on 2D grid to be transformed, with bounds (nx,ny)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">map1[<em>x,y</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Transformed data on 2D grid, with bounds (nx,ny)</td>
-</tr>
-</tbody>
-</table>
-</dd>
+<dt id="flatsky.bispec.bispec_bin">
+<code class="descclassname">flatsky.bispec.</code><code class="descname">bispec_bin</code><span class="sig-paren">(</span><em>kmap</em>, <em>bp</em>, <em>bn=1</em>, <em>kn=1</em>, <em>nx=0</em>, <em>ny=0</em>, <em>dbin_max=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.bispec.bispec_bin" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">map1 = flatsky.ffttools.dft2d(map0,nx,ny,D,trans):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">bispec = flatsky.bispec.bispec_bin(kn,bn,nx,ny,kmap,bp,dbin_max):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -1896,23 +1836,21 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="flatsky.ffttools.dft2dr">
-<code class="descclassname">flatsky.ffttools.</code><code class="descname">dft2dr</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft2dr" title="Permalink to this definition">¶</a></dt>
-<dd><p>DFT for 2D array.</p>
+<dt id="flatsky.bispec.binfilter">
+<code class="descclassname">flatsky.bispec.</code><code class="descname">binfilter</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>bp</em>, <em>bn=1</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.bispec.binfilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>The multipole bin binary-mask given on the 2D Fourier grids so that M = 1 inside the multipole bin and 0 otherwise</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
 </tr>
-<tr class="field-even field"><th class="field-name">trans (<em>int</em>):</th><td class="field-body">1 (map to Fourier) or -1 (Fourier to map)</td>
+<tr class="field-even field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">map0[<em>x,y</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Data on 2D grid to be transformed, with bounds (nx,ny)</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">bp[<em>bn+1</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Multipole bin edges</td>
 </tr>
 </tbody>
 </table>
@@ -1922,8 +1860,8 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">map1[<em>x,y</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Transformed data on 2D grid, with bounds (nx,ny)</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">bf[<em>bn,nx,ny</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">The multipole bin binary-mask for each multipol bin</td>
 </tr>
 </tbody>
 </table>
@@ -1933,7 +1871,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">map1 = flatsky.ffttools.dft2dr(map0,nx,ny,D,trans):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">bf = flatsky.bispec.binfilter(nx,ny,D,bp,bn):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -1943,23 +1881,21 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="flatsky.ffttools.dft2drc">
-<code class="descclassname">flatsky.ffttools.</code><code class="descname">dft2drc</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft2drc" title="Permalink to this definition">¶</a></dt>
-<dd><p>DFT for 2D array.</p>
+<dt id="flatsky.bispec.bispec_norm_1d">
+<code class="descclassname">flatsky.bispec.</code><code class="descname">bispec_norm_1d</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>bfs</em>, <em>bn=1</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.bispec.bispec_norm_1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalization of the 1D binned bispectrum estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
 </tr>
-<tr class="field-even field"><th class="field-name">trans (<em>int</em>):</th><td class="field-body">1 (map to Fourier) or -1 (Fourier to map)</td>
+<tr class="field-even field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">map0[<em>x,y</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Data on 2D grid to be transformed, with bounds (nx,ny)</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">bfs[<em>3,bn,nx,ny</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Multipole bin mask on 2D grids obtained from the binfilter function</td>
 </tr>
 </tbody>
 </table>
@@ -1969,8 +1905,8 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">map1[<em>x,y</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Transformed data on 2D grid, with bounds (nx,ny)</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">bnorm[<em>bn</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Normalization of 1D binned bispectrum at each multipole bin</td>
 </tr>
 </tbody>
 </table>
@@ -1980,7 +1916,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">map1 = flatsky.ffttools.dft2drc(map0,nx,ny,D,trans):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">bnorm = flatsky.bispec.bispec_norm_1d(nx,ny,D,bfs,bn):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -1990,23 +1926,27 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="flatsky.ffttools.dft2dcr">
-<code class="descclassname">flatsky.ffttools.</code><code class="descname">dft2dcr</code><span class="sig-paren">(</span><em>map0</em>, <em>nx</em>, <em>ny</em>, <em>D</em>, <em>trans</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft2dcr" title="Permalink to this definition">¶</a></dt>
-<dd><p>DFT for 2D array.</p>
+<dt id="flatsky.bispec.bispec_bin_1d">
+<code class="descclassname">flatsky.bispec.</code><code class="descname">bispec_bin_1d</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>bfs</em>, <em>bnorm</em>, <em>alm</em>, <em>bn=1</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.bispec.bispec_bin_1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>1D binned bispectrum estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
 </tr>
-<tr class="field-even field"><th class="field-name">trans (<em>int</em>):</th><td class="field-body">1 (map to Fourier) or -1 (Fourier to map)</td>
+<tr class="field-even field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">bfs[<em>3,bn,nx,ny</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Multipole bin mask on 2D grids obtained from the binfilter function</td>
 </tr>
-<tr class="field-even field"><th class="field-name" colspan="2">map0[<em>x,y</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Data on 2D grid to be transformed, with bounds (nx,ny)</td>
+<tr class="field-even field"><th class="field-name" colspan="2">bnorm[<em>bn</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Normalization of 1D binned bispectrum at each multipole bin</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">alm[<em>3,nx,ny</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Fourier modes for each leg</td>
 </tr>
 </tbody>
 </table>
@@ -2016,8 +1956,8 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">map1[<em>x,y</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Transformed data on 2D grid, with bounds (nx,ny)</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">bispec[<em>bn</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">1D binned bispectrum at each multipole bin</td>
 </tr>
 </tbody>
 </table>
@@ -2027,168 +1967,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">map1 = flatsky.ffttools.dft2dcr(map0,nx,ny,D,trans):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="flatsky.ffttools.dft2dpol">
-<code class="descclassname">flatsky.ffttools.</code><code class="descname">dft2dpol</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>Q</em>, <em>U</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.dft2dpol" title="Permalink to this definition">¶</a></dt>
-<dd><p>Spin-2 DFT for 2D array.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
-</tr>
-<tr class="field-even field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">Q[<em>x,y</em>] (doub;e):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Q on 2D grid to be transformed, with bounds (nx,ny)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">U[<em>x,y</em>] (doub;e):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">U on 2D grid to be transformed, with bounds (nx,ny)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">E[<em>x,y</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">E on 2D Fourier grid, with bounds (nx,ny)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">B[<em>x,y</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">B on 2D Fourier grid, with bounds (nx,ny)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">E,B = flatsky.ffttools.dft2dpol(nx,ny,D,Q,U):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="flatsky.ffttools.idft2dpol">
-<code class="descclassname">flatsky.ffttools.</code><code class="descname">idft2dpol</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>E</em>, <em>B</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.idft2dpol" title="Permalink to this definition">¶</a></dt>
-<dd><p>Spin-2 Inverse DFT for 2D array.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
-</tr>
-<tr class="field-even field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">E[<em>x,y</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">E on 2D Fourier grid, with bounds (nx,ny)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">B[<em>x,y</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">B on 2D Fourier grid, with bounds (nx,ny)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Q[<em>x,y</em>] (doub;e):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Q on 2D grid, with bounds (nx,ny)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">U[<em>x,y</em>] (doub;e):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">U on 2D grid, with bounds (nx,ny)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Q,U = flatsky.ffttools.idft2dpol(nx,ny,D,E,B):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="flatsky.ffttools.eb_separate">
-<code class="descclassname">flatsky.ffttools.</code><code class="descname">eb_separate</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>QU</em>, <em>W</em>, <em>Wd=None</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.ffttools.eb_separate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute Smith’s pure EB estimator in flatsky</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x/Lx and y/Ly grids</td>
-</tr>
-<tr class="field-even field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
-</tr>
-<tr class="field-odd field"><th class="field-name" colspan="2">W[<em>x,y</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Window function, with bounds (nx,ny)</td>
-</tr>
-<tr class="field-even field"><th class="field-name" colspan="2">QU[<em>x,y,2</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">unmasked Q and U maps, with bounds (nx,ny,2)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Args(optional):</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Wd[<em>5,x,y</em>] (<em>double</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">Precomputed window function derivaives, dW/dx, dW/dw, d^2W/dx^2, d^2W/dxdy, d^2W/dy^2, with bounds (5,nx,ny)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Returns:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">EB[<em>2,x,y</em>] (<em>dcmplx</em>):</th></tr>
-<tr class="field-odd field"><td>&#160;</td><td class="field-body">E and B modes in 2D Fourier grid, with bounds (2,nx,ny)</td>
-</tr>
-</tbody>
-</table>
-</dd>
-<dt>Usage:</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">EB = flatsky.ffttools.eb_separate(nx,ny,D,QU,W,Wd):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">bispec = flatsky.bispec.bispec_bin_1d(nx,ny,D,bfs,bnorm,alm,bn):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -2200,6 +1979,96 @@
 </div>
 <div class="section" id="module-flatsky.utils">
 <span id="utils-other-tools"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code> – other tools<a class="headerlink" href="#module-flatsky.utils" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="flatsky.utils.map2alm">
+<code class="descclassname">flatsky.utils.</code><code class="descname">map2alm</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>map</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.map2alm" title="Permalink to this definition">¶</a></dt>
+<dd><p>DFT for 2D array.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of x and y grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">map[<em>x,y</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Map on 2D grid with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm[<em>x,y</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Fourier modes on 2D grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">alm = flatsky.utils.map2alm(nx,ny,D,map):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="flatsky.utils.alm2map">
+<code class="descclassname">flatsky.utils.</code><code class="descname">alm2map</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>alm</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.alm2map" title="Permalink to this definition">¶</a></dt>
+<dd><p>DFT for 2D array.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nx, ny (<em>int</em>):</th><td class="field-body">Number of Lx and Ly grids</td>
+</tr>
+<tr class="field-even field"><th class="field-name">D[<em>2</em>] (<em>double</em>):</th><td class="field-body">Side length (x and y) of map</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">alm[<em>x,y</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Fourier modes on 2D grid to be transformed, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">map[<em>x,y</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Map on 2D grid, with bounds (nx,ny)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">map = flatsky.utils.alm2map(nx,ny,D,alm):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="function">
 <dt id="flatsky.utils.el2d">
 <code class="descclassname">flatsky.utils.</code><code class="descname">el2d</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.el2d" title="Permalink to this definition">¶</a></dt>
@@ -2472,7 +2341,7 @@
 
 <dl class="function">
 <dt id="flatsky.utils.cl2c2d">
-<code class="descclassname">flatsky.utils.</code><code class="descname">cl2c2d</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>lmin</em>, <em>lmax</em>, <em>Cl</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.cl2c2d" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">flatsky.utils.</code><code class="descname">cl2c2d</code><span class="sig-paren">(</span><em>nx</em>, <em>ny</em>, <em>D</em>, <em>lmin</em>, <em>lmax</em>, <em>Cl</em>, <em>method='linear'</em><span class="sig-paren">)</span><a class="headerlink" href="#flatsky.utils.cl2c2d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Assign values of 1D angular power spectrum on to 2D grid with linear interpolation</p>
 <dl class="docutils">
 <dt>Args: </dt>
@@ -2493,6 +2362,16 @@
 </tbody>
 </table>
 </dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">method (<em>str</em>):</th><td class="field-body">type of interpolation method, i.e., linear interpolation (method=’linear’, default), or step (method=’step’)</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Returns:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -2509,7 +2388,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">c2d = flatsky.utils.cl2c2d(nx,ny,D,lmin,lmax,Cl):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">c2d = flatsky.utils.cl2c2d(nx,ny,D,lmin,lmax,Cl,method):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>

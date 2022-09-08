@@ -1314,7 +1314,55 @@ See Eq.(13) of arXiv:1103.1118 for details.</p>
 <dl class="function">
 <dt id="basic.flat.alxy">
 <code class="descclassname">basic.flat.</code><code class="descname">alxy</code><span class="sig-paren">(</span><em>qest</em>, <em>qtype</em>, <em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>W1</em>, <em>W2</em>, <em>gln=100</em>, <em>lxcut=0</em>, <em>gle=1e-14</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.flat.alxy" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
+<dd><p>Compute flat-sky quadratic estimator normalization
+CAUTION: This code interpolates the input Cl at the non-integer multipole by simply Cl(int(ell)) which leads to a small discrepancy in the normalization computed from the FFT-based method (which uses linear interpolation) and from this code. It is desireble to use the FFT-based normalization if you want to normalize the simulation results.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">qest (<em>str</em>):</th><td class="field-body">estimator combination (TT, TE, TB, EE, EB, or BB)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">qtype (<em>str</em>):</th><td class="field-body">estimator type (lensing, patchytau)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">lmax (<em>double</em>):</th><td class="field-body">output maximum multipole</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">rlmax/rlmin (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">input CMB multipole range for reconstruction</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">fC[<em>rlmax</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">power spectrum in the numerator</td>
+</tr>
+</tbody>
+</table>
+<p class="last">:W1/W2[<em>rlmax</em>] : inverse of the observed power spectrum</p>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">gln (<em>int</em>):</th><td class="field-body">number of the GL integration points</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lxcut (<em>int</em>):</th><td class="field-body">multipole cut in x-direction, <a href="#id1"><span class="problematic" id="id2">|l_x|</span></a> &lt; lx</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">gle (<em>double</em>):</th><td class="field-body">convergence parameter for the GL integration</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Ag/Ac[<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">normalization for even and odd estimator pairs</td>
+</tr>
+</tbody>
+</table>
+</dd>
 <dt>Usage:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
 <col class="field-name" />

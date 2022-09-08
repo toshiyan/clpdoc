@@ -163,7 +163,6 @@
  | <a href="#F"><strong>F</strong></a>
  | <a href="#G"><strong>G</strong></a>
  | <a href="#H"><strong>H</strong></a>
- | <a href="#I"><strong>I</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
@@ -188,6 +187,8 @@
       <li><a href="curvedsky/curvedsky.html#curvedsky.utils.alm2cl">alm2cl() (in module curvedsky.utils)</a>
 </li>
       <li><a href="curvedsky/curvedsky.html#curvedsky.utils.alm2cov">alm2cov() (in module curvedsky.utils)</a>
+</li>
+      <li><a href="flatsky/flatsky.html#flatsky.utils.alm2map">alm2map() (in module flatsky.utils)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -219,13 +220,27 @@
 </li>
       <li><a href="basic/basic.html#module-basic.wigner_funcs">basic.wigner_funcs (module)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="basic/basic.html#basic.flat.bbxy">bbxy() (in module basic.flat)</a>
 </li>
+      <li><a href="flatsky/flatsky.html#flatsky.bispec.binfilter">binfilter() (in module flatsky.bispec)</a>
+</li>
       <li><a href="curvedsky/curvedsky.html#curvedsky.bispec.bispec_bin">bispec_bin() (in module curvedsky.bispec)</a>
+
+      <ul>
+        <li><a href="flatsky/flatsky.html#flatsky.bispec.bispec_bin">(in module flatsky.bispec)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="flatsky/flatsky.html#flatsky.bispec.bispec_bin_1d">bispec_bin_1d() (in module flatsky.bispec)</a>
 </li>
       <li><a href="curvedsky/curvedsky.html#curvedsky.bispec.bispec_norm">bispec_norm() (in module curvedsky.bispec)</a>
+
+      <ul>
+        <li><a href="flatsky/flatsky.html#flatsky.bispec.bispec_norm">(in module flatsky.bispec)</a>
+</li>
+      </ul></li>
+      <li><a href="flatsky/flatsky.html#flatsky.bispec.bispec_norm_1d">bispec_norm_1d() (in module flatsky.bispec)</a>
 </li>
       <li><a href="basic/basic.html#basic.bispec.bispeclens">bispeclens() (in module basic.bispec)</a>
 </li>
@@ -293,24 +308,12 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="basic/basic.html#basic.delens.delensbias_dom">delensbias_dom() (in module basic.delens)</a>
 </li>
-      <li><a href="flatsky/flatsky.html#flatsky.ffttools.dft1d">dft1d() (in module flatsky.ffttools)</a>
-</li>
-      <li><a href="flatsky/flatsky.html#flatsky.ffttools.dft2d">dft2d() (in module flatsky.ffttools)</a>
-</li>
-      <li><a href="flatsky/flatsky.html#flatsky.ffttools.dft2dcr">dft2dcr() (in module flatsky.ffttools)</a>
-</li>
-      <li><a href="flatsky/flatsky.html#flatsky.ffttools.dft2dpol">dft2dpol() (in module flatsky.ffttools)</a>
-</li>
-      <li><a href="flatsky/flatsky.html#flatsky.ffttools.dft2dr">dft2dr() (in module flatsky.ffttools)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="flatsky/flatsky.html#flatsky.ffttools.dft2drc">dft2drc() (in module flatsky.ffttools)</a>
-</li>
       <li><a href="basic/basic.html#basic.cosmofuncs.dhubble_dz">dhubble_dz() (in module basic.cosmofuncs)</a>
 </li>
       <li><a href="basic/basic.html#basic.cosmofuncs.dist2z">dist2z() (in module basic.cosmofuncs)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="basic/basic.html#basic.cosmofuncs.dist_comoving">dist_comoving() (in module basic.cosmofuncs)</a>
 </li>
       <li><a href="basic/basic.html#basic.cosmofuncs.dist_luminosity">dist_luminosity() (in module basic.cosmofuncs)</a>
@@ -326,15 +329,11 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="curvedsky/curvedsky.html#curvedsky.utils.eb_separate">eb_separate() (in module curvedsky.utils)</a>
-
-      <ul>
-        <li><a href="flatsky/flatsky.html#flatsky.ffttools.eb_separate">(in module flatsky.ffttools)</a>
 </li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="flatsky/flatsky.html#flatsky.utils.el2d">el2d() (in module flatsky.utils)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="flatsky/flatsky.html#flatsky.utils.elarrays">elarrays() (in module flatsky.utils)</a>
 </li>
       <li><a href="flatsky/flatsky.html#flatsky.utils.elmask">elmask() (in module flatsky.utils)</a>
@@ -345,7 +344,7 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="flatsky/flatsky.html#module-flatsky.ffttools">flatsky.ffttools (module)</a>
+      <li><a href="flatsky/flatsky.html#module-flatsky.bispec">flatsky.bispec (module)</a>
 </li>
       <li><a href="flatsky/flatsky.html#module-flatsky.norm_lens">flatsky.norm_lens (module)</a>
 </li>
@@ -426,14 +425,6 @@
   </ul></td>
 </tr></table>
 
-<h2 id="I">I</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="flatsky/flatsky.html#flatsky.ffttools.idft2dpol">idft2dpol() (in module flatsky.ffttools)</a>
-</li>
-  </ul></td>
-</tr></table>
-
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -458,6 +449,8 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="curvedsky/curvedsky.html#curvedsky.bispec.make_quad_gauss">make_quad_gauss() (in module curvedsky.bispec)</a>
+</li>
+      <li><a href="flatsky/flatsky.html#flatsky.utils.map2alm">map2alm() (in module flatsky.utils)</a>
 </li>
       <li><a href="curvedsky/curvedsky.html#curvedsky.utils.map_mul_lfunc">map_mul_lfunc() (in module curvedsky.utils)</a>
 </li>

@@ -2581,7 +2581,9 @@ The output is given by alms where alm[0,l,m] is temperature, alm[1,l,m] is E mod
 <dt id="curvedsky.cninv.cnfilter_freq">
 <code class="descclassname">curvedsky.cninv.</code><code class="descname">cnfilter_freq</code><span class="sig-paren">(</span><em>n, mn, nside, lmax, cl, bl, iNcov, maps, chn=1, lmaxs=[0], nsides=[0], itns=[1], eps=[1e-06], filter='W', verbose=False, ro=50, stat='', inl=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cnfilter_freq" title="Permalink to this definition">¶</a></dt>
 <dd><p>Combining multiple frequency CMB maps optimally. 
-The filtering would work if the noise variance is not significantly varied with scale (multipole).</p>
+The filtering would work if the noise variance is not significantly varied with scale (multipole). 
+Please make sure that your input maps are beam-convolved. 
+This code deconvolves the beam during filtering and the output are the filtered alms after the beam-deconvolution.</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -2606,7 +2608,7 @@ The filtering would work if the noise variance is not significantly varied with 
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse of the noise variance at each pixel, with bounds (0:n-1,0:mn-1,0:npix-1)</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">maps[<em>n,mn,pix</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Input T, Q, U maps, with bouds (0:n-1,0:mn-1,0:npix-1)</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Beam-convolved T, Q, U maps, with bouds (0:n-1,0:mn-1,0:npix-1)</td>
 </tr>
 </tbody>
 </table>
@@ -2764,7 +2766,9 @@ The filtering would work if the noise variance is not significantly varied with 
 <dl class="function">
 <dt id="curvedsky.cninv.cnfilter_freq_nside">
 <code class="descclassname">curvedsky.cninv.</code><code class="descname">cnfilter_freq_nside</code><span class="sig-paren">(</span><em>n, mn0, mn1, nside0, nside1, lmax, cl, bl0, bl1, iNcov0, iNcov1, maps0, maps1, chn=1, lmaxs=[0], nsides0=[0], nsides1=[0], itns=[1], eps=[1e-06], filter='W', verbose=False, reducmn=0, ro=50, stat='', inl=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cnfilter_freq_nside" title="Permalink to this definition">¶</a></dt>
-<dd><p>Same as cnfilter_freq but for the maps with two different Nsides.</p>
+<dd><p>Same as cnfilter_freq but for the maps with two different Nsides. 
+Please make sure that your input maps are beam-convolved. 
+This code deconvolves the beam during filtering and the output are the filtered alms after the beam-deconvolution.</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">
@@ -2789,7 +2793,7 @@ The filtering would work if the noise variance is not significantly varied with 
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">Inverse of the noise variance at each pixel, with bounds (0:n-1,0:npix-1)</td>
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">maps0/1[<em>n,mn,pix</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">Input T, Q, U maps, with bouds (0:n-1,0:npix-1)</td>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Beam-convolved T, Q, U maps, with bouds (0:n-1,0:npix-1)</td>
 </tr>
 </tbody>
 </table>

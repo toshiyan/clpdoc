@@ -342,7 +342,7 @@
 <span id="bispec-analytic-calculation-of-bispectrum"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">bispec</span></code> – analytic calculation of bispectrum<a class="headerlink" href="#module-basic.bispec" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="basic.bispec.cl_flat">
-<code class="descclassname">basic.bispec.</code><code class="descname">cl_flat</code><span class="sig-paren">(</span><em>cpmodel</em>, <em>z</em>, <em>dz</em>, <em>zs</em>, <em>lmax</em>, <em>k</em>, <em>pk0</em>, <em>zn=0</em>, <em>kn=0</em>, <em>pktype='T12'</em>, <em>cltype='kk'</em>, <em>dNdz=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.bispec.cl_flat" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">basic.bispec.</code><code class="descname">cl_flat</code><span class="sig-paren">(</span><em>cpmodel</em>, <em>z</em>, <em>dz</em>, <em>zs</em>, <em>lmax</em>, <em>k</em>, <em>pk0</em>, <em>zn=0</em>, <em>kn=0</em>, <em>pktype='T12'</em>, <em>cltype='kk'</em>, <em>dNdz=None</em>, <em>wdel=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.bispec.cl_flat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute flat-sky lensing powerspectrum analytically</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -382,6 +382,9 @@
 <tr class="field-odd field"><th class="field-name" colspan="2">dNdz[<em>zn</em>] (<em>double</em>):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">redshift distribution of galaxy, only used when cltype includes g</td>
 </tr>
+<tr class="field-even field"><th class="field-name" colspan="2">wdel[<em>zn,l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">modified chi-kernel function for z-cleaning at l=0 to lmax</td>
+</tr>
 </tbody>
 </table>
 </dd>
@@ -400,7 +403,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">cl = basic.bispec.cl_flat(cpmodel,z,dz,zs,lmax,k,pk0,zn,kn,pktype,cltype,dNdz):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">cl = basic.bispec.cl_flat(cpmodel,z,dz,zs,lmax,k,pk0,zn,kn,pktype,cltype,dNdz,wdel):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -411,7 +414,7 @@
 
 <dl class="function">
 <dt id="basic.bispec.bispeclens">
-<code class="descclassname">basic.bispec.</code><code class="descname">bispeclens</code><span class="sig-paren">(</span><em>shap</em>, <em>cpmodel</em>, <em>model</em>, <em>z</em>, <em>dz</em>, <em>zs</em>, <em>lmin</em>, <em>lmax</em>, <em>k</em>, <em>pk0</em>, <em>zn=0</em>, <em>kn=0</em>, <em>lan=0.0</em>, <em>kan=0.0</em>, <em>pktype='T12'</em>, <em>ltype=''</em>, <em>btype='kkk'</em>, <em>dNdz=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.bispec.bispeclens" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">basic.bispec.</code><code class="descname">bispeclens</code><span class="sig-paren">(</span><em>shap</em>, <em>cpmodel</em>, <em>model</em>, <em>z</em>, <em>dz</em>, <em>zs</em>, <em>lmin</em>, <em>lmax</em>, <em>k</em>, <em>pk0</em>, <em>zn=0</em>, <em>kn=0</em>, <em>lan=0.0</em>, <em>kan=0.0</em>, <em>pktype='T12'</em>, <em>ltype=''</em>, <em>btype='kkk'</em>, <em>dNdz=None</em>, <em>wdel=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.bispec.bispeclens" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute lensing bispectrum analytically</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -460,6 +463,9 @@
 <tr class="field-odd field"><th class="field-name" colspan="2">dNdz[<em>zn</em>] (<em>double</em>):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">redshift distribution of galaxy, only used when btype includes g</td>
 </tr>
+<tr class="field-even field"><th class="field-name" colspan="2">wdel[<em>zn,l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">modified chi-kernel function by z-cleaning at l=0 to lmax</td>
+</tr>
 </tbody>
 </table>
 </dd>
@@ -482,7 +488,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">bl0,bl1 = basic.bispec.bispeclens(shap,cpmodel,model,z,dz,zs,lmin,lmax,k,pk0,lan,kan,zn,kn,pktype,ltype,btype,dNdz):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">bl0,bl1 = basic.bispec.bispeclens(shap,cpmodel,model,z,dz,zs,lmin,lmax,k,pk0,lan,kan,zn,kn,pktype,ltype,btype,dNdz,wdel):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -493,7 +499,7 @@
 
 <dl class="function">
 <dt id="basic.bispec.bispeclens_bin">
-<code class="descclassname">basic.bispec.</code><code class="descname">bispeclens_bin</code><span class="sig-paren">(</span><em>shap</em>, <em>cpmodel</em>, <em>model</em>, <em>z</em>, <em>dz</em>, <em>zs</em>, <em>lmin</em>, <em>lmax</em>, <em>bn</em>, <em>k</em>, <em>pk0</em>, <em>zn=0</em>, <em>kn=0</em>, <em>lan=0.0</em>, <em>kan=0.0</em>, <em>pktype='T12'</em>, <em>btype='kkk'</em>, <em>dNdz=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.bispec.bispeclens_bin" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">basic.bispec.</code><code class="descname">bispeclens_bin</code><span class="sig-paren">(</span><em>shap</em>, <em>cpmodel</em>, <em>model</em>, <em>z</em>, <em>dz</em>, <em>zs</em>, <em>lmin</em>, <em>lmax</em>, <em>bn</em>, <em>k</em>, <em>pk0</em>, <em>zn=0</em>, <em>kn=0</em>, <em>lan=0.0</em>, <em>kan=0.0</em>, <em>pktype='T12'</em>, <em>btype='kkk'</em>, <em>dNdz=None</em>, <em>wdel=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.bispec.bispeclens_bin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute binned lensing bispectrum analytically</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -542,6 +548,9 @@
 <tr class="field-even field"><th class="field-name" colspan="2">dNdz[<em>zn</em>] (<em>double</em>):</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body">redshift distribution of galaxy, only used when btype includes g</td>
 </tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">wdel[<em>zn,l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">modified chi-kernel function by z-cleaning at l=0 to lmax</td>
+</tr>
 </tbody>
 </table>
 </dd>
@@ -567,7 +576,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">bc,bl0,bl1 = basic.bispec.bispeclens_bin(shap,cpmodel,model,z,dz,zn,zs,lmin,lmax,bn,k,pk0,kn,lan,kan,pktype,btype,dNdz):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">bc,bl0,bl1 = basic.bispec.bispeclens_bin(shap,cpmodel,model,z,dz,zn,zs,lmin,lmax,bn,k,pk0,kn,lan,kan,pktype,btype,dNdz,wdel):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -578,7 +587,7 @@
 
 <dl class="function">
 <dt id="basic.bispec.bispeclens_snr">
-<code class="descclassname">basic.bispec.</code><code class="descname">bispeclens_snr</code><span class="sig-paren">(</span><em>cpmodel</em>, <em>model</em>, <em>z</em>, <em>dz</em>, <em>zs</em>, <em>lmin</em>, <em>lmax</em>, <em>cl</em>, <em>k</em>, <em>pk0</em>, <em>zn=0</em>, <em>kn=0</em>, <em>pktype='T12'</em>, <em>btype='kkk'</em>, <em>dNdz=None</em>, <em>cgg=None</em>, <em>ro=100</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.bispec.bispeclens_snr" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">basic.bispec.</code><code class="descname">bispeclens_snr</code><span class="sig-paren">(</span><em>cpmodel</em>, <em>model</em>, <em>z</em>, <em>dz</em>, <em>zs</em>, <em>lmin</em>, <em>lmax</em>, <em>cl</em>, <em>k</em>, <em>pk0</em>, <em>zn=0</em>, <em>kn=0</em>, <em>pktype='T12'</em>, <em>btype='kkk'</em>, <em>dNdz=None</em>, <em>wdel=None</em>, <em>cgg=None</em>, <em>ro=100</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.bispec.bispeclens_snr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute SNR of lensing bispectrum analytically</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -600,7 +609,7 @@
 <tr class="field-even field"><th class="field-name" colspan="2">lmin/lmax (<em>int</em>):</th></tr>
 <tr class="field-even field"><td>&#160;</td><td class="field-body">minimum/maximum multipoles of the bispectrum</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">cl[<em>l</em>] (<em>int</em>):</th><td class="field-body">observed lensing spectrum at 0&lt;=l&lt;=lmax</td>
+<tr class="field-odd field"><th class="field-name">cl[<em>l</em>] (<em>int</em>):</th><td class="field-body">observed angular power spectrum at 0&lt;=l&lt;=lmax</td>
 </tr>
 <tr class="field-even field"><th class="field-name">k[<em>kn</em>] (<em>double</em>):</th><td class="field-body">k for the matter power spectrum in unit of [<em>h/Mpc</em>]</td>
 </tr>
@@ -622,10 +631,13 @@
 <tr class="field-odd field"><th class="field-name" colspan="2">dNdz[<em>zn</em>] (<em>double</em>):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body">redshift distribution of galaxy, only used when btype includes g</td>
 </tr>
-<tr class="field-even field"><th class="field-name" colspan="2">cgg[<em>l</em>] (<em>double</em>):</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body">observed galaxy spectrum</td>
+<tr class="field-even field"><th class="field-name" colspan="2">wdel[<em>zn,l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">modified chi-kernel function by z-cleaning at l=0 to lmax</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">ro (<em>int</em>):</th><td class="field-body">output progress for every “ro” multipoles (ro=100, default)</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">cgg[<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">observed galaxy spectrum</td>
+</tr>
+<tr class="field-even field"><th class="field-name">ro (<em>int</em>):</th><td class="field-body">output progress for every “ro” multipoles (ro=100, default)</td>
 </tr>
 </tbody>
 </table>
@@ -635,7 +647,8 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">snr (<em>double</em>):</th><td class="field-body">total SNR</td>
+<tr class="field-odd field"><th class="field-name" colspan="2">snr[<em>2</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">total SNR amd LSS-only SNR</td>
 </tr>
 </tbody>
 </table>
@@ -645,7 +658,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">snr = basic.bispec.bispeclens_snr(cpmodel,model,z,dz,zn,zs,lmin,lmax,cl,k,pk0,kn,pktype,btype,dNdz,cgg,ro):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">snr = basic.bispec.bispeclens_snr(cpmodel,model,z,dz,zn,zs,lmin,lmax,cl,k,pk0,kn,pktype,btype,dNdz,cgg,ro,wdel):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>
@@ -761,7 +774,7 @@
 
 <dl class="function">
 <dt id="basic.bispec.skewspeclens">
-<code class="descclassname">basic.bispec.</code><code class="descname">skewspeclens</code><span class="sig-paren">(</span><em>cpmodel</em>, <em>model</em>, <em>zmin</em>, <em>zmax</em>, <em>zn</em>, <em>zs</em>, <em>ols</em>, <em>lmin</em>, <em>lmax</em>, <em>k</em>, <em>pk0</em>, <em>pktype='T12'</em>, <em>pb=True</em>, <em>theta=0.0</em>, <em>Om=0.3</em>, <em>H0=70.0</em>, <em>w0=-1.0</em>, <em>wa=0.0</em>, <em>mnu=0.06</em>, <em>ns=0.965</em>, <em>bn=0</em>, <em>kn=0</em>, <em>verbose=True</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.bispec.skewspeclens" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">basic.bispec.</code><code class="descname">skewspeclens</code><span class="sig-paren">(</span><em>cpmodel</em>, <em>model</em>, <em>zmin</em>, <em>zmax</em>, <em>zn</em>, <em>zs</em>, <em>ols</em>, <em>lmin</em>, <em>lmax</em>, <em>k</em>, <em>pk0</em>, <em>pktype='T12'</em>, <em>pb=True</em>, <em>theta=0.0</em>, <em>Om=0.3</em>, <em>H0=70.0</em>, <em>w0=-1.0</em>, <em>wa=0.0</em>, <em>mnu=0.06</em>, <em>ns=0.965</em>, <em>bn=0</em>, <em>kn=0</em>, <em>verbose=True</em>, <em>wdel=None</em><span class="sig-paren">)</span><a class="headerlink" href="#basic.bispec.skewspeclens" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute skew spectrum using a matter bispectrum fitting formula</p>
 <blockquote>
 <div><dl class="docutils">
@@ -806,6 +819,9 @@
 </tr>
 <tr class="field-even field"><th class="field-name">verbose (<em>bool</em>):</th><td class="field-body">output messages</td>
 </tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">wdel[<em>zn,l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">modified chi-kernel function by z-cleaning at l=0 to lmax</td>
+</tr>
 </tbody>
 </table>
 </dd>
@@ -824,7 +840,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">skew = basic.bispec.skewspeclens(cpmodel,model,zmin,zmax,zn,zs,bn,ols,lmin,lmax,k,pk0,kn,theta,pktype,pb,Om,H0,w0,wa,mnu,ns,verbose):</th></tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">skew = basic.bispec.skewspeclens(cpmodel,model,zmin,zmax,zn,zs,bn,ols,lmin,lmax,k,pk0,kn,theta,pktype,pb,Om,H0,w0,wa,mnu,ns,verbose,wdel):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>

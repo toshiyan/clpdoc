@@ -2061,6 +2061,65 @@
 </dl>
 </dd></dl>
 
+<dl class="function">
+<dt id="curvedsky.norm_imag.qbb_asym">
+<code class="descclassname">curvedsky.norm_imag.</code><code class="descname">qbb_asym</code><span class="sig-paren">(</span><em>est</em>, <em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>fC</em>, <em>OCB1</em>, <em>OCB2</em>, <em>lfac=''</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_imag.qbb_asym" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalization of reconstructed imaginary CMB lensing potential and its curl mode from the B-mode quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">fC [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory BB spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">OCB1/2 [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed BB spectrum for experiment 1 and 2, with bounds (0:rlmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optional):</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lfac (<em>str</em>):</th><td class="field-body">Type of output, i.e., convergence (lfac=’k’) or lensing potential (lfac=’‘, default)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Al [<em>2,l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Normalization, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Al = curvedsky.norm_imag.qbb_asym(est,lmax,rlmin,rlmax,fC,OCB1,OCB2,lfac):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 <div class="section" id="module-curvedsky.delens">
 <span id="delens-delensing-for-simulation"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">delens</span></code> – delensing for simulation<a class="headerlink" href="#module-curvedsky.delens" title="Permalink to this headline">¶</a></h2>

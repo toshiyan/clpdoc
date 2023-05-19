@@ -1754,6 +1754,72 @@
 </dl>
 </dd></dl>
 
+<dl class="function">
+<dt id="curvedsky.norm_quad.xeb">
+<code class="descclassname">curvedsky.norm_quad.</code><code class="descname">xeb</code><span class="sig-paren">(</span><em>est</em>, <em>lmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>EE</em>, <em>EB</em>, <em>OCE</em>, <em>OCB</em>, <em>BB=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_quad.xeb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Response of reconstructed field to other in the EB quadratic estimator</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of output normalization spectrum</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">rlmin/rlmax (<em>int</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Minimum/Maximum multipole of CMB for reconstruction</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">EE [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory EE spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">EB [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Theory EB spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">OCE [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Observed EE spectrum, with bounds (0:rlmax)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">OCB [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Observed BB spectrum, with bounds (0:rlmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Args(optionals): </dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">BB [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Theory BB spectrum, with bounds (0:rlmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Aa [<em>l</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Pol. rot. angle normalization, with bounds (0:lmax)</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Aa = curvedsky.norm_quad.xeb(est,lmax,rlmin,rlmax,EE,EB,OCE,OCB,BB):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 <div class="section" id="module-curvedsky.norm_imag">
 <span id="norm-imag-normalization-of-imaginary-quadratic-estimator-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_imag</span></code> – normalization of imaginary quadratic estimator reconstruction<a class="headerlink" href="#module-curvedsky.norm_imag" title="Permalink to this headline">¶</a></h2>
@@ -2334,6 +2400,56 @@ The output is given by alms where alm[0,l,m] is temperature, alm[1,l,m] is E mod
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name" colspan="2">alm_re = curvedsky.delens.remap_tp(nside,lmax,beta,alm_in):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="curvedsky.delens.remap_tp_map">
+<code class="descclassname">curvedsky.delens.</code><code class="descname">remap_tp_map</code><span class="sig-paren">(</span><em>nside</em>, <em>lmax</em>, <em>beta</em>, <em>alm_in</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.delens.remap_tp_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remapping CMB temperaure and polarization with a given shift vector based on a simple implementation of LensPix
+This function returs X(n+beta) where n is the original direction and beta is the shift vector
+The output is given by alms where alm[0,l,m] is temperature, alm[1,l,m] is E mode, and alm[2,l,m] is B mode.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">nside (<em>int</em>):</th><td class="field-body">Nside of input shift vector</td>
+</tr>
+<tr class="field-even field"><th class="field-name">lmax (<em>int</em>):</th><td class="field-body">Maximum multipole of the input plm</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">beta [<em>pix,2</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">2D shift vector, with bounds (0:npix-1,1:2)</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">alm_in [<em>TEB,l,m</em>] (<em>dcmplx</em>):</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Input T/E/B alms to be remapped, with bounds (1:3,0:lmax,0:lmax).</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Returns:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">map_re [<em>pix,TQU</em>] (<em>double</em>):</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Remapped T/Q/U alms, with bounds (0:lmax,0:lmax,1:3).</td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Usage:</dt>
+<dd><table class="first last docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">map_re = curvedsky.delens.remap_tp_map(nside,lmax,beta,alm_in):</th></tr>
 <tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
 </tr>
 </tbody>

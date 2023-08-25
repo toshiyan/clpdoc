@@ -1622,7 +1622,7 @@
 
 <dl class="function">
 <dt id="curvedsky.norm_quad.qeb_iter">
-<code class="descclassname">curvedsky.norm_quad.</code><code class="descname">qeb_iter</code><span class="sig-paren">(</span><em>lmax</em>, <em>elmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>OCE</em>, <em>OCB</em>, <em>Cpp</em>, <em>iter=1</em>, <em>conv=0.001</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_quad.qeb_iter" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">curvedsky.norm_quad.</code><code class="descname">qeb_iter</code><span class="sig-paren">(</span><em>lmax</em>, <em>elmax</em>, <em>rlmin</em>, <em>rlmax</em>, <em>dlmin</em>, <em>dlmax</em>, <em>CE</em>, <em>OCE</em>, <em>OCB</em>, <em>Cpp</em>, <em>iter=1</em>, <em>conv=1e-05</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.norm_quad.qeb_iter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Normalization of reconstructed CMB lensing potential and its curl mode from the EB quadratic estimator</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -1662,7 +1662,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">iter (<em>int</em>):</th><td class="field-body">number of iteration, default to 1 (no iteration)</td>
 </tr>
-<tr class="field-even field"><th class="field-name">conv (<em>double</em>):</th><td class="field-body">a parameter for convergence the iteration, default to 0.001</td>
+<tr class="field-even field"><th class="field-name">conv (<em>double</em>):</th><td class="field-body">a parameter for convergence the iteration, default to 0.00001</td>
 </tr>
 </tbody>
 </table>
@@ -2794,7 +2794,7 @@ This code deconvolves the beam during filtering and the output are the filtered 
 <dl class="function">
 <dt id="curvedsky.cninv.cnfilter_kappa">
 <code class="descclassname">curvedsky.cninv.</code><code class="descname">cnfilter_kappa</code><span class="sig-paren">(</span><em>n, nside, lmax, cov, iNcov, maps, chn=1, lmaxs=[0], nsides=[0], itns=[1], eps=[1e-06], verbose=False, ro=50, stat='', inl=None</em><span class="sig-paren">)</span><a class="headerlink" href="#curvedsky.cninv.cnfilter_kappa" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computing C(C+N)^-1 for multiple mass-tracer kappa maps including their correlations.</p>
+<dd><p>Computing the inverse-variance weighted multipole, (C+N)^-1 x kappa, for multiple mass-tracers of kappa maps.</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><table class="first last docutils field-list" frame="void" rules="none">

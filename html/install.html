@@ -84,6 +84,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tips">Tips</a></li>
 </ul>
 </li>
 </ul>
@@ -163,23 +164,42 @@
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <p>The package depends on Fortran Libraries, FFTW, HEALPix, cfitsio and LensPix.
-Source code for those is included with this package. You also need F2py and a fortran compiler to compile Fortran sources.</p>
+Source code for those is included with this package. You also need F2py and a fortran compiler to compile Fortran sources.
+Note that the F90 sources are written assuming the intel Fortran compiler.</p>
 </div>
 <div class="section" id="install">
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple" start="0">
-<li>The pakage can be downloaded from <a class="reference external" href="https://github.com/toshiyan/cmblensplus">https://github.com/toshiyan/cmblensplus</a> or type</li>
-</ol>
+<ol class="arabic" start="0">
+<li><p class="first">The pakage can be downloaded from <a class="reference external" href="https://github.com/toshiyan/cmblensplus">https://github.com/toshiyan/cmblensplus</a> or type</p>
 <blockquote>
-<div>git clone <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:toshiyan/cmblensplus.git</div></blockquote>
-<ol class="arabic simple">
-<li>./install.sh all</li>
+<div><p>git clone <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:toshiyan/cmblensplus.git</p>
+</div></blockquote>
+</li>
+<li><p class="first">Edit the shell file to add, e.g. for .bashrc.ext in NERSC</p>
+<blockquote>
+<div><p>module load intel
+export LD_LIBRARY_PATH=${path-to-cmblensplus}/F90/pub/Healpix/lib/:${path-to-cmblensplus}/F90/pub/cfitsio/:$LD_LIBRARY_PATH
+export PYTHONPATH=${path-to-cmblensplus}/utils/:${path-to-cmblensplus}/wrap/:$PYTHONPATH</p>
+</div></blockquote>
+</li>
+<li><p class="first">./install.sh all</p>
+</li>
 </ol>
 <p>The install.sh script automatically install the public codes (FFTW, cfitsio, Healpix, Lenspix, and Lapack) at F90/pub/, and then the local sources at F90/.
-Note that the F90 sources are written assuming the intel Fortran compiler.
 Then the script produces python modules using f2py.
 The python modules can be found in wrap/ for python 3.
 (wrap_py2 for python 2 is no longer supported)</p>
+</div>
+<div class="section" id="tips">
+<h2>Tips<a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">libifport.so.5 not found</p>
+<p>Indicating that ifort is not loaded appropriately.</p>
+</li>
+<li><p class="first">Segmentation fault after installing everything</p>
+<p>Some Healpix subroutine has a problem. One quick solution is to set “ulimit -s unlimited”</p>
+</li>
+</ul>
 </div>
 </div>
 

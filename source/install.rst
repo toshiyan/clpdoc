@@ -19,7 +19,9 @@ Install
 1) Edit the shell file to add, e.g. for .bashrc.ext in NERSC
 
     module load intel
+
     export LD_LIBRARY_PATH=${path-to-cmblensplus}/F90/pub/Healpix/lib/:${path-to-cmblensplus}/F90/pub/cfitsio/:$LD_LIBRARY_PATH
+    
     export PYTHONPATH=${path-to-cmblensplus}/utils/:${path-to-cmblensplus}/wrap/:$PYTHONPATH
 
 

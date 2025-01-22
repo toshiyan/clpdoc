@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -22,10 +21,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="static/documentation_options.js"></script>
-        <script type="text/javascript" src="static/jquery.js"></script>
-        <script type="text/javascript" src="static/underscore.js"></script>
-        <script type="text/javascript" src="static/doctools.js"></script>
-        <script type="text/javascript" src="static/language_data.js"></script>
+        <script data-url_root="./" id="documentation_options" src="static/documentation_options.js"></script>
+        <script src="static/jquery.js"></script>
+        <script src="static/underscore.js"></script>
+        <script src="static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="static/doctools.js"></script>
+        <script src="static/sphinx_highlight.js"></script>
     
     <script type="text/javascript" src="static/js/theme.js"></script>
 
@@ -34,6 +35,8 @@
   
   <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="static/css/theme.css" type="text/css" />
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" /> 
 </head>
@@ -83,9 +86,9 @@
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation Guide</a></li>
 </ul>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="basic/basic.html"><code class="docutils literal notranslate"><span class="pre">basic</span></code> – Some basic tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="curvedsky/curvedsky.html"><code class="docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools</a></li>
-<li class="toctree-l1"><a class="reference internal" href="flatsky/flatsky.html"><code class="docutils literal notranslate"><span class="pre">flatsky</span></code> – Flatsky analysis tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic/basic.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">basic</span></code> – Some basic tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="curvedsky/curvedsky.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flatsky/flatsky.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flatsky</span></code> – Flatsky analysis tools</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="license.html">Licenses</a></li>
@@ -178,29 +181,27 @@
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.alm2bcl">alm2bcl() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.alm2bcl">alm2bcl() (in module cmblensplus.curvedsky.utils)</a>
 
       <ul>
-        <li><a href="flatsky/flatsky.html#flatsky.utils.alm2bcl">(in module flatsky.utils)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.utils.alm2bcl">(in module cmblensplus.flatsky.utils)</a>
 </li>
       </ul></li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.alm2cl">alm2cl() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.alm2cl">alm2cl() (in module cmblensplus.curvedsky.utils)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.alm2cov">alm2cov() (in module curvedsky.utils)</a>
-</li>
-      <li><a href="flatsky/flatsky.html#flatsky.utils.alm2map">alm2map() (in module flatsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.alm2cov">alm2cov() (in module cmblensplus.curvedsky.utils)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.alm2rho">alm2rho() (in module curvedsky.utils)</a>
+      <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.utils.alm2map">alm2map() (in module cmblensplus.flatsky.utils)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.almxfl">almxfl() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.alm2rho">alm2rho() (in module cmblensplus.curvedsky.utils)</a>
 </li>
-      <li><a href="basic/basic.html#basic.flat.alxy">alxy() (in module basic.flat)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.flat.alxy">alxy() (in module cmblensplus.basic.flat)</a>
 </li>
-      <li><a href="basic/basic.html#basic.flat.alxy_asym">alxy_asym() (in module basic.flat)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.flat.alxy_asym">alxy_asym() (in module cmblensplus.basic.flat)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.apodize">apodize() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.apodize">apodize() (in module cmblensplus.curvedsky.utils)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -208,47 +209,35 @@
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="basic/basic.html#module-basic.bispec">basic.bispec (module)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.flat.bbxy">bbxy() (in module cmblensplus.basic.flat)</a>
 </li>
-      <li><a href="basic/basic.html#module-basic.cosmofuncs">basic.cosmofuncs (module)</a>
+      <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.bispec.binfilter">binfilter() (in module cmblensplus.flatsky.bispec)</a>
 </li>
-      <li><a href="basic/basic.html#module-basic.delens">basic.delens (module)</a>
-</li>
-      <li><a href="basic/basic.html#module-basic.flat">basic.flat (module)</a>
-</li>
-      <li><a href="basic/basic.html#module-basic.galaxy">basic.galaxy (module)</a>
-</li>
-      <li><a href="basic/basic.html#module-basic.wigner_funcs">basic.wigner_funcs (module)</a>
-</li>
-      <li><a href="basic/basic.html#basic.flat.bbxy">bbxy() (in module basic.flat)</a>
-</li>
-      <li><a href="flatsky/flatsky.html#flatsky.bispec.binfilter">binfilter() (in module flatsky.bispec)</a>
-</li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.bispec.bispec_bin">bispec_bin() (in module curvedsky.bispec)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.bispec.bispec_bin">bispec_bin() (in module cmblensplus.curvedsky.bispec)</a>
 
       <ul>
-        <li><a href="flatsky/flatsky.html#flatsky.bispec.bispec_bin">(in module flatsky.bispec)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.bispec.bispec_bin">(in module cmblensplus.flatsky.bispec)</a>
+</li>
+      </ul></li>
+      <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.bispec.bispec_bin_1d">bispec_bin_1d() (in module cmblensplus.flatsky.bispec)</a>
+</li>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.bispec.bispec_norm">bispec_norm() (in module cmblensplus.curvedsky.bispec)</a>
+
+      <ul>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.bispec.bispec_norm">(in module cmblensplus.flatsky.bispec)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="flatsky/flatsky.html#flatsky.bispec.bispec_bin_1d">bispec_bin_1d() (in module flatsky.bispec)</a>
+      <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.bispec.bispec_norm_1d">bispec_norm_1d() (in module cmblensplus.flatsky.bispec)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.bispec.bispec_norm">bispec_norm() (in module curvedsky.bispec)</a>
-
-      <ul>
-        <li><a href="flatsky/flatsky.html#flatsky.bispec.bispec_norm">(in module flatsky.bispec)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.bispec.bispeclens">bispeclens() (in module cmblensplus.basic.bispec)</a>
 </li>
-      </ul></li>
-      <li><a href="flatsky/flatsky.html#flatsky.bispec.bispec_norm_1d">bispec_norm_1d() (in module flatsky.bispec)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.bispec.bispeclens_bin">bispeclens_bin() (in module cmblensplus.basic.bispec)</a>
 </li>
-      <li><a href="basic/basic.html#basic.bispec.bispeclens">bispeclens() (in module basic.bispec)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.bispec.bispeclens_gauss_bin">bispeclens_gauss_bin() (in module cmblensplus.basic.bispec)</a>
 </li>
-      <li><a href="basic/basic.html#basic.bispec.bispeclens_bin">bispeclens_bin() (in module basic.bispec)</a>
-</li>
-      <li><a href="basic/basic.html#basic.bispec.bispeclens_gauss_bin">bispeclens_gauss_bin() (in module basic.bispec)</a>
-</li>
-      <li><a href="basic/basic.html#basic.bispec.bispeclens_snr">bispeclens_snr() (in module basic.bispec)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.bispec.bispeclens_snr">bispeclens_snr() (in module cmblensplus.basic.bispec)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -256,49 +245,202 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="flatsky/flatsky.html#flatsky.utils.c2d2bcl">c2d2bcl() (in module flatsky.utils)</a>
+      <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.utils.c2d2bcl">c2d2bcl() (in module cmblensplus.flatsky.utils)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.calc_mfs">calc_mfs() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.calc_mfs">calc_mfs() (in module cmblensplus.curvedsky.utils)</a>
 </li>
-      <li><a href="flatsky/flatsky.html#flatsky.utils.cb2c2d">cb2c2d() (in module flatsky.utils)</a>
+      <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.utils.cb2c2d">cb2c2d() (in module cmblensplus.flatsky.utils)</a>
 </li>
-      <li><a href="flatsky/flatsky.html#flatsky.utils.cl2c2d">cl2c2d() (in module flatsky.utils)</a>
+      <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.utils.cl2c2d">cl2c2d() (in module cmblensplus.flatsky.utils)</a>
 </li>
-      <li><a href="basic/basic.html#basic.bispec.cl_flat">cl_flat() (in module basic.bispec)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.bispec.cl_flat">cl_flat() (in module cmblensplus.basic.bispec)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.cninv.cnfilter_freq">cnfilter_freq() (in module curvedsky.cninv)</a>
+      <li>
+    cmblensplus.basic.bispec
+
+      <ul>
+        <li><a href="basic/basic.html#module-cmblensplus.basic.bispec">module</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.cninv.cnfilter_freq_nside">cnfilter_freq_nside() (in module curvedsky.cninv)</a>
+      </ul></li>
+      <li>
+    cmblensplus.basic.cosmofuncs
+
+      <ul>
+        <li><a href="basic/basic.html#module-cmblensplus.basic.cosmofuncs">module</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.cninv.cnfilter_kappa">cnfilter_kappa() (in module curvedsky.cninv)</a>
+      </ul></li>
+      <li>
+    cmblensplus.basic.delens
+
+      <ul>
+        <li><a href="basic/basic.html#module-cmblensplus.basic.delens">module</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.cosin_healpix">cosin_healpix() (in module curvedsky.utils)</a>
+      </ul></li>
+      <li>
+    cmblensplus.basic.flat
+
+      <ul>
+        <li><a href="basic/basic.html#module-cmblensplus.basic.flat">module</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.cov_diag_tri">cov_diag_tri() (in module curvedsky.utils)</a>
+      </ul></li>
+      <li>
+    cmblensplus.basic.galaxy
+
+      <ul>
+        <li><a href="basic/basic.html#module-cmblensplus.basic.galaxy">module</a>
 </li>
+      </ul></li>
+      <li>
+    cmblensplus.basic.wigner_funcs
+
+      <ul>
+        <li><a href="basic/basic.html#module-cmblensplus.basic.wigner_funcs">module</a>
+</li>
+      </ul></li>
+      <li>
+    cmblensplus.curvedsky.bispec
+
+      <ul>
+        <li><a href="curvedsky/curvedsky.html#module-cmblensplus.curvedsky.bispec">module</a>
+</li>
+      </ul></li>
+      <li>
+    cmblensplus.curvedsky.cninv
+
+      <ul>
+        <li><a href="curvedsky/curvedsky.html#module-cmblensplus.curvedsky.cninv">module</a>
+</li>
+      </ul></li>
+      <li>
+    cmblensplus.curvedsky.delens
+
+      <ul>
+        <li><a href="curvedsky/curvedsky.html#module-cmblensplus.curvedsky.delens">module</a>
+</li>
+      </ul></li>
+      <li>
+    cmblensplus.curvedsky.norm_imag
+
+      <ul>
+        <li><a href="curvedsky/curvedsky.html#module-cmblensplus.curvedsky.norm_imag">module</a>
+</li>
+      </ul></li>
+      <li>
+    cmblensplus.curvedsky.norm_quad
+
+      <ul>
+        <li><a href="curvedsky/curvedsky.html#module-cmblensplus.curvedsky.norm_quad">module</a>
+</li>
+      </ul></li>
+      <li>
+    cmblensplus.curvedsky.rec_lens
+
+      <ul>
+        <li><a href="curvedsky/curvedsky.html#module-cmblensplus.curvedsky.rec_lens">module</a>
+</li>
+      </ul></li>
+      <li>
+    cmblensplus.curvedsky.rec_rot
+
+      <ul>
+        <li><a href="curvedsky/curvedsky.html#module-cmblensplus.curvedsky.rec_rot">module</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#module-curvedsky.bispec">curvedsky.bispec (module)</a>
+      <li>
+    cmblensplus.curvedsky.rec_src
+
+      <ul>
+        <li><a href="curvedsky/curvedsky.html#module-cmblensplus.curvedsky.rec_src">module</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#module-curvedsky.cninv">curvedsky.cninv (module)</a>
+      </ul></li>
+      <li>
+    cmblensplus.curvedsky.rec_tau
+
+      <ul>
+        <li><a href="curvedsky/curvedsky.html#module-cmblensplus.curvedsky.rec_tau">module</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#module-curvedsky.delens">curvedsky.delens (module)</a>
+      </ul></li>
+      <li>
+    cmblensplus.curvedsky.utils
+
+      <ul>
+        <li><a href="curvedsky/curvedsky.html#module-cmblensplus.curvedsky.utils">module</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#module-curvedsky.norm_imag">curvedsky.norm_imag (module)</a>
+      </ul></li>
+      <li>
+    cmblensplus.flatsky.bispec
+
+      <ul>
+        <li><a href="flatsky/flatsky.html#module-cmblensplus.flatsky.bispec">module</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#module-curvedsky.norm_quad">curvedsky.norm_quad (module)</a>
+      </ul></li>
+      <li>
+    cmblensplus.flatsky.norm_lens
+
+      <ul>
+        <li><a href="flatsky/flatsky.html#module-cmblensplus.flatsky.norm_lens">module</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#module-curvedsky.rec_lens">curvedsky.rec_lens (module)</a>
+      </ul></li>
+      <li>
+    cmblensplus.flatsky.norm_rot
+
+      <ul>
+        <li><a href="flatsky/flatsky.html#module-cmblensplus.flatsky.norm_rot">module</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#module-curvedsky.rec_rot">curvedsky.rec_rot (module)</a>
+      </ul></li>
+      <li>
+    cmblensplus.flatsky.norm_tau
+
+      <ul>
+        <li><a href="flatsky/flatsky.html#module-cmblensplus.flatsky.norm_tau">module</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#module-curvedsky.rec_src">curvedsky.rec_src (module)</a>
+      </ul></li>
+      <li>
+    cmblensplus.flatsky.rec_lens
+
+      <ul>
+        <li><a href="flatsky/flatsky.html#module-cmblensplus.flatsky.rec_lens">module</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#module-curvedsky.rec_tau">curvedsky.rec_tau (module)</a>
+      </ul></li>
+      <li>
+    cmblensplus.flatsky.rec_rot
+
+      <ul>
+        <li><a href="flatsky/flatsky.html#module-cmblensplus.flatsky.rec_rot">module</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#module-curvedsky.utils">curvedsky.utils (module)</a>
+      </ul></li>
+      <li>
+    cmblensplus.flatsky.rec_src
+
+      <ul>
+        <li><a href="flatsky/flatsky.html#module-cmblensplus.flatsky.rec_src">module</a>
 </li>
-      <li><a href="flatsky/flatsky.html#flatsky.utils.cutmap">cutmap() (in module flatsky.utils)</a>
+      </ul></li>
+      <li>
+    cmblensplus.flatsky.rec_tau
+
+      <ul>
+        <li><a href="flatsky/flatsky.html#module-cmblensplus.flatsky.rec_tau">module</a>
+</li>
+      </ul></li>
+      <li>
+    cmblensplus.flatsky.utils
+
+      <ul>
+        <li><a href="flatsky/flatsky.html#module-cmblensplus.flatsky.utils">module</a>
+</li>
+      </ul></li>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.cninv.cnfilter_freq">cnfilter_freq() (in module cmblensplus.curvedsky.cninv)</a>
+</li>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.cninv.cnfilter_freq_nside">cnfilter_freq_nside() (in module cmblensplus.curvedsky.cninv)</a>
+</li>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.cninv.cnfilter_kappa">cnfilter_kappa() (in module cmblensplus.curvedsky.cninv)</a>
+</li>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.cosin_healpix">cosin_healpix() (in module cmblensplus.curvedsky.utils)</a>
+</li>
+      <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.utils.cutmap">cutmap() (in module cmblensplus.flatsky.utils)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -306,21 +448,21 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="basic/basic.html#basic.delens.delensbias_dom">delensbias_dom() (in module basic.delens)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.delens.delensbias_dom">delensbias_dom() (in module cmblensplus.basic.delens)</a>
 </li>
-      <li><a href="basic/basic.html#basic.cosmofuncs.dhubble_dz">dhubble_dz() (in module basic.cosmofuncs)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.cosmofuncs.dhubble_dz">dhubble_dz() (in module cmblensplus.basic.cosmofuncs)</a>
 </li>
-      <li><a href="basic/basic.html#basic.cosmofuncs.dist2z">dist2z() (in module basic.cosmofuncs)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.cosmofuncs.dist2z">dist2z() (in module cmblensplus.basic.cosmofuncs)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="basic/basic.html#basic.cosmofuncs.dist_comoving">dist_comoving() (in module basic.cosmofuncs)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.cosmofuncs.dist_comoving">dist_comoving() (in module cmblensplus.basic.cosmofuncs)</a>
 </li>
-      <li><a href="basic/basic.html#basic.cosmofuncs.dist_luminosity">dist_luminosity() (in module basic.cosmofuncs)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.cosmofuncs.dist_luminosity">dist_luminosity() (in module cmblensplus.basic.cosmofuncs)</a>
 </li>
-      <li><a href="basic/basic.html#basic.galaxy.dndz_sf">dndz_sf() (in module basic.galaxy)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.galaxy.dndz_sf">dndz_sf() (in module cmblensplus.basic.galaxy)</a>
 </li>
-      <li><a href="basic/basic.html#basic.cosmofuncs.drate_dz">drate_dz() (in module basic.cosmofuncs)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.cosmofuncs.drate_dz">drate_dz() (in module cmblensplus.basic.cosmofuncs)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -328,15 +470,15 @@
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.eb_separate">eb_separate() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.eb_separate">eb_separate() (in module cmblensplus.curvedsky.utils)</a>
 </li>
-      <li><a href="flatsky/flatsky.html#flatsky.utils.el2d">el2d() (in module flatsky.utils)</a>
+      <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.utils.el2d">el2d() (in module cmblensplus.flatsky.utils)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="flatsky/flatsky.html#flatsky.utils.elarrays">elarrays() (in module flatsky.utils)</a>
+      <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.utils.elarrays">elarrays() (in module cmblensplus.flatsky.utils)</a>
 </li>
-      <li><a href="flatsky/flatsky.html#flatsky.utils.elmask">elmask() (in module flatsky.utils)</a>
+      <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.utils.elmask">elmask() (in module cmblensplus.flatsky.utils)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -344,27 +486,7 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="flatsky/flatsky.html#module-flatsky.bispec">flatsky.bispec (module)</a>
-</li>
-      <li><a href="flatsky/flatsky.html#module-flatsky.norm_lens">flatsky.norm_lens (module)</a>
-</li>
-      <li><a href="flatsky/flatsky.html#module-flatsky.norm_rot">flatsky.norm_rot (module)</a>
-</li>
-      <li><a href="flatsky/flatsky.html#module-flatsky.norm_tau">flatsky.norm_tau (module)</a>
-</li>
-      <li><a href="flatsky/flatsky.html#module-flatsky.rec_lens">flatsky.rec_lens (module)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="flatsky/flatsky.html#module-flatsky.rec_rot">flatsky.rec_rot (module)</a>
-</li>
-      <li><a href="flatsky/flatsky.html#module-flatsky.rec_src">flatsky.rec_src (module)</a>
-</li>
-      <li><a href="flatsky/flatsky.html#module-flatsky.rec_tau">flatsky.rec_tau (module)</a>
-</li>
-      <li><a href="flatsky/flatsky.html#module-flatsky.utils">flatsky.utils (module)</a>
-</li>
-      <li><a href="basic/basic.html#basic.galaxy.frac">frac() (in module basic.galaxy)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.galaxy.frac">frac() (in module cmblensplus.basic.galaxy)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -372,37 +494,35 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.gauss1alm">gauss1alm() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.gauss1alm">gauss1alm() (in module cmblensplus.curvedsky.utils)</a>
 
       <ul>
-        <li><a href="flatsky/flatsky.html#flatsky.utils.gauss1alm">(in module flatsky.utils)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.utils.gauss1alm">(in module cmblensplus.flatsky.utils)</a>
 </li>
       </ul></li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.gauss2alm">gauss2alm() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.gauss2alm">gauss2alm() (in module cmblensplus.curvedsky.utils)</a>
 
       <ul>
-        <li><a href="flatsky/flatsky.html#flatsky.utils.gauss2alm">(in module flatsky.utils)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.utils.gauss2alm">(in module cmblensplus.flatsky.utils)</a>
 </li>
       </ul></li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.gauss2alm_const">gauss2alm_const() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.gaussalm">gaussalm() (in module cmblensplus.curvedsky.utils)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.gaussalm">gaussalm() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.gaussTEB">gaussTEB() (in module cmblensplus.curvedsky.utils)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.gaussTEB">gaussTEB() (in module curvedsky.utils)</a>
+      <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.utils.get_angle">get_angle() (in module cmblensplus.flatsky.utils)</a>
 </li>
-      <li><a href="flatsky/flatsky.html#flatsky.utils.get_angle">get_angle() (in module flatsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.get_apod_window">get_apod_window() (in module cmblensplus.curvedsky.utils)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.get_apod_window">get_apod_window() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.get_baseline">get_baseline() (in module cmblensplus.curvedsky.utils)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.get_baseline">get_baseline() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.get_winmap">get_winmap() (in module cmblensplus.curvedsky.utils)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.get_winmap">get_winmap() (in module curvedsky.utils)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.cosmofuncs.growth_factor">growth_factor() (in module cmblensplus.basic.cosmofuncs)</a>
 </li>
-      <li><a href="basic/basic.html#basic.cosmofuncs.growth_factor">growth_factor() (in module basic.cosmofuncs)</a>
-</li>
-      <li><a href="basic/basic.html#basic.cosmofuncs.growth_rate">growth_rate() (in module basic.cosmofuncs)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.cosmofuncs.growth_rate">growth_rate() (in module cmblensplus.basic.cosmofuncs)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -410,17 +530,17 @@
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.hp_alm2map">hp_alm2map() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.hp_alm2map">hp_alm2map() (in module cmblensplus.curvedsky.utils)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.hp_alm2map_spin">hp_alm2map_spin() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.hp_alm2map_spin">hp_alm2map_spin() (in module cmblensplus.curvedsky.utils)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.hp_map2alm">hp_map2alm() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.hp_map2alm">hp_map2alm() (in module cmblensplus.curvedsky.utils)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.hp_map2alm_spin">hp_map2alm_spin() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.hp_map2alm_spin">hp_map2alm_spin() (in module cmblensplus.curvedsky.utils)</a>
 </li>
-      <li><a href="basic/basic.html#basic.cosmofuncs.hubble">hubble() (in module basic.cosmofuncs)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.cosmofuncs.hubble">hubble() (in module cmblensplus.basic.cosmofuncs)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -428,19 +548,17 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.delens.lensingb">lensingb() (in module curvedsky.delens)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.delens.lensingb">lensingb() (in module cmblensplus.curvedsky.delens)</a>
 </li>
-      <li><a href="basic/basic.html#basic.delens.lensingbb">lensingbb() (in module basic.delens)</a>
-</li>
-      <li><a href="basic/basic.html#basic.delens.lintemplate">lintemplate() (in module basic.delens)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.delens.lensingbb">lensingbb() (in module cmblensplus.basic.delens)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.lm_healpy2healpix">lm_healpy2healpix() (in module curvedsky.utils)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.delens.lintemplate">lintemplate() (in module cmblensplus.basic.delens)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.lmpy2lmax">lmpy2lmax() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.lm_healpy2healpix">lm_healpy2healpix() (in module cmblensplus.curvedsky.utils)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.load_defangle_takahashi">load_defangle_takahashi() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.load_defangle_takahashi">load_defangle_takahashi() (in module cmblensplus.curvedsky.utils)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -448,19 +566,74 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.bispec.make_quad_gauss">make_quad_gauss() (in module curvedsky.bispec)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.bispec.make_quad_gauss">make_quad_gauss() (in module cmblensplus.curvedsky.bispec)</a>
 </li>
-      <li><a href="flatsky/flatsky.html#flatsky.utils.map2alm">map2alm() (in module flatsky.utils)</a>
+      <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.utils.map2alm">map2alm() (in module cmblensplus.flatsky.utils)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.map_mul_lfunc">map_mul_lfunc() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.map_mul_lfunc">map_mul_lfunc() (in module cmblensplus.curvedsky.utils)</a>
 </li>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.mock_galaxy_takahashi">mock_galaxy_takahashi() (in module cmblensplus.curvedsky.utils)</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="basic/basic.html#module-cmblensplus.basic.bispec">cmblensplus.basic.bispec</a>
+</li>
+        <li><a href="basic/basic.html#module-cmblensplus.basic.cosmofuncs">cmblensplus.basic.cosmofuncs</a>
+</li>
+        <li><a href="basic/basic.html#module-cmblensplus.basic.delens">cmblensplus.basic.delens</a>
+</li>
+        <li><a href="basic/basic.html#module-cmblensplus.basic.flat">cmblensplus.basic.flat</a>
+</li>
+        <li><a href="basic/basic.html#module-cmblensplus.basic.galaxy">cmblensplus.basic.galaxy</a>
+</li>
+        <li><a href="basic/basic.html#module-cmblensplus.basic.wigner_funcs">cmblensplus.basic.wigner_funcs</a>
+</li>
+        <li><a href="curvedsky/curvedsky.html#module-cmblensplus.curvedsky.bispec">cmblensplus.curvedsky.bispec</a>
+</li>
+        <li><a href="curvedsky/curvedsky.html#module-cmblensplus.curvedsky.cninv">cmblensplus.curvedsky.cninv</a>
+</li>
+        <li><a href="curvedsky/curvedsky.html#module-cmblensplus.curvedsky.delens">cmblensplus.curvedsky.delens</a>
+</li>
+        <li><a href="curvedsky/curvedsky.html#module-cmblensplus.curvedsky.norm_imag">cmblensplus.curvedsky.norm_imag</a>
+</li>
+        <li><a href="curvedsky/curvedsky.html#module-cmblensplus.curvedsky.norm_quad">cmblensplus.curvedsky.norm_quad</a>
+</li>
+        <li><a href="curvedsky/curvedsky.html#module-cmblensplus.curvedsky.rec_lens">cmblensplus.curvedsky.rec_lens</a>
+</li>
+        <li><a href="curvedsky/curvedsky.html#module-cmblensplus.curvedsky.rec_rot">cmblensplus.curvedsky.rec_rot</a>
+</li>
+        <li><a href="curvedsky/curvedsky.html#module-cmblensplus.curvedsky.rec_src">cmblensplus.curvedsky.rec_src</a>
+</li>
+        <li><a href="curvedsky/curvedsky.html#module-cmblensplus.curvedsky.rec_tau">cmblensplus.curvedsky.rec_tau</a>
+</li>
+        <li><a href="curvedsky/curvedsky.html#module-cmblensplus.curvedsky.utils">cmblensplus.curvedsky.utils</a>
+</li>
+        <li><a href="flatsky/flatsky.html#module-cmblensplus.flatsky.bispec">cmblensplus.flatsky.bispec</a>
+</li>
+        <li><a href="flatsky/flatsky.html#module-cmblensplus.flatsky.norm_lens">cmblensplus.flatsky.norm_lens</a>
+</li>
+        <li><a href="flatsky/flatsky.html#module-cmblensplus.flatsky.norm_rot">cmblensplus.flatsky.norm_rot</a>
+</li>
+        <li><a href="flatsky/flatsky.html#module-cmblensplus.flatsky.norm_tau">cmblensplus.flatsky.norm_tau</a>
+</li>
+        <li><a href="flatsky/flatsky.html#module-cmblensplus.flatsky.rec_lens">cmblensplus.flatsky.rec_lens</a>
+</li>
+        <li><a href="flatsky/flatsky.html#module-cmblensplus.flatsky.rec_rot">cmblensplus.flatsky.rec_rot</a>
+</li>
+        <li><a href="flatsky/flatsky.html#module-cmblensplus.flatsky.rec_src">cmblensplus.flatsky.rec_src</a>
+</li>
+        <li><a href="flatsky/flatsky.html#module-cmblensplus.flatsky.rec_tau">cmblensplus.flatsky.rec_tau</a>
+</li>
+        <li><a href="flatsky/flatsky.html#module-cmblensplus.flatsky.utils">cmblensplus.flatsky.utils</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.mock_galaxy_takahashi">mock_galaxy_takahashi() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.mulwin">mulwin() (in module cmblensplus.curvedsky.utils)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.mulwin">mulwin() (in module curvedsky.utils)</a>
-</li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.mulwin_spin">mulwin_spin() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.mulwin_spin">mulwin_spin() (in module cmblensplus.curvedsky.utils)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -468,7 +641,7 @@
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="basic/basic.html#basic.cosmofuncs.nz_gw">nz_gw() (in module basic.cosmofuncs)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.cosmofuncs.nz_gw">nz_gw() (in module cmblensplus.basic.cosmofuncs)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -476,15 +649,15 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.delens.phi2grad">phi2grad() (in module curvedsky.delens)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.delens.phi2grad">phi2grad() (in module cmblensplus.curvedsky.delens)</a>
 </li>
-      <li><a href="basic/basic.html#basic.galaxy.photoz_error">photoz_error() (in module basic.galaxy)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.galaxy.photoz_error">photoz_error() (in module cmblensplus.basic.galaxy)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.polcoord2angle">polcoord2angle() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.polcoord2angle">polcoord2angle() (in module cmblensplus.curvedsky.utils)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.utils.polcoord2angle_alm">polcoord2angle_alm() (in module curvedsky.utils)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.utils.polcoord2angle_alm">polcoord2angle_alm() (in module cmblensplus.curvedsky.utils)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -492,133 +665,133 @@
 <h2 id="Q">Q</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_quad.qall">qall() (in module curvedsky.norm_quad)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.norm_quad.qall">qall() (in module cmblensplus.curvedsky.norm_quad)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_imag.qbb">qbb() (in module curvedsky.norm_imag)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.norm_imag.qbb">qbb() (in module cmblensplus.curvedsky.norm_imag)</a>
 
       <ul>
-        <li><a href="curvedsky/curvedsky.html#curvedsky.norm_quad.qbb">(in module curvedsky.norm_quad)</a>
+        <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.norm_quad.qbb">(in module cmblensplus.curvedsky.norm_quad)</a>
 </li>
-        <li><a href="curvedsky/curvedsky.html#curvedsky.rec_lens.qbb">(in module curvedsky.rec_lens)</a>
+        <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.rec_lens.qbb">(in module cmblensplus.curvedsky.rec_lens)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.rec_lens.qbb">(in module flatsky.rec_lens)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.rec_lens.qbb">(in module cmblensplus.flatsky.rec_lens)</a>
 </li>
       </ul></li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_imag.qbb_asym">qbb_asym() (in module curvedsky.norm_imag)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.norm_imag.qbb_asym">qbb_asym() (in module cmblensplus.curvedsky.norm_imag)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_imag.qeb">qeb() (in module curvedsky.norm_imag)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.norm_imag.qeb">qeb() (in module cmblensplus.curvedsky.norm_imag)</a>
 
       <ul>
-        <li><a href="curvedsky/curvedsky.html#curvedsky.norm_quad.qeb">(in module curvedsky.norm_quad)</a>
+        <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.norm_quad.qeb">(in module cmblensplus.curvedsky.norm_quad)</a>
 </li>
-        <li><a href="curvedsky/curvedsky.html#curvedsky.rec_lens.qeb">(in module curvedsky.rec_lens)</a>
+        <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.rec_lens.qeb">(in module cmblensplus.curvedsky.rec_lens)</a>
 </li>
-        <li><a href="curvedsky/curvedsky.html#curvedsky.rec_rot.qeb">(in module curvedsky.rec_rot)</a>
+        <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.rec_rot.qeb">(in module cmblensplus.curvedsky.rec_rot)</a>
 </li>
-        <li><a href="curvedsky/curvedsky.html#curvedsky.rec_tau.qeb">(in module curvedsky.rec_tau)</a>
+        <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.rec_tau.qeb">(in module cmblensplus.curvedsky.rec_tau)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.norm_lens.qeb">(in module flatsky.norm_lens)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.norm_lens.qeb">(in module cmblensplus.flatsky.norm_lens)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.norm_rot.qeb">(in module flatsky.norm_rot)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.norm_rot.qeb">(in module cmblensplus.flatsky.norm_rot)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.norm_tau.qeb">(in module flatsky.norm_tau)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.norm_tau.qeb">(in module cmblensplus.flatsky.norm_tau)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.rec_lens.qeb">(in module flatsky.rec_lens)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.rec_lens.qeb">(in module cmblensplus.flatsky.rec_lens)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.rec_rot.qeb">(in module flatsky.rec_rot)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.rec_rot.qeb">(in module cmblensplus.flatsky.rec_rot)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.rec_src.qeb">(in module flatsky.rec_src)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.rec_src.qeb">(in module cmblensplus.flatsky.rec_src)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.rec_tau.qeb">(in module flatsky.rec_tau)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.rec_tau.qeb">(in module cmblensplus.flatsky.rec_tau)</a>
 </li>
       </ul></li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_quad.qeb_iter">qeb_iter() (in module curvedsky.norm_quad)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.norm_quad.qeb_iter">qeb_iter() (in module cmblensplus.curvedsky.norm_quad)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_imag.qee">qee() (in module curvedsky.norm_imag)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.norm_imag.qee">qee() (in module cmblensplus.curvedsky.norm_imag)</a>
 
       <ul>
-        <li><a href="curvedsky/curvedsky.html#curvedsky.norm_quad.qee">(in module curvedsky.norm_quad)</a>
+        <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.norm_quad.qee">(in module cmblensplus.curvedsky.norm_quad)</a>
 </li>
-        <li><a href="curvedsky/curvedsky.html#curvedsky.rec_lens.qee">(in module curvedsky.rec_lens)</a>
+        <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.rec_lens.qee">(in module cmblensplus.curvedsky.rec_lens)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.norm_lens.qee">(in module flatsky.norm_lens)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.norm_lens.qee">(in module cmblensplus.flatsky.norm_lens)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.rec_lens.qee">(in module flatsky.rec_lens)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.rec_lens.qee">(in module cmblensplus.flatsky.rec_lens)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.rec_rot.qee">(in module flatsky.rec_rot)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.rec_rot.qee">(in module cmblensplus.flatsky.rec_rot)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.rec_src.qee">(in module flatsky.rec_src)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.rec_src.qee">(in module cmblensplus.flatsky.rec_src)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.rec_tau.qee">(in module flatsky.rec_tau)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.rec_tau.qee">(in module cmblensplus.flatsky.rec_tau)</a>
 </li>
       </ul></li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_quad.qmv">qmv() (in module curvedsky.norm_quad)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.norm_quad.qmv">qmv() (in module cmblensplus.curvedsky.norm_quad)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_imag.qtb">qtb() (in module curvedsky.norm_imag)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.norm_imag.qtb">qtb() (in module cmblensplus.curvedsky.norm_imag)</a>
 
       <ul>
-        <li><a href="curvedsky/curvedsky.html#curvedsky.norm_quad.qtb">(in module curvedsky.norm_quad)</a>
+        <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.norm_quad.qtb">(in module cmblensplus.curvedsky.norm_quad)</a>
 </li>
-        <li><a href="curvedsky/curvedsky.html#curvedsky.rec_lens.qtb">(in module curvedsky.rec_lens)</a>
+        <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.rec_lens.qtb">(in module cmblensplus.curvedsky.rec_lens)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.norm_lens.qtb">(in module flatsky.norm_lens)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.norm_lens.qtb">(in module cmblensplus.flatsky.norm_lens)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.rec_lens.qtb">(in module flatsky.rec_lens)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.rec_lens.qtb">(in module cmblensplus.flatsky.rec_lens)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.rec_rot.qtb">(in module flatsky.rec_rot)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.rec_rot.qtb">(in module cmblensplus.flatsky.rec_rot)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.rec_src.qtb">(in module flatsky.rec_src)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.rec_src.qtb">(in module cmblensplus.flatsky.rec_src)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.rec_tau.qtb">(in module flatsky.rec_tau)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.rec_tau.qtb">(in module cmblensplus.flatsky.rec_tau)</a>
 </li>
       </ul></li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_quad.qtbeb">qtbeb() (in module curvedsky.norm_quad)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.norm_quad.qtbeb">qtbeb() (in module cmblensplus.curvedsky.norm_quad)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_imag.qte">qte() (in module curvedsky.norm_imag)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.norm_imag.qte">qte() (in module cmblensplus.curvedsky.norm_imag)</a>
 
       <ul>
-        <li><a href="curvedsky/curvedsky.html#curvedsky.norm_quad.qte">(in module curvedsky.norm_quad)</a>
+        <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.norm_quad.qte">(in module cmblensplus.curvedsky.norm_quad)</a>
 </li>
-        <li><a href="curvedsky/curvedsky.html#curvedsky.rec_lens.qte">(in module curvedsky.rec_lens)</a>
+        <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.rec_lens.qte">(in module cmblensplus.curvedsky.rec_lens)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.norm_lens.qte">(in module flatsky.norm_lens)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.norm_lens.qte">(in module cmblensplus.flatsky.norm_lens)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.rec_lens.qte">(in module flatsky.rec_lens)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.rec_lens.qte">(in module cmblensplus.flatsky.rec_lens)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.rec_rot.qte">(in module flatsky.rec_rot)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.rec_rot.qte">(in module cmblensplus.flatsky.rec_rot)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.rec_src.qte">(in module flatsky.rec_src)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.rec_src.qte">(in module cmblensplus.flatsky.rec_src)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.rec_tau.qte">(in module flatsky.rec_tau)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.rec_tau.qte">(in module cmblensplus.flatsky.rec_tau)</a>
 </li>
       </ul></li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_quad.qteee">qteee() (in module curvedsky.norm_quad)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.norm_quad.qteee">qteee() (in module cmblensplus.curvedsky.norm_quad)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_quad.qtt">qtt() (in module curvedsky.norm_quad)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.norm_quad.qtt">qtt() (in module cmblensplus.curvedsky.norm_quad)</a>
 
       <ul>
-        <li><a href="curvedsky/curvedsky.html#curvedsky.rec_lens.qtt">(in module curvedsky.rec_lens)</a>
+        <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.rec_lens.qtt">(in module cmblensplus.curvedsky.rec_lens)</a>
 </li>
-        <li><a href="curvedsky/curvedsky.html#curvedsky.rec_src.qtt">(in module curvedsky.rec_src)</a>
+        <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.rec_src.qtt">(in module cmblensplus.curvedsky.rec_src)</a>
 </li>
-        <li><a href="curvedsky/curvedsky.html#curvedsky.rec_tau.qtt">(in module curvedsky.rec_tau)</a>
+        <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.rec_tau.qtt">(in module cmblensplus.curvedsky.rec_tau)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.norm_lens.qtt">(in module flatsky.norm_lens)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.norm_lens.qtt">(in module cmblensplus.flatsky.norm_lens)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.norm_tau.qtt">(in module flatsky.norm_tau)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.norm_tau.qtt">(in module cmblensplus.flatsky.norm_tau)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.rec_lens.qtt">(in module flatsky.rec_lens)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.rec_lens.qtt">(in module cmblensplus.flatsky.rec_lens)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.rec_src.qtt">(in module flatsky.rec_src)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.rec_src.qtt">(in module cmblensplus.flatsky.rec_src)</a>
 </li>
-        <li><a href="flatsky/flatsky.html#flatsky.rec_tau.qtt">(in module flatsky.rec_tau)</a>
+        <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.rec_tau.qtt">(in module cmblensplus.flatsky.rec_tau)</a>
 </li>
       </ul></li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_quad.qttee">qttee() (in module curvedsky.norm_quad)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.norm_quad.qttee">qttee() (in module cmblensplus.curvedsky.norm_quad)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_quad.qttte">qttte() (in module curvedsky.norm_quad)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.norm_quad.qttte">qttte() (in module cmblensplus.curvedsky.norm_quad)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -626,13 +799,7 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.delens.remap_tp">remap_tp() (in module curvedsky.delens)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.delens.remap_tp_map">remap_tp_map() (in module curvedsky.delens)</a>
-</li>
-      <li><a href="flatsky/flatsky.html#flatsky.utils.rotation">rotation() (in module flatsky.utils)</a>
+      <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.utils.rotation">rotation() (in module cmblensplus.flatsky.utils)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -640,11 +807,11 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.delens.shiftvec">shiftvec() (in module curvedsky.delens)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.delens.shiftvec">shiftvec() (in module cmblensplus.curvedsky.delens)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="basic/basic.html#basic.bispec.skewspeclens">skewspeclens() (in module basic.bispec)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.bispec.skewspeclens">skewspeclens() (in module cmblensplus.basic.bispec)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -652,15 +819,15 @@
 <h2 id="W">W</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="basic/basic.html#basic.wigner_funcs.wigner_3j">wigner_3j() (in module basic.wigner_funcs)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.wigner_funcs.wigner_3j">wigner_3j() (in module cmblensplus.basic.wigner_funcs)</a>
 </li>
-      <li><a href="flatsky/flatsky.html#flatsky.utils.window_norm">window_norm() (in module flatsky.utils)</a>
+      <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.utils.window_norm">window_norm() (in module cmblensplus.flatsky.utils)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="flatsky/flatsky.html#flatsky.utils.window_norm_x">window_norm_x() (in module flatsky.utils)</a>
+      <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.utils.window_norm_x">window_norm_x() (in module cmblensplus.flatsky.utils)</a>
 </li>
-      <li><a href="flatsky/flatsky.html#flatsky.utils.window_sin">window_sin() (in module flatsky.utils)</a>
+      <li><a href="flatsky/flatsky.html#cmblensplus.flatsky.utils.window_sin">window_sin() (in module cmblensplus.flatsky.utils)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -668,13 +835,13 @@
 <h2 id="X">X</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.bispec.xbispec_bin">xbispec_bin() (in module curvedsky.bispec)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.bispec.xbispec_bin">xbispec_bin() (in module cmblensplus.curvedsky.bispec)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_quad.xeb">xeb() (in module curvedsky.norm_quad)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.norm_quad.xeb">xeb() (in module cmblensplus.curvedsky.norm_quad)</a>
 </li>
-      <li><a href="curvedsky/curvedsky.html#curvedsky.norm_quad.xtt">xtt() (in module curvedsky.norm_quad)</a>
+      <li><a href="curvedsky/curvedsky.html#cmblensplus.curvedsky.norm_quad.xtt">xtt() (in module cmblensplus.curvedsky.norm_quad)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -682,11 +849,11 @@
 <h2 id="Z">Z</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="basic/basic.html#basic.galaxy.zbin">zbin() (in module basic.galaxy)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.galaxy.zbin">zbin() (in module cmblensplus.basic.galaxy)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="basic/basic.html#basic.bispec.zpoints">zpoints() (in module basic.bispec)</a>
+      <li><a href="basic/basic.html#cmblensplus.basic.bispec.zpoints">zpoints() (in module cmblensplus.basic.bispec)</a>
 </li>
   </ul></td>
 </tr></table>

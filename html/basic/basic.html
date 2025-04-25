@@ -134,15 +134,35 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.delens.</span></span><span class="sig-name descname"><span class="pre">lintemplate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">klmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">klmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">WE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Wm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'p'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.delens.lintemplate" title="Link to this definition"></a></dt>
 <dd><p>Estimate of lensing template B-mode power spectrum (Wiener filters as inputs)</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (<em>int</em>) : Maximum multipole of output spectrum
-:elmin (<em>int</em>) : Minimum multipole of E
-:elmax (<em>int</em>) : Maximum multipole of E
-:klmin (<em>int</em>) : Minimum multipole of lensing mass
-:klmax (<em>int</em>) : Maximum multipole of lensing mass
-:CE[<em>l</em>] (<em>double</em>) : Power spectrum of E-mode, with bounds (0:dlmax)
-:Cp[<em>l</em>] (<em>double</em>) : Power spectrum of lensing pontential, with bounds (0:dlmax)
-:WE[<em>l</em>] (<em>double</em>) : Wiener filter of E-mode, with bounds (0:dlmax)
-:Wp[<em>l</em>] (<em>double</em>) : Wiener filter of lensing potential, with bountd (0:dlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax(<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output spectrum</p>
+</dd>
+<dt class="field-even">elmin(<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum multipole of E</p>
+</dd>
+<dt class="field-odd">elmax (<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of E</p>
+</dd>
+<dt class="field-even">klmin (<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum multipole of lensing mass</p>
+</dd>
+<dt class="field-odd">klmax (<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of lensing mass</p>
+</dd>
+<dt class="field-even">CE[<em>l</em>] (<em>double</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Power spectrum of E-mode, with bounds (0:dlmax)</p>
+</dd>
+<dt class="field-odd">Cp[<em>l</em>] (<em>double</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Power spectrum of lensing pontential, with bounds (0:dlmax)</p>
+</dd>
+<dt class="field-even">WE[<em>l</em>] (<em>double</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Wiener filter of E-mode, with bounds (0:dlmax)</p>
+</dd>
+<dt class="field-odd">Wp[<em>l</em>] (<em>double</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Wiener filter of lensing potential, with bountd (0:dlmax)</p>
+</dd>
+</dl>
 </dd>
 <dt>Args(optional):</dt><dd><dl class="field-list simple">
 <dt class="field-odd">gtype (<em>str</em>)<span class="colon">:</span></dt>

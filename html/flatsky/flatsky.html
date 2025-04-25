@@ -1,0 +1,154 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>flatsky – Flatsky analysis tools &mdash; cmblensplus  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../static/jquery.js?v=5d32c60e"></script>
+      <script src="../static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../static/doctools.js?v=9bcbadda"></script>
+      <script src="../static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Licenses" href="../license.html" />
+    <link rel="prev" title="curvedsky – Curvedsky analysis tools" href="../curvedsky/curvedsky.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            cmblensplus
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation Guide</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../basic/basic.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">basic</span></code> – Some basic tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../curvedsky/curvedsky.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flatsky</span></code> – Flatsky analysis tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#rec-lens-quadratic-lensing-reconstruction"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rec-rot-quadratic-pol-rot-reconstruction"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_rot</span></code> – quadratic pol. rot. reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rec-tau-quadratic-patchy-tau-reconstruction"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic patchy tau reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rec-src-quadratic-point-src-reconstruction"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-src reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#norm-lens-normalization-of-quadratic-lensing-reconstruction"><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_lens</span></code> – normalization of quadratic lensing reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#norm-rot-normalization-of-quadratic-pol-rot-reconstruction"><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_rot</span></code> – normalization of quadratic pol. rot. reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#norm-tau-normalization-of-quadratic-patchy-tay-reconstruction"><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_tau</span></code> – normalization of quadratic patchy tay reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bispec-bispectrum-tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bispec</span></code> – bispectrum tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utils-other-tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code> – other tools</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">Licenses</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cmblensplus</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flatsky</span></code> – Flatsky analysis tools</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../sources/flatsky/flatsky.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="flatsky-flatsky-analysis-tools">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">flatsky</span></code> – Flatsky analysis tools<a class="headerlink" href="#flatsky-flatsky-analysis-tools" title="Link to this heading"></a></h1>
+<section id="rec-lens-quadratic-lensing-reconstruction">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction<a class="headerlink" href="#rec-lens-quadratic-lensing-reconstruction" title="Link to this heading"></a></h2>
+</section>
+<section id="rec-rot-quadratic-pol-rot-reconstruction">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_rot</span></code> – quadratic pol. rot. reconstruction<a class="headerlink" href="#rec-rot-quadratic-pol-rot-reconstruction" title="Link to this heading"></a></h2>
+</section>
+<section id="rec-tau-quadratic-patchy-tau-reconstruction">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic patchy tau reconstruction<a class="headerlink" href="#rec-tau-quadratic-patchy-tau-reconstruction" title="Link to this heading"></a></h2>
+</section>
+<section id="rec-src-quadratic-point-src-reconstruction">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-src reconstruction<a class="headerlink" href="#rec-src-quadratic-point-src-reconstruction" title="Link to this heading"></a></h2>
+</section>
+<section id="norm-lens-normalization-of-quadratic-lensing-reconstruction">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_lens</span></code> – normalization of quadratic lensing reconstruction<a class="headerlink" href="#norm-lens-normalization-of-quadratic-lensing-reconstruction" title="Link to this heading"></a></h2>
+</section>
+<section id="norm-rot-normalization-of-quadratic-pol-rot-reconstruction">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_rot</span></code> – normalization of quadratic pol. rot. reconstruction<a class="headerlink" href="#norm-rot-normalization-of-quadratic-pol-rot-reconstruction" title="Link to this heading"></a></h2>
+</section>
+<section id="norm-tau-normalization-of-quadratic-patchy-tay-reconstruction">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_tau</span></code> – normalization of quadratic patchy tay reconstruction<a class="headerlink" href="#norm-tau-normalization-of-quadratic-patchy-tay-reconstruction" title="Link to this heading"></a></h2>
+</section>
+<section id="bispec-bispectrum-tools">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">bispec</span></code> – bispectrum tools<a class="headerlink" href="#bispec-bispectrum-tools" title="Link to this heading"></a></h2>
+</section>
+<section id="utils-other-tools">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code> – other tools<a class="headerlink" href="#utils-other-tools" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../curvedsky/curvedsky.html" class="btn btn-neutral float-left" title="curvedsky – Curvedsky analysis tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../license.html" class="btn btn-neutral float-right" title="Licenses" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019, Toshiya Namikawa.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,478 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>curvedsky – Curvedsky analysis tools &mdash; cmblensplus  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../static/jquery.js?v=5d32c60e"></script>
+      <script src="../static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../static/doctools.js?v=9bcbadda"></script>
+      <script src="../static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="flatsky – Flatsky analysis tools" href="../flatsky/flatsky.html" />
+    <link rel="prev" title="basic – Some basic tools" href="../basic/basic.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            cmblensplus
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation Guide</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../basic/basic.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">basic</span></code> – Some basic tools</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-cmblensplus.curvedsky.rec_lens"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cmblensplus.curvedsky.rec_lens.qtt"><code class="docutils literal notranslate"><span class="pre">qtt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cmblensplus.curvedsky.rec_lens.qte"><code class="docutils literal notranslate"><span class="pre">qte()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cmblensplus.curvedsky.rec_lens.qtb"><code class="docutils literal notranslate"><span class="pre">qtb()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cmblensplus.curvedsky.rec_lens.qee"><code class="docutils literal notranslate"><span class="pre">qee()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cmblensplus.curvedsky.rec_lens.qeb"><code class="docutils literal notranslate"><span class="pre">qeb()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cmblensplus.curvedsky.rec_lens.qbb"><code class="docutils literal notranslate"><span class="pre">qbb()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rec-rot-quadratic-rotation-reconstruction"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_rot</span></code> – quadratic rotation reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rec-tau-quadratic-tau-reconstruction"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic tau reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rec-src-quadratic-point-soruce-reconstruction"><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-soruce reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#norm-quad-normalization-of-quadratic-estimator-reconstruction"><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_quad</span></code> – normalization of quadratic estimator reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#norm-imag-normalization-of-imaginary-quadratic-estimator-reconstruction"><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_imag</span></code> – normalization of imaginary quadratic estimator reconstruction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delens-delensing-for-simulation"><code class="xref py py-mod docutils literal notranslate"><span class="pre">delens</span></code> – delensing for simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bispec-binned-reduced-bispectrum"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bispec</span></code> – binned reduced bispectrum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cninv-filtering-anisotropies"><code class="xref py py-mod docutils literal notranslate"><span class="pre">cninv</span></code> – Filtering Anisotropies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utils-other-tools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code> – other tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../flatsky/flatsky.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">flatsky</span></code> – Flatsky analysis tools</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">Licenses</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">cmblensplus</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../sources/curvedsky/curvedsky.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="curvedsky-curvedsky-analysis-tools">
+<h1><code class="xref py py-mod docutils literal notranslate"><span class="pre">curvedsky</span></code> – Curvedsky analysis tools<a class="headerlink" href="#curvedsky-curvedsky-analysis-tools" title="Link to this heading"></a></h1>
+<section id="module-cmblensplus.curvedsky.rec_lens">
+<span id="rec-lens-quadratic-lensing-reconstruction"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_lens</span></code> – quadratic lensing reconstruction<a class="headerlink" href="#module-cmblensplus.curvedsky.rec_lens" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="cmblensplus.curvedsky.rec_lens.qtt">
+<span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.rec_lens.</span></span><span class="sig-name descname"><span class="pre">qtt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tlm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tlm2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.rec_lens.qtt" title="Link to this definition"></a></dt>
+<dd><p>Reconstructing CMB lensing potential and its curl mode from the temperature quadratic estimator</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output lensing potential alms</p>
+</dd>
+<dt class="field-even">rlmin/rlmax (<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+</dd>
+<dt class="field-odd">fC [<em>l</em>] (<em>double</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TT spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">Tlm1 [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+<dt class="field-odd">Tlm2 [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside_t (<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside for the convolution calculation</p>
+</dd>
+<dt class="field-even">gtype (<em>str</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
+</dd>
+<dt class="field-odd">verbose (<em>bool</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Output messages, default to False</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">glm [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>CMB lensing potential alm, with bounds (0:lmax,0:lmax)</p>
+</dd>
+<dt class="field-even">clm [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Curl mode (pseudo lensing potential) alm, with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Usage:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">glm,clm = curvedsky.rec_lens.qtt(lmax,rlmin,rlmax,fC,Tlm1,Tlm2,nside_t,gtype,verbose)<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cmblensplus.curvedsky.rec_lens.qte">
+<span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.rec_lens.</span></span><span class="sig-name descname"><span class="pre">qte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tlm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Elm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.rec_lens.qte" title="Link to this definition"></a></dt>
+<dd><p>Reconstructing CMB lensing potential and its curl mode from the TE quadratic estimator</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output lensing potential alms</p>
+</dd>
+<dt class="field-even">rlmin/rlmax (<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+</dd>
+<dt class="field-odd">fC [<em>l</em>] (<em>double</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">Tlm [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+<dt class="field-odd">Elm [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside_t (<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside for the convolution calculation</p>
+</dd>
+<dt class="field-even">gtype (<em>str</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
+</dd>
+<dt class="field-odd">verbose (<em>bool</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Output messages, default to False</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">glm [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>CMB lensing potential, with bounds (0:lmax,0:lmax)</p>
+</dd>
+<dt class="field-even">clm [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Usage:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">glm,clm = curvedsky.rec_lens.qte(lmax,rlmin,rlmax,fC,Tlm,Elm,nside_t,gtype,verbose)<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cmblensplus.curvedsky.rec_lens.qtb">
+<span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.rec_lens.</span></span><span class="sig-name descname"><span class="pre">qtb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tlm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Blm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.rec_lens.qtb" title="Link to this definition"></a></dt>
+<dd><p>Reconstructing CMB lensing potential and its curl mode from the TB quadratic estimator</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output lensing potential alms</p>
+</dd>
+<dt class="field-even">rlmin/rlmax (<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+</dd>
+<dt class="field-odd">fC [<em>l</em>] (<em>double</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">Tlm [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+<dt class="field-odd">Blm [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside_t (<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside for the convolution calculation</p>
+</dd>
+<dt class="field-even">gtype (<em>str</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
+</dd>
+<dt class="field-odd">verbose (<em>bool</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Output messages, default to False</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">glm [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>CMB lensing potential, with bounds (0:lmax,0:lmax)</p>
+</dd>
+<dt class="field-even">clm [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Usage:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">glm,clm = curvedsky.rec_lens.qtb(lmax,rlmin,rlmax,fC,Tlm,Blm,nside_t,gtype,verbose)<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cmblensplus.curvedsky.rec_lens.qee">
+<span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.rec_lens.</span></span><span class="sig-name descname"><span class="pre">qee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Elm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Elm2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.rec_lens.qee" title="Link to this definition"></a></dt>
+<dd><p>Reconstructing CMB lensing potential and its curl mode from the EE quadratic estimator</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output lensing potential alms</p>
+</dd>
+<dt class="field-even">rlmin/rlmax (<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+</dd>
+<dt class="field-odd">fC [<em>l</em>] (<em>double</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">Elm1 [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>1st inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+<dt class="field-odd">Elm2 [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2nd inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside_t (<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside for the convolution calculation</p>
+</dd>
+<dt class="field-even">gtype (<em>str</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
+</dd>
+<dt class="field-odd">verbose (<em>bool</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Output messages, default to False</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">glm [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>CMB lensing potential, with bounds (0:lmax,0:lmax)</p>
+</dd>
+<dt class="field-even">clm [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Usage:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">glm,clm = curvedsky.rec_lens.qee(lmax,rlmin,rlmax,fC,Elm1,Elm2,nside_t,gtype,verbose)<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cmblensplus.curvedsky.rec_lens.qeb">
+<span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.rec_lens.</span></span><span class="sig-name descname"><span class="pre">qeb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Elm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Blm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.rec_lens.qeb" title="Link to this definition"></a></dt>
+<dd><p>Reconstructing CMB lensing potential and its curl mode from the EB quadratic estimator</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output lensing potential alms</p>
+</dd>
+<dt class="field-even">rlmin/rlmax (<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+</dd>
+<dt class="field-odd">fC [<em>l</em>] (<em>double</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">Elm [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+<dt class="field-odd">Blm [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside_t (<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside for the convolution calculation</p>
+</dd>
+<dt class="field-even">gtype (<em>str</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
+</dd>
+<dt class="field-odd">verbose (<em>bool</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Output messages, default to False</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">glm [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>CMB lensing potential, with bounds (0:lmax,0:lmax)</p>
+</dd>
+<dt class="field-even">clm [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Usage:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">glm,clm = curvedsky.rec_lens.qeb(lmax,rlmin,rlmax,fC,Elm,Blm,nside_t,gtype,verbose)<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="cmblensplus.curvedsky.rec_lens.qbb">
+<span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.rec_lens.</span></span><span class="sig-name descname"><span class="pre">qbb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Blm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Blm2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.rec_lens.qbb" title="Link to this definition"></a></dt>
+<dd><p>Reconstructing CMB lensing potential and its curl mode from the BB quadratic estimator</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output lensing potential alms</p>
+</dd>
+<dt class="field-even">rlmin/rlmax (<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipoles of CMB for reconstruction</p>
+</dd>
+<dt class="field-odd">fC [<em>l</em>] (<em>double</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>BB spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">Blm1 [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>1st inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+<dt class="field-odd">Blm2 [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2nd inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside_t (<em>int</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside for the convolution calculation</p>
+</dd>
+<dt class="field-even">gtype (<em>str</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
+</dd>
+<dt class="field-odd">verbose (<em>bool</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Output messages, default to False</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">glm [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>CMB lensing potential, with bounds (0:lmax,0:lmax)</p>
+</dd>
+<dt class="field-even">clm [<em>l,m</em>] (<em>dcmplx</em>)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Usage:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">glm,clm = curvedsky.rec_lens.qbb(lmax,rlmin,rlmax,fC,Blm1,Blm2,nside_t,gtype,verbose)<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="rec-rot-quadratic-rotation-reconstruction">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_rot</span></code> – quadratic rotation reconstruction<a class="headerlink" href="#rec-rot-quadratic-rotation-reconstruction" title="Link to this heading"></a></h2>
+</section>
+<section id="rec-tau-quadratic-tau-reconstruction">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_tau</span></code> – quadratic tau reconstruction<a class="headerlink" href="#rec-tau-quadratic-tau-reconstruction" title="Link to this heading"></a></h2>
+</section>
+<section id="rec-src-quadratic-point-soruce-reconstruction">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">rec_src</span></code> – quadratic point-soruce reconstruction<a class="headerlink" href="#rec-src-quadratic-point-soruce-reconstruction" title="Link to this heading"></a></h2>
+</section>
+<section id="norm-quad-normalization-of-quadratic-estimator-reconstruction">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_quad</span></code> – normalization of quadratic estimator reconstruction<a class="headerlink" href="#norm-quad-normalization-of-quadratic-estimator-reconstruction" title="Link to this heading"></a></h2>
+</section>
+<section id="norm-imag-normalization-of-imaginary-quadratic-estimator-reconstruction">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">norm_imag</span></code> – normalization of imaginary quadratic estimator reconstruction<a class="headerlink" href="#norm-imag-normalization-of-imaginary-quadratic-estimator-reconstruction" title="Link to this heading"></a></h2>
+</section>
+<section id="delens-delensing-for-simulation">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">delens</span></code> – delensing for simulation<a class="headerlink" href="#delens-delensing-for-simulation" title="Link to this heading"></a></h2>
+</section>
+<section id="bispec-binned-reduced-bispectrum">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">bispec</span></code> – binned reduced bispectrum<a class="headerlink" href="#bispec-binned-reduced-bispectrum" title="Link to this heading"></a></h2>
+</section>
+<section id="cninv-filtering-anisotropies">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">cninv</span></code> – Filtering Anisotropies<a class="headerlink" href="#cninv-filtering-anisotropies" title="Link to this heading"></a></h2>
+</section>
+<section id="utils-other-tools">
+<h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">utils</span></code> – other tools<a class="headerlink" href="#utils-other-tools" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../basic/basic.html" class="btn btn-neutral float-left" title="basic – Some basic tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../flatsky/flatsky.html" class="btn btn-neutral float-right" title="flatsky – Flatsky analysis tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019, Toshiya Namikawa.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

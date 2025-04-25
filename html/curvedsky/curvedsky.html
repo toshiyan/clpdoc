@@ -1725,14 +1725,12 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.cninv.cnfilter_freq">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.cninv.</span></span><span class="sig-name descname"><span class="pre">cnfilter_freq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iNcov</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmaxs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsides</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1e-06]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'W'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ro</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.cninv.cnfilter_freq" title="Link to this definition"></a></dt>
-<dd><dl class="simple">
-<dt>Combining multiple frequency CMB maps optimally. </dt><dd><p>The filtering would work if the noise variance is not significantly varied with scale (multipole).</p>
-</dd>
-</dl>
-<p>Please make sure that your input maps are beam-convolved. 
-This code deconvolves the beam during filtering and the output are the filtered alms after the beam-deconvolution.</p>
-<blockquote>
-<div><p>Note that n is for temperature only (n=1), polarization only (n=2) or both (n=3), mn is the number of frequency maps.</p>
+<dd><blockquote>
+<div><p>Combining multiple frequency CMB maps optimally. 
+The filtering would work if the noise variance is not significantly varied with scale (multipole).
+Please make sure that your input maps are beam-convolved. 
+This code deconvolves the beam during filtering and the output are the filtered alms after the beam-deconvolution.
+Note that n is for temperature only (n=1), polarization only (n=2) or both (n=3), mn is the number of frequency maps.</p>
 </div></blockquote>
 <dl>
 <dt>Args:</dt><dd><dl class="field-list simple">

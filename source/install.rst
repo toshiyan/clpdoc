@@ -16,26 +16,24 @@ Install
     git clone git@github.com:toshiyan/cmblensplus.git
 
 
-1) Edit the shell file to add, e.g. for .bashrc.ext in NERSC
+1) Install the public codes (FFTW, cfitsio, Healpix, Lenspix, and Lapack) at F90/pub/ or fortran_internal/src_public/
+
+2) Edit the shell file to add, e.g. for .bashrc.ext in NERSC
 
     module load intel
 
-    export LD_LIBRARY_PATH=${path-to-cmblensplus}/F90/pub/Healpix/lib/:${path-to-cmblensplus}/F90/pub/cfitsio/:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=${path-to-cmblensplus-F90-public-code}/Healpix/lib/:${path-to-cmblensplus-F90-public-code}/cfitsio/:$LD_LIBRARY_PATH
     
-    export PYTHONPATH=${path-to-cmblensplus}/utils/:${path-to-cmblensplus}/wrap/:$PYTHONPATH
+    export PYTHONPATH=${path-to-cmblensplus}/utils/:${path-to-cmblensplus}/wrap/:$PYTHONPATH (or export PYTHONPATH=${path-to-cmblensplus}/utils/:${path-to-cmblensplus}:$PYTHONPATH
 
 
-2) ./install.sh all 
-
-The install.sh script automatically install the public codes (FFTW, cfitsio, Healpix, Lenspix, and Lapack) at F90/pub/, and then the local sources at F90/. 
-Then the script produces python modules using f2py. 
-The python modules can be found in wrap/ for python 3.
-(wrap_py2 for python 2 is no longer supported)
-
+3) ./install.sh wrap or setup.py build
 
 
 Tips
 ----
+
+- Use icx for CC in Healpix installation on NERSC
 
 - libifport.so.5 not found
 
@@ -44,6 +42,4 @@ Tips
 - Segmentation fault after installing everything
 
   Some Healpix subroutine has a problem. One quick solution is to set "ulimit -s unlimited"
-
-
 

@@ -1,6 +1,6 @@
 .. basic:
 
-.. currentmodule:: basic
+.. currentmodule:: cmblensplus.basic
 
 :mod:`basic` -- Some basic tools
 ===============================================
@@ -8,36 +8,36 @@
 :mod:`delens` -- analytic calculation for delensing
 ---------------------------------------------------
 
-.. automodule:: basic.delens
+.. automodule:: cmblensplus.basic.delens
    :members:
 
 :mod:`bispec` -- analytic calculation of bispectrum
 ---------------------------------------------------
 
-.. automodule:: basic.bispec
+.. automodule:: cmblensplus.basic.bispec
    :members:
 
 :mod:`galaxy` -- tools for galaxy z distribution
 ---------------------------------------------------
 
-.. automodule:: basic.galaxy
+.. automodule:: cmblensplus.basic.galaxy
    :members:
 
 :mod:`cosmofuncs` -- tools for cosmology related functions
 -----------------------------------------------------------
 
-.. automodule:: basic.cosmofuncs
+.. automodule:: cmblensplus.basic.cosmofuncs
    :members:
 
 :mod:`flat` -- cross-check tools for flat-sky normalization
 -----------------------------------------------------------
 
-.. automodule:: basic.flat
+.. automodule:: cmblensplus.basic.flat
    :members:
 
 :mod:`wigner_funcs` -- Wigner 3j symbols
 -----------------------------------------------------------
 
-.. automodule:: basic.wigner_funcs
+.. automodule:: cmblensplus.basic.wigner_funcs
    :members:
 

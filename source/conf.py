@@ -74,6 +74,7 @@ pygments_style = None
 
 
 # -- Import modules -- #
+import cmblensplus
 import cmblensplus.basic as basic
 import cmblensplus.curvedsky
 import cmblensplus.flatsky as flatsky

@@ -1732,7 +1732,7 @@ Please make sure that your input maps are beam-convolved.
 This code deconvolves the beam during filtering and the output are the filtered alms after the beam-deconvolution.
 Note that n is for temperature only (n=1), polarization only (n=2) or both (n=3), mn is the number of frequency maps.</p>
 </div></blockquote>
-<dl>
+<dl class="simple">
 <dt>Args:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">cl[n,l] (double)<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Theory signal power spectrum, with bounds (0:n-1,0:lmax)</p>
@@ -1747,31 +1747,49 @@ Note that n is for temperature only (n=1), polarization only (n=2) or both (n=3)
 <dd class="field-even"><p>Beam-convolved T, Q, U maps, with bouds (0:n-1,0:mn-1,0:npix-1)</p>
 </dd>
 </dl>
-<p>Args(optional):
-:chn (int): Number of grids for preconsitioner (chn=1 for diagonal preconditioner, default)
-:lmaxs[chain] (int): Maximum multipole(s) at each preconditioning and lmaxs[0] is the input maximum multipole of cl
-:nsides[chain] (int): Nside(s) of preconditoner and nsides[0] should be consistent with the input map’s nside.
-:eps[chain] (double): Parameter to finish the iteration (i.e. terminate if the residul fraction becomes smaller than eps). Default to 1e-6.
-:itns[chain] (int): Number of interations.
-:filter (str): C-inverse (‘’) or Wiener filter (W), default to the Wiener filter.
-:inl[n,mn,l] (double): Inverse noise spectrum (0 for white noise case, default).
-:verbose (bool): Output messages, default to False
-:ro (int): the residual fraction is output for every ro iteration (e.g. ro=2 means 1 output per 2 iterations). Default to 50. Useful for convergence speed.
-:stat (str): Realtime status filename which contains the residual fraction, default to no output file</p>
 </dd>
-<dt>Returns:</dt><dd><blockquote>
-<div><dl class="field-list simple">
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">chn (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of grids for preconsitioner (chn=1 for diagonal preconditioner, default)</p>
+</dd>
+<dt class="field-even">lmaxs[chain] (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Maximum multipole(s) at each preconditioning and lmaxs[0] is the input maximum multipole of cl</p>
+</dd>
+<dt class="field-odd">nsides[chain] (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside(s) of preconditoner and nsides[0] should be consistent with the input map’s nside.</p>
+</dd>
+<dt class="field-even">eps[chain] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Parameter to finish the iteration (i.e. terminate if the residul fraction becomes smaller than eps). Default to 1e-6.</p>
+</dd>
+<dt class="field-odd">itns[chain] (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of interations.</p>
+</dd>
+<dt class="field-even">filter (str)<span class="colon">:</span></dt>
+<dd class="field-even"><p>C-inverse (‘’) or Wiener filter (W), default to the Wiener filter.</p>
+</dd>
+<dt class="field-odd">inl[n,mn,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Inverse noise spectrum (0 for white noise case, default).</p>
+</dd>
+<dt class="field-even">verbose (bool)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Output messages, default to False</p>
+</dd>
+<dt class="field-odd">ro (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the residual fraction is output for every ro iteration (e.g. ro=2 means 1 output per 2 iterations). Default to 50. Useful for convergence speed.</p>
+</dd>
+<dt class="field-even">stat (str)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Realtime status filename which contains the residual fraction, default to no output file</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">xlm[n,l,m] (dcmplx)<span class="colon">:</span></dt>
 <dd class="field-odd"><p>C-inverse / Wiener filtered multipoles, with bounds (0:n-1,0:lmax,0:lmax)</p>
 </dd>
 </dl>
-</div></blockquote>
-<dl class="simple">
+</dd>
 <dt>Usage:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">xlm = curvedsky.cninv.cnfilter_freq(n,mn,npix,lmax,cl,bl,iNcov,maps,chn,lmaxs,nsides,itns,eps,filter,inl,verbose,ro,stat)<span class="colon">:</span></dt>
 <dd class="field-odd"><p></p></dd>
-</dl>
-</dd>
 </dl>
 </dd>
 </dl>

@@ -1,58 +1,58 @@
 .. curvedsky:
 
-.. currentmodule:: curvedsky
+.. currentmodule:: cmblensplus.curvedsky
 
 :mod:`curvedsky` -- Curvedsky analysis tools
 ===============================================
 
 :mod:`rec_lens` -- quadratic lensing reconstruction
 ----------------------------------------------------
-.. automodule:: curvedsky.rec_lens
+.. automodule:: cmblensplus.curvedsky.rec_lens
    :members:
 
 :mod:`rec_rot` -- quadratic rotation reconstruction
 ----------------------------------------------------
-.. automodule:: curvedsky.rec_rot
+.. automodule:: cmblensplus.ccurvedsky.rec_rot
    :members:
 
 :mod:`rec_tau` -- quadratic tau reconstruction
 ----------------------------------------------------
-.. automodule:: curvedsky.rec_tau
+.. automodule:: cmblensplus.ccurvedsky.rec_tau
    :members:
 
 :mod:`rec_src` -- quadratic point-soruce reconstruction
 -------------------------------------------------------
-.. automodule:: curvedsky.rec_src
+.. automodule:: cmblensplus.ccurvedsky.rec_src
    :members:
 
 :mod:`norm_quad` -- normalization of quadratic estimator reconstruction
 -----------------------------------------------------------------------
-.. automodule:: curvedsky.norm_quad
+.. automodule:: cmblensplus.ccurvedsky.norm_quad
    :members:
 
 :mod:`norm_imag` -- normalization of imaginary quadratic estimator reconstruction
 ---------------------------------------------------------------------------------
-.. automodule:: curvedsky.norm_imag
+.. automodule:: cmblensplus.ccurvedsky.norm_imag
    :members:
 
 :mod:`delens` -- delensing for simulation
 ----------------------------------------------------
-.. automodule:: curvedsky.delens
+.. automodule:: cmblensplus.ccurvedsky.delens
    :members:
 
 :mod:`bispec` -- binned reduced bispectrum
 ----------------------------------------------------
-.. automodule:: curvedsky.bispec
+.. automodule:: cmblensplus.ccurvedsky.bispec
    :members:
 
 :mod:`cninv` -- Filtering Anisotropies
 ----------------------------------------------------
-.. automodule:: curvedsky.cninv
+.. automodule:: cmblensplus.ccurvedsky.cninv
    :members:
 
 :mod:`utils` -- other tools
 ----------------------------------------------------
-.. automodule:: curvedsky.utils
+.. automodule:: cmblensplus.ccurvedsky.utils
    :members:
 
 

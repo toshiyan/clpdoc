@@ -165,43 +165,18 @@
 <dt class="sig sig-object py" id="cmblensplus.flatsky.rec_lens.qtt">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.rec_lens.</span></span><span class="sig-name descname"><span class="pre">qtt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.rec_lens.qtt" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the temperature quadratic estimator</p>
-<dl>
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>:nx, ny (int)       : Number of Lx and Ly grids
+:D[xy] (double)     : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)        : Minimum and maximum multipole of CMB for reconstruction
+:fC[lx,ly] (double) : Temperature power spectrum on 2D grid, with bounds (nx,ny)
+:T1[lx,ly] (dcmplx) : 2D Fourier modes of 1st inverse-variance filtered temperature, with bounds (nx,ny)
+:T2[lx,ly] (dcmplx) : 2D Fourier modes of 2nd inverse-variance filtered temperature, with bounds (nx,ny)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
+<dt>Args(optional):</dt><dd><p>:gtype (str) : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
 </dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">fC[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Temperature power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">T1[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of 1st inverse-variance filtered temperature, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">T2[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of 2nd inverse-variance filtered temperature, with bounds (nx,ny)</p>
-</dd>
-</dl>
-<p>Args(optional):
-:gtype (str): Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">glm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of CMB lensing potential, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">clm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of Curl mode (pseudo lensing potential), with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">glm,clm = flatsky.rec_lens.qtt(nx,ny,D,rL,fC,T1,T2,gtype)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:glm[lx,ly] (dcmplx) : 2D Fourier modes of CMB lensing potential, with bounds (nx,ny)
+:clm[lx,ly] (dcmplx) : 2D Fourier modes of Curl mode (pseudo lensing potential), with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -210,43 +185,18 @@
 <dt class="sig sig-object py" id="cmblensplus.flatsky.rec_lens.qte">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.rec_lens.</span></span><span class="sig-name descname"><span class="pre">qte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.rec_lens.qte" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the suboptimal TE quadratic estimator</p>
-<dl>
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>:nx, ny (int)       : Number of Lx and Ly grids
+:D[xy] (double)     : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)        : Minimum and maximum multipole of CMB for reconstruction
+:fC[lx,ly] (double) : TE cross power spectrum on 2D grid, with bounds (nx,ny)
+:T[lx,ly] (dcmplx)  : 2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)
+:E[lx,ly] (dcmplx)  : 2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
+<dt>Args(optional):</dt><dd><p>:gtype (str) : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
 </dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">fC[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>TE cross power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">T[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">E[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</p>
-</dd>
-</dl>
-<p>Args(optional):
-:gtype (str): Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">glm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of CMB lensing potential, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">clm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of Curl mode (pseudo lensing potential), with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">glm,clm = flatsky.rec_lens.qte(nx,ny,D,rL,fC,T,E,gtype)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:glm[lx,ly] (dcmplx) : 2D Fourier modes of CMB lensing potential, with bounds (nx,ny)
+:clm[lx,ly] (dcmplx) : 2D Fourier modes of Curl mode (pseudo lensing potential), with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -255,43 +205,18 @@
 <dt class="sig sig-object py" id="cmblensplus.flatsky.rec_lens.qtb">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.rec_lens.</span></span><span class="sig-name descname"><span class="pre">qtb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.rec_lens.qtb" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the TB quadratic estimator</p>
-<dl>
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>:nx, ny (int)         : Number of Lx and Ly grids
+:D[xy] (double)       : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)          : Minimum and maximum multipole of CMB for reconstruction
+:fC[lx,ly] (double)   : TE cross power spectrum on 2D grid, with bounds (nx,ny)
+:T[lx,ly] (dcmplx)    : 2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)
+:B[lx,ly] (dcmplx)    : 2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
+<dt>Args(optional):</dt><dd><p>:gtype (str) : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
 </dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">fC[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>TE cross power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">T[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">B[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</p>
-</dd>
-</dl>
-<p>Args(optional):
-:gtype (str): Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">glm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of CMB lensing potential, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">clm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of Curl mode (pseudo lensing potential), with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">glm,clm = flatsky.rec_lens.qtb(nx,ny,D,rL,fC,T,B,gtype)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:glm[lx,ly] (dcmplx) : 2D Fourier modes of CMB lensing potential, with bounds (nx,ny)
+:clm[lx,ly] (dcmplx) : 2D Fourier modes of Curl mode (pseudo lensing potential), with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -300,43 +225,18 @@
 <dt class="sig sig-object py" id="cmblensplus.flatsky.rec_lens.qee">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.rec_lens.</span></span><span class="sig-name descname"><span class="pre">qee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.rec_lens.qee" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the EE quadratic estimator</p>
-<dl>
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>:nx, ny (int)       : Number of Lx and Ly grids
+:D[xy] (double)     : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)        : Minimum and maximum multipole of CMB for reconstruction
+:fC[lx,ly] (double) : EE power spectrum on 2D grid, with bounds (nx,ny)
+:E1[lx,ly] (dcmplx) : 2D Fourier modes of 1st inverse-variance filtered E-mode, with bounds (nx,ny)
+:E2[lx,ly] (dcmplx) : 2D Fourier modes of 2nd inverse-variance filtered E-mode, with bounds (nx,ny)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
+<dt>Args(optional):</dt><dd><p>:gtype (str) : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
 </dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">fC[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>EE power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">E1[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of 1st inverse-variance filtered E-mode, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">E2[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of 2nd inverse-variance filtered E-mode, with bounds (nx,ny)</p>
-</dd>
-</dl>
-<p>Args(optional):
-:gtype (str): Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">glm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of CMB lensing potential, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">clm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of Curl mode (pseudo lensing potential), with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">glm,clm = flatsky.rec_lens.qee(nx,ny,D,rL,fC,E1,E2,gtype)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:glm[lx,ly] (dcmplx) : 2D Fourier modes of CMB lensing potential, with bounds (nx,ny)
+:clm[lx,ly] (dcmplx) : 2D Fourier modes of Curl mode (pseudo lensing potential), with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -345,43 +245,18 @@
 <dt class="sig sig-object py" id="cmblensplus.flatsky.rec_lens.qeb">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.rec_lens.</span></span><span class="sig-name descname"><span class="pre">qeb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.rec_lens.qeb" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the EB quadratic estimator</p>
-<dl>
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>:nx, ny (int)         : Number of Lx and Ly grids
+:D[xy] (double)       : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)          : Minimum and maximum multipole of CMB for reconstruction
+:fC[lx,ly] (double)   : EE power spectrum on 2D grid, with bounds (nx,ny)
+:E[lx,ly] (dcmplx)    : 2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)
+:B[lx,ly] (dcmplx)    : 2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
+<dt>Args(optional):</dt><dd><p>:gtype (str) : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
 </dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">fC[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>EE power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">E[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">B[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</p>
-</dd>
-</dl>
-<p>Args(optional):
-:gtype (str): Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">glm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of CMB lensing potential, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">clm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of Curl mode (pseudo lensing potential), with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">glm,clm = flatsky.rec_lens.qeb(nx,ny,D,rL,fC,E,B,gtype)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:glm[lx,ly] (dcmplx) : 2D Fourier modes of CMB lensing potential, with bounds (nx,ny)
+:clm[lx,ly] (dcmplx) : 2D Fourier modes of Curl mode (pseudo lensing potential), with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -390,43 +265,18 @@
 <dt class="sig sig-object py" id="cmblensplus.flatsky.rec_lens.qbb">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.rec_lens.</span></span><span class="sig-name descname"><span class="pre">qbb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.rec_lens.qbb" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the BB quadratic estimator</p>
-<dl>
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>:nx, ny (int)         : Number of Lx and Ly grids
+:D[xy] (double)       : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)          : Minimum and maximum multipole of CMB for reconstruction
+:fC[lx,ly] (double)   : BB power spectrum on 2D grid, with bounds (nx,ny)
+:B1[lx,ly] (dcmplx)   : 2D Fourier modes of 1st inverse-variance filtered B-mode, with bounds (nx,ny)
+:B2[lx,ly] (dcmplx)   : 2D Fourier modes of 2nd inverse-variance filtered B-mode, with bounds (nx,ny)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
+<dt>Args(optional):</dt><dd><p>:gtype (str) : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
 </dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">fC[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>BB power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">B1[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of 1st inverse-variance filtered B-mode, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">B2[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of 2nd inverse-variance filtered B-mode, with bounds (nx,ny)</p>
-</dd>
-</dl>
-<p>Args(optional):
-:gtype (str): Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">glm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of CMB lensing potential, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">clm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of Curl mode (pseudo lensing potential), with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">glm,clm = flatsky.rec_lens.qbb(nx,ny,D,rL,fC,B1,B2,gtype)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:glm[lx,ly] (dcmplx) : 2D Fourier modes of CMB lensing potential, with bounds (nx,ny)
+:clm[lx,ly] (dcmplx) : 2D Fourier modes of Curl mode (pseudo lensing potential), with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -439,37 +289,14 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.rec_rot.</span></span><span class="sig-name descname"><span class="pre">qte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.rec_rot.qte" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing anisotropic pol. rot. angles from TE quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)       : Number of Lx and Ly grids
+:D[xy] (double)     : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)        : Minimum and maximum multipole of CMB for reconstruction
+:fC[lx,ly] (double) : TE cross power spectrum on 2D grid, with bounds (nx,ny)
+:T[lx,ly] (dcmplx)  : 2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)
+:E[lx,ly] (dcmplx)  : 2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">fC[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>TE cross power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">T[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">E[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of anisotropic pol. rot. angles, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm = flatsky.rec_rot.qte(nx,ny,D,rL,fC,T,E)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:alm[lx,ly] (dcmplx) : 2D Fourier modes of anisotropic pol. rot. angles, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -479,37 +306,14 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.rec_rot.</span></span><span class="sig-name descname"><span class="pre">qtb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.rec_rot.qtb" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing anisotropic pol. rot. angles from TB quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)         : Number of Lx and Ly grids
+:D[xy] (double)       : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)          : Minimum and maximum multipole of CMB for reconstruction
+:fC[lx,ly] (double)   : TE cross power spectrum on 2D grid, with bounds (nx,ny)
+:T[lx,ly] (dcmplx)    : 2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)
+:B[lx,ly] (dcmplx)    : 2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">fC[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>TE cross power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">T[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">B[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of anisotropic pol. rot. angles, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm = flatsky.rec_rot.qtb(nx,ny,D,rL,fC,T,B)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:alm[lx,ly] (dcmplx) : 2D Fourier modes of anisotropic pol. rot. angles, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -519,36 +323,17 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.rec_rot.</span></span><span class="sig-name descname"><span class="pre">qee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.rec_rot.qee" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing anisotropic pol. rot. angles from EE quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
-</dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">fC[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>EE power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">E1[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of 1st inverse-variance filtered E-mode, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">E2[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of 2nd inverse-variance filtered E-mode, with bounds (nx,ny)</p>
-</dd>
-</dl>
+<dt>Args:</dt><dd><p>:nx, ny (int)       : Number of Lx and Ly grids
+:D[xy] (double)     : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)        : Minimum and maximum multipole of CMB for reconstruction
+:fC[lx,ly] (double) : EE power spectrum on 2D grid, with bounds (nx,ny)
+:E1[lx,ly] (dcmplx) : 2D Fourier modes of 1st inverse-variance filtered E-mode, with bounds (nx,ny)
+:E2[lx,ly] (dcmplx) : 2D Fourier modes of 2nd inverse-variance filtered E-mode, with bounds (nx,ny)</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">alm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
 <dd class="field-odd"><p>2D Fourier modes of anisotropic pol. rot. angles, with bounds (nx,ny)</p>
 </dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm = flatsky.rec_rot.qee(nx,ny,D,rL,fC,E1,E2)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
 </dl>
 </dd>
 </dl>
@@ -558,40 +343,17 @@
 <dt class="sig sig-object py" id="cmblensplus.flatsky.rec_rot.qeb">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.rec_rot.</span></span><span class="sig-name descname"><span class="pre">qeb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">EE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BB</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.rec_rot.qeb" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing anisotropic pol. rot. angles from EB quadratic estimator</p>
-<dl>
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>:nx, ny (int)         : Number of Lx and Ly grids
+:D[xy] (double)       : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)          : Minimum and maximum multipole of CMB for reconstruction
+:fC[lx,ly] (double)   : EE power spectrum on 2D grid, with bounds (nx,ny)
+:E[lx,ly] (dcmplx)    : 2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)
+:B[lx,ly] (dcmplx)    : 2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
+<dt>Args(Optional):</dt><dd><p>:BB[lx,ly] (double) : Theory B-mode spectrum on 2D grid, with bounds (nx,ny), default to BB=0</p>
 </dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">fC[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>EE power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">E[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">B[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</p>
-</dd>
-</dl>
-<p>Args(Optional):
-:BB[lx,ly] (double): Theory B-mode spectrum on 2D grid, with bounds (nx,ny), default to BB=0</p>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of anisotropic pol. rot. angles, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm = flatsky.rec_rot.qeb(nx,ny,D,rL,EE,E,B,BB)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:alm[lx,ly] (dcmplx) : 2D Fourier modes of anisotropic pol. rot. angles, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -604,36 +366,17 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.rec_tau.</span></span><span class="sig-name descname"><span class="pre">qtt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.rec_tau.qtt" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing patchy tau from the temperature quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
-</dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">fC[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Temperature power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">T1[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of 1st inverse-variance filtered temperature, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">T2[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of 2nd inverse-variance filtered temperature, with bounds (nx,ny)</p>
-</dd>
-</dl>
+<dt>Args:</dt><dd><p>:nx, ny (int)       : Number of Lx and Ly grids
+:D[xy] (double)     : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)        : Minimum and maximum multipole of CMB for reconstruction
+:fC[lx,ly] (double) : Temperature power spectrum on 2D grid, with bounds (nx,ny)
+:T1[lx,ly] (dcmplx) : 2D Fourier modes of 1st inverse-variance filtered temperature, with bounds (nx,ny)
+:T2[lx,ly] (dcmplx) : 2D Fourier modes of 2nd inverse-variance filtered temperature, with bounds (nx,ny)</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">tlm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
 <dd class="field-odd"><p>2D Fourier modes of patchy tau, with bounds (nx,ny)</p>
 </dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">tlm = flatsky.rec_tau.qtt(nx,ny,D,rL,fC,T1,T2)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
 </dl>
 </dd>
 </dl>
@@ -644,37 +387,14 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.rec_tau.</span></span><span class="sig-name descname"><span class="pre">qte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.rec_tau.qte" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing patchy tau from the suboptimal TE quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)       : Number of Lx and Ly grids
+:D[xy] (double)     : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)        : Minimum and maximum multipole of CMB for reconstruction
+:fC[lx,ly] (double) : TE cross power spectrum on 2D grid, with bounds (nx,ny)
+:T[lx,ly] (dcmplx)  : 2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)
+:E[lx,ly] (dcmplx)  : 2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">fC[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>TE cross power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">T[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">E[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">tlm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of patchy tau, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">tlm = flatsky.rec_tau.qte(nx,ny,D,rL,fC,T,E)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:tlm[lx,ly] (dcmplx) : 2D Fourier modes of patchy tau, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -684,37 +404,14 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.rec_tau.</span></span><span class="sig-name descname"><span class="pre">qtb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.rec_tau.qtb" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing patchy tau from the TB quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)         : Number of Lx and Ly grids
+:D[xy] (double)       : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)          : Minimum and maximum multipole of CMB for reconstruction
+:fC[lx,ly] (double)   : TE cross power spectrum on 2D grid, with bounds (nx,ny)
+:T[lx,ly] (dcmplx)    : 2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)
+:B[lx,ly] (dcmplx)    : 2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">fC[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>TE cross power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">T[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">B[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">tlm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of patchy tau, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">tlm = flatsky.rec_tau.qtb(nx,ny,D,rL,fC,T,B)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:tlm[lx,ly] (dcmplx) : 2D Fourier modes of patchy tau, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -724,37 +421,14 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.rec_tau.</span></span><span class="sig-name descname"><span class="pre">qee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.rec_tau.qee" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing patchy tau from the EE quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)       : Number of Lx and Ly grids
+:D[xy] (double)     : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)        : Minimum and maximum multipole of CMB for reconstruction
+:fC[lx,ly] (double) : EE power spectrum on 2D grid, with bounds (nx,ny)
+:E1[lx,ly] (dcmplx) : 2D Fourier modes of 1st inverse-variance filtered E-mode, with bounds (nx,ny)
+:E2[lx,ly] (dcmplx) : 2D Fourier modes of 2nd inverse-variance filtered E-mode, with bounds (nx,ny)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">fC[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>EE power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">E1[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of 1st inverse-variance filtered E-mode, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">E2[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of 2nd inverse-variance filtered E-mode, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">tlm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of patchy tau, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">tlm = flatsky.rec_tau.qee(nx,ny,D,rL,fC,E1,E2)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:tlm[lx,ly] (dcmplx) : 2D Fourier modes of patchy tau, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -764,40 +438,15 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.rec_tau.</span></span><span class="sig-name descname"><span class="pre">qeb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.rec_tau.qeb" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing patchy tau from the EB quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)         : Number of Lx and Ly grids
+:D[xy] (double)       : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)          : Minimum and maximum multipole of CMB for reconstruction
+:fE[lx,ly] (double)   : EE power spectrum on 2D grid, with bounds (nx,ny)
+:fB[lx,ly] (double)   : BB power spectrum on 2D grid, with bounds (nx,ny)
+:E[lx,ly] (dcmplx)    : 2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)
+:B[lx,ly] (dcmplx)    : 2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">fE[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>EE power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">fB[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>BB power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">E[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">B[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">tlm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of patchy tau, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">tlm = flatsky.rec_tau.qeb(nx,ny,D,rL,fE,fB,E,B)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:tlm[lx,ly] (dcmplx) : 2D Fourier modes of patchy tau, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -810,36 +459,17 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.rec_src.</span></span><span class="sig-name descname"><span class="pre">qtt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.rec_src.qtt" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing point source fields from the temperature quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
-</dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">fC[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Temperature power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">T1[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of 1st inverse-variance filtered temperature, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">T2[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of 2nd inverse-variance filtered temperature, with bounds (nx,ny)</p>
-</dd>
-</dl>
+<dt>Args:</dt><dd><p>:nx, ny (int)       : Number of Lx and Ly grids
+:D[xy] (double)     : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)        : Minimum and maximum multipole of CMB for reconstruction
+:fC[lx,ly] (double) : Temperature power spectrum on 2D grid, with bounds (nx,ny)
+:T1[lx,ly] (dcmplx) : 2D Fourier modes of 1st inverse-variance filtered temperature, with bounds (nx,ny)
+:T2[lx,ly] (dcmplx) : 2D Fourier modes of 2nd inverse-variance filtered temperature, with bounds (nx,ny)</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">slm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
 <dd class="field-odd"><p>2D Fourier modes of point source fields, with bounds (nx,ny)</p>
 </dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">slm = flatsky.rec_src.qtt(nx,ny,D,rL,T1,T2)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
 </dl>
 </dd>
 </dl>
@@ -850,37 +480,14 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.rec_src.</span></span><span class="sig-name descname"><span class="pre">qte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.rec_src.qte" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing point source fields from the suboptimal TE quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)       : Number of Lx and Ly grids
+:D[xy] (double)     : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)        : Minimum and maximum multipole of CMB for reconstruction
+:fC[lx,ly] (double) : TE cross power spectrum on 2D grid, with bounds (nx,ny)
+:T[lx,ly] (dcmplx)  : 2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)
+:E[lx,ly] (dcmplx)  : 2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">fC[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>TE cross power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">T[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">E[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">slm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of point source fields, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">slm = flatsky.rec_src.qte(nx,ny,D,rL,T,E)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:slm[lx,ly] (dcmplx) : 2D Fourier modes of point source fields, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -890,37 +497,14 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.rec_src.</span></span><span class="sig-name descname"><span class="pre">qtb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.rec_src.qtb" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing point source fields from the TB quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)         : Number of Lx and Ly grids
+:D[xy] (double)       : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)          : Minimum and maximum multipole of CMB for reconstruction
+:fC[lx,ly] (double)   : TE cross power spectrum on 2D grid, with bounds (nx,ny)
+:T[lx,ly] (dcmplx)    : 2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)
+:B[lx,ly] (dcmplx)    : 2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">fC[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>TE cross power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">T[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of inverse-variance filtered temperature, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">B[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">slm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of point source fields, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">slm = flatsky.rec_src.qtb(nx,ny,D,rL,T,B)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:slm[lx,ly] (dcmplx) : 2D Fourier modes of point source fields, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -930,37 +514,14 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.rec_src.</span></span><span class="sig-name descname"><span class="pre">qee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.rec_src.qee" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing point source fields from the EE quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)       : Number of Lx and Ly grids
+:D[xy] (double)     : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)        : Minimum and maximum multipole of CMB for reconstruction
+:fC[lx,ly] (double) : EE power spectrum on 2D grid, with bounds (nx,ny)
+:E1[lx,ly] (dcmplx) : 2D Fourier modes of 1st inverse-variance filtered E-mode, with bounds (nx,ny)
+:E2[lx,ly] (dcmplx) : 2D Fourier modes of 2nd inverse-variance filtered E-mode, with bounds (nx,ny)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">fC[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>EE power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">E1[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of 1st inverse-variance filtered E-mode, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">E2[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of 2nd inverse-variance filtered E-mode, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">slm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of point source fields, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">slm = flatsky.rec_src.qee(nx,ny,D,rL,E1,E2)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:slm[lx,ly] (dcmplx) : 2D Fourier modes of point source fields, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -970,37 +531,14 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.rec_src.</span></span><span class="sig-name descname"><span class="pre">qeb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">B</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.rec_src.qeb" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing point source fields from the EB quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)         : Number of Lx and Ly grids
+:D[xy] (double)       : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)          : Minimum and maximum multipole of CMB for reconstruction
+:fC[lx,ly] (double)   : EE power spectrum on 2D grid, with bounds (nx,ny)
+:E[lx,ly] (dcmplx)    : 2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)
+:B[lx,ly] (dcmplx)    : 2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">fC[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>EE power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">E[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of inverse-variance filtered E-mode, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">B[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2D Fourier modes of inverse-variance filtered B-mode, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">slm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D Fourier modes of point source fields, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">slm = flatsky.rec_src.qeb(nx,ny,D,rL,E,B)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:slm[lx,ly] (dcmplx) : 2D Fourier modes of point source fields, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1013,40 +551,15 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.norm_lens.</span></span><span class="sig-name descname"><span class="pre">qtt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.norm_lens.qtt" title="Link to this definition"></a></dt>
 <dd><p>Normalization of the temperature quadratic estimator for CMB lensing potential and its curl mode</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)       : Number of Lx and Ly grids
+:D[xy] (double)     : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)        : Minimum and maximum multipole of CMB for reconstruction
+:OT[lx,ly] (double) : Inverse of Observed temperature power spectrum on 2D grid, with bounds (nx,ny)
+:TT[lx,ly] (double) : Theory temperature power spectrum on 2D grid, with bounds (nx,ny)
+:eL[2] (int)        : Minimum and maximum multipole of output normalization spectrum, with bounds (2)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">OT[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Inverse of Observed temperature power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">TT[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory temperature power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">eL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum and maximum multipole of output normalization spectrum, with bounds (2)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Ag[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalization of CMB lensing potential on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">Ac[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Normalization of Curl mode (pseudo lensing potential) on 2D grid, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Ag,Ac = flatsky.norm_lens.qtt(nx,ny,D,rL,OT,TT,eL)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:Ag[lx,ly] (dcmplx) : Normalization of CMB lensing potential on 2D grid, with bounds (nx,ny)
+:Ac[lx,ly] (dcmplx) : Normalization of Curl mode (pseudo lensing potential) on 2D grid, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1056,43 +569,16 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.norm_lens.</span></span><span class="sig-name descname"><span class="pre">qte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.norm_lens.qte" title="Link to this definition"></a></dt>
 <dd><p>Normalization of the TE quadratic estimator for CMB lensing potential and its curl mode</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)       : Number of Lx and Ly grids
+:D[xy] (double)     : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)        : Minimum and maximum multipole of CMB for reconstruction
+:OT[lx,ly] (double) : Inverse of Observed temperature power spectrum on 2D grid, with bounds (nx,ny)
+:OE[lx,ly] (double) : Inverse of Observed E-mode power spectrum on 2D grid, with bounds (nx,ny)
+:TE[lx,ly] (double) : Theory TE cross spectrum on 2D grid, with bounds (nx,ny)
+:eL[2] (int)        : Minimum and maximum multipole of output normalization spectrum, with bounds (2)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">OT[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Inverse of Observed temperature power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">OE[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Inverse of Observed E-mode power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">TE[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Theory TE cross spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">eL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of output normalization spectrum, with bounds (2)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Ag[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalization of CMB lensing potential on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">Ac[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Normalization of Curl mode (pseudo lensing potential) on 2D grid, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Ag,Ac = flatsky.norm_lens.qte(nx,ny,D,rL,OT,OE,TE,eL)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:Ag[lx,ly] (dcmplx) : Normalization of CMB lensing potential on 2D grid, with bounds (nx,ny)
+:Ac[lx,ly] (dcmplx) : Normalization of Curl mode (pseudo lensing potential) on 2D grid, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1102,43 +588,16 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.norm_lens.</span></span><span class="sig-name descname"><span class="pre">qtb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.norm_lens.qtb" title="Link to this definition"></a></dt>
 <dd><p>Normalization of the TB quadratic estimator for CMB lensing potential and its curl mode</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)       : Number of Lx and Ly grids
+:D[xy] (double)     : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)        : Minimum and maximum multipole of CMB for reconstruction
+:OT[lx,ly] (double) : Inverse of Observed temperature power spectrum on 2D grid, with bounds (nx,ny)
+:OB[lx,ly] (double) : Inverse of Observed B-mode power spectrum on 2D grid, with bounds (nx,ny)
+:TE[lx,ly] (double) : Theory TE cross spectrum on 2D grid, with bounds (nx,ny)
+:eL[2] (int)        : Minimum and maximum multipole of output normalization spectrum, with bounds (2)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">OT[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Inverse of Observed temperature power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">OB[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Inverse of Observed B-mode power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">TE[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Theory TE cross spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">eL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of output normalization spectrum, with bounds (2)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Ag[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalization of CMB lensing potential on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">Ac[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Normalization of Curl mode (pseudo lensing potential) on 2D grid, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Ag,Ac = flatsky.norm_lens.qtb(nx,ny,D,OT,OB,TE,rL,eL)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:Ag[lx,ly] (dcmplx) : Normalization of CMB lensing potential on 2D grid, with bounds (nx,ny)
+:Ac[lx,ly] (dcmplx) : Normalization of Curl mode (pseudo lensing potential) on 2D grid, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1148,40 +607,15 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.norm_lens.</span></span><span class="sig-name descname"><span class="pre">qee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">EE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.norm_lens.qee" title="Link to this definition"></a></dt>
 <dd><p>Normalization of the EE quadratic estimator for CMB lensing potential and its curl mode</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)       : Number of Lx and Ly grids
+:D[xy] (double)     : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)        : Minimum and maximum multipole of CMB for reconstruction
+:OE[lx,ly] (double) : Inverse of Observed E-mode power spectrum on 2D grid, with bounds (nx,ny)
+:EE[lx,ly] (double) : Theory E-mode spectrum on 2D grid, with bounds (nx,ny)
+:eL[2] (int)        : Minimum and maximum multipole of output normalization spectrum, with bounds (2)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">OE[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Inverse of Observed E-mode power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">EE[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory E-mode spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">eL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum and maximum multipole of output normalization spectrum, with bounds (2)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Ag[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalization of CMB lensing potential on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">Ac[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Normalization of Curl mode (pseudo lensing potential) on 2D grid, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Ag,Ac = flatsky.norm_lens.qee(nx,ny,D,OE,EE,rL,eL)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:Ag[lx,ly] (dcmplx) : Normalization of CMB lensing potential on 2D grid, with bounds (nx,ny)
+:Ac[lx,ly] (dcmplx) : Normalization of Curl mode (pseudo lensing potential) on 2D grid, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1191,43 +625,16 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.norm_lens.</span></span><span class="sig-name descname"><span class="pre">qeb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">EE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.norm_lens.qeb" title="Link to this definition"></a></dt>
 <dd><p>Normalization of the EB quadratic estimator for CMB lensing potential and its curl mode</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)       : Number of Lx and Ly grids
+:D[xy] (double)     : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)        : Minimum and maximum multipole of CMB for reconstruction
+:OE[lx,ly] (double) : Inverse of Observed E-mode power spectrum on 2D grid, with bounds (nx,ny)
+:OB[lx,ly] (double) : Inverse of Observed B-mode power spectrum on 2D grid, with bounds (nx,ny)
+:EE[lx,ly] (double) : Theory E-mode spectrum on 2D grid, with bounds (nx,ny)
+:eL[2] (int)        : Minimum and maximum multipole of output normalization spectrum, with bounds (2)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">OE[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Inverse of Observed E-mode power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">OB[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Inverse of Observed B-mode power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">EE[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Theory E-mode spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">eL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of output normalization spectrum, with bounds (2)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Ag[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalization of CMB lensing potential on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">Ac[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Normalization of Curl mode (pseudo lensing potential) on 2D grid, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Ag,Ac = flatsky.norm_lens.qeb(nx,ny,D,OE,OB,EE,rL,eL)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:Ag[lx,ly] (dcmplx) : Normalization of CMB lensing potential on 2D grid, with bounds (nx,ny)
+:Ac[lx,ly] (dcmplx) : Normalization of Curl mode (pseudo lensing potential) on 2D grid, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1239,43 +646,18 @@
 <dt class="sig sig-object py" id="cmblensplus.flatsky.norm_rot.qeb">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.norm_rot.</span></span><span class="sig-name descname"><span class="pre">qeb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">IE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">IB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">EE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BB</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.norm_rot.qeb" title="Link to this definition"></a></dt>
 <dd><p>Normalization of the EB quadratic estimator for anisotropic pol. rot. angles</p>
-<dl>
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>:nx, ny (int)       : Number of Lx and Ly grids
+:D[xy] (double)     : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)        : Minimum and maximum multipole of CMB for reconstruction
+:IE[lx,ly] (double) : Inverse of observed E-mode power spectrum on 2D grid, with bounds (nx,ny)
+:IB[lx,ly] (double) : Inverse of observed B-mode power spectrum on 2D grid, with bounds (nx,ny)
+:EE[lx,ly] (double) : Theory E-mode spectrum on 2D grid, with bounds (nx,ny)
+:eL[2] (int)        : Minimum and maximum multipole of output normalization spectrum, with bounds (2)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
+<dt>Args(Optional):</dt><dd><p>:BB[lx,ly] (double) : Theory B-mode spectrum on 2D grid, with bounds (nx,ny), default to BB=0</p>
 </dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">IE[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Inverse of observed E-mode power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">IB[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Inverse of observed B-mode power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">EE[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Theory E-mode spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">eL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of output normalization spectrum, with bounds (2)</p>
-</dd>
-</dl>
-<p>Args(Optional):
-:BB[lx,ly] (double): Theory B-mode spectrum on 2D grid, with bounds (nx,ny), default to BB=0</p>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Aa[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalization of anisotropic pol. rot. angles on 2D grid, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Aa = flatsky.norm_rot.qeb(nx,ny,D,rL,IE,IB,EE,eL,BB)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:Aa[lx,ly] (dcmplx) : Normalization of anisotropic pol. rot. angles on 2D grid, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1288,37 +670,14 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.norm_tau.</span></span><span class="sig-name descname"><span class="pre">qtt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.norm_tau.qtt" title="Link to this definition"></a></dt>
 <dd><p>Normalization of the temperature quadratic estimator for patchy tau</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)       : Number of Lx and Ly grids
+:D[xy] (double)     : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)        : Minimum and maximum multipole of CMB for reconstruction
+:OT[lx,ly] (double) : Inverse of Observed temperature power spectrum on 2D grid, with bounds (nx,ny)
+:TT[lx,ly] (double) : Theory temperature power spectrum on 2D grid, with bounds (nx,ny)
+:eL[2] (int)        : Minimum and maximum multipole of output normalization spectrum, with bounds (2)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">OT[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Inverse of Observed temperature power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">TT[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory temperature power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">eL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum and maximum multipole of output normalization spectrum, with bounds (2)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">At[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalization of patchy tau on 2D grid, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">At = flatsky.norm_tau.qtt(nx,ny,D,rL,OT,TT,eL)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:At[lx,ly] (dcmplx) : Normalization of patchy tau on 2D grid, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1328,40 +687,15 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.norm_tau.</span></span><span class="sig-name descname"><span class="pre">qeb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">IE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">IB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">EE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.norm_tau.qeb" title="Link to this definition"></a></dt>
 <dd><p>Normalization of the EB quadratic estimator for patchy tau</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)       : Number of Lx and Ly grids
+:D[xy] (double)     : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:rL[2] (int)        : Minimum and maximum multipole of CMB for reconstruction
+:IE[lx,ly] (double) : Inverse of observed E-mode power spectrum on 2D grid, with bounds (nx,ny)
+:IB[lx,ly] (double) : Inverse of observed B-mode power spectrum on 2D grid, with bounds (nx,ny)
+:EE[lx,ly] (double) : Theory E-mode spectrum on 2D grid, with bounds (nx,ny)
+:eL[2] (int)        : Minimum and maximum multipole of output normalization spectrum, with bounds (2)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">rL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of CMB for reconstruction</p>
-</dd>
-<dt class="field-even">IE[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Inverse of observed E-mode power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">IB[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Inverse of observed B-mode power spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">EE[lx,ly] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Theory E-mode spectrum on 2D grid, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">eL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum and maximum multipole of output normalization spectrum, with bounds (2)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">At[lx,ly] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalization of patchy tau on 2D grid, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">At = flatsky.norm_tau.qeb(nx,ny,D,rL,IE,IB,EE,eL)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:At[lx,ly] (dcmplx) : Normalization of patchy tau on 2D grid, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1372,54 +706,23 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.flatsky.bispec.bispec_norm">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.bispec.</span></span><span class="sig-name descname"><span class="pre">bispec_norm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dbin_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.bispec.bispec_norm" title="Link to this definition"></a></dt>
-<dd><dl class="simple">
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">norm = flatsky.bispec.bispec_norm(nx,ny,D,bp,dbin_max,bn)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.flatsky.bispec.bispec_bin">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.bispec.</span></span><span class="sig-name descname"><span class="pre">bispec_bin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kmap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dbin_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.bispec.bispec_bin" title="Link to this definition"></a></dt>
-<dd><dl class="simple">
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">bispec = flatsky.bispec.bispec_bin(kn,bn,nx,ny,kmap,bp,dbin_max)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.flatsky.bispec.binfilter">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.bispec.</span></span><span class="sig-name descname"><span class="pre">binfilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.bispec.binfilter" title="Link to this definition"></a></dt>
 <dd><p>The multipole bin binary-mask given on the 2D Fourier grids so that M = 1 inside the multipole bin and 0 otherwise</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)          : Number of Lx and Ly grids
+:D[2] (double)         : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:bp[bn+1] (double)     : Multipole bin edges</p>
 </dd>
-<dt class="field-even">D[2] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">bp[bn+1] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Multipole bin edges</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">bf[bn,nx,ny] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The multipole bin binary-mask for each multipol bin</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">bf = flatsky.bispec.binfilter(nx,ny,D,bp,bn)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:bf[bn,nx,ny] (double) : The multipole bin binary-mask for each multipol bin</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1429,28 +732,11 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.bispec.</span></span><span class="sig-name descname"><span class="pre">bispec_norm_1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bfs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.bispec.bispec_norm_1d" title="Link to this definition"></a></dt>
 <dd><p>Normalization of the 1D binned bispectrum estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)             : Number of Lx and Ly grids
+:D[2] (double)            : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:bfs[3,bn,nx,ny] (double) : Multipole bin mask on 2D grids obtained from the binfilter function</p>
 </dd>
-<dt class="field-even">D[2] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">bfs[3,bn,nx,ny] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Multipole bin mask on 2D grids obtained from the binfilter function</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">bnorm[bn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalization of 1D binned bispectrum at each multipole bin</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">bnorm = flatsky.bispec.bispec_norm_1d(nx,ny,D,bfs,bn)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:bnorm[bn] (double)       : Normalization of 1D binned bispectrum at each multipole bin</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1460,34 +746,13 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.bispec.</span></span><span class="sig-name descname"><span class="pre">bispec_bin_1d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bfs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bnorm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.bispec.bispec_bin_1d" title="Link to this definition"></a></dt>
 <dd><p>1D binned bispectrum estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)             : Number of Lx and Ly grids
+:D[2] (double)            : Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:bfs[3,bn,nx,ny] (double) : Multipole bin mask on 2D grids obtained from the binfilter function
+:bnorm[bn] (double)       : Normalization of 1D binned bispectrum at each multipole bin
+:alm[3,nx,ny] (dcmplx)    : Fourier modes for each leg</p>
 </dd>
-<dt class="field-even">D[2] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">bfs[3,bn,nx,ny] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Multipole bin mask on 2D grids obtained from the binfilter function</p>
-</dd>
-<dt class="field-even">bnorm[bn] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Normalization of 1D binned bispectrum at each multipole bin</p>
-</dd>
-<dt class="field-odd">alm[3,nx,ny] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Fourier modes for each leg</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">bispec[bn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1D binned bispectrum at each multipole bin</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">bispec = flatsky.bispec.bispec_bin_1d(nx,ny,D,bfs,bnorm,alm,bn)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:bispec[bn] (double)      : 1D binned bispectrum at each multipole bin</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1500,28 +765,11 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.utils.</span></span><span class="sig-name descname"><span class="pre">map2alm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.utils.map2alm" title="Link to this definition"></a></dt>
 <dd><p>DFT for 2D array.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of x and y grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)      : Number of x and y grids
+:D[2] (double)     : Side length (x and y) of map
+:map[x,y] (double) : Map on 2D grid with bounds (nx,ny)</p>
 </dd>
-<dt class="field-even">D[2] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Side length (x and y) of map</p>
-</dd>
-<dt class="field-odd">map[x,y] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Map on 2D grid with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm[x,y] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Fourier modes on 2D grid, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm = flatsky.utils.map2alm(nx,ny,D,map)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:alm[x,y] (dcmplx) : Fourier modes on 2D grid, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1531,28 +779,11 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.utils.</span></span><span class="sig-name descname"><span class="pre">alm2map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.utils.alm2map" title="Link to this definition"></a></dt>
 <dd><p>DFT for 2D array.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dt>Args:</dt><dd><p>:nx, ny (int)      : Number of Lx and Ly grids
+:D[2] (double)     : Side length (x and y) of map
+:alm[x,y] (dcmplx) : Fourier modes on 2D grid to be transformed, with bounds (nx,ny)</p>
 </dd>
-<dt class="field-even">D[2] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Side length (x and y) of map</p>
-</dd>
-<dt class="field-odd">alm[x,y] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Fourier modes on 2D grid to be transformed, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">map[x,y] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Map on 2D grid, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">map = flatsky.utils.alm2map(nx,ny,D,alm)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:map[x,y] (double) : Map on 2D grid, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1577,11 +808,6 @@
 </dd>
 </dl>
 </dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">els = flatsky.utils.el2d(nx,ny,D)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</dd>
 </dl>
 </dd></dl>
 
@@ -1599,25 +825,10 @@
 </dd>
 </dl>
 </dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">elx[nx,ny] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Lx, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">ely[nx,ny] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Ly, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-odd">els[nx,ny] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>absolute value of Fourier mode, (Lx**2+Ly**2)**0.5, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">eli[nx,ny] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>inverse of els, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">elx,ely,els,eli = flatsky.utils.elarrays(nx,ny,D)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:elx[nx,ny] (double) : Lx, with bounds (nx,ny)
+:ely[nx,ny] (double) : Ly, with bounds (nx,ny)
+:els[nx,ny] (double) : absolute value of Fourier mode, (Lx**2+Ly**2)**0.5, with bounds (nx,ny)
+:eli[nx,ny] (double) : inverse of els, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1626,7 +837,7 @@
 <dt class="sig sig-object py" id="cmblensplus.flatsky.utils.elmask">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.utils.</span></span><span class="sig-name descname"><span class="pre">elmask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lxcut</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lycut</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.utils.elmask" title="Link to this definition"></a></dt>
 <dd><p>Return mask in 2D Fourier space. The lmask is unity at lmin&lt;=|L|&lt;=lmax, <a href="#id5"><span class="problematic" id="id6">|Lx|</span></a>&gt;=lxcut, <a href="#id7"><span class="problematic" id="id8">|Ly|</span></a>&gt;=lycut, and otherwize zero.</p>
-<dl>
+<dl class="simple">
 <dt>Args: </dt><dd><dl class="field-list simple">
 <dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
 <dd class="field-odd"><p>number of Lx and Ly grids</p>
@@ -1635,20 +846,11 @@
 <dd class="field-even"><p>map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
 </dd>
 </dl>
-<p>Args(optional):
-:lmin/lmax (int): Minimum/Maximum of multipoles
+</dd>
+<dt>Args(optional):</dt><dd><p>:lmin/lmax (int)  : Minimum/Maximum of multipoles
 :lxcut/lycut (int): Remove <a href="#id1"><span class="problematic" id="id2">|</span></a>Lx|&lt;lxcut / <a href="#id3"><span class="problematic" id="id4">|</span></a>Ly|&lt;lycut cut of multipoles</p>
 </dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmask[nx,ny] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Mask, with bounds (nx,ny)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmask = flatsky.utils.elmask(nx,ny,D,lmin,lmax,lxcut,lycut)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:lmask[nx,ny] (double) : Mask, with bounds (nx,ny)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1658,37 +860,20 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.utils.</span></span><span class="sig-name descname"><span class="pre">alm2bcl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.utils.alm2bcl" title="Link to this definition"></a></dt>
 <dd><p>Compute angular power spectrum from Fourier modes, with multipole binning</p>
 <dl>
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">bn (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>number of multipole bin</p>
+<dt>Args:</dt><dd><p>:bn (int)      : number of multipole bin
+:oL[2] (int)   : minimum and maximum multipoles of the output cl
+:nx, ny (int)  : number of Lx and Ly grids
+:D[xy] (double): map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:alm1[nx,ny] (dcmplx): Fourier mode, with bounds (nx,ny)</p>
 </dd>
-<dt class="field-even">oL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>minimum and maximum multipoles of the output cl</p>
-</dd>
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>number of Lx and Ly grids</p>
-</dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">alm1[nx,ny] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Fourier mode, with bounds (nx,ny)</p>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">alm2[nx,ny] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Fourier mode, with bounds (nx,ny), default to None</p>
 </dd>
 </dl>
-<p>Args(optional):
-:alm2[nx,ny] (dcmplx): Fourier mode, with bounds (nx,ny), default to None
-:spc (str): type of multipole binning, i.e., linear spacing (spc=’’, default), or log spacing (spc=’log’)</p>
+<p>:spc (str)           : type of multipole binning, i.e., linear spacing (spc=’’, default), or log spacing (spc=’log’)</p>
 </dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Cb[bin] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>angular power spectrum with multipole binning, with bounds (bn)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Cb = flatsky.utils.alm2bcl(bn,oL,nx,ny,D,alm1,alm2,spc)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:Cb[bin] (double) : angular power spectrum with multipole binning, with bounds (bn)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1697,37 +882,16 @@
 <dt class="sig sig-object py" id="cmblensplus.flatsky.utils.c2d2bcl">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.utils.</span></span><span class="sig-name descname"><span class="pre">c2d2bcl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c2d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.utils.c2d2bcl" title="Link to this definition"></a></dt>
 <dd><p>Return 1D angular power spectrum with multipole binning from a 2D power spectrum</p>
-<dl>
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>number of Lx and Ly grids</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>:nx, ny (int)       : number of Lx and Ly grids
+:D[xy] (double)     : map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:c2d[nx,ny] (double): 2D power spectrum, with bounds (nx,ny)
+:bn (int)           : number of multipole bin
+:oL[2] (int)        : minimum and maximum multipoles of the output cl</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
+<dt>Args(optional):</dt><dd><p>:spc (str) : type of multipole binning, i.e., linear spacing (spc=’’, default), or log spacing (spc=’log’)</p>
 </dd>
-<dt class="field-odd">c2d[nx,ny] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2D power spectrum, with bounds (nx,ny)</p>
-</dd>
-<dt class="field-even">bn (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>number of multipole bin</p>
-</dd>
-<dt class="field-odd">oL[2] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>minimum and maximum multipoles of the output cl</p>
-</dd>
-</dl>
-<p>Args(optional):
-:spc (str): type of multipole binning, i.e., linear spacing (spc=’’, default), or log spacing (spc=’log’)</p>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Cb[bin] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>angular power spectrum with multipole binning, with bounds (bn)</p>
-</dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Cb = flatsky.utils.c2d2bcl(nx,ny,D,c2d,bn,oL,spc)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
+<dt>Returns:</dt><dd><p>:Cb[bin] (double) : angular power spectrum with multipole binning, with bounds (bn)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1736,36 +900,19 @@
 <dt class="sig sig-object py" id="cmblensplus.flatsky.utils.cl2c2d">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.utils.</span></span><span class="sig-name descname"><span class="pre">cl2c2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'linear'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.utils.cl2c2d" title="Link to this definition"></a></dt>
 <dd><p>Assign values of 1D angular power spectrum on to 2D grid with linear interpolation</p>
-<dl>
-<dt>Args: </dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>number of Lx and Ly grids</p>
+<dl class="simple">
+<dt>Args: </dt><dd><p>:nx, ny (int)   : number of Lx and Ly grids
+:D[xy] (double) : map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:lmin (int)     : minimum multipole of cl to be interpolated
+:lmax (int)     : maximum multipole of cl to be interpolated
+:Cl[l] (double) : 1D power spectrum, with bounds (0:lmax)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">lmin (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>minimum multipole of cl to be interpolated</p>
-</dd>
-<dt class="field-even">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>maximum multipole of cl to be interpolated</p>
-</dd>
-<dt class="field-odd">Cl[l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1D power spectrum, with bounds (0:lmax)</p>
-</dd>
-</dl>
-<p>Args(optional):
-:method (str): type of interpolation method, i.e., linear interpolation (method=’linear’, default), or step (method=’step’)</p>
+<dt>Args(optional):</dt><dd><p>:method (str) : type of interpolation method, i.e., linear interpolation (method=’linear’, default), or step (method=’step’)</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">c2d[nx,ny] (double)<span class="colon">:</span></dt>
 <dd class="field-odd"><p>2D power spectrum, with bounds (nx,ny)</p>
 </dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">c2d = flatsky.utils.cl2c2d(nx,ny,D,lmin,lmax,Cl,method)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
 </dl>
 </dd>
 </dl>
@@ -1775,42 +922,21 @@
 <dt class="sig sig-object py" id="cmblensplus.flatsky.utils.cb2c2d">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.utils.</span></span><span class="sig-name descname"><span class="pre">cb2c2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.utils.cb2c2d" title="Link to this definition"></a></dt>
 <dd><p>Assign values of 1D angular power spectrum on to 2D grid with linear interpolation</p>
-<dl>
-<dt>Args: </dt><dd><dl class="field-list simple">
-<dt class="field-odd">bn (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>number of multipole bins</p>
+<dl class="simple">
+<dt>Args: </dt><dd><p>:bn (int)        : number of multipole bins
+:bc[bin] (double): multipole bin center, with bounds (bn)
+:nx, ny (int)    : number of Lx and Ly grids
+:D[xy] (double)  : map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:lmin (int)      : minimum multipole of cl to be interpolated
+:lmax (int)      : maximum multipole of cl to be interpolated
+:Cb[bin] (double): 1D power spectrum with multipole binning, with bounds (bn)</p>
 </dd>
-<dt class="field-even">bc[bin] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>multipole bin center, with bounds (bn)</p>
-</dd>
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>number of Lx and Ly grids</p>
-</dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">lmin (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>minimum multipole of cl to be interpolated</p>
-</dd>
-<dt class="field-even">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>maximum multipole of cl to be interpolated</p>
-</dd>
-<dt class="field-odd">Cb[bin] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1D power spectrum with multipole binning, with bounds (bn)</p>
-</dd>
-</dl>
-<p>Args(optional):
-:method (str): interpolation method from binned to unbinned angular spectrum, i.e., spline (‘’, default), or linear (‘linear’) interpolation</p>
+<dt>Args(optional):</dt><dd><p>:method (str) : interpolation method from binned to unbinned angular spectrum, i.e., spline (‘’, default), or linear (‘linear’) interpolation</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">c2d[nx,ny] (double)<span class="colon">:</span></dt>
 <dd class="field-odd"><p>2D power spectrum, with bounds (nx,ny)</p>
 </dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">C2d = flatsky.utils.cb2c2d(bn,bc,nx,ny,D,lmin,lmax,Cb,method)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
 </dl>
 </dd>
 </dl>
@@ -1821,33 +947,16 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.utils.</span></span><span class="sig-name descname"><span class="pre">gauss1alm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cl</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.utils.gauss1alm" title="Link to this definition"></a></dt>
 <dd><p>Generate random gaussian fields in 2D Fourier space for a given isotropic spectrum, satisfying a^*_l = a_{-l}</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>number of Lx and Ly grids</p>
-</dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">lmin (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>minimum multipole of cl to be interpolated</p>
-</dd>
-<dt class="field-even">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>maximum multipole of cl to be interpolated</p>
-</dd>
-<dt class="field-odd">Cl[l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1D power spectrum, with bounds (0:lmax)</p>
-</dd>
-</dl>
+<dt>Args:</dt><dd><p>:nx, ny (int)    : number of Lx and Ly grids
+:D[xy] (double)  : map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:lmin (int)      : minimum multipole of cl to be interpolated
+:lmax (int)      : maximum multipole of cl to be interpolated
+:Cl[l] (double) : 1D power spectrum, with bounds (0:lmax)</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">alm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
 <dd class="field-odd"><p>random gaussian fields on 2D Fourier plane, with bounds (nx,ny)</p>
 </dd>
-</dl>
-</dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm = flatsky.utils.gauss1alm(nx,ny,D,lmin,lmax,Cl)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
 </dl>
 </dd>
 </dl>
@@ -1858,29 +967,13 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.utils.</span></span><span class="sig-name descname"><span class="pre">gauss2alm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">EE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.utils.gauss2alm" title="Link to this definition"></a></dt>
 <dd><p>Generate two correlated random gaussian fields in 2D Fourier space for a given isotropic spectrum</p>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>number of Lx and Ly grids</p>
-</dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-<dt class="field-odd">lmin (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>minimum multipole of cl to be interpolated</p>
-</dd>
-<dt class="field-even">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>maximum multipole of cl to be interpolated</p>
-</dd>
-<dt class="field-odd">TT[l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>the 1st 1D power spectrum, with bounds (0:lmax)</p>
-</dd>
-<dt class="field-even">TE[l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>the cross 1D power spectrum, with bounds (0:lmax)</p>
-</dd>
-<dt class="field-odd">EE[l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>the 2nd 1D power spectrum, with bounds (0:lmax)</p>
-</dd>
-</dl>
+<dt>Args:</dt><dd><p>:nx, ny (int)    : number of Lx and Ly grids
+:D[xy] (double)  : map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)
+:lmin (int)      : minimum multipole of cl to be interpolated
+:lmax (int)      : maximum multipole of cl to be interpolated
+:TT[l] (double)  : the 1st 1D power spectrum, with bounds (0:lmax)
+:TE[l] (double)  : the cross 1D power spectrum, with bounds (0:lmax)
+:EE[l] (double)  : the 2nd 1D power spectrum, with bounds (0:lmax)</p>
 </dd>
 <dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">tlm[lx,ly] (dcmplx)<span class="colon">:</span></dt>
@@ -1891,11 +984,6 @@
 </dd>
 </dl>
 </dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">tlm,elm = flatsky.utils.gauss2alm(nx,ny,D,lmin,lmax,TT,TE,EE)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</dd>
 </dl>
 </dd></dl>
 
@@ -1903,17 +991,11 @@
 <dt class="sig sig-object py" id="cmblensplus.flatsky.utils.window_sin">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.utils.</span></span><span class="sig-name descname"><span class="pre">window_sin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.utils.window_sin" title="Link to this definition"></a></dt>
 <dd><p>Return a sin window function.</p>
-<dl>
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nx, ny (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of Lx and Ly grids</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>:nx, ny (int)  : Number of Lx and Ly grids
+:D[xy] (double): Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
 </dd>
-<dt class="field-even">D[xy] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Map side length, or equivalent to dLx/2pi, dLy/2pi, with bounds (2)</p>
-</dd>
-</dl>
-<p>Args(Optional):
-:ap (double): Apodization parameter defined by apodized-range = (1-ap) x (cut)mapsize, from 0 (full apodization) to 1 (no apodization). Default to 1.
+<dt>Args(Optional):</dt><dd><p>:ap (double) : Apodization parameter defined by apodized-range = (1-ap) x (cut)mapsize, from 0 (full apodization) to 1 (no apodization). Default to 1.
 :cut (double): Map cut scale defined by cutmapsize = cut x mapsize, from 0 (full cut) to 1 (no cut). Default to 1.</p>
 </dd>
 <dt>Return:</dt><dd><dl class="field-list simple">
@@ -1922,73 +1004,33 @@
 </dd>
 </dl>
 </dd>
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">W = flatsky.utils.window_sin(nx,ny,D,ap,cut)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.flatsky.utils.window_norm">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.utils.</span></span><span class="sig-name descname"><span class="pre">window_norm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wind</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.utils.window_norm" title="Link to this definition"></a></dt>
-<dd><dl class="simple">
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">wn = flatsky.utils.window_norm(nx,ny,wind,num)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.flatsky.utils.window_norm_x">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.utils.</span></span><span class="sig-name descname"><span class="pre">window_norm_x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">W1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">W2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.utils.window_norm_x" title="Link to this definition"></a></dt>
-<dd><dl class="simple">
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Wn = flatsky.utils.window_norm_x(nx,ny,W1,W2,num)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.flatsky.utils.rotation">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.utils.</span></span><span class="sig-name descname"><span class="pre">rotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QU</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rtype</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.utils.rotation" title="Link to this definition"></a></dt>
-<dd><dl class="simple">
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">rQU = flatsky.utils.rotation(nx,ny,rot,QU,rtype)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.flatsky.utils.get_angle">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.utils.</span></span><span class="sig-name descname"><span class="pre">get_angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">D</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.utils.get_angle" title="Link to this definition"></a></dt>
-<dd><dl class="simple">
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">theta,phi = flatsky.utils.get_angle(nx,ny,D)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.flatsky.utils.cutmap">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.flatsky.utils.</span></span><span class="sig-name descname"><span class="pre">cutmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ox</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">omap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.flatsky.utils.cutmap" title="Link to this definition"></a></dt>
-<dd><dl class="simple">
-<dt>Usage:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">cmap = flatsky.utils.cutmap(ox,oy,cx,cy,omap)<span class="colon">:</span></dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 </section>
 </section>

@@ -188,18 +188,44 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.rec_lens.</span></span><span class="sig-name descname"><span class="pre">qtt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tlm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tlm2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.rec_lens.qtt" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the temperature quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)         : Maximum multipole of output lensing potential alms
-:rlmin/rlmax (int)  : Minimum/Maximum multipole of CMB for reconstruction
-:fC [l] (double)    : TT spectrum, with bounds (0:rlmax)
-:Tlm1 [l,m] (dcmplx): 1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)
-:Tlm2 [l,m] (dcmplx): 2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output lensing potential alms</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:nside_t (int)  : Nside for the convolution calculation
-:gtype (str)    : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)
-:verbose (bool) : Output messages, default to False</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:glm [l,m] (dcmplx) : CMB lensing potential alm, with bounds (0:lmax,0:lmax)
-:clm [l,m] (dcmplx) : Curl mode (pseudo lensing potential) alm, with bounds (0:lmax,0:lmax)</p>
+<dt class="field-odd">fC [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TT spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">Tlm1 [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+<dt class="field-odd">Tlm2 [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside_t (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside for the convolution calculation</p>
+</dd>
+<dt class="field-even">gtype (str)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
+</dd>
+<dt class="field-odd">verbose (bool)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Output messages, default to False</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">glm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>CMB lensing potential alm, with bounds (0:lmax,0:lmax)</p>
+</dd>
+<dt class="field-even">clm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Curl mode (pseudo lensing potential) alm, with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -209,18 +235,44 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.rec_lens.</span></span><span class="sig-name descname"><span class="pre">qte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tlm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Elm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.rec_lens.qte" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the TE quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)         : Maximum multipole of output lensing potential alms
-:rlmin/rlmax (int)  : Minimum/Maximum multipole of CMB for reconstruction
-:fC [l] (double)    : TE spectrum, with bounds (0:rlmax)
-:Tlm [l,m] (dcmplx) : Inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)
-:Elm [l,m] (dcmplx) : Inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output lensing potential alms</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:nside_t (int) : Nside for the convolution calculation
-:gtype (str) : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)
-:verbose (bool) : Output messages, default to False</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:glm [l,m] (dcmplx) : CMB lensing potential, with bounds (0:lmax,0:lmax)
-:clm [l,m] (dcmplx) : Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</p>
+<dt class="field-odd">fC [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">Tlm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+<dt class="field-odd">Elm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside_t (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside for the convolution calculation</p>
+</dd>
+<dt class="field-even">gtype (str)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
+</dd>
+<dt class="field-odd">verbose (bool)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Output messages, default to False</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">glm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>CMB lensing potential, with bounds (0:lmax,0:lmax)</p>
+</dd>
+<dt class="field-even">clm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -230,18 +282,44 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.rec_lens.</span></span><span class="sig-name descname"><span class="pre">qtb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tlm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Blm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.rec_lens.qtb" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the TB quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)         : Maximum multipole of output lensing potential alms
-:rlmin/rlmax (int)  : Minimum/Maximum multipole of CMB for reconstruction
-:fC [l] (double)    : TE spectrum, with bounds (0:rlmax)
-:Tlm [l,m] (dcmplx) : Inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)
-:Blm [l,m] (dcmplx) : Inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output lensing potential alms</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:nside_t (int)  : Nside for the convolution calculation
-:gtype (str)  : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)
-:verbose (bool) : Output messages, default to False</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:glm [l,m] (dcmplx) : CMB lensing potential, with bounds (0:lmax,0:lmax)
-:clm [l,m] (dcmplx) : Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</p>
+<dt class="field-odd">fC [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">Tlm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+<dt class="field-odd">Blm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside_t (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside for the convolution calculation</p>
+</dd>
+<dt class="field-even">gtype (str)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
+</dd>
+<dt class="field-odd">verbose (bool)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Output messages, default to False</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">glm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>CMB lensing potential, with bounds (0:lmax,0:lmax)</p>
+</dd>
+<dt class="field-even">clm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -251,18 +329,44 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.rec_lens.</span></span><span class="sig-name descname"><span class="pre">qee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Elm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Elm2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.rec_lens.qee" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the EE quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)        : Maximum multipole of output lensing potential alms
-:rlmin/rlmax (int) : Minimum/Maximum multipole of CMB for reconstruction
-:fC [l] (double)   : EE spectrum, with bounds (0:rlmax)
-:Elm1 [l,m] (dcmplx): 1st inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)
-:Elm2 [l,m] (dcmplx): 2nd inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output lensing potential alms</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:nside_t (int)  : Nside for the convolution calculation
-:gtype (str)  : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)
-:verbose (bool) : Output messages, default to False</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:glm [l,m] (dcmplx) : CMB lensing potential, with bounds (0:lmax,0:lmax)
-:clm [l,m] (dcmplx) : Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</p>
+<dt class="field-odd">fC [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">Elm1 [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>1st inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+<dt class="field-odd">Elm2 [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2nd inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside_t (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside for the convolution calculation</p>
+</dd>
+<dt class="field-even">gtype (str)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
+</dd>
+<dt class="field-odd">verbose (bool)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Output messages, default to False</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">glm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>CMB lensing potential, with bounds (0:lmax,0:lmax)</p>
+</dd>
+<dt class="field-even">clm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -272,18 +376,44 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.rec_lens.</span></span><span class="sig-name descname"><span class="pre">qeb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Elm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Blm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.rec_lens.qeb" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the EB quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)         : Maximum multipole of output lensing potential alms
-:rlmin/rlmax (int)  : Minimum/Maximum multipole of CMB for reconstruction
-:fC [l] (double)    : EE spectrum, with bounds (0:rlmax)
-:Elm [l,m] (dcmplx) : Inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)
-:Blm [l,m] (dcmplx) : Inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output lensing potential alms</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:nside_t (int)  : Nside for the convolution calculation
-:gtype (str)  : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)
-:verbose (bool) : Output messages, default to False</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:glm [l,m] (dcmplx) : CMB lensing potential, with bounds (0:lmax,0:lmax)
-:clm [l,m] (dcmplx) : Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</p>
+<dt class="field-odd">fC [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">Elm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+<dt class="field-odd">Blm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside_t (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside for the convolution calculation</p>
+</dd>
+<dt class="field-even">gtype (str)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
+</dd>
+<dt class="field-odd">verbose (bool)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Output messages, default to False</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">glm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>CMB lensing potential, with bounds (0:lmax,0:lmax)</p>
+</dd>
+<dt class="field-even">clm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -293,18 +423,44 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.rec_lens.</span></span><span class="sig-name descname"><span class="pre">qbb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Blm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Blm2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.rec_lens.qbb" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing CMB lensing potential and its curl mode from the BB quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)          : Maximum multipole of output lensing potential alms
-:rlmin/rlmax (int)   : Minimum/Maximum multipoles of CMB for reconstruction
-:fC [l] (double)     : BB spectrum, with bounds (0:rlmax)
-:Blm1 [l,m] (dcmplx) : 1st inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)
-:Blm2 [l,m] (dcmplx) : 2nd inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output lensing potential alms</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:nside_t (int)  : Nside for the convolution calculation
-:gtype (str)  : Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)
-:verbose (bool) : Output messages, default to False</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipoles of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:glm [l,m] (dcmplx) : CMB lensing potential, with bounds (0:lmax,0:lmax)
-:clm [l,m] (dcmplx) : Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</p>
+<dt class="field-odd">fC [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>BB spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">Blm1 [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>1st inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+<dt class="field-odd">Blm2 [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2nd inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside_t (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside for the convolution calculation</p>
+</dd>
+<dt class="field-even">gtype (str)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Type of output, i.e., convergence (gtype=’k’) or lensing potential (gtype=’’, default)</p>
+</dd>
+<dt class="field-odd">verbose (bool)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Output messages, default to False</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">glm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>CMB lensing potential, with bounds (0:lmax,0:lmax)</p>
+</dd>
+<dt class="field-even">clm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Curl mode (pseudo lensing potential), with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -317,16 +473,38 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.rec_rot.</span></span><span class="sig-name descname"><span class="pre">qeb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Elm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Blm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.rec_rot.qeb" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing pol rotation angle from the EB quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)         : Maximum multipole of output lensing potential alms
-:rlmin/rlmax (int)  : Minimum/Maximum multipole of CMB for reconstruction
-:fCE [l] (double)   : EE spectrum, with bounds (0:rlmax)
-:Elm [l,m] (dcmplx) : Inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)
-:Blm [l,m] (dcmplx) : Inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output lensing potential alms</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:nside_t (int)      : Nside for the convolution calculation
-:verbose (bool)     : Output messages, default to False</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:alm [l,m] (dcmplx) : Rotation angle alm, with bounds (0:lmax,0:lmax)</p>
+<dt class="field-odd">fCE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">Elm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+<dt class="field-odd">Blm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside_t (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside for the convolution calculation</p>
+</dd>
+<dt class="field-even">verbose (bool)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Output messages, default to False</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">alm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Rotation angle alm, with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -339,16 +517,38 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.rec_tau.</span></span><span class="sig-name descname"><span class="pre">qtt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tlm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tlm2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.rec_tau.qtt" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing inhomogeneous tau from the temperature quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)         : Maximum multipole of output tau alms
-:rlmin/rlmax (int)  : Minimum/Maximum multipole of CMB for reconstruction
-:fC [l] (double)    : TT spectrum, with bounds (1:rlmax)
-:Tlm1 [l,m] (dcmplx): 1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)
-:Tlm2 [l,m] (dcmplx): 2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output tau alms</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:nside_t (int)      : Nside for the convolution calculation
-:verbose (bool)     : Output messages, default to False</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:alm [l,m] (dcmplx) : Amplitude modulation alm, with bounds (0:lmax,0:lmax)</p>
+<dt class="field-odd">fC [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>TT spectrum, with bounds (1:rlmax)</p>
+</dd>
+<dt class="field-even">Tlm1 [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+<dt class="field-odd">Tlm2 [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside_t (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside for the convolution calculation</p>
+</dd>
+<dt class="field-even">verbose (bool)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Output messages, default to False</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">alm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Amplitude modulation alm, with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -358,16 +558,38 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.rec_tau.</span></span><span class="sig-name descname"><span class="pre">qeb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Elm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Blm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.rec_tau.qeb" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing amplitude modulation from the EB quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)         : Maximum multipole of output lensing potential alms
-:rlmin/rlmax (int)  : Minimum/Maximum multipole of CMB for reconstruction
-:fCE [l] (double)   : EE spectrum, with bounds (0:rlmax)
-:Elm [l,m] (dcmplx) : Inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)
-:Blm [l,m] (dcmplx) : Inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output lensing potential alms</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:nside_t (int)      : Nside for the convolution calculation
-:verbose (bool)     : Output messages, default to False</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:alm [l,m] (dcmplx) : Amplitude modulation alm, with bounds (0:lmax,0:lmax)</p>
+<dt class="field-odd">fCE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">Elm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Inverse-variance filtered E-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+<dt class="field-odd">Blm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Inverse-variance filtered B-mode alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside_t (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside for the convolution calculation</p>
+</dd>
+<dt class="field-even">verbose (bool)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Output messages, default to False</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">alm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Amplitude modulation alm, with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -380,15 +602,35 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.rec_src.</span></span><span class="sig-name descname"><span class="pre">qtt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tlm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tlm2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.rec_src.qtt" title="Link to this definition"></a></dt>
 <dd><p>Reconstructing point sources from the temperature quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)         : Maximum multipole of output point-source alms
-:rlmin/rlmax (int)  : Minimum/Maximum multipole of CMB for reconstruction
-:Tlm1 [l,m] (dcmplx): 1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)
-:Tlm2 [l,m] (dcmplx): 2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output point-source alms</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:nside_t (int)      : Nside for the convolution calculation
-:verbose (bool)     : Output messages, default to False</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:slm [l,m] (dcmplx) : Point-source alm, with bounds (0:lmax,0:lmax)</p>
+<dt class="field-odd">Tlm1 [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1st inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+<dt class="field-even">Tlm2 [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>2nd inverse-variance filtered temperature alm, with bounds (0:rlmax,0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside_t (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside for the convolution calculation</p>
+</dd>
+<dt class="field-even">verbose (bool)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Output messages, default to False</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">slm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Point-source alm, with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -401,14 +643,32 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qtt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qtt" title="Link to this definition"></a></dt>
 <dd><p>Normalization of reconstructed fields from the temperature quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)        : Maximum multipole of output normalization spectrum
-:rlmin/rlmax (int) : Minimum/Maximum multipole of CMB for reconstruction
-:TT [l] (double)   : Theory TT spectrum, with bounds (0:rlmax)
-:OCT [l] (double)  : Observed TT spectrum, with bounds (0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:lfac (str)       : Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:Al [2,l] (double) : Normalizations (1 is dummy except lens = 0 and curl = 1), with bounds (0:lmax)</p>
+<dt class="field-odd">TT [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory TT spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">OCT [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Observed TT spectrum, with bounds (0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Normalizations (1 is dummy except lens = 0 and curl = 1), with bounds (0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -418,15 +678,35 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qte" title="Link to this definition"></a></dt>
 <dd><p>Normalization of reconstructed fields from the TE quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)       : Maximum multipole of output normalization spectrum
-:rlmin/rlmax (int): Minimum/Maximum multipole of CMB for reconstruction
-:TE [l] (double)  : Theory TE spectrum, with bounds (0:rlmax)
-:OCT [l] (double) : Observed TT spectrum, with bounds (0:rlmax)
-:OCE [l] (double) : Observed EE spectrum, with bounds (0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:lfac (str)       : Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:Al [2,l] (double) : Normalizations (1 is dummy except lens = 0 and curl = 1), with bounds (0:lmax)</p>
+<dt class="field-odd">TE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory TE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">OCT [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Observed TT spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-odd">OCE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Normalizations (1 is dummy except lens = 0 and curl = 1), with bounds (0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -436,15 +716,35 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qtb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qtb" title="Link to this definition"></a></dt>
 <dd><p>Normalization of reconstructed fields from the TB quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)       : Maximum multipole of output normalization spectrum
-:rlmin/rlmax (int): Minimum/Maximum multipole of CMB for reconstruction
-:TE [l] (double)  : Theory TE spectrum, with bounds (0:rlmax)
-:OCT [l] (double) : Observed TT spectrum, with bounds (0:rlmax)
-:OCB [l] (double) : Observed BB spectrum, with bounds (0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:lfac (str)       : Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:Al [2,l] (double) : Normalizations (1 is dummy except lens = 0 and curl = 1), with bounds (0:lmax)</p>
+<dt class="field-odd">TE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory TE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">OCT [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Observed TT spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-odd">OCB [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Observed BB spectrum, with bounds (0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Normalizations (1 is dummy except lens = 0 and curl = 1), with bounds (0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -454,14 +754,32 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">EE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qee" title="Link to this definition"></a></dt>
 <dd><p>Normalization of reconstructed amplitude modulation from the EE quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)        : Maximum multipole of output normalization spectrum
-:rlmin/rlmax (int) : Minimum/Maximum multipole of CMB for reconstruction
-:EE [l] (double)   : Theory EE spectrum, with bounds (0:rlmax)
-:OCE [l] (double)  : Observed EE spectrum, with bounds (0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:lfac (str)       : Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:Al [2,l] (double) : Normalization, with bounds (0:lmax)</p>
+<dt class="field-odd">EE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">OCE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Normalization, with bounds (0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -471,16 +789,38 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qeb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">EE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BB</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qeb" title="Link to this definition"></a></dt>
 <dd><p>Normalization of reconstructed fields from the EB quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)        : Maximum multipole of output normalization spectrum
-:rlmin/rlmax (int) : Minimum/Maximum multipole of CMB for reconstruction
-:EE [l] (double)   : Theory EE spectrum, with bounds (0:rlmax)
-:OCE [l] (double)  : Observed EE spectrum, with bounds (0:rlmax)
-:OCB [l] (double)  : Observed BB spectrum, with bounds (0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
 </dd>
-<dt>Args(optionals): </dt><dd><p>:BB [l] (double)   : Theory BB spectrum, with bounds (0:rlmax)
-:lfac (str)       : Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:Al [2,l] (double) : Normalization, with bounds (0:lmax)</p>
+<dt class="field-odd">EE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">OCE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-odd">OCB [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Observed BB spectrum, with bounds (0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optionals): </dt><dd><dl class="field-list simple">
+<dt class="field-odd">BB [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory BB spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">lfac (str)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Normalization, with bounds (0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -490,14 +830,32 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qbb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qbb" title="Link to this definition"></a></dt>
 <dd><p>Normalization of reconstructed amplitude modulation from the BB quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)        : Maximum multipole of output normalization spectrum
-:rlmin/rlmax (int) : Minimum/Maximum multipole of CMB for reconstruction
-:BB [l] (double)   : Theory BB spectrum, with bounds (0:rlmax)
-:OCB [l] (double)  : Observed BB spectrum, with bounds (0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:lfac (str)       : Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:Al [2,l] (double) : Normalization, with bounds (0:lmax)</p>
+<dt class="field-odd">BB [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory BB spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">OCB [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Observed BB spectrum, with bounds (0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Normalization, with bounds (0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -507,18 +865,44 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qttte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fCTT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fCTE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCTE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qttte" title="Link to this definition"></a></dt>
 <dd><p>Correlation between unnormalized TT and TE quadratic estimators</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)       : Maximum multipole of output normalization spectrum
-:rlmin/rlmax (int): Minimum/Maximum multipole of CMB for reconstruction
-:fCTT [l] (double): Theory TT spectrum, with bounds (0:rlmax)
-:fCTE [l] (double): Theory TE spectrum, with bounds (0:rlmax)
-:OCT [l] (double) : Observed TT spectrum, with bounds (0:rlmax)
-:OCE [l] (double) : Observed EE spectrum, with bounds (0:rlmax)
-:OCTE [l] (double): Observed TE spectrum, with bounds (0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:lfac (str)       : Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:Ig [l] (double) : Correlation between lensing potential estimators, with bounds (0:lmax)
-:Ic [l] (double) : Correlation between curl mode estimators, with bounds (0:lmax)</p>
+<dt class="field-odd">fCTT [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory TT spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">fCTE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Theory TE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-odd">OCT [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Observed TT spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">OCE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-odd">OCTE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Observed TE spectrum, with bounds (0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">Ig [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Correlation between lensing potential estimators, with bounds (0:lmax)</p>
+</dd>
+<dt class="field-even">Ic [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Correlation between curl mode estimators, with bounds (0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -528,18 +912,44 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qttee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fCTT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fCEE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCTE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qttee" title="Link to this definition"></a></dt>
 <dd><p>Correlation between unnormalized TT and EE quadratic estimators</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)       : Maximum multipole of output normalization spectrum
-:rlmin/rlmax (int): Minimum/Maximum multipole of CMB for reconstruction
-:fCTT [l] (double): Theory TT spectrum, with bounds (0:rlmax)
-:fCEE [l] (double): Theory EE spectrum, with bounds (0:rlmax)
-:OCT [l] (double) : Observed TT spectrum, with bounds (0:rlmax)
-:OCE [l] (double) : Observed EE spectrum, with bounds (0:rlmax)
-:OCTE [l] (double): Observed TE spectrum, with bounds (0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:lfac (str)       : Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:Ig [l] (double) : Correlation between lensing potential estimators, with bounds (0:lmax)
-:Ic [l] (double) : Correlation between curl mode estimators, with bounds (0:lmax)</p>
+<dt class="field-odd">fCTT [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory TT spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">fCEE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Theory EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-odd">OCT [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Observed TT spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">OCE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-odd">OCTE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Observed TE spectrum, with bounds (0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">Ig [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Correlation between lensing potential estimators, with bounds (0:lmax)</p>
+</dd>
+<dt class="field-even">Ic [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Correlation between curl mode estimators, with bounds (0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -549,18 +959,44 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qteee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fCEE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fCTE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCTE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qteee" title="Link to this definition"></a></dt>
 <dd><p>Correlation between unnormalized TE and EE quadratic estimators</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)       : Maximum multipole of output normalization spectrum
-:rlmin/rlmax (int): Minimum/Maximum multipole of CMB for reconstruction
-:fCEE [l] (double): Theory EE spectrum, with bounds (0:rlmax)
-:fCTE [l] (double): Theory TE spectrum, with bounds (0:rlmax)
-:OCT [l] (double) : Observed TT spectrum, with bounds (0:rlmax)
-:OCE [l] (double) : Observed EE spectrum, with bounds (0:rlmax)
-:OCTE [l] (double): Observed TE spectrum, with bounds (0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:lfac (str)       : Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:Ig [l] (double) : Correlation between lensing potential estimators, with bounds (0:lmax)
-:Ic [l] (double) : Correlation between curl mode estimators, with bounds (0:lmax)</p>
+<dt class="field-odd">fCEE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">fCTE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Theory TE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-odd">OCT [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Observed TT spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">OCE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-odd">OCTE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Observed TE spectrum, with bounds (0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">Ig [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Correlation between lensing potential estimators, with bounds (0:lmax)</p>
+</dd>
+<dt class="field-even">Ic [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Correlation between curl mode estimators, with bounds (0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -570,19 +1006,47 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qtbeb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fCEE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fCBB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fCTE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCTE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qtbeb" title="Link to this definition"></a></dt>
 <dd><p>Correlation between unnormalized TB and EB quadratic estimators</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)       : Maximum multipole of output normalization spectrum
-:rlmin/rlmax (int): Minimum/Maximum multipole of CMB for reconstruction
-:fCEE [l] (double): Theory EE spectrum, with bounds (0:rlmax)
-:fCBB [l] (double): Theory BB spectrum, with bounds (0:rlmax)
-:OCT [l] (double) : Observed TT spectrum, with bounds (0:rlmax)
-:OCE [l] (double) : Observed EE spectrum, with bounds (0:rlmax)
-:OCB [l] (double) : Observed BB spectrum, with bounds (0:rlmax)
-:OCTE [l] (double): Observed TE spectrum, with bounds (0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:lfac (str)       : Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:Ig [l] (double) : Correlation between lensing potential estimators, with bounds (0:lmax)
-:Ic [l] (double) : Correlation between curl mode estimators, with bounds (0:lmax)</p>
+<dt class="field-odd">fCEE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">fCBB [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Theory BB spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-odd">OCT [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Observed TT spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">OCE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-odd">OCB [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Observed BB spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">OCTE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Observed TE spectrum, with bounds (0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">Ig [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Correlation between lensing potential estimators, with bounds (0:lmax)</p>
+</dd>
+<dt class="field-even">Ic [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Correlation between curl mode estimators, with bounds (0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -623,7 +1087,7 @@
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_quad.qall">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qall</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QDO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qall" title="Link to this definition"></a></dt>
 <dd><p>Compute MV estimator normalization. Currently BB is ignored.</p>
-<dl>
+<dl class="simple">
 <dt>Args:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">QDO[6] (bool)<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Specifying which estimators to be combined for the minimum variance estimator, with size (6). The oder is TT, TE, EE, TB, EB and BB.</p>
@@ -631,16 +1095,34 @@
 <dt class="field-even">lmax (int)<span class="colon">:</span></dt>
 <dd class="field-even"><p>Maximum multipole of the output power spectra</p>
 </dd>
+<dt class="field-odd">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+</dd>
+<dt class="field-even">fC/OC [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Theory/Observed CMB angular power spectra (TT, EE, BB, TE), with bounds (0:rlmax)</p>
+</dd>
 </dl>
-<p>:rlmin/rlmax (int)   : Minimum/Maximum multipole of CMB for reconstruction
-:fC/OC [l] (double): Theory/Observed CMB angular power spectra (TT, EE, BB, TE), with bounds (0:rlmax)</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:lfac (str)       : Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
 </dd>
-<dt>Returns:</dt><dd><p>:Ag [6,l] (double)  : Normalization of the TT, TE, EE, TB, EB, and MV estimators for lensing potential, with bounds (6,0:lmax)
-:Ac [6,l] (double)  : Same as Ag but for curl mode
-:Nlg [6,l] (double) : Weights for TT, TE, EE, TB, EB, and BB (=0) estimators for lensing potential, with bounds (6,0:lmax)
-:Nlc [6,l] (double) : Same as Nlg but for curl mode</p>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">Ag [6,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Normalization of the TT, TE, EE, TB, EB, and MV estimators for lensing potential, with bounds (6,0:lmax)</p>
+</dd>
+<dt class="field-even">Ac [6,l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Same as Ag but for curl mode</p>
+</dd>
+<dt class="field-odd">Nlg [6,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Weights for TT, TE, EE, TB, EB, and BB (=0) estimators for lensing potential, with bounds (6,0:lmax)</p>
+</dd>
+<dt class="field-even">Nlc [6,l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Same as Nlg but for curl mode</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -650,20 +1132,50 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qeb_iter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cpp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qeb_iter" title="Link to this definition"></a></dt>
 <dd><p>Normalization of reconstructed CMB lensing potential and its curl mode from the EB quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)       : Maximum multipole of output normalization
-:elmax (int)      : Maximum multipole of input EE spectra, CE and OCE
-:rlmin/rlmax (int): Minimum/Maximum multipole of CMB for reconstruction
-:dlmin/dlmax (int): Minimum/Maximum multipole of E mode and lensing potential for delensing
-:CE [l] (double)  : Theory EE angular power spectrum, with bounds (0:elmax)
-:OCE [l] (double) : Observed EE spectrum, with bounds (0:elmax)
-:OCB [l] (double) : Observed BB spectrum, with bounds (0:rlmax)
-:Cpp [l] (double) : Theory lensing potential spectrum, with bounds (0:dlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output normalization</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:iter (int)    : number of iteration, default to 1 (no iteration)
-:conv (double) : a parameter for convergence the iteration, default to 0.00001</p>
+<dt class="field-even">elmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Maximum multipole of input EE spectra, CE and OCE</p>
 </dd>
-<dt>Returns:</dt><dd><p>:Ag [l] (double) : CMB lensing potential normalization, with bounds (0:lmax)
-:Ac [l] (double) : Curl mode (pseudo lensing potential) normalization, with bounds (0:lmax)</p>
+<dt class="field-odd">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+</dd>
+<dt class="field-even">dlmin/dlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of E mode and lensing potential for delensing</p>
+</dd>
+<dt class="field-odd">CE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory EE angular power spectrum, with bounds (0:elmax)</p>
+</dd>
+<dt class="field-even">OCE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Observed EE spectrum, with bounds (0:elmax)</p>
+</dd>
+<dt class="field-odd">OCB [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Observed BB spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">Cpp [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Theory lensing potential spectrum, with bounds (0:dlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">iter (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>number of iteration, default to 1 (no iteration)</p>
+</dd>
+<dt class="field-even">conv (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>a parameter for convergence the iteration, default to 0.00001</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">Ag [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>CMB lensing potential normalization, with bounds (0:lmax)</p>
+</dd>
+<dt class="field-even">Ac [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Curl mode (pseudo lensing potential) normalization, with bounds (0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -673,14 +1185,32 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">xtt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.xtt" title="Link to this definition"></a></dt>
 <dd><p>Unnormalized response between lensing potential and amplitude modulation from the temperature quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)        : Maximum multipole of output normalization spectrum
-:rlmin/rlmax (int) : Minimum/Maximum multipole of CMB for reconstruction
-:fC [l] (double)   : Theory TT spectrum, with bounds (0:rlmax)
-:OCT [l] (double)  : Observed TT spectrum, with bounds (0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:lfac (str)       : Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:Ag [l] (double)   : Cross normalization, with bounds (0:lmax)</p>
+<dt class="field-odd">fC [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory TT spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">OCT [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Observed TT spectrum, with bounds (0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">Ag [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Cross normalization, with bounds (0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -690,16 +1220,38 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">xeb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">EE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">EB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BB</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.xeb" title="Link to this definition"></a></dt>
 <dd><p>Response of reconstructed field to other in the EB quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)       : Maximum multipole of output normalization spectrum
-:rlmin/rlmax (int): Minimum/Maximum multipole of CMB for reconstruction
-:EE [l] (double)  : Theory EE spectrum, with bounds (0:rlmax)
-:EB [l] (double)  : Theory EB spectrum, with bounds (0:rlmax)
-:OCE [l] (double) : Observed EE spectrum, with bounds (0:rlmax)
-:OCB [l] (double) : Observed BB spectrum, with bounds (0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
 </dd>
-<dt>Args(optionals): </dt><dd><p>:BB [l] (double)  : Theory BB spectrum, with bounds (0:rlmax)</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:Aa [l] (double) : Pol. rot. angle normalization, with bounds (0:lmax)</p>
+<dt class="field-odd">EE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">EB [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Theory EB spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-odd">OCE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">OCB [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Observed BB spectrum, with bounds (0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optionals): </dt><dd><dl class="field-list simple">
+<dt class="field-odd">BB [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory BB spectrum, with bounds (0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">Aa [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pol. rot. angle normalization, with bounds (0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -712,15 +1264,35 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_imag.</span></span><span class="sig-name descname"><span class="pre">qte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_imag.qte" title="Link to this definition"></a></dt>
 <dd><p>Normalization of reconstructed imaginary CMB lensing potential and its curl mode from the TE quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)       : Maximum multipole of output normalization spectrum
-:rlmin/rlmax (int): Minimum/Maximum multipole of CMB for reconstruction
-:TB [l] (double)  : Theory TB spectrum, with bounds (0:rlmax)
-:OCT [l] (double) : Observed TT spectrum, with bounds (0:rlmax)
-:OCE [l] (double) : Observed EE spectrum, with bounds (0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:lfac (str)    : Type of output, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:Al [2,l] (double) : Normalization, with bounds (0:lmax)</p>
+<dt class="field-odd">TB [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory TB spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">OCT [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Observed TT spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-odd">OCE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Type of output, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Normalization, with bounds (0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -730,15 +1302,35 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_imag.</span></span><span class="sig-name descname"><span class="pre">qtb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_imag.qtb" title="Link to this definition"></a></dt>
 <dd><p>Normalization of reconstructed imaginary CMB lensing potential and its curl mode from the TB quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)       : Maximum multipole of output normalization spectrum
-:rlmin/rlmax (int): Minimum/Maximum multipole of CMB for reconstruction
-:TB [l] (double)  : Theory TE spectrum, with bounds (0:rlmax)
-:OCT [l] (double) : Observed TT spectrum, with bounds (0:rlmax)
-:OCB [l] (double) : Observed BB spectrum, with bounds (0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:lfac (str)    : Type of output, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:Al [2,l] (double) : Normalization, with bounds (0:lmax)</p>
+<dt class="field-odd">TB [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory TE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">OCT [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Observed TT spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-odd">OCB [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Observed BB spectrum, with bounds (0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Type of output, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Normalization, with bounds (0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -748,14 +1340,32 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_imag.</span></span><span class="sig-name descname"><span class="pre">qee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_imag.qee" title="Link to this definition"></a></dt>
 <dd><p>Normalization of reconstructed imaginary CMB lensing potential and its curl mode from the E-mode quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)       : Maximum multipole of output normalization spectrum
-:rlmin/rlmax (int): Minimum/Maximum multipole of CMB for reconstruction
-:fC [l] (double)  : Theory EE spectrum, with bounds (0:rlmax)
-:OCE [l] (double) : Observed EE spectrum, with bounds (0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:lfac (str)    : Type of output, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:Al [2,l] (double) : Normalization, with bounds (0:lmax)</p>
+<dt class="field-odd">fC [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">OCE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Type of output, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Normalization, with bounds (0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -765,15 +1375,35 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_imag.</span></span><span class="sig-name descname"><span class="pre">qeb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_imag.qeb" title="Link to this definition"></a></dt>
 <dd><p>Normalization of reconstructed imaginary CMB lensing potential and its curl mode from the EB quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)       : Maximum multipole of output normalization spectrum
-:rlmin/rlmax (int): Minimum/Maximum multipole of CMB for reconstruction
-:fC [l] (double)  : Theory EB spectrum, with bounds (0:rlmax)
-:OCE [l] (double) : Observed EE spectrum, with bounds (0:rlmax)
-:OCB [l] (double) : Observed BB spectrum, with bounds (0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:lfac (str)    : Type of output, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:Al [2,l] (double) : Normalization, with bounds (0:lmax)</p>
+<dt class="field-odd">fC [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory EB spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">OCE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-odd">OCB [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Observed BB spectrum, with bounds (0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Type of output, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Normalization, with bounds (0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -783,14 +1413,32 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_imag.</span></span><span class="sig-name descname"><span class="pre">qbb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_imag.qbb" title="Link to this definition"></a></dt>
 <dd><p>Normalization of reconstructed imaginary CMB lensing potential and its curl mode from the B-mode quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)       : Maximum multipole of output normalization spectrum
-:rlmin/rlmax (int): Minimum/Maximum multipole of CMB for reconstruction
-:fC [l] (double)  : Theory BB spectrum, with bounds (0:rlmax)
-:OCB [l] (double) : Observed BB spectrum, with bounds (0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:lfac (str)    : Type of output, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:Al [2,l] (double) : Normalization, with bounds (0:lmax)</p>
+<dt class="field-odd">fC [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory BB spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">OCB [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Observed BB spectrum, with bounds (0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Type of output, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Normalization, with bounds (0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -800,14 +1448,32 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_imag.</span></span><span class="sig-name descname"><span class="pre">qbb_asym</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_imag.qbb_asym" title="Link to this definition"></a></dt>
 <dd><p>Normalization of reconstructed imaginary CMB lensing potential and its curl mode from the B-mode quadratic estimator</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)       : Maximum multipole of output normalization spectrum
-:rlmin/rlmax (int): Minimum/Maximum multipole of CMB for reconstruction
-:fC [l] (double)  : Theory BB spectrum, with bounds (0:rlmax)
-:OCB1/2 [l] (double) : Observed BB spectrum for experiment 1 and 2, with bounds (0:rlmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:lfac (str)    : Type of output, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
 </dd>
-<dt>Returns:</dt><dd><p>:Al [2,l] (double) : Normalization, with bounds (0:lmax)</p>
+<dt class="field-odd">fC [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory BB spectrum, with bounds (0:rlmax)</p>
+</dd>
+<dt class="field-even">OCB1/2 [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Observed BB spectrum for experiment 1 and 2, with bounds (0:rlmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Type of output, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Normalization, with bounds (0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -820,16 +1486,38 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.delens.</span></span><span class="sig-name descname"><span class="pre">lensingb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wElm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wplm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'p'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.delens.lensingb" title="Link to this definition"></a></dt>
 <dd><p>Computing lensing B mode as a convolution of wiener-filtered E-mode and lensing potential</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)         : Maximum multipole of output lensing B-mode alm
-:elmin (int)        : Minimum multipole of wiener-filtered E-mode alm
-:elmax (int)        : Maximum multipole of wiener-filtered E-mode alm
-:plmin (int)        : Minimum multipole of wiener-filtered lensing potential alm
-:plmax (int)        : Maximum multipole of wiener-filtered lensing potential alm
-:wElm [l,m] (dcmplx): Wiener-filtered E-mode alm, with bounds (0:elmax,0:elmax)
-:wplm [l,m] (dcmplx): Wiener-filtered lensing potential (or kappa) alm, with bounds (0:plmax,0:plmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of output lensing B-mode alm</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:nside_t (int)      : Nside for the convolution calculation
-:gtype (str)        : Type of input wplm (‘p’=phi or ‘k’=kappa), default to ‘p’ (phi).</p>
+<dt class="field-even">elmin (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum multipole of wiener-filtered E-mode alm</p>
+</dd>
+<dt class="field-odd">elmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of wiener-filtered E-mode alm</p>
+</dd>
+<dt class="field-even">plmin (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum multipole of wiener-filtered lensing potential alm</p>
+</dd>
+<dt class="field-odd">plmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of wiener-filtered lensing potential alm</p>
+</dd>
+<dt class="field-even">wElm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Wiener-filtered E-mode alm, with bounds (0:elmax,0:elmax)</p>
+</dd>
+<dt class="field-odd">wplm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Wiener-filtered lensing potential (or kappa) alm, with bounds (0:plmax,0:plmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside_t (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside for the convolution calculation</p>
+</dd>
+<dt class="field-even">gtype (str)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Type of input wplm (‘p’=phi or ‘k’=kappa), default to ‘p’ (phi).</p>
+</dd>
+</dl>
 </dd>
 <dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">lBlm [l,m] (dcmplx)<span class="colon">:</span></dt>
@@ -849,11 +1537,23 @@
 </div></blockquote>
 <p>and alphaw is the filtered lensing deflection vector (see arXiv:1701.01712).</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:nside (int)          : Nside of output shift vector
-:lmax (int)           : Maximum multipole of the input plm
-:plm [l,m] (dcmplx)   : Wiener-filtered lensing potential alm, with bounds (0:lmax,0:lmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside of output shift vector</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:nremap (int)         : Number of iteration for computing the shift vector</p>
+<dt class="field-even">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Maximum multipole of the input plm</p>
+</dd>
+<dt class="field-odd">plm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Wiener-filtered lensing potential alm, with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nremap (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of iteration for computing the shift vector</p>
+</dd>
+</dl>
 </dd>
 <dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">beta [pix,2] (double)<span class="colon">:</span></dt>
@@ -869,9 +1569,17 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.delens.</span></span><span class="sig-name descname"><span class="pre">phi2grad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.delens.phi2grad" title="Link to this definition"></a></dt>
 <dd><p>Return the deflection vector, grad, at the Healpix pixel</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:nside (int)          : Nside of output deflection vector
-:lmax (int)           : Maximum multipole of the input plm/clm
-:plm [l,m] (dcmplx)   : Lensing potential alm, with bounds (0:lmax,0:lmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside of output deflection vector</p>
+</dd>
+<dt class="field-even">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Maximum multipole of the input plm/clm</p>
+</dd>
+<dt class="field-odd">plm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Lensing potential alm, with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
 </dd>
 <dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">grad [pix,2] (double)<span class="colon">:</span></dt>
@@ -894,9 +1602,17 @@
 </div></blockquote>
 <p>where delta^L(n) is a gaussian field obtained from the input alm.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:alm [l,m] (dcmplx) : Input harmonic coefficients, with bounds (0:lmax,0:lmax).</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">alm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Input harmonic coefficients, with bounds (0:lmax,0:lmax).</p>
 </dd>
-<dt>Returns:</dt><dd><p>:qlm [l,m] (dcmplx) : Output harmonic coefficients of the non-Gaussian fields, with bounds (0:lmax,0:lmax).</p>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">qlm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Output harmonic coefficients of the non-Gaussian fields, with bounds (0:lmax,0:lmax).</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -906,13 +1622,29 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.bispec.</span></span><span class="sig-name descname"><span class="pre">bispec_norm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bstype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'equi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.bispec.bispec_norm" title="Link to this definition"></a></dt>
 <dd><p>Return normalization of the binned reduced bispectrum for a given multipole bin</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:bp [edge] (double) : Bin edges, with bounds (bn+1)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">bp [edge] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Bin edges, with bounds (bn+1)</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:bstype (str)  : Configuration of the bispectrum, default to equilateral
-:bst (int)     : A parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.
-:sL[2] (int)   : The fixed bin for the squeezed configuration, b[sL,eL,eL], default to the lowest multipole bin</p>
+</dl>
 </dd>
-<dt>Returns:</dt><dd><p>:norm [bin] (double) : Normalization of the binned reduced bispectrum at each bin, with bounds (bn)</p>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">bstype (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Configuration of the bispectrum, default to equilateral</p>
+</dd>
+<dt class="field-even">bst (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>A parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</p>
+</dd>
+<dt class="field-odd">sL[2] (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The fixed bin for the squeezed configuration, b[sL,eL,eL], default to the lowest multipole bin</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">norm [bin] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Normalization of the binned reduced bispectrum at each bin, with bounds (bn)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -922,14 +1654,32 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.bispec.</span></span><span class="sig-name descname"><span class="pre">bispec_bin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bstype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'equi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.bispec.bispec_bin" title="Link to this definition"></a></dt>
 <dd><p>Return the unnormalized binned reduced bispectrum for a given multipole bin</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:bp [edge] (double) : Bin edges, with bounds (bn+1)
-:alm [l,m] (dcmplx) : Input harmonic coefficients, with bounds (0:lmax,0:lmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">bp [edge] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Bin edges, with bounds (bn+1)</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:bstype (str)  : Configuration of the bispectrum, default to equilateral
-:bst (int)     : A parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.
-:sL[2] (int)   : The fixed bin for the squeezed configuration, b[sL,eL,eL], default to the lowest multipole bin</p>
+<dt class="field-even">alm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Input harmonic coefficients, with bounds (0:lmax,0:lmax)</p>
 </dd>
-<dt>Returns:</dt><dd><p>:bis [bin] (double) : The unnormalized binned reduced bispectrum at each bin, with bounds (bn)</p>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">bstype (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Configuration of the bispectrum, default to equilateral</p>
+</dd>
+<dt class="field-even">bst (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>A parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</p>
+</dd>
+<dt class="field-odd">sL[2] (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The fixed bin for the squeezed configuration, b[sL,eL,eL], default to the lowest multipole bin</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">bis [bin] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The unnormalized binned reduced bispectrum at each bin, with bounds (bn)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -939,14 +1689,32 @@
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.bispec.</span></span><span class="sig-name descname"><span class="pre">xbispec_bin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bstype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'equi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.bispec.xbispec_bin" title="Link to this definition"></a></dt>
 <dd><p>Return the unnormalized binned reduced cross-bispectrum for a given multipole bin</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:bp [edge] (double) : Bin edges, with bounds (bn+1)
-:alm [n,l,m] (dcmplx) : Input harmonic coefficients, with bounds (0:n-1,0:lmax,0:lmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">bp [edge] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Bin edges, with bounds (bn+1)</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:bstype (str)  : Configuration of the bispectrum, default to equilateral
-:bst (int)     : A parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.
-:sL[2] (int)   : The fixed bin for the squeezed configuration, b[sL,eL,eL], default to the lowest multipole bin</p>
+<dt class="field-even">alm [n,l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Input harmonic coefficients, with bounds (0:n-1,0:lmax,0:lmax)</p>
 </dd>
-<dt>Returns:</dt><dd><p>:bis [bin] (double) : The unnormalized binned reduced bispectrum at each bin, with bounds (bn)</p>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">bstype (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Configuration of the bispectrum, default to equilateral</p>
+</dd>
+<dt class="field-even">bst (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>A parameter, bst=nside/lmax, which controls the accuracy of the calculation, default to 2. More accurate for a larger value.</p>
+</dd>
+<dt class="field-odd">sL[2] (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The fixed bin for the squeezed configuration, b[sL,eL,eL], default to the lowest multipole bin</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">bis [bin] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The unnormalized binned reduced bispectrum at each bin, with bounds (bn)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -963,23 +1731,59 @@ Please make sure that your input maps are beam-convolved.
 This code deconvolves the beam during filtering and the output are the filtered alms after the beam-deconvolution.
 Note that n is for temperature only (n=1), polarization only (n=2) or both (n=3), mn is the number of frequency maps.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:cl[n,l] (double) : Theory signal power spectrum, with bounds (0:n-1,0:lmax)
-:bl[mn,l] (double) : Beam spectrum, with bounds (0:mn-1,0:lmax)
-:iNcov[n,mn,pix] (double) : Inverse of the noise variance at each pixel, with bounds (0:n-1,0:mn-1,0:npix-1)
-:maps[n,mn,pix] (double) : Beam-convolved T, Q, U maps, with bouds (0:n-1,0:mn-1,0:npix-1)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">cl[n,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory signal power spectrum, with bounds (0:n-1,0:lmax)</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:chn (int) : Number of grids for preconsitioner (chn=1 for diagonal preconditioner, default)
-:lmaxs[chain] (int) : Maximum multipole(s) at each preconditioning and lmaxs[0] is the input maximum multipole of cl
-:nsides[chain] (int) : Nside(s) of preconditoner and nsides[0] should be consistent with the input map’s nside. 
-:eps[chain] (double): Parameter to finish the iteration (i.e. terminate if the residul fraction becomes smaller than eps). Default to 1e-6.
-:itns[chain] (int) : Number of interations. 
-:filter (str): C-inverse (‘’) or Wiener filter (W), default to the Wiener filter.
-:inl[n,mn,l] (double) : Inverse noise spectrum (0 for white noise case, default).
-:verbose (bool): Output messages, default to False
-:ro (int): the residual fraction is output for every ro iteration (e.g. ro=2 means 1 output per 2 iterations). Default to 50. Useful for convergence speed. 
-:stat (str): Realtime status filename which contains the residual fraction, default to no output file</p>
+<dt class="field-even">bl[mn,l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Beam spectrum, with bounds (0:mn-1,0:lmax)</p>
 </dd>
-<dt>Returns:</dt><dd><p>:xlm[n,l,m] (dcmplx) : C-inverse / Wiener filtered multipoles, with bounds (0:n-1,0:lmax,0:lmax)</p>
+<dt class="field-odd">iNcov[n,mn,pix] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Inverse of the noise variance at each pixel, with bounds (0:n-1,0:mn-1,0:npix-1)</p>
+</dd>
+<dt class="field-even">maps[n,mn,pix] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Beam-convolved T, Q, U maps, with bouds (0:n-1,0:mn-1,0:npix-1)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">chn (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of grids for preconsitioner (chn=1 for diagonal preconditioner, default)</p>
+</dd>
+<dt class="field-even">lmaxs[chain] (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Maximum multipole(s) at each preconditioning and lmaxs[0] is the input maximum multipole of cl</p>
+</dd>
+<dt class="field-odd">nsides[chain] (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside(s) of preconditoner and nsides[0] should be consistent with the input map’s nside.</p>
+</dd>
+<dt class="field-even">eps[chain] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Parameter to finish the iteration (i.e. terminate if the residul fraction becomes smaller than eps). Default to 1e-6.</p>
+</dd>
+<dt class="field-odd">itns[chain] (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of interations.</p>
+</dd>
+<dt class="field-even">filter (str)<span class="colon">:</span></dt>
+<dd class="field-even"><p>C-inverse (‘’) or Wiener filter (W), default to the Wiener filter.</p>
+</dd>
+<dt class="field-odd">inl[n,mn,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Inverse noise spectrum (0 for white noise case, default).</p>
+</dd>
+<dt class="field-even">verbose (bool)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Output messages, default to False</p>
+</dd>
+<dt class="field-odd">ro (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the residual fraction is output for every ro iteration (e.g. ro=2 means 1 output per 2 iterations). Default to 50. Useful for convergence speed.</p>
+</dd>
+<dt class="field-even">stat (str)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Realtime status filename which contains the residual fraction, default to no output file</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">xlm[n,l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>C-inverse / Wiener filtered multipoles, with bounds (0:n-1,0:lmax,0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -989,21 +1793,53 @@ Note that n is for temperature only (n=1), polarization only (n=2) or both (n=3)
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.cninv.</span></span><span class="sig-name descname"><span class="pre">cnfilter_kappa</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cov</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iNcov</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmaxs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nsides</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1e-06]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ro</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.cninv.cnfilter_kappa" title="Link to this definition"></a></dt>
 <dd><p>Computing the inverse-variance weighted multipole, (C+N)^-1 x kappa, for multiple mass-tracers of kappa maps.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:cov[n,n,l] (double) : Signal covariance matrix for each multipole, with bounds (0:n-1,0:n-1,0:lmax)
-:iNcov[n,pix] (double) : Inverse of the noise variance at each pixel, with bounds (0:n-1,0:npix-1)
-:maps[n,pix] (double) : Input kappa maps, with bouds (0:n-1,0:npix-1)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">cov[n,n,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Signal covariance matrix for each multipole, with bounds (0:n-1,0:n-1,0:lmax)</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:chn (int) : Number of grids for preconsitioner (chn=1 for diagonal preconditioner, default)
-:lmaxs[chain] (int) : Maximum multipole(s) at each preconditioning and lmaxs[0] is the input maximum multipole of cl
-:nsides[chain] (int) : Nside(s) of preconditoner and nsides[0] should be consistent with the input map’s nside. 
-:eps[chain] (double): Parameter to finish the iteration (i.e. terminate if the residul fraction becomes smaller than eps). Default to 1e-6.
-:itns[chain] (int) : Number of interations. 
-:inl[n,l] (double) : Inverse noise spectrum for each mass map (0 for white noise case, default).
-:verbose (bool): Output messages, default to False
-:ro (int): the residual fraction is output for every ro iteration (e.g. ro=2 means 1 output per 2 iterations). Default to 50. Useful for convergence speed. 
-:stat (str): Realtime status filename which contains the residual fraction, default to no output file</p>
+<dt class="field-even">iNcov[n,pix] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Inverse of the noise variance at each pixel, with bounds (0:n-1,0:npix-1)</p>
 </dd>
-<dt>Returns:</dt><dd><p>:xlm[n,l,m] (dcmplx) : Wiener filtered multipoles, with bounds (n,0:lmax,0:lmax)</p>
+<dt class="field-odd">maps[n,pix] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Input kappa maps, with bouds (0:n-1,0:npix-1)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">chn (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of grids for preconsitioner (chn=1 for diagonal preconditioner, default)</p>
+</dd>
+<dt class="field-even">lmaxs[chain] (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Maximum multipole(s) at each preconditioning and lmaxs[0] is the input maximum multipole of cl</p>
+</dd>
+<dt class="field-odd">nsides[chain] (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside(s) of preconditoner and nsides[0] should be consistent with the input map’s nside.</p>
+</dd>
+<dt class="field-even">eps[chain] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Parameter to finish the iteration (i.e. terminate if the residul fraction becomes smaller than eps). Default to 1e-6.</p>
+</dd>
+<dt class="field-odd">itns[chain] (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of interations.</p>
+</dd>
+<dt class="field-even">inl[n,l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Inverse noise spectrum for each mass map (0 for white noise case, default).</p>
+</dd>
+<dt class="field-odd">verbose (bool)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Output messages, default to False</p>
+</dd>
+<dt class="field-even">ro (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>the residual fraction is output for every ro iteration (e.g. ro=2 means 1 output per 2 iterations). Default to 50. Useful for convergence speed.</p>
+</dd>
+<dt class="field-odd">stat (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Realtime status filename which contains the residual fraction, default to no output file</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">xlm[n,l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Wiener filtered multipoles, with bounds (n,0:lmax,0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1015,32 +1851,76 @@ Note that n is for temperature only (n=1), polarization only (n=2) or both (n=3)
 Please make sure that your input maps are beam-convolved. 
 This code deconvolves the beam during filtering and the output are the filtered alms after the beam-deconvolution.</p>
 <dl>
-<dt>Args:</dt><dd><p>:n (int) : Number of maps, i.e., temperature only (n=1), polarization only (n=2) or both (n=3)
-:mn0/1 (int) : Number of frequencies
-:nside0/1 (int) : Nsides of input maps
-:lmax (int) : Maximum multipole of the input cl
-:cl[n,l] (double) : Theory signal power spectrum, with bounds (0:n-1,0:lmax)
-:bl0/1[mn,l] (double) : Beam function, with bounds (0:n-1,0:lmax)
-:iNcov0/1[n,mn,pix] (double) : Inverse of the noise variance at each pixel, with bounds (0:n-1,0:npix-1)
-:maps0/1[n,mn,pix] (double) : Beam-convolved T, Q, U maps, with bouds (0:n-1,0:npix-1)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">n (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of maps, i.e., temperature only (n=1), polarization only (n=2) or both (n=3)</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:chn (int) : Number of grids for preconsitioner (chn=1 for diagonal preconditioner, default)
-:lmaxs[chain] (int) : Maximum multipole(s) at each preconditioning and lmaxs[0] is the input maximum multipole of cl
-:nsides0/1[chain] (int) : Nside(s) of preconditoner and nsides[0] should be consistent with the input map’s nside. 
-:eps[chain] (double): Parameter to finish the iteration (i.e. terminate if the residul fraction becomes smaller than eps). Default to 1e-6.
-:itns[chain] (int) : Number of interations. 
-:filter (str): C-inverse (‘’) or Wiener filter (W), default to the Wiener filter.
-:inl[n,mn,l] (double) : Inverse noise spectrum, 0 for white noise case.
-:verbose (bool): Output messages, default to False
-:ro (int): the residual fraction is output for every ro iteration (e.g. ro=2 means 1 output per 2 iterations). Default to 50. Useful for convergence speed. 
-:stat (str): Realtime status filename which contains the residual fraction, default to no output file
-:reducmn (int): Reducing number of maps per chain (1,2) or not (0, default). If 1, the maps are combined for the same nside inside the multigrid chain. If 2, in addition to the procedure of 1, the each nside maprs are further combined into a single map inside the second chain (chain&gt;=3).</p>
+<dt class="field-even">mn0/1 (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of frequencies</p>
 </dd>
-<dt>Returns:</dt><dd><p>:xlm[n,l,m] (dcmplx) : C-inverse or Wiener filtered multipoles, with bounds (0:n-1,0:lmax,0:lmax)</p>
-<blockquote>
-<div><p>mgc%cv(1,mi)%nij = iNcov0(:,mi,:)maps0(:,mi,:)
+<dt class="field-odd">nside0/1 (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nsides of input maps</p>
+</dd>
+<dt class="field-even">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Maximum multipole of the input cl</p>
+</dd>
+<dt class="field-odd">cl[n,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Theory signal power spectrum, with bounds (0:n-1,0:lmax)</p>
+</dd>
+<dt class="field-even">bl0/1[mn,l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Beam function, with bounds (0:n-1,0:lmax)</p>
+</dd>
+<dt class="field-odd">iNcov0/1[n,mn,pix] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Inverse of the noise variance at each pixel, with bounds (0:n-1,0:npix-1)</p>
+</dd>
+<dt class="field-even">maps0/1[n,mn,pix] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Beam-convolved T, Q, U maps, with bouds (0:n-1,0:npix-1)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">chn (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of grids for preconsitioner (chn=1 for diagonal preconditioner, default)</p>
+</dd>
+<dt class="field-even">lmaxs[chain] (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Maximum multipole(s) at each preconditioning and lmaxs[0] is the input maximum multipole of cl</p>
+</dd>
+<dt class="field-odd">nsides0/1[chain] (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside(s) of preconditoner and nsides[0] should be consistent with the input map’s nside.</p>
+</dd>
+<dt class="field-even">eps[chain] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Parameter to finish the iteration (i.e. terminate if the residul fraction becomes smaller than eps). Default to 1e-6.</p>
+</dd>
+<dt class="field-odd">itns[chain] (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of interations.</p>
+</dd>
+<dt class="field-even">filter (str)<span class="colon">:</span></dt>
+<dd class="field-even"><p>C-inverse (‘’) or Wiener filter (W), default to the Wiener filter.</p>
+</dd>
+<dt class="field-odd">inl[n,mn,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Inverse noise spectrum, 0 for white noise case.</p>
+</dd>
+<dt class="field-even">verbose (bool)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Output messages, default to False</p>
+</dd>
+<dt class="field-odd">ro (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the residual fraction is output for every ro iteration (e.g. ro=2 means 1 output per 2 iterations). Default to 50. Useful for convergence speed.</p>
+</dd>
+<dt class="field-even">stat (str)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Realtime status filename which contains the residual fraction, default to no output file</p>
+</dd>
+<dt class="field-odd">reducmn (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Reducing number of maps per chain (1,2) or not (0, default). If 1, the maps are combined for the same nside inside the multigrid chain. If 2, in addition to the procedure of 1, the each nside maprs are further combined into a single map inside the second chain (chain&gt;=3).</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list">
+<dt class="field-odd">xlm[n,l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>C-inverse or Wiener filtered multipoles, with bounds (0:n-1,0:lmax,0:lmax)</p>
+<p>mgc%cv(1,mi)%nij = iNcov0(:,mi,:)maps0(:,mi,:)
 mgc%cv(1,mi)%nij = iNcov1(:,mi-mn0,:)maps1(:,mi-mn0,:)</p>
-</div></blockquote>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1053,11 +1933,23 @@ mgc%cv(1,mi)%nij = iNcov1(:,mi-mn0,:)maps1(:,mi-mn0,:)</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">gauss1alm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.gauss1alm" title="Link to this definition"></a></dt>
 <dd><p>Generating alm as a random Gaussian field whose power spectrum is cl. The output alm is given by a 2D array.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:cl [l] (double) : Angular power spectrum, with bounds (0:lmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">cl [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Angular power spectrum, with bounds (0:lmax)</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:lmin (int)      : Minimum multipole of output alm (default: 2)</p>
+</dl>
 </dd>
-<dt>Returns:</dt><dd><p>:alm [l,m] (dcmplx) : Random Gaussian alm, with bounds (0:lmax,0:lmax)</p>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmin (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Minimum multipole of output alm (default: 2)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">alm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Random Gaussian alm, with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1067,12 +1959,26 @@ mgc%cv(1,mi)%nij = iNcov1(:,mi-mn0,:)maps1(:,mi-mn0,:)</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">gauss2alm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cl1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cl2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.gauss2alm" title="Link to this definition"></a></dt>
 <dd><p>Generating two alms as random Gaussian fields whose power spectra are cl1, cl2 and the cross spectrum is xl.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:cl1 [l] (double) : Angular power spectrum of the 1st alm, with bounds (0:lmax)
-:cl2 [l] (double) : Angular power spectrum of the 2nd alm, with bounds (0:lmax)
-:xl [l] (double)  : Cross-power spectrum between alm1 and alm2, with bounds (0:lmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">cl1 [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Angular power spectrum of the 1st alm, with bounds (0:lmax)</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:lmin (int)         : Minimum multipole of output alm (default: 2)
-:flm [l,m] (dcmplx) : Constrained realiation of alms whose power spectrum is cl1</p>
+<dt class="field-even">cl2 [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Angular power spectrum of the 2nd alm, with bounds (0:lmax)</p>
+</dd>
+<dt class="field-odd">xl [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Cross-power spectrum between alm1 and alm2, with bounds (0:lmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmin (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Minimum multipole of output alm (default: 2)</p>
+</dd>
+<dt class="field-even">flm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Constrained realiation of alms whose power spectrum is cl1</p>
+</dd>
+</dl>
 </dd>
 <dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">alm [2,l,m] (dcmplx)<span class="colon">:</span></dt>
@@ -1088,12 +1994,26 @@ mgc%cv(1,mi)%nij = iNcov1(:,mi-mn0,:)maps1(:,mi-mn0,:)</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">gaussTEB</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">EE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.gaussTEB" title="Link to this definition"></a></dt>
 <dd><p>Generating T/E/B alms as random Gaussian fields whose power spectra are TT, EE, BB and the cross spectrum is TE.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:TT [l] (double) : Angular power spectrum of temperature, with bounds (0:lmax)
-:EE [l] (double) : Angular power spectrum of E mode, with bounds (0:lmax)
-:BB [l] (double) : Angular power spectrum of B mode, with bounds (0:lmax)
-:TE [l] (double) : TE cross-power spectrum, with bounds (0:lmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">TT [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Angular power spectrum of temperature, with bounds (0:lmax)</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:lmin (int)      : Minimum multipole of output alm (default: 2)</p>
+<dt class="field-even">EE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Angular power spectrum of E mode, with bounds (0:lmax)</p>
+</dd>
+<dt class="field-odd">BB [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Angular power spectrum of B mode, with bounds (0:lmax)</p>
+</dd>
+<dt class="field-even">TE [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>TE cross-power spectrum, with bounds (0:lmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmin (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Minimum multipole of output alm (default: 2)</p>
+</dd>
+</dl>
 </dd>
 <dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">alm [3,l,m] (dcmplx)<span class="colon">:</span></dt>
@@ -1109,9 +2029,17 @@ mgc%cv(1,mi)%nij = iNcov1(:,mi-mn0,:)maps1(:,mi-mn0,:)</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">gaussalm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ilm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.gaussalm" title="Link to this definition"></a></dt>
 <dd><p>Generating alms as random Gaussian fields whose covariance is given by cl[i,j].</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:cl [i,j,l] (double) : Covariance between the gaussian fields, with bounds (n,n,0:lmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">cl [i,j,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Covariance between the gaussian fields, with bounds (n,n,0:lmax)</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:ilm [l,m] (dcmplx)  : Input alm for the cl[0,0] element (default to None). The other alms are generated to be correlated with ilm.</p>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">ilm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Input alm for the cl[0,0] element (default to None). The other alms are generated to be correlated with ilm.</p>
+</dd>
+</dl>
 </dd>
 <dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">alm [i,l,m] (dcmplx)<span class="colon">:</span></dt>
@@ -1131,12 +2059,20 @@ mgc%cv(1,mi)%nij = iNcov1(:,mi-mn0,:)maps1(:,mi-mn0,:)</p>
 <dt class="field-odd">nside_full (int)<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Nside of full map</p>
 </dd>
-</dl>
-<p>:nside_sub (int) : Nside of a patch map
-:ipix_sub (int)  : Healpix pixel index of a patch map
-:ascale (dble)   : apodization scale (nothing, 1) to (full, 0)</p>
+<dt class="field-even">nside_sub (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nside of a patch map</p>
 </dd>
-<dt>Returns:</dt><dd><p>:mask [pix] (double) : mask map with bounds (0:npix-1,2)</p>
+<dt class="field-odd">ipix_sub (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Healpix pixel index of a patch map</p>
+</dd>
+</dl>
+<p>:ascale (dble)   : apodization scale (nothing, 1) to (full, 0)</p>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">mask [pix] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>mask map with bounds (0:npix-1,2)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1147,9 +2083,17 @@ mgc%cv(1,mi)%nij = iNcov1(:,mi-mn0,:)maps1(:,mi-mn0,:)</p>
 <dd><p>Calculate baseline of each subpatch. The subpatches have the same size.
 Written by Ryo Nagata.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:npix (int)            : pixel number of the full map
-:nside_subpatch (int)  : Nside of sub patch
-:QU [pix,2] (double)   : Q/U maps, with bounds (0:npix-1,2)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">npix (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pixel number of the full map</p>
+</dd>
+<dt class="field-even">nside_subpatch (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nside of sub patch</p>
+</dd>
+<dt class="field-odd">QU [pix,2] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Q/U maps, with bounds (0:npix-1,2)</p>
+</dd>
+</dl>
 </dd>
 <dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">blmap [pix,2] (double)<span class="colon">:</span></dt>
@@ -1166,12 +2110,26 @@ Written by Ryo Nagata.</p>
 <dd><p>Return apodization window for subpatch.
 Written by Ryo Nagata.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:nside_large (int) : Nside of sub patch
-:nside_small (int) : full Nside
-:ipix_pix (int)    : pixel index of full map
-:apod (double)     : apodization length</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside_large (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside of sub patch</p>
 </dd>
-<dt>Returns:</dt><dd><p>:wind_out (double) : aporization window at ipix_pix</p>
+<dt class="field-even">nside_small (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>full Nside</p>
+</dd>
+<dt class="field-odd">ipix_pix (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pixel index of full map</p>
+</dd>
+<dt class="field-even">apod (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>apodization length</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">wind_out (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>aporization window at ipix_pix</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1181,10 +2139,20 @@ Written by Ryo Nagata.</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">get_apod_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.get_apod_window" title="Link to this definition"></a></dt>
 <dd><p>A sine apodization window</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:s (double) : Distance from the center of the window
-:a (double) : Apodization length, nothing (a=1) to all (a=0)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">s (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Distance from the center of the window</p>
 </dd>
-<dt>Returns:</dt><dd><p>:w (double) : Aporization window</p>
+<dt class="field-even">a (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Apodization length, nothing (a=1) to all (a=0)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">w (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Aporization window</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1194,11 +2162,23 @@ Written by Ryo Nagata.</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">eb_separate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">W</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">U</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.eb_separate" title="Link to this definition"></a></dt>
 <dd><p>E/B mode seperation based on the chi-field estimator. See e.g. Sec.III.2 of arXiv:1305.7441 for numerical implimentation.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)        : Maximum multipole used for the harmonic transform internally
-:W[pix] (double)   : Window function satisfying zero 1st and 2nd derivatives at the boundary, with bounds (0:npix-1)
-:Q/U[pix] (double) : Input Q/U map already multiplied by W, with bounds (0:npix-1)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole used for the harmonic transform internally</p>
 </dd>
-<dt>Returns:</dt><dd><p>:Elm/Blm[l,m]  (dcmplx) : Seperated E/B modes, with bounds (0:lmax,0:lmax)</p>
+<dt class="field-even">W[pix] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Window function satisfying zero 1st and 2nd derivatives at the boundary, with bounds (0:npix-1)</p>
+</dd>
+<dt class="field-odd">Q/U[pix] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Input Q/U map already multiplied by W, with bounds (0:npix-1)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">Elm/Blm[l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Seperated E/B modes, with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1208,11 +2188,23 @@ Written by Ryo Nagata.</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">alm2cl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.alm2cl" title="Link to this definition"></a></dt>
 <dd><p>From alm to angular power spectrum</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:alm1 [l,m] (dcmplx)  : 1st harmonic coefficient, with bounds (0:lmax,0:lmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">alm1 [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1st harmonic coefficient, with bounds (0:lmax,0:lmax)</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:alm2 [l,m] (dcmplx)  : 2nd harmonic coefficient, with bounds (0:lmax,0:lmax), default to alm1</p>
+</dl>
 </dd>
-<dt>Returns:</dt><dd><p>:cl [l] (double) : Auto or cross angular power spectrum, with bounds (0:lmax)</p>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">alm2 [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2nd harmonic coefficient, with bounds (0:lmax,0:lmax), default to alm1</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">cl [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Auto or cross angular power spectrum, with bounds (0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1222,13 +2214,29 @@ Written by Ryo Nagata.</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">alm2bcl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.alm2bcl" title="Link to this definition"></a></dt>
 <dd><p>From alm to angular power spectrum with multipole binning</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:bn (int)             : Number of multipole bins
-:alm1 [l,m] (dcmplx)  : 1st harmonic coefficient, with bounds (0:lmax,0:lmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">bn (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of multipole bins</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:alm2 [l,m] (dcmplx)  : 2nd harmonic coefficient, with bounds (0:lmax,0:lmax), default to alm1
-:spc (str) : Specify bin spacing, ‘’ = linear (default), ‘log’ = log spacing, ‘log10’ = log10 spacing, ‘p2’ = power of 2 spacing, ‘p3’ = power of 3 spacing</p>
+<dt class="field-even">alm1 [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>1st harmonic coefficient, with bounds (0:lmax,0:lmax)</p>
 </dd>
-<dt>Returns:</dt><dd><p>:cb [bin] (double) : Auto or cross angular power spectrum with multipole binning, with bounds (0:bn-1)</p>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">alm2 [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2nd harmonic coefficient, with bounds (0:lmax,0:lmax), default to alm1</p>
+</dd>
+<dt class="field-even">spc (str)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Specify bin spacing, ‘’ = linear (default), ‘log’ = log spacing, ‘log10’ = log10 spacing, ‘p2’ = power of 2 spacing, ‘p3’ = power of 3 spacing</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">cb [bin] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Auto or cross angular power spectrum with multipole binning, with bounds (0:bn-1)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1238,10 +2246,20 @@ Written by Ryo Nagata.</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">alm2rho</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.alm2rho" title="Link to this definition"></a></dt>
 <dd><p>Compute correlation coefficients between two alms</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:alm1 [l,m] (dcmplx)  : 1st harmonic coefficient, with bounds (0:lmax,0:lmax)
-:alm2 [l,m] (dcmplx)  : 2nd harmonic coefficient, with bounds (0:lmax,0:lmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">alm1 [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1st harmonic coefficient, with bounds (0:lmax,0:lmax)</p>
 </dd>
-<dt>Returns:</dt><dd><p>:rho [l] (double) : Auto or cross angular power spectrum, with bounds (0:lmax)</p>
+<dt class="field-even">alm2 [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>2nd harmonic coefficient, with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">rho [l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Auto or cross angular power spectrum, with bounds (0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1251,9 +2269,17 @@ Written by Ryo Nagata.</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">alm2cov</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.alm2cov" title="Link to this definition"></a></dt>
 <dd><p>Compute correlation coefficients between two alms</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:alm [n,l,m] (dcmplx) : 1st harmonic coefficient, with bounds (0:lmax,0:lmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">alm [n,l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>1st harmonic coefficient, with bounds (0:lmax,0:lmax)</p>
 </dd>
-<dt>Returns:</dt><dd><p>:cov [n,n,l] (double) : Auto and cross angular power spectra between alm[i] and alm[j]</p>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">cov [n,n,l] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Auto and cross angular power spectra between alm[i] and alm[j]</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1262,16 +2288,24 @@ Written by Ryo Nagata.</p>
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.apodize">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">apodize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rmask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascale</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">holeminsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.apodize" title="Link to this definition"></a></dt>
 <dd><p>Compute apodized window function. Partially use Healpix’s process_mask code.</p>
-<dl>
+<dl class="simple">
 <dt>Args:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">rmask[pix] (double)<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Input window function, with bounds (0:pix-1). Pixels at rmask=0 is considered as masked pixels.</p>
 </dd>
-</dl>
-<p>:ascale (double)    : Apodization length [deg] from the closest masked pixel</p>
+<dt class="field-even">ascale (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Apodization length [deg] from the closest masked pixel</p>
 </dd>
-<dt>Args(optional):</dt><dd><p>:order (int)         : Pixel order, 1 for RING (default), otherwize NESTED
-:holeminsize (double): Minimum hole size [arcmin] (i.e., holes within this size is filled), default to 0</p>
+</dl>
+</dd>
+<dt>Args(optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">order (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Pixel order, 1 for RING (default), otherwize NESTED</p>
+</dd>
+<dt class="field-even">holeminsize (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Minimum hole size [arcmin] (i.e., holes within this size is filled), default to 0</p>
+</dd>
+</dl>
 </dd>
 <dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">amask[pix] (double)<span class="colon">:</span></dt>
@@ -1287,10 +2321,20 @@ Written by Ryo Nagata.</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">hp_alm2map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.hp_alm2map" title="Link to this definition"></a></dt>
 <dd><p>Ylm transform of the map to alm with the healpix (l,m) order</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:nside (int)        : Nside of the input map
-:alm [l,m] (dcmplx) : Harmonic coefficient to be transformed to a map, with bounds (0:lmax,0:mmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside of the input map</p>
 </dd>
-<dt>Returns:</dt><dd><p>:map [pix] (double) : Transformed map, with bounds (0:npix-1)</p>
+<dt class="field-even">alm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Harmonic coefficient to be transformed to a map, with bounds (0:lmax,0:mmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">map [pix] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Transformed map, with bounds (0:npix-1)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1300,10 +2344,20 @@ Written by Ryo Nagata.</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">hp_alm2map_spin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.hp_alm2map_spin" title="Link to this definition"></a></dt>
 <dd><p>Ylm transform of the map to alm with the healpix (l,m) order</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:nside (int)         : Nside of the input map
-:spin (int)         : Spin of the transform
-:elm [l,m] (dcmplx) : Spin-s E-like harmonic coefficient to be transformed to a map, with bounds (0:lmax,0:mmax)
-:blm [l,m] (dcmplx) : Spin-s B-like harmonic coefficient to be transformed to a map, with bounds (0:lmax,0:mmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside of the input map</p>
+</dd>
+<dt class="field-even">spin (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Spin of the transform</p>
+</dd>
+<dt class="field-odd">elm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Spin-s E-like harmonic coefficient to be transformed to a map, with bounds (0:lmax,0:mmax)</p>
+</dd>
+<dt class="field-even">blm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Spin-s B-like harmonic coefficient to be transformed to a map, with bounds (0:lmax,0:mmax)</p>
+</dd>
+</dl>
 </dd>
 <dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">map0 [pix] (double)<span class="colon">:</span></dt>
@@ -1322,9 +2376,17 @@ Written by Ryo Nagata.</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">hp_map2alm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.hp_map2alm" title="Link to this definition"></a></dt>
 <dd><p>Ylm transform of the map to alm with the healpix (l,m) order</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)          : Maximum multipole of the input alm
-:mmax (int)          : Maximum m of the input alm
-:map [pix] (double)  : Input map, with bounds (0:npix-1)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of the input alm</p>
+</dd>
+<dt class="field-even">mmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Maximum m of the input alm</p>
+</dd>
+<dt class="field-odd">map [pix] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Input map, with bounds (0:npix-1)</p>
+</dd>
+</dl>
 </dd>
 <dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">alm [l,m] (dcmplx)<span class="colon">:</span></dt>
@@ -1341,11 +2403,23 @@ Written by Ryo Nagata.</p>
 <dd><p>Spin Ylm transform of the map ( = map0 + i map1 ) to alm with the healpix (l,m) order. For example, if map0=Q, map1=U and spin=2, 
 the alm contains E-mode and B-mode.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)          : Maximum multipole of the input alm
-:mmax (int)          : Maximum m of the input alm
-:spin (int)          : Spin of the transform
-:map0 [pix] (double) : Real part of the input map, with bounds (0:npix-1)
-:map1 [pix] (double) : Imaginary part of the input map, with bounds (0:npix-1)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of the input alm</p>
+</dd>
+<dt class="field-even">mmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Maximum m of the input alm</p>
+</dd>
+<dt class="field-odd">spin (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Spin of the transform</p>
+</dd>
+<dt class="field-even">map0 [pix] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Real part of the input map, with bounds (0:npix-1)</p>
+</dd>
+<dt class="field-odd">map1 [pix] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Imaginary part of the input map, with bounds (0:npix-1)</p>
+</dd>
+</dl>
 </dd>
 <dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">alm [2,l,m] (dcmplx)<span class="colon">:</span></dt>
@@ -1361,10 +2435,20 @@ the alm contains E-mode and B-mode.</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">map_mul_lfunc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfunc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.map_mul_lfunc" title="Link to this definition"></a></dt>
 <dd><p>Convert map to alm, multiply a function to alm and convert back again to map</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:imap [pix] (double)  : Input map, with bounds (0:12*nside**2-1)
-:lfunc [l] (double)   : 1D spectrum to be multiplied to alm, with bounds (0:lmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">imap [pix] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Input map, with bounds (0:12*nside**2-1)</p>
 </dd>
-<dt>Returns:</dt><dd><p>:omap [pix] (double)  : Output map, with bounds (0:12*nside**2-1)</p>
+<dt class="field-even">lfunc [l] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>1D spectrum to be multiplied to alm, with bounds (0:lmax)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">omap [pix] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Output map, with bounds (0:12*nside**2-1)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1374,10 +2458,20 @@ the alm contains E-mode and B-mode.</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">mulwin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.mulwin" title="Link to this definition"></a></dt>
 <dd><p>Multiply window to a map obtained from alm</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:alm [l,m] (dcmplx) : Harmonic coefficient to be multiplied at window, with bounds (0:lmax,0:mmax)
-:win [pix] (double) : Transformed map, with bounds (0:npix-1)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">alm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Harmonic coefficient to be multiplied at window, with bounds (0:lmax,0:mmax)</p>
 </dd>
-<dt>Returns:</dt><dd><p>:wlm [l,m] (dcmplx) : Harmonic coefficient of the window-multiplied map, with bounds (0:lmax,0:mmax)</p>
+<dt class="field-even">win [pix] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Transformed map, with bounds (0:npix-1)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">wlm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Harmonic coefficient of the window-multiplied map, with bounds (0:lmax,0:mmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1387,11 +2481,23 @@ the alm contains E-mode and B-mode.</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">mulwin_spin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.mulwin_spin" title="Link to this definition"></a></dt>
 <dd><p>Multiply window to a map obtained from alm</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:elm [l,m] (dcmplx) : Spin-s E-like harmonic coefficient to be transformed to a map, with bounds (0:lmax,0:mmax)
-:blm [l,m] (dcmplx) : Spin-s B-like harmonic coefficient to be transformed to a map, with bounds (0:lmax,0:mmax)
-:win [pix] (double) : Transformed map, with bounds (0:npix-1)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">elm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Spin-s E-like harmonic coefficient to be transformed to a map, with bounds (0:lmax,0:mmax)</p>
 </dd>
-<dt>Args (Optional):</dt><dd><p>:spin (int)         : Spin of the transform, default to 2</p>
+<dt class="field-even">blm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Spin-s B-like harmonic coefficient to be transformed to a map, with bounds (0:lmax,0:mmax)</p>
+</dd>
+<dt class="field-odd">win [pix] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Transformed map, with bounds (0:npix-1)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args (Optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">spin (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Spin of the transform, default to 2</p>
+</dd>
+</dl>
 </dd>
 <dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">wlm [2,l,m] (dcmplx)<span class="colon">:</span></dt>
@@ -1407,8 +2513,14 @@ the alm contains E-mode and B-mode.</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">lm_healpy2healpix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">almpy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.lm_healpy2healpix" title="Link to this definition"></a></dt>
 <dd><p>Transform healpy alm to healpix alm</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:lmax (int)           : Maximum multipole of the input/output alm satisfying 2 x lmpy = (lmax+1) x (lmax+2)
-:almpy[index] (dcmplx): Healpy alm, with bounds (0:lmpy-1)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of the input/output alm satisfying 2 x lmpy = (lmax+1) x (lmax+2)</p>
+</dd>
+<dt class="field-even">almpy[index] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Healpy alm, with bounds (0:lmpy-1)</p>
+</dd>
+</dl>
 </dd>
 <dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">almpix [l,m] (dcmplx)<span class="colon">:</span></dt>
@@ -1424,9 +2536,17 @@ the alm contains E-mode and B-mode.</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">cosin_healpix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.cosin_healpix" title="Link to this definition"></a></dt>
 <dd><p>Return cos(theta) as a function of the Healpix pixel index</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:nside (int) : Nside of the desired map</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">nside (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Nside of the desired map</p>
 </dd>
-<dt>Returns:</dt><dd><p>:cosin[pix] (double) : cosin(theta), with bounds (0:npix-1)</p>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">cosin[pix] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>cosin(theta), with bounds (0:npix-1)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1436,13 +2556,29 @@ the alm contains E-mode and B-mode.</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">load_defangle_takahashi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.load_defangle_takahashi" title="Link to this definition"></a></dt>
 <dd><p>Read theta and phi coordinates at source plane obtained by Takahashi et al. (2017)</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:fname (str) : file name
-:npix (int) : Number of pixels of theta and phi data</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">fname (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>file name</p>
 </dd>
-<dt>Args (optional):</dt><dd><p>:verbose (bool) : output messages, default to False</p>
+<dt class="field-even">npix (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of pixels of theta and phi data</p>
 </dd>
-<dt>Returns:</dt><dd><p>:theta[pix] (double) : theta, with bounds (0:npix-1)
-:phi[pix] (double)   : phi, with bounds (0:npix-1)</p>
+</dl>
+</dd>
+<dt>Args (optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">verbose (bool)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>output messages, default to False</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">theta[pix] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>theta, with bounds (0:npix-1)</p>
+</dd>
+<dt class="field-even">phi[pix] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>phi, with bounds (0:npix-1)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1453,13 +2589,29 @@ the alm contains E-mode and B-mode.</p>
 <dd><p>Converting theta and phi coordinates at source plane to deflection angle.
 The algorithm is provided by Takashi Hamana and Ryuichi Takahashi.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:npix (int) : Number of pixels of theta and phi data
-:theta[pix] (double) : theta, with bounds (0:npix-1)
-:phi[pix] (double)   : phi, with bounds (0:npix-1)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">npix (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of pixels of theta and phi data</p>
 </dd>
-<dt>Args (optional):</dt><dd><p>:verbose (bool) : output messages, default to False</p>
+<dt class="field-even">theta[pix] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>theta, with bounds (0:npix-1)</p>
 </dd>
-<dt>Returns:</dt><dd><p>:angle[pix,2] (double) : deflection angle vector containing two components, with bounds (0:npix-1,1:2)</p>
+<dt class="field-odd">phi[pix] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>phi, with bounds (0:npix-1)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args (optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">verbose (bool)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>output messages, default to False</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">angle[pix,2] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>deflection angle vector containing two components, with bounds (0:npix-1,1:2)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1469,15 +2621,35 @@ The algorithm is provided by Takashi Hamana and Ryuichi Takahashi.</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">polcoord2angle_alm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.polcoord2angle_alm" title="Link to this definition"></a></dt>
 <dd><p>Converting theta and phi coordinates at source plane to deflection angle.</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:npix (int) : Number of pixels of theta and phi data
-:lmax (int) : Maximum multipole of alms for gradient and curl modes
-:theta[pix] (double) : theta, with bounds (0:npix-1)
-:phi[pix] (double)   : phi, with bounds (0:npix-1)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">npix (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of pixels of theta and phi data</p>
 </dd>
-<dt>Args (optional):</dt><dd><p>:verbose (bool) : output messages, default to False</p>
+<dt class="field-even">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Maximum multipole of alms for gradient and curl modes</p>
 </dd>
-<dt>Returns:</dt><dd><p>:glm[l,m] (dcmplx) : gradient mode, with bounds (0:lmax,0:lmax)
-:clm[l,m] (dcmplx) : curl mode, with bounds (0:lmax,0:lmax)</p>
+<dt class="field-odd">theta[pix] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>theta, with bounds (0:npix-1)</p>
+</dd>
+<dt class="field-even">phi[pix] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>phi, with bounds (0:npix-1)</p>
+</dd>
+</dl>
+</dd>
+<dt>Args (optional):</dt><dd><dl class="field-list simple">
+<dt class="field-odd">verbose (bool)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>output messages, default to False</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">glm[l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>gradient mode, with bounds (0:lmax,0:lmax)</p>
+</dd>
+<dt class="field-even">clm[l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>curl mode, with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -1487,10 +2659,20 @@ The algorithm is provided by Takashi Hamana and Ryuichi Takahashi.</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">calc_mfs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">walm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.calc_mfs" title="Link to this definition"></a></dt>
 <dd><p>Compute 2D Minkowski functionals from a given alm</p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:bn (int)            : Number of nu bins
-:nu [bin] (double)   : Nu bins, with bounds (bn)
-:lmax (int)          : Maximum multipole of the input walm
-:walm [l,m] (dcmplx) : Alm with filtering, possibly divided by the map variance, with bounds (0:lmax,0:lmax)</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">bn (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of nu bins</p>
+</dd>
+<dt class="field-even">nu [bin] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nu bins, with bounds (bn)</p>
+</dd>
+<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Maximum multipole of the input walm</p>
+</dd>
+<dt class="field-even">walm [l,m] (dcmplx)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Alm with filtering, possibly divided by the map variance, with bounds (0:lmax,0:lmax)</p>
+</dd>
+</dl>
 </dd>
 <dt>Args(optional): </dt><dd><dl class="field-list simple">
 <dt class="field-odd">nside (int)<span class="colon">:</span></dt>
@@ -1513,15 +2695,35 @@ The algorithm is provided by Takashi Hamana and Ryuichi Takahashi.</p>
 <dd><p>Compute galaxy overdensity map from dark matter density map of Takahashi et al. (2017). 
 The galaxy z distribution is assumed to have the functional form given by Eq.(7) of <a class="reference external" href="https://arxiv.org/abs/1810.03346">https://arxiv.org/abs/1810.03346</a></p>
 <dl class="simple">
-<dt>Args:</dt><dd><p>:fname (str)         : Filename of density map
-:zn (int)            : Number of tomographic bins
-:ngz[zn] (double)    : Total number of galaxies at each z-bin
-:zi[zn+1] (double)   : Redshift intervals of the tomographic bins</p>
+<dt>Args:</dt><dd><dl class="field-list simple">
+<dt class="field-odd">fname (str)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Filename of density map</p>
 </dd>
-<dt>Args(optional): </dt><dd><p>:a (double)          : galaxy distribution shape parameter
-:b (double)          : galaxy distribution shape parameter
-:zm (double)         : mean redshift of galaxy distribution
-:b0 (double)         : constant galaxy bias at z=0</p>
+<dt class="field-even">zn (int)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Number of tomographic bins</p>
+</dd>
+<dt class="field-odd">ngz[zn] (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Total number of galaxies at each z-bin</p>
+</dd>
+<dt class="field-even">zi[zn+1] (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>Redshift intervals of the tomographic bins</p>
+</dd>
+</dl>
+</dd>
+<dt>Args(optional): </dt><dd><dl class="field-list simple">
+<dt class="field-odd">a (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>galaxy distribution shape parameter</p>
+</dd>
+<dt class="field-even">b (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>galaxy distribution shape parameter</p>
+</dd>
+<dt class="field-odd">zm (double)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>mean redshift of galaxy distribution</p>
+</dd>
+<dt class="field-even">b0 (double)<span class="colon">:</span></dt>
+<dd class="field-even"><p>constant galaxy bias at z=0</p>
+</dd>
+</dl>
 </dd>
 <dt>Returns:</dt><dd><dl class="field-list simple">
 <dt class="field-odd">gmap [pix,zbin] (double)<span class="colon">:</span></dt>

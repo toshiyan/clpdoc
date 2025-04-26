@@ -186,5 +186,5 @@ epub_exclude_files = ['search.html']
 autodoc_member_order = 'bysource'
 # -- Extension configuration -------------------------------------------------
 
-extensions = ['sphinx.ext.napoleon']
+#extensions = ['sphinx.ext.napoleon']
 

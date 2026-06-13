@@ -16,6 +16,7 @@
       <script src="../static/documentation_options.js?v=5929fcd5"></script>
       <script src="../static/doctools.js?v=9bcbadda"></script>
       <script src="../static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -129,123 +130,116 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.delens.lintemplate">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.delens.</span></span><span class="sig-name descname"><span class="pre">lintemplate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">klmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">klmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">WE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Wm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'p'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.delens.lintemplate" title="Link to this definition"></a></dt>
-<dd><p>Estimate of lensing template B-mode power spectrum (Wiener filters as inputs)</p>
+<dd><p>Estimate the lensing-template B-mode power spectrum.</p>
+<p>Wiener filters are given as inputs.</p>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output spectrum</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output spectrum.</p>
 </dd>
-<dt class="field-even">elmin/elmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum/Maximum multipole of E-modes</p>
+<dt>elmin<span class="classifier">int</span></dt><dd><p>Minimum multipole of the E-mode spectrum.</p>
 </dd>
-<dt class="field-odd">klmin/klmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum/Maximum multipole of lensing potential or kappa</p>
+<dt>elmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the E-mode spectrum.</p>
 </dd>
-<dt class="field-even">CE[l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Power spectrum of E-mode, with bounds (0:dlmax)</p>
+<dt>klmin<span class="classifier">int</span></dt><dd><p>Minimum multipole of the lensing-potential or convergence spectrum.</p>
 </dd>
-<dt class="field-odd">Cp[l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Power spectrum of lensing pontential, with bounds (0:dlmax)</p>
+<dt>klmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the lensing-potential or convergence spectrum.</p>
 </dd>
-<dt class="field-even">WE[l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Wiener filter of E-mode, with bounds (0:dlmax)</p>
+<dt>CE<span class="classifier">array_like of float, shape (dlmax + 1,)</span></dt><dd><p>E-mode power spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:dlmax</span></code>.</p>
 </dd>
-<dt class="field-odd">Wp[l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Wiener filter of lensing potential, with bountd (0:dlmax)</p>
+<dt>Cm<span class="classifier">array_like of float, shape (dlmax + 1,)</span></dt><dd><p>Lensing-potential or convergence power spectrum, with bounds
+<code class="docutils literal notranslate"><span class="pre">0:dlmax</span></code>.</p>
 </dd>
-</dl>
+<dt>WE<span class="classifier">array_like of float, shape (dlmax + 1,)</span></dt><dd><p>Wiener filter for the E-mode, with bounds <code class="docutils literal notranslate"><span class="pre">0:dlmax</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">gtype (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>specify type of the input Cp, p (default) or k.</p>
+<dt>Wm<span class="classifier">array_like of float, shape (dlmax + 1,)</span></dt><dd><p>Wiener filter for the lensing potential or convergence, with bounds
+<code class="docutils literal notranslate"><span class="pre">0:dlmax</span></code>.</p>
+</dd>
+<dt>gtype<span class="classifier">{‘p’, ‘k’}, optional</span></dt><dd><p>Type of input <code class="docutils literal notranslate"><span class="pre">Cm</span></code> and <code class="docutils literal notranslate"><span class="pre">Wm</span></code>. Use <code class="docutils literal notranslate"><span class="pre">'p'</span></code> for lensing potential
+or <code class="docutils literal notranslate"><span class="pre">'k'</span></code> for convergence. Default is <code class="docutils literal notranslate"><span class="pre">'p'</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">CB[l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Lensing B-mode power spectrum, with bounds (0:lmax)</p>
+</section>
+<section id="returns">
+<h3>Returns<a class="headerlink" href="#returns" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>CB<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Lensing B-mode power spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.delens.lensingbb">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.delens.</span></span><span class="sig-name descname"><span class="pre">lensingbb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.delens.lensingbb" title="Link to this definition"></a></dt>
-<dd><p>Lensing B-mode power spectrum as a convolution of ClEE and Clpp</p>
-<blockquote>
-<div><dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output spectrum</p>
+<dd><p>Compute the lensing B-mode power spectrum as a convolution of the E-mode
+and lensing-potential power spectra.</p>
+<section id="id1">
+<h3>Parameters<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output spectrum.</p>
 </dd>
-<dt class="field-even">dlmin (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum multipole of E and lensing for delensing</p>
+<dt>dlmin<span class="classifier">int</span></dt><dd><p>Minimum multipole of the E-mode and lensing-potential spectra used for
+delensing.</p>
 </dd>
-<dt class="field-odd">dlmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of E and lensing for delensing</p>
+<dt>dlmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the E-mode and lensing-potential spectra used for
+delensing.</p>
 </dd>
-<dt class="field-even">CE[l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Power spectrum of E-mode, with bounds (0:dlmax)</p>
+<dt>CE<span class="classifier">array_like of float, shape (dlmax + 1,)</span></dt><dd><p>E-mode power spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:dlmax</span></code>.</p>
 </dd>
-<dt class="field-odd">Cp[l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Power spectrum of lensing pontential, with bounds (0:dlmax)</p>
+<dt>Cp<span class="classifier">array_like of float, shape (dlmax + 1,)</span></dt><dd><p>Lensing-potential power spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:dlmax</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">CB[l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Lensing B-mode power spectrum, with bounds (0:lmax)</p>
+</section>
+<section id="id2">
+<h3>Returns<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>CB<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Lensing B-mode power spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
-</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.delens.delensbias_dom">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.delens.</span></span><span class="sig-name descname"><span class="pre">delensbias_dom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NP1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NP2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.delens.delensbias_dom" title="Link to this definition"></a></dt>
-<dd><p>Dominant term of the delensing bias in the B-mode internal delensing</p>
+<dd><p>Compute the dominant term of the delensing bias in B-mode internal
+delensing.</p>
+<section id="id3">
+<h3>Parameters<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output spectrum</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output spectrum.</p>
 </dd>
-<dt class="field-even">dlmin (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum multipole of E and lensing for delensing</p>
+<dt>dlmin<span class="classifier">int</span></dt><dd><p>Minimum multipole of the E-mode and lensing-potential spectra used for
+delensing.</p>
 </dd>
-<dt class="field-odd">dlmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of E and lensing for delensing</p>
+<dt>dlmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the E-mode and lensing-potential spectra used for
+delensing.</p>
 </dd>
-<dt class="field-even">CE[l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Power spectrum of E-mode, with bounds (0:dlmax)</p>
+<dt>CE<span class="classifier">array_like of float, shape (dlmax + 1,)</span></dt><dd><p>E-mode power spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:dlmax</span></code>.</p>
 </dd>
-<dt class="field-odd">CB[l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Power spectrum of B-mode, with bounds (0:dlmax)</p>
+<dt>CB<span class="classifier">array_like of float, shape (dlmax + 1,)</span></dt><dd><p>B-mode power spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:dlmax</span></code>.</p>
 </dd>
-<dt class="field-even">Cp[l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Power spectrum of lensing pontential, with bounds (0:dlmax)</p>
+<dt>Cp<span class="classifier">array_like of float, shape (dlmax + 1,)</span></dt><dd><p>Lensing-potential power spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:dlmax</span></code>.</p>
 </dd>
-<dt class="field-odd">NP1[l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Pol. noise spectrum for lensing reconstruction, with bounds (0:dlmax)</p>
+<dt>NP1<span class="classifier">array_like of float, shape (dlmax + 1,)</span></dt><dd><p>Polarization noise spectrum for lensing reconstruction, with bounds
+<code class="docutils literal notranslate"><span class="pre">0:dlmax</span></code>.</p>
 </dd>
-<dt class="field-even">NP2[l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Pol. noise spectrum for B-mode to be delensed, with bounds (0:dlmax)</p>
+<dt>NP2<span class="classifier">array_like of float, shape (dlmax + 1,)</span></dt><dd><p>Polarization noise spectrum for the B-mode to be delensed, with bounds
+<code class="docutils literal notranslate"><span class="pre">0:dlmax</span></code>.</p>
 </dd>
-<dt class="field-odd">Ag[l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Lensing reconstruction noise, with bounds (0:dlmax)</p>
+<dt>Ag<span class="classifier">array_like of float, shape (dlmax + 1,)</span></dt><dd><p>Lensing-reconstruction noise, with bounds <code class="docutils literal notranslate"><span class="pre">0:dlmax</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">DB[l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Lensing B-mode power spectrum, with bounds (0:lmax)</p>
+</section>
+<section id="id4">
+<h3>Returns<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>DB<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Dominant delensing-bias contribution to the B-mode power spectrum,
+with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 </section>
@@ -254,392 +248,413 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.bispec.cl_flat">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.bispec.</span></span><span class="sig-name descname"><span class="pre">cl_flat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cpmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pk0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pktype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'T12'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cltype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'kk'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dNdz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wdel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.bispec.cl_flat" title="Link to this definition"></a></dt>
-<dd><p>Compute flat-sky lensing power spectrum analytically</p>
+<dd><p>Compute the flat-sky lensing power spectrum analytically.</p>
+<section id="id5">
+<h3>Parameters<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">cpmodel (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>cosmological parameter model (model0, modelw, or modelp)</p>
+<dt>cpmodel<span class="classifier">str</span></dt><dd><p>Cosmological parameter model. Supported values include <code class="docutils literal notranslate"><span class="pre">'model0'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'modelw'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'modelp'</span></code>.</p>
 </dd>
-<dt class="field-even">z[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>redshift points for the z-integral</p>
+<dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshift points for the redshift integral.</p>
 </dd>
-<dt class="field-odd">dz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>interval of z</p>
+<dt>dz<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshift intervals.</p>
 </dd>
-<dt class="field-even">zs[2] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>two source redshifts</p>
+<dt>zs<span class="classifier">array_like of float, shape (2,)</span></dt><dd><p>Source redshifts.</p>
 </dd>
-<dt class="field-odd">lmin/lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>minimum/maximum multipoles of the bispectrum</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output power spectrum.</p>
 </dd>
-<dt class="field-even">k[kn] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>k for the matter power spectrum in unit of [h/Mpc]</p>
-</dd>
-<dt class="field-odd">pk0[kn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>the linear matter power spectrum at z=0 in unit of [Mpc^3/h^3]</p>
+<dt>k<span class="classifier">array_like of float, shape (kn,)</span></dt><dd><p>Wavenumbers for the matter power spectrum in units of
+:math:<a href="#id6"><span class="problematic" id="id7">`</span></a>h/{</p>
 </dd>
 </dl>
+<p>m Mpc}`.
+pk0 : array_like of float, shape (kn,)</p>
+<blockquote>
+<div><p>Linear matter power spectrum at <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0</span></code> in units of
+:math:<a href="#id8"><span class="problematic" id="id9">`</span></a>{</p>
+</div></blockquote>
+<p>m Mpc}^3/h^3`.
+pktype : str, optional</p>
+<blockquote>
+<div><p>Fitting formula for the matter power spectrum. Supported values include
+<code class="docutils literal notranslate"><span class="pre">'Lin'</span></code>, <code class="docutils literal notranslate"><span class="pre">'S02'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'T12'</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">'T12'</span></code>.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>cltype<span class="classifier">str, optional</span></dt><dd><p>Power-spectrum type. Supported values include <code class="docutils literal notranslate"><span class="pre">'kk'</span></code>, <code class="docutils literal notranslate"><span class="pre">'gk'</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">'gg'</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">'kk'</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">pktype (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>fitting formula for the matter power spectrum (Lin, S02 or T12)</p>
+<dt>dNdz<span class="classifier">array_like of float, shape (zn,), optional</span></dt><dd><p>Redshift distribution of galaxies. Used only when <code class="docutils literal notranslate"><span class="pre">cltype</span></code> includes
+<code class="docutils literal notranslate"><span class="pre">'g'</span></code>.</p>
 </dd>
-<dt class="field-even">cltype (str)<span class="colon">:</span></dt>
-<dd class="field-even"><p>kk, gk, or gg</p>
-</dd>
-<dt class="field-odd">dNdz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>redshift distribution of galaxy, only used when cltype includes g</p>
-</dd>
-<dt class="field-even">wdel[zn,l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>modified chi-kernel function for z-cleaning at l=0 to lmax</p>
+<dt>wdel<span class="classifier">array_like of float, shape (zn, lmax + 1), optional</span></dt><dd><p>Modified chi-kernel function for z-cleaning from <code class="docutils literal notranslate"><span class="pre">l</span> <span class="pre">=</span> <span class="pre">0</span></code> to
+<code class="docutils literal notranslate"><span class="pre">lmax</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">cl[l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>power spectrum from LSS contributions at [lmin,lmax]</p>
+</section>
+<section id="id10">
+<h3>Returns<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>cl<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Power spectrum from LSS contributions.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.bispec.bispeclens">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.bispec.</span></span><span class="sig-name descname"><span class="pre">bispeclens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cpmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pk0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pktype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'T12'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ltype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">btype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'kkk'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dNdz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wdel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.bispec.bispeclens" title="Link to this definition"></a></dt>
-<dd><p>Compute lensing bispectrum analytically</p>
+<dd><p>Compute the lensing bispectrum analytically.</p>
+<section id="id11">
+<h3>Parameters<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">shap (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>shape of the bispectrum (equi, fold, sque, or isos)</p>
+<dt>shap<span class="classifier">str</span></dt><dd><p>Bispectrum shape. Supported values include <code class="docutils literal notranslate"><span class="pre">'equi'</span></code>, <code class="docutils literal notranslate"><span class="pre">'fold'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'sque'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'isos'</span></code>.</p>
 </dd>
-<dt class="field-even">cpmodel (str)<span class="colon">:</span></dt>
-<dd class="field-even"><p>cosmological parameter model (model0, modelw, or modelp)</p>
+<dt>cpmodel<span class="classifier">str</span></dt><dd><p>Cosmological parameter model. Supported values include <code class="docutils literal notranslate"><span class="pre">'model0'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'modelw'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'modelp'</span></code>.</p>
 </dd>
-<dt class="field-odd">model (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>fitting formula of the matter bispectrum (LN=linear, SC=SC03, GM=Gil-Marin+12, 3B=3-shape-bispectrum, or RT=Takahashi+19)</p>
+<dt>model<span class="classifier">str</span></dt><dd><p>Matter-bispectrum fitting formula. Supported values include
+<code class="docutils literal notranslate"><span class="pre">'LN'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SC'</span></code>, <code class="docutils literal notranslate"><span class="pre">'GM'</span></code>, <code class="docutils literal notranslate"><span class="pre">'3B'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'RT'</span></code>.</p>
 </dd>
-<dt class="field-even">z[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>redshift points for the z-integral</p>
+<dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshift points for the redshift integral.</p>
 </dd>
-<dt class="field-odd">dz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>interval of z</p>
+<dt>dz<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshift intervals.</p>
 </dd>
-<dt class="field-even">zs[3] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>source redshifts</p>
+<dt>zs<span class="classifier">array_like of float, shape (3,)</span></dt><dd><p>Source redshifts.</p>
 </dd>
-<dt class="field-odd">lmin/lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>minimum/maximum multipoles of the bispectrum</p>
+<dt>lmin<span class="classifier">int</span></dt><dd><p>Minimum multipole of the bispectrum.</p>
 </dd>
-<dt class="field-even">k[kn] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>k for the matter power spectrum in unit of [h/Mpc]</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the bispectrum.</p>
 </dd>
-<dt class="field-odd">pk0[kn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>the linear matter power spectrum at z=0 in unit of [Mpc^3/h^3]</p>
+<dt>k<span class="classifier">array_like of float, shape (kn,)</span></dt><dd><p>Wavenumbers for the matter power spectrum in units of
+:math:<a href="#id12"><span class="problematic" id="id13">`</span></a>h/{</p>
 </dd>
 </dl>
+<p>m Mpc}`.
+pk0 : array_like of float, shape (kn,)</p>
+<blockquote>
+<div><p>Linear matter power spectrum at <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0</span></code> in units of
+:math:<a href="#id14"><span class="problematic" id="id15">`</span></a>{</p>
+</div></blockquote>
+<p>m Mpc}^3/h^3`.
+lan : float, optional</p>
+<blockquote>
+<div><p>Modified-gravity extension parameter. Default is 0.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>kan<span class="classifier">float, optional</span></dt><dd><p>Modified-gravity extension parameter. Default is 0.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lan, kan (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>parameters for the modified gravity extension, default to lan=kan=1 (GR)</p>
+<dt>pktype<span class="classifier">str, optional</span></dt><dd><p>Fitting formula for the matter power spectrum. Supported values include
+<code class="docutils literal notranslate"><span class="pre">'Lin'</span></code>, <code class="docutils literal notranslate"><span class="pre">'S02'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'T12'</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">'T12'</span></code>.</p>
 </dd>
-<dt class="field-even">pktype (str)<span class="colon">:</span></dt>
-<dd class="field-even"><p>fitting formula for the matter power spectrum (Lin=Linear, S02=Smith et al. 2002 or T12=Takahashi et al. 2012), default to T12</p>
+<dt>ltype<span class="classifier">str, optional</span></dt><dd><p>Full-sky correction option. Use <code class="docutils literal notranslate"><span class="pre">'full'</span></code> to include the correction.
+Default is <code class="docutils literal notranslate"><span class="pre">''</span></code>.</p>
 </dd>
-<dt class="field-odd">ltype (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>fullsky correction (full) or not</p>
+<dt>btype<span class="classifier">str, optional</span></dt><dd><p>Bispectrum type. Supported values include <code class="docutils literal notranslate"><span class="pre">'kkk'</span></code>, <code class="docutils literal notranslate"><span class="pre">'gkk'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'ggk'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'ggg'</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">'kkk'</span></code>.</p>
 </dd>
-<dt class="field-even">btype (str)<span class="colon">:</span></dt>
-<dd class="field-even"><p>bispectrum type, i.e., kkk (lens-lens-lens), gkk (density-lens-lens), ggk (density-density-lens), or ggg (density-density-density)</p>
+<dt>dNdz<span class="classifier">array_like of float, shape (zn,), optional</span></dt><dd><p>Redshift distribution of galaxies. Used only when <code class="docutils literal notranslate"><span class="pre">btype</span></code> includes
+<code class="docutils literal notranslate"><span class="pre">'g'</span></code>.</p>
 </dd>
-<dt class="field-odd">dNdz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>redshift distribution of galaxy, only used when btype includes g</p>
-</dd>
-<dt class="field-even">wdel[zn,l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>modified chi-kernel function by z-cleaning at l=0 to lmax</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">bl0[l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>lensing bispectrum from LSS contributions at [lmin,lmax]</p>
-</dd>
-<dt class="field-even">bl1[l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>lensing bispectrum from post-Born contributions at [lmin,lmax]</p>
-</dd>
-</dl>
+<dt>wdel<span class="classifier">array_like of float, shape (zn, lmax + 1), optional</span></dt><dd><p>Modified chi-kernel function for z-cleaning from <code class="docutils literal notranslate"><span class="pre">l</span> <span class="pre">=</span> <span class="pre">0</span></code> to
+<code class="docutils literal notranslate"><span class="pre">lmax</span></code>.</p>
 </dd>
 </dl>
+</section>
+<section id="id16">
+<h3>Returns<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>bl0<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Lensing bispectrum from LSS contributions.</p>
+</dd>
+<dt>bl1<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Lensing bispectrum from post-Born contributions.</p>
+</dd>
+</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.bispec.bispeclens_bin">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.bispec.</span></span><span class="sig-name descname"><span class="pre">bispeclens_bin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cpmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pk0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pktype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'T12'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">btype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'kkk'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dNdz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wdel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.bispec.bispeclens_bin" title="Link to this definition"></a></dt>
-<dd><p>Compute binned lensing bispectrum analytically</p>
+<dd><p>Compute the binned lensing bispectrum analytically.</p>
+<section id="id17">
+<h3>Parameters<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">shap (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>shape of the bispectrum (equi, fold, sque, or isos)</p>
+<dt>shap<span class="classifier">str</span></dt><dd><p>Bispectrum shape. Supported values include <code class="docutils literal notranslate"><span class="pre">'equi'</span></code>, <code class="docutils literal notranslate"><span class="pre">'fold'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'sque'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'isos'</span></code>.</p>
 </dd>
-<dt class="field-even">cpmodel (str)<span class="colon">:</span></dt>
-<dd class="field-even"><p>cosmological parameter model (model0, modelw, or modelp)</p>
+<dt>cpmodel<span class="classifier">str</span></dt><dd><p>Cosmological parameter model. Supported values include <code class="docutils literal notranslate"><span class="pre">'model0'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'modelw'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'modelp'</span></code>.</p>
 </dd>
-<dt class="field-odd">model (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>fitting formula of the matter bispectrum (LN=linear, SC=SC03, GM=Gil-Marin+12, 3B=3-shape-bispectrum, or RT=Takahashi+19)</p>
+<dt>model<span class="classifier">str</span></dt><dd><p>Matter-bispectrum fitting formula. Supported values include
+<code class="docutils literal notranslate"><span class="pre">'LN'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SC'</span></code>, <code class="docutils literal notranslate"><span class="pre">'GM'</span></code>, <code class="docutils literal notranslate"><span class="pre">'3B'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'RT'</span></code>.</p>
 </dd>
-<dt class="field-even">z[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>redshift points for the z-integral</p>
+<dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshift points for the redshift integral.</p>
 </dd>
-<dt class="field-odd">dz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>interval of z</p>
+<dt>dz<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshift intervals.</p>
 </dd>
-<dt class="field-even">zs[3] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>source redshifts</p>
+<dt>zs<span class="classifier">array_like of float, shape (3,)</span></dt><dd><p>Source redshifts.</p>
 </dd>
-<dt class="field-odd">lmin/lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>minimum/maximum multipoles of the bispectrum</p>
+<dt>lmin<span class="classifier">int</span></dt><dd><p>Minimum multipole of the bispectrum.</p>
 </dd>
-<dt class="field-even">bn (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>number of multipole bins</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the bispectrum.</p>
 </dd>
-<dt class="field-odd">k[kn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>k for the matter power spectrum in unit of [h/Mpc]</p>
+<dt>bn<span class="classifier">int</span></dt><dd><p>Number of multipole bins.</p>
 </dd>
-<dt class="field-even">pk0[kn] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>the linear matter power spectrum at z=0 in unit of [Mpc^3/h^3]</p>
+<dt>k<span class="classifier">array_like of float, shape (kn,)</span></dt><dd><p>Wavenumbers for the matter power spectrum in units of
+:math:<a href="#id18"><span class="problematic" id="id19">`</span></a>h/{</p>
 </dd>
 </dl>
+<p>m Mpc}`.
+pk0 : array_like of float, shape (kn,)</p>
+<blockquote>
+<div><p>Linear matter power spectrum at <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0</span></code> in units of
+:math:<a href="#id20"><span class="problematic" id="id21">`</span></a>{</p>
+</div></blockquote>
+<p>m Mpc}^3/h^3`.
+lan : float, optional</p>
+<blockquote>
+<div><p>Modified-gravity extension parameter. Default is 0.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>kan<span class="classifier">float, optional</span></dt><dd><p>Modified-gravity extension parameter. Default is 0.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lan, kan (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>parameters for the modified gravity extension, default to lan=kan=1 (GR)</p>
+<dt>pktype<span class="classifier">str, optional</span></dt><dd><p>Fitting formula for the matter power spectrum. Supported values include
+<code class="docutils literal notranslate"><span class="pre">'Lin'</span></code>, <code class="docutils literal notranslate"><span class="pre">'S02'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'T12'</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">'T12'</span></code>.</p>
 </dd>
-<dt class="field-even">pktype (str)<span class="colon">:</span></dt>
-<dd class="field-even"><p>fitting formula for the matter power spectrum (Lin, S02 or T12)</p>
+<dt>btype<span class="classifier">str, optional</span></dt><dd><p>Bispectrum type. Supported values include <code class="docutils literal notranslate"><span class="pre">'kkk'</span></code>, <code class="docutils literal notranslate"><span class="pre">'gkk'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'ggk'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'ggg'</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">'kkk'</span></code>.</p>
 </dd>
-<dt class="field-odd">btype (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bispectrum type, i.e., kkk (lens-lens-lens), gkk (density-lens-lens), ggk (density-density-lens), or ggg (density-density-density)</p>
+<dt>dNdz<span class="classifier">array_like of float, shape (zn,), optional</span></dt><dd><p>Redshift distribution of galaxies. Used only when <code class="docutils literal notranslate"><span class="pre">btype</span></code> includes
+<code class="docutils literal notranslate"><span class="pre">'g'</span></code>.</p>
 </dd>
-<dt class="field-even">dNdz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>redshift distribution of galaxy, only used when btype includes g</p>
-</dd>
-<dt class="field-odd">wdel[zn,l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>modified chi-kernel function by z-cleaning at l=0 to lmax</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">bc[bn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>multipole bin centers</p>
-</dd>
-<dt class="field-even">bl0[bn] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>binned lensing bispectrum from LSS contributions</p>
-</dd>
-<dt class="field-odd">bl1[bn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>binned lensing bispectrum from post-Born contributions</p>
+<dt>wdel<span class="classifier">array_like of float, shape (zn, lmax + 1), optional</span></dt><dd><p>Modified chi-kernel function for z-cleaning from <code class="docutils literal notranslate"><span class="pre">l</span> <span class="pre">=</span> <span class="pre">0</span></code> to
+<code class="docutils literal notranslate"><span class="pre">lmax</span></code>.</p>
 </dd>
 </dl>
+</section>
+<section id="id22">
+<h3>Returns<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>bc<span class="classifier">ndarray of float, shape (bn,)</span></dt><dd><p>Multipole bin centers.</p>
+</dd>
+<dt>bl0<span class="classifier">ndarray of float, shape (bn,)</span></dt><dd><p>Binned lensing bispectrum from LSS contributions.</p>
+</dd>
+<dt>bl1<span class="classifier">ndarray of float, shape (bn,)</span></dt><dd><p>Binned lensing bispectrum from post-Born contributions.</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.bispec.bispeclens_snr">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.bispec.</span></span><span class="sig-name descname"><span class="pre">bispeclens_snr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cpmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pk0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pktype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'T12'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">btype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'kkk'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dNdz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cgg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ro</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wdel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.bispec.bispeclens_snr" title="Link to this definition"></a></dt>
-<dd><p>Compute SNR of lensing bispectrum analytically</p>
+<dd><p>Compute the signal-to-noise ratio of the lensing bispectrum analytically.</p>
+<section id="id23">
+<h3>Parameters<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">cpmodel (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>cosmological parameter model (model0, modelw, or modelp)</p>
+<dt>cpmodel<span class="classifier">str</span></dt><dd><p>Cosmological parameter model. Supported values include <code class="docutils literal notranslate"><span class="pre">'model0'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'modelw'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'modelp'</span></code>.</p>
 </dd>
-<dt class="field-even">model (str)<span class="colon">:</span></dt>
-<dd class="field-even"><p>fitting formula of the matter bispectrum (LN=linear, SC=SC03, GM=Gil-Marin+12, 3B=3-shape-bispectrum, or RT=Takahashi+19)</p>
+<dt>model<span class="classifier">str</span></dt><dd><p>Matter-bispectrum fitting formula. Supported values include
+<code class="docutils literal notranslate"><span class="pre">'LN'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SC'</span></code>, <code class="docutils literal notranslate"><span class="pre">'GM'</span></code>, <code class="docutils literal notranslate"><span class="pre">'3B'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'RT'</span></code>.</p>
 </dd>
-<dt class="field-odd">z[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>redshift points for the z-integral</p>
+<dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshift points for the redshift integral.</p>
 </dd>
-<dt class="field-even">dz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>interval of z</p>
+<dt>dz<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshift intervals.</p>
 </dd>
-<dt class="field-odd">zs[3] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>source redshifts</p>
+<dt>zs<span class="classifier">array_like of float, shape (3,)</span></dt><dd><p>Source redshifts.</p>
 </dd>
-<dt class="field-even">lmin/lmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>minimum/maximum multipoles of the bispectrum</p>
+<dt>lmin<span class="classifier">int</span></dt><dd><p>Minimum multipole of the bispectrum.</p>
 </dd>
-<dt class="field-odd">cl[l] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>observed angular power spectrum at 0&lt;=l&lt;=lmax</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the bispectrum.</p>
 </dd>
-<dt class="field-even">k[kn] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>k for the matter power spectrum in unit of [h/Mpc]</p>
+<dt>cl<span class="classifier">array_like of float, shape (lmax + 1,)</span></dt><dd><p>Observed angular power spectrum from <code class="docutils literal notranslate"><span class="pre">l</span> <span class="pre">=</span> <span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">lmax</span></code>.</p>
 </dd>
-<dt class="field-odd">pk0[kn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>the linear matter power spectrum at z=0 in unit of [Mpc^3/h^3]</p>
+<dt>k<span class="classifier">array_like of float, shape (kn,)</span></dt><dd><p>Wavenumbers for the matter power spectrum in units of
+:math:<a href="#id24"><span class="problematic" id="id25">`</span></a>h/{</p>
 </dd>
 </dl>
+<p>m Mpc}`.
+pk0 : array_like of float, shape (kn,)</p>
+<blockquote>
+<div><p>Linear matter power spectrum at <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0</span></code> in units of
+:math:<a href="#id26"><span class="problematic" id="id27">`</span></a>{</p>
+</div></blockquote>
+<p>m Mpc}^3/h^3`.
+pktype : str, optional</p>
+<blockquote>
+<div><p>Fitting formula for the matter power spectrum. Supported values include
+<code class="docutils literal notranslate"><span class="pre">'Lin'</span></code>, <code class="docutils literal notranslate"><span class="pre">'S02'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'T12'</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">'T12'</span></code>.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>btype<span class="classifier">str, optional</span></dt><dd><p>Bispectrum type. Supported values include <code class="docutils literal notranslate"><span class="pre">'kkk'</span></code>, <code class="docutils literal notranslate"><span class="pre">'gkk'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'ggk'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'ggg'</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">'kkk'</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">pktype (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>fitting formula for the matter power spectrum (Lin, S02 or T12)</p>
+<dt>dNdz<span class="classifier">array_like of float, shape (zn,), optional</span></dt><dd><p>Redshift distribution of galaxies. Used only when <code class="docutils literal notranslate"><span class="pre">btype</span></code> includes
+<code class="docutils literal notranslate"><span class="pre">'g'</span></code>.</p>
 </dd>
-<dt class="field-even">btype (str)<span class="colon">:</span></dt>
-<dd class="field-even"><p>bispectrum type, i.e., kkk (lens-lens-lens), gkk (density-lens-lens), ggk (density-density-lens), or ggg (density-density-density)</p>
+<dt>cgg<span class="classifier">array_like of float, shape (lmax + 1,), optional</span></dt><dd><p>Observed galaxy spectrum. If not given, a zero spectrum is used.</p>
 </dd>
-<dt class="field-odd">dNdz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>redshift distribution of galaxy, only used when btype includes g</p>
+<dt>ro<span class="classifier">int, optional</span></dt><dd><p>Progress-output interval in multipoles. Default is 100.</p>
 </dd>
-<dt class="field-even">wdel[zn,l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>modified chi-kernel function by z-cleaning at l=0 to lmax</p>
-</dd>
-<dt class="field-odd">cgg[l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>observed galaxy spectrum</p>
-</dd>
-<dt class="field-even">ro (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>output progress for every “ro” multipoles (ro=100, default)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">snr[2] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>total SNR amd LSS-only SNR</p>
-</dd>
-</dl>
+<dt>wdel<span class="classifier">array_like of float, shape (zn, lmax + 1), optional</span></dt><dd><p>Modified chi-kernel function for z-cleaning from <code class="docutils literal notranslate"><span class="pre">l</span> <span class="pre">=</span> <span class="pre">0</span></code> to
+<code class="docutils literal notranslate"><span class="pre">lmax</span></code>.</p>
 </dd>
 </dl>
+</section>
+<section id="id28">
+<h3>Returns<a class="headerlink" href="#id28" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>snr<span class="classifier">ndarray of float, shape (2,)</span></dt><dd><p>Total signal-to-noise ratio and LSS-only signal-to-noise ratio.</p>
+</dd>
+</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.bispec.bispeclens_gauss_bin">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.bispec.</span></span><span class="sig-name descname"><span class="pre">bispeclens_gauss_bin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cl</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.bispec.bispeclens_gauss_bin" title="Link to this definition"></a></dt>
-<dd><p>Compute binned bispectrum analytically for the quadratic gaussian model</p>
+<dd><p>Compute the binned bispectrum analytically for the quadratic Gaussian
+model.</p>
+<section id="id29">
+<h3>Parameters<a class="headerlink" href="#id29" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">shap (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>shape of the bispectrum (equi, fold, sque, or isos)</p>
+<dt>shap<span class="classifier">str</span></dt><dd><p>Bispectrum shape. Supported values include <code class="docutils literal notranslate"><span class="pre">'equi'</span></code>, <code class="docutils literal notranslate"><span class="pre">'fold'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'sque'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'isos'</span></code>.</p>
 </dd>
-<dt class="field-even">bn (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>number of multipole bins</p>
+<dt>bn<span class="classifier">int</span></dt><dd><p>Number of multipole bins.</p>
 </dd>
-<dt class="field-odd">lmin/lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>minimum/maximum multipoles of the bispectrum</p>
+<dt>lmin<span class="classifier">int</span></dt><dd><p>Minimum multipole of the bispectrum.</p>
 </dd>
-<dt class="field-even">cl[l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>the power spectrum at [0:lmax+1]</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the bispectrum.</p>
+</dd>
+<dt>cl<span class="classifier">array_like of float, shape (lmax + 1,)</span></dt><dd><p>Power spectrum from <code class="docutils literal notranslate"><span class="pre">l</span> <span class="pre">=</span> <span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">lmax</span></code>.</p>
 </dd>
 </dl>
+</section>
+<section id="id30">
+<h3>Returns<a class="headerlink" href="#id30" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>bc<span class="classifier">ndarray of float, shape (bn,)</span></dt><dd><p>Multipole bin centers.</p>
 </dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">bc[bn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>multipole bin centers</p>
-</dd>
-<dt class="field-even">bl[bn] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>binned bispectrum</p>
-</dd>
-</dl>
+<dt>bl<span class="classifier">ndarray of float, shape (bn,)</span></dt><dd><p>Binned bispectrum.</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.bispec.zpoints">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.bispec.</span></span><span class="sig-name descname"><span class="pre">zpoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zspace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.bispec.zpoints" title="Link to this definition"></a></dt>
-<dd><p>Precomputing interpolation points for z</p>
+<dd><p>Precompute interpolation points for redshift.</p>
+<section id="id31">
+<h3>Parameters<a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args: </dt><dd><dl class="field-list simple">
-<dt class="field-odd">zmin/zmax (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>minimum/maximum redshifts</p>
+<dt>zmin<span class="classifier">float</span></dt><dd><p>Minimum redshift.</p>
 </dd>
-<dt class="field-even">zn (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>number of redshifts</p>
+<dt>zmax<span class="classifier">float</span></dt><dd><p>Maximum redshift.</p>
 </dd>
-</dl>
+<dt>zn<span class="classifier">int</span></dt><dd><p>Number of redshift points.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">zspace (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>type of spacing. 0 for linear and 1 for gauss-legendre.</p>
+<dt>zspace<span class="classifier">int, optional</span></dt><dd><p>Type of spacing. Use 0 for linear spacing and 1 for Gauss-Legendre
+spacing. Default is 1.</p>
 </dd>
 </dl>
+</section>
+<section id="id32">
+<h3>Returns<a class="headerlink" href="#id32" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>z<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Redshift points.</p>
 </dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">z[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>redshifts</p>
-</dd>
-<dt class="field-even">dz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>redshift intervals</p>
-</dd>
-</dl>
+<dt>dz<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Redshift intervals.</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.bispec.skewspeclens">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.bispec.</span></span><span class="sig-name descname"><span class="pre">skewspeclens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cpmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pk0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pktype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'T12'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">btype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'kkk'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Om</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">70.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mnu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.965</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dNdz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wdel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.bispec.skewspeclens" title="Link to this definition"></a></dt>
-<dd><p>Compute skew spectrum using a matter bispectrum fitting formula (Xl1,Yl2,Yl3)</p>
+<dd><p>Compute the skew spectrum using a matter-bispectrum fitting formula.</p>
+<section id="id33">
+<h3>Parameters<a class="headerlink" href="#id33" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>cpmodel<span class="classifier">str</span></dt><dd><p>Cosmological parameter model. Supported values include <code class="docutils literal notranslate"><span class="pre">'model0'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'modelw'</span></code>, <code class="docutils literal notranslate"><span class="pre">'modelp'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'input'</span></code>.</p>
+</dd>
+<dt>model<span class="classifier">str</span></dt><dd><p>Matter-bispectrum fitting formula. Supported values include
+<code class="docutils literal notranslate"><span class="pre">'LN'</span></code>, <code class="docutils literal notranslate"><span class="pre">'SC'</span></code>, <code class="docutils literal notranslate"><span class="pre">'GM'</span></code>, <code class="docutils literal notranslate"><span class="pre">'3B'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'RT'</span></code>.</p>
+</dd>
+<dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshift points for the redshift integral.</p>
+</dd>
+<dt>dz<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshift intervals.</p>
+</dd>
+<dt>zs<span class="classifier">array_like of float, shape (2,)</span></dt><dd><p>Source redshifts. The second source redshift is used for the squared
+map.</p>
+</dd>
+<dt>ols<span class="classifier">array_like of int, shape (bn,)</span></dt><dd><p>Output multipoles to be computed for the skew spectrum.</p>
+</dd>
+<dt>lmin<span class="classifier">int</span></dt><dd><p>Minimum multipole of alms included in the skew spectrum.</p>
+</dd>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of alms included in the skew spectrum.</p>
+</dd>
+<dt>k<span class="classifier">array_like of float, shape (kn,)</span></dt><dd><p>Wavenumbers for the matter power spectrum in units of
+:math:<a href="#id34"><span class="problematic" id="id35">`</span></a>h/{</p>
+</dd>
+</dl>
+<p>m Mpc}`.
+pk0 : array_like of float, shape (kn,)</p>
 <blockquote>
-<div><dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">cpmodel (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>cosmological parameter model (model0, modelw, modelp, or input)</p>
-</dd>
-<dt class="field-even">model (str)<span class="colon">:</span></dt>
-<dd class="field-even"><p>fitting formula of the matter bispectrum (LN=linear, SC=SC03, GM=Gil-Marin+12, 3B=3-shape-bispectrum, or RT=Takahashi+19)</p>
-</dd>
-<dt class="field-odd">z[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>redshift points for the z-integral</p>
-</dd>
-<dt class="field-even">dz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>interval of z</p>
-</dd>
-<dt class="field-odd">zs[2] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>source redshifts where zs[2] is used for the squared map</p>
-</dd>
-<dt class="field-even">lmin/lmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>minimum/maximum multipoles of alms included in the skew spectrum</p>
-</dd>
-<dt class="field-odd">ols[bn] (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>output multipoles to be computed for skew spectrum</p>
-</dd>
-<dt class="field-even">k[kn] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>k for the matter power spectrum [h/Mpc]</p>
-</dd>
-<dt class="field-odd">pk0 (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>the linear matter power spectrum at z=0 [Mpc^3/h^3]</p>
-</dd>
-</dl>
-</dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">pktype (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>fitting formula for the matter power spectrum (Lin, S02 or T12)</p>
-</dd>
-<dt class="field-even">btype (str)<span class="colon">:</span></dt>
-<dd class="field-even"><p>bispectrum type, i.e., kkk (lens-lens^2), gkk (density-lens^2), kgg (lens-density^2), or ggg (density-density^2)</p>
-</dd>
-<dt class="field-odd">dNdz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>redshift distribution of galaxy, only used when btype includes g</p>
-</dd>
-<dt class="field-even">theta (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>kappa map resolution in arcmin</p>
-</dd>
-<dt class="field-odd">pb (bool)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>with post-Born correction or not (default=True)</p>
-</dd>
-<dt class="field-even">verbose (bool)<span class="colon">:</span></dt>
-<dd class="field-even"><p>output messages</p>
-</dd>
-<dt class="field-odd">wdel[zn,l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>modified chi-kernel function by z-cleaning at l=0 to lmax</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">skew[3,2,l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>skew-spectrum (S0, S1, S2) from LSS and PB contributions, separately</p>
-</dd>
-</dl>
-</dd>
-</dl>
+<div><p>Linear matter power spectrum at <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0</span></code> in units of
+:math:<a href="#id36"><span class="problematic" id="id37">`</span></a>{</p>
 </div></blockquote>
+<p>m Mpc}^3/h^3`.
+theta : float, optional</p>
+<blockquote>
+<div><p>Kappa-map resolution in arcmin. Default is 0.0.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>pktype<span class="classifier">str, optional</span></dt><dd><p>Fitting formula for the matter power spectrum. Supported values include
+<code class="docutils literal notranslate"><span class="pre">'Lin'</span></code>, <code class="docutils literal notranslate"><span class="pre">'S02'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'T12'</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">'T12'</span></code>.</p>
+</dd>
+<dt>btype<span class="classifier">str, optional</span></dt><dd><p>Bispectrum type. Supported values include <code class="docutils literal notranslate"><span class="pre">'kkk'</span></code>, <code class="docutils literal notranslate"><span class="pre">'gkk'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'kgg'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'ggg'</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">'kkk'</span></code>.</p>
+</dd>
+<dt>pb<span class="classifier">bool, optional</span></dt><dd><p>Whether to include the post-Born correction. Default is True.</p>
+</dd>
+<dt>Om<span class="classifier">float, optional</span></dt><dd><p>Matter density parameter used when <code class="docutils literal notranslate"><span class="pre">cpmodel='input'</span></code>. Default is
+0.3.</p>
+</dd>
+<dt>H0<span class="classifier">float, optional</span></dt><dd><p>Hubble constant used when <code class="docutils literal notranslate"><span class="pre">cpmodel='input'</span></code>. Default is 70.</p>
+</dd>
+<dt>w0<span class="classifier">float, optional</span></dt><dd><p>Dark-energy equation-of-state parameter used when <code class="docutils literal notranslate"><span class="pre">cpmodel='input'</span></code>.
+Default is -1.</p>
+</dd>
+<dt>wa<span class="classifier">float, optional</span></dt><dd><p>Dark-energy equation-of-state parameter used when <code class="docutils literal notranslate"><span class="pre">cpmodel='input'</span></code>.
+Default is 0.</p>
+</dd>
+<dt>mnu<span class="classifier">float, optional</span></dt><dd><p>Sum of neutrino masses used when <code class="docutils literal notranslate"><span class="pre">cpmodel='input'</span></code>. Default is 0.06.</p>
+</dd>
+<dt>ns<span class="classifier">float, optional</span></dt><dd><p>Scalar spectral index used when <code class="docutils literal notranslate"><span class="pre">cpmodel='input'</span></code>. Default is 0.965.</p>
+</dd>
+<dt>verbose<span class="classifier">bool, optional</span></dt><dd><p>Whether to output messages. Default is True.</p>
+</dd>
+<dt>dNdz<span class="classifier">array_like of float, shape (zn,), optional</span></dt><dd><p>Redshift distribution of galaxies. Used only when <code class="docutils literal notranslate"><span class="pre">btype</span></code> includes
+<code class="docutils literal notranslate"><span class="pre">'g'</span></code>.</p>
+</dd>
+<dt>wdel<span class="classifier">array_like of float, shape (zn, lmax + 1), optional</span></dt><dd><p>Modified chi-kernel function for z-cleaning from <code class="docutils literal notranslate"><span class="pre">l</span> <span class="pre">=</span> <span class="pre">0</span></code> to
+<code class="docutils literal notranslate"><span class="pre">lmax</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="id38">
+<h3>Returns<a class="headerlink" href="#id38" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>skew<span class="classifier">ndarray of float, shape (3, 2, bn)</span></dt><dd><p>Skew spectra <code class="docutils literal notranslate"><span class="pre">S0</span></code>, <code class="docutils literal notranslate"><span class="pre">S1</span></code>, and <code class="docutils literal notranslate"><span class="pre">S2</span></code> from LSS and post-Born
+contributions, separately.</p>
+</dd>
+</dl>
+</section>
 </dd></dl>
 
 </section>
@@ -648,147 +663,129 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.galaxy.dndz_sf">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.galaxy.</span></span><span class="sig-name descname"><span class="pre">dndz_sf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.galaxy.dndz_sf" title="Link to this definition"></a></dt>
-<dd><p>A model of galaxy z distribution</p>
-<blockquote>
-<div><dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">z[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>redshifts at which dNdz is returned</p>
+<dd><p>Return a model galaxy redshift distribution.</p>
+<section id="id39">
+<h3>Parameters<a class="headerlink" href="#id39" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshifts at which <code class="docutils literal notranslate"><span class="pre">dndz</span></code> is returned.</p>
 </dd>
-<dt class="field-even">a, b (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>shape parameters of Schechter-like galaxy distribution</p>
+<dt>a<span class="classifier">float</span></dt><dd><p>Shape parameter of the Schechter-like galaxy distribution.</p>
 </dd>
-</dl>
+<dt>b<span class="classifier">float</span></dt><dd><p>Shape parameter of the Schechter-like galaxy distribution.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">zm (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>mean redshift, default to 0</p>
+<dt>zm<span class="classifier">float, optional</span></dt><dd><p>Mean redshift. Default is 0.</p>
 </dd>
-<dt class="field-even">z0 (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>a parameter relevant to zm, default to 0. Either zm or z0 has to be specified.</p>
+<dt>z0<span class="classifier">float, optional</span></dt><dd><p>Parameter related to <code class="docutils literal notranslate"><span class="pre">zm</span></code>. Default is 0. Either <code class="docutils literal notranslate"><span class="pre">zm</span></code> or <code class="docutils literal notranslate"><span class="pre">z0</span></code>
+has to be specified.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">dndz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>galaxy z distribution</p>
+</section>
+<section id="id40">
+<h3>Returns<a class="headerlink" href="#id40" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>dndz<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Galaxy redshift distribution.</p>
 </dd>
 </dl>
-</dd>
-</dl>
-</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.galaxy.photoz_error">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.galaxy.</span></span><span class="sig-name descname"><span class="pre">photoz_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zn</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.03</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zbias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.galaxy.photoz_error" title="Link to this definition"></a></dt>
-<dd><p>Photo-z error on z distribution which is multiplied to original galaxy z distribution. 
-See Eq.(13) of arXiv:1103.1118 for details.</p>
-<blockquote>
-<div><dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">z[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>redshifts at which photoz error function is returned</p>
+<dd><p>Return the photo-z error function for a redshift distribution.</p>
+<p>The returned function is multiplied by the original galaxy redshift
+distribution. See Eq. (13) of arXiv:1103.1118 for details.</p>
+<section id="id41">
+<h3>Parameters<a class="headerlink" href="#id41" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshifts at which the photo-z error function is returned.</p>
 </dd>
-<dt class="field-even">zi[2] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>z-bin edges</p>
+<dt>zi<span class="classifier">array_like of float, shape (2,)</span></dt><dd><p>Redshift-bin edges.</p>
 </dd>
-<dt class="field-odd">sigma (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>a parameter of photo-z error which is given by, sigma x (1+z)</p>
+<dt>zn<span class="classifier">int, optional</span></dt><dd><p>Number of redshift samples. If not given, <code class="docutils literal notranslate"><span class="pre">len(z)</span></code> is used.</p>
 </dd>
-<dt class="field-even">zbias (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>photo-z mean bias</p>
+<dt>sigma<span class="classifier">float, optional</span></dt><dd><p>Photo-z error parameter, used as <code class="docutils literal notranslate"><span class="pre">sigma</span> <span class="pre">*</span> <span class="pre">(1</span> <span class="pre">+</span> <span class="pre">z)</span></code>.
+Default is 0.03.</p>
 </dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">pz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>photoz error function</p>
+<dt>zbias<span class="classifier">float, optional</span></dt><dd><p>Photo-z mean bias. Default is 0.</p>
 </dd>
 </dl>
+</section>
+<section id="id42">
+<h3>Returns<a class="headerlink" href="#id42" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>pz<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Photo-z error function.</p>
 </dd>
 </dl>
-</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.galaxy.zbin">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.galaxy.</span></span><span class="sig-name descname"><span class="pre">zbin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.galaxy.zbin" title="Link to this definition"></a></dt>
-<dd><p>Computing z-interval of z-bin so that number of galaxies at each z-bin is equal</p>
-<blockquote>
-<div><dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">zn (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>number of z-bins</p>
+<dd><p>Compute redshift-bin intervals with equal galaxy counts.</p>
+<section id="id43">
+<h3>Parameters<a class="headerlink" href="#id43" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>zn<span class="classifier">int</span></dt><dd><p>Number of redshift bins.</p>
 </dd>
-<dt class="field-even">a, b (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>shape parameters of Schechter-like galaxy distribution</p>
+<dt>a<span class="classifier">float</span></dt><dd><p>Shape parameter of the Schechter-like galaxy distribution.</p>
 </dd>
-</dl>
+<dt>b<span class="classifier">float</span></dt><dd><p>Shape parameter of the Schechter-like galaxy distribution.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">zm (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>mean redshift, default to 0</p>
+<dt>zm<span class="classifier">float, optional</span></dt><dd><p>Mean redshift. Default is 0.</p>
 </dd>
-<dt class="field-even">z0 (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>a parameter relevant to zm, default to 0. Either zm or z0 has to be specified.</p>
+<dt>z0<span class="classifier">float, optional</span></dt><dd><p>Parameter related to <code class="docutils literal notranslate"><span class="pre">zm</span></code>. Default is 0. Either <code class="docutils literal notranslate"><span class="pre">zm</span></code> or <code class="docutils literal notranslate"><span class="pre">z0</span></code>
+has to be specified.</p>
 </dd>
-<dt class="field-odd">verbose (bool)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>output messages (default to True)</p>
+<dt>verbose<span class="classifier">bool, optional</span></dt><dd><p>Whether to output messages. Default is False.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">zb[zn+1] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>z-intervals</p>
+</section>
+<section id="id44">
+<h3>Returns<a class="headerlink" href="#id44" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>zb<span class="classifier">ndarray of float, shape (zn + 1,)</span></dt><dd><p>Redshift-bin intervals.</p>
 </dd>
 </dl>
-</dd>
-</dl>
-</div></blockquote>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.galaxy.frac">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.galaxy.</span></span><span class="sig-name descname"><span class="pre">frac</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zbias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.galaxy.frac" title="Link to this definition"></a></dt>
-<dd><p>Computing z-interval of z-bin so that number of galaxies at each z-bin is equal</p>
-<blockquote>
-<div><dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">zn (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>number of z-bins</p>
+<dd><p>Compute the fraction of galaxies in each redshift bin.</p>
+<section id="id45">
+<h3>Parameters<a class="headerlink" href="#id45" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>zn<span class="classifier">int</span></dt><dd><p>Number of redshift bins.</p>
 </dd>
-<dt class="field-even">a, b (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>shape parameters of Schechter-like galaxy distribution</p>
+<dt>zb<span class="classifier">array_like of float, shape (zn + 1,)</span></dt><dd><p>Redshift-bin intervals.</p>
 </dd>
-<dt class="field-odd">zm (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>mean redshift</p>
+<dt>a<span class="classifier">float</span></dt><dd><p>Shape parameter of the Schechter-like galaxy distribution.</p>
 </dd>
-<dt class="field-even">zb[zn+1] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>z-intervals</p>
+<dt>b<span class="classifier">float</span></dt><dd><p>Shape parameter of the Schechter-like galaxy distribution.</p>
 </dd>
-</dl>
+<dt>zm<span class="classifier">float</span></dt><dd><p>Mean redshift.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">verbose (bool)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>output messages (default to True)</p>
+<dt>zbias<span class="classifier">float, optional</span></dt><dd><p>Constant bias to the true photo-z. Default is 0.</p>
 </dd>
-<dt class="field-even">zbias (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>constant bias to true photo-z</p>
+<dt>sigma<span class="classifier">float, optional</span></dt><dd><p>Photo-z uncertainty. Default is 0.</p>
 </dd>
-<dt class="field-odd">sigma (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>uncertaines of photo-z</p>
+<dt>verbose<span class="classifier">bool, optional</span></dt><dd><p>Whether to output messages. Default is False.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nfrac[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>fraction of galaxy number at each bin, defined by int_zi^zi+1 dz N(z)/int dz N(z)</p>
+</section>
+<section id="id46">
+<h3>Returns<a class="headerlink" href="#id46" title="Link to this heading"></a></h3>
+<dl>
+<dt>nfrac<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Fraction of galaxies in each bin, defined by</p>
+<div class="math notranslate nohighlight">
+\[\frac{\int_{z_i}^{z_{i+1}} dz\,N(z)}
+     {\int dz\,N(z)}.\]</div>
 </dd>
 </dl>
-</dd>
-</dl>
-</div></blockquote>
+</section>
 </dd></dl>
 
 </section>
@@ -797,296 +794,292 @@ See Eq.(13) of arXiv:1103.1118 for details.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.cosmofuncs.hubble">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.cosmofuncs.</span></span><span class="sig-name descname"><span class="pre">hubble</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">70.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Om</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">divc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.cosmofuncs.hubble" title="Link to this definition"></a></dt>
-<dd><p>Compute the expansion rate in unit of 1/Mpc, H/c, or in unit of km/s/Mpc, H.</p>
+<dd><p>Compute the expansion rate.</p>
+<p>The returned value is either the expansion rate <code class="docutils literal notranslate"><span class="pre">H</span></code> in units of
+<code class="docutils literal notranslate"><span class="pre">km/s/Mpc</span></code> or <code class="docutils literal notranslate"><span class="pre">H</span> <span class="pre">/</span> <span class="pre">c</span></code> in units of <code class="docutils literal notranslate"><span class="pre">1/Mpc</span></code>.</p>
+<section id="id47">
+<h3>Parameters<a class="headerlink" href="#id47" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">z[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Redshifts at which H is computed</p>
+<dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshifts at which the expansion rate is computed.</p>
+</dd>
+<dt>H0<span class="classifier">float, optional</span></dt><dd><p>Present-day Hubble parameter in units of <code class="docutils literal notranslate"><span class="pre">km/s/Mpc</span></code>.
+Default is 70.</p>
+</dd>
+<dt>Om<span class="classifier">float, optional</span></dt><dd><p>Present-day matter density parameter. Default is 0.3.</p>
+</dd>
+<dt>Ov<span class="classifier">float, optional</span></dt><dd><p>Present-day dark-energy density parameter. Default is 0.7.</p>
+</dd>
+<dt>w0<span class="classifier">float, optional</span></dt><dd><p>Dark-energy equation-of-state parameter. Default is -1.</p>
+</dd>
+<dt>wa<span class="classifier">float, optional</span></dt><dd><p>Time-dependent dark-energy equation-of-state parameter.
+Default is 0.</p>
+</dd>
+<dt>divc<span class="classifier">bool, optional</span></dt><dd><p>If True, divide <code class="docutils literal notranslate"><span class="pre">H</span></code> by the speed of light. Default is False.</p>
 </dd>
 </dl>
-</dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">H0 (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The current value of hubble parameter in km/s/Mpc, default to 70 km/s/Mpc</p>
-</dd>
-<dt class="field-even">Om (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>The current value of Omega_matter, default to 0.3</p>
-</dd>
-<dt class="field-odd">Ov (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The current value of Omega_Dark-energy, default to 0.7</p>
-</dd>
-<dt class="field-even">w0, wa (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>The EoS of Dark Energy, default to w0=-1 and wa=0.</p>
-</dd>
-<dt class="field-odd">divc (bool)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Divide H by c or not, default to False.</p>
+</section>
+<section id="id48">
+<h3>Returns<a class="headerlink" href="#id48" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Hz<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Expansion rate <code class="docutils literal notranslate"><span class="pre">H(z)</span></code>, divided by the speed of light if
+<code class="docutils literal notranslate"><span class="pre">divc</span></code> is True.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Hz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The expansion rate, H(z), divided by c or not.</p>
-</dd>
-</dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.cosmofuncs.dhubble_dz">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.cosmofuncs.</span></span><span class="sig-name descname"><span class="pre">dhubble_dz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">70.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Om</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.cosmofuncs.dhubble_dz" title="Link to this definition"></a></dt>
-<dd><p>Compute dH(z)/dz.</p>
+<dd><p>Compute the derivative of the expansion rate, <code class="docutils literal notranslate"><span class="pre">dH(z)</span> <span class="pre">/</span> <span class="pre">dz</span></code>.</p>
+<section id="id49">
+<h3>Parameters<a class="headerlink" href="#id49" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">z[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Redshifts at which dH/dz is computed</p>
+<dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshifts at which <code class="docutils literal notranslate"><span class="pre">dH/dz</span></code> is computed.</p>
+</dd>
+<dt>H0<span class="classifier">float, optional</span></dt><dd><p>Present-day Hubble parameter in units of <code class="docutils literal notranslate"><span class="pre">km/s/Mpc</span></code>.
+Default is 70.</p>
+</dd>
+<dt>Om<span class="classifier">float, optional</span></dt><dd><p>Present-day matter density parameter. Default is 0.3.</p>
+</dd>
+<dt>Ov<span class="classifier">float, optional</span></dt><dd><p>Present-day dark-energy density parameter. Default is 0.7.</p>
+</dd>
+<dt>w0<span class="classifier">float, optional</span></dt><dd><p>Dark-energy equation-of-state parameter. Default is -1.</p>
+</dd>
+<dt>wa<span class="classifier">float, optional</span></dt><dd><p>Time-dependent dark-energy equation-of-state parameter.
+Default is 0.</p>
 </dd>
 </dl>
-</dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">H0 (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The current value of hubble parameter in km/s/Mpc, default to 70 km/s/Mpc</p>
-</dd>
-<dt class="field-even">Om (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>The current value of Omega_matter, default to 0.3</p>
-</dd>
-<dt class="field-odd">Ov (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The current value of Omega_Dark-energy, default to 0.7</p>
-</dd>
-<dt class="field-even">w0, wa (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>The EoS of Dark Energy, default to w0=-1 and wa=0.</p>
+</section>
+<section id="id50">
+<h3>Returns<a class="headerlink" href="#id50" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>dHdz<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Derivative of the expansion rate, <code class="docutils literal notranslate"><span class="pre">dH(z)</span> <span class="pre">/</span> <span class="pre">dz</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">dHdz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The derivative of the expansion rate, dH(z)/dz.</p>
-</dd>
-</dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.cosmofuncs.dist2z">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.cosmofuncs.</span></span><span class="sig-name descname"><span class="pre">dist2z</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">70.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Om</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.cosmofuncs.dist2z" title="Link to this definition"></a></dt>
-<dd><p>Compute redshift as a function of comoving distance</p>
+<dd><p>Compute redshift as a function of comoving distance.</p>
+<section id="id51">
+<h3>Parameters<a class="headerlink" href="#id51" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">rz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Comoving distance [Mpc]</p>
+<dt>rz<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Comoving distance in units of <code class="docutils literal notranslate"><span class="pre">Mpc</span></code>.</p>
+</dd>
+<dt>H0<span class="classifier">float, optional</span></dt><dd><p>Present-day Hubble parameter in units of <code class="docutils literal notranslate"><span class="pre">km/s/Mpc</span></code>.
+Default is 70.</p>
+</dd>
+<dt>Om<span class="classifier">float, optional</span></dt><dd><p>Present-day matter density parameter. Default is 0.3.</p>
+</dd>
+<dt>Ov<span class="classifier">float, optional</span></dt><dd><p>Present-day dark-energy density parameter. Default is 0.7.</p>
+</dd>
+<dt>w0<span class="classifier">float, optional</span></dt><dd><p>Dark-energy equation-of-state parameter. Default is -1.</p>
+</dd>
+<dt>wa<span class="classifier">float, optional</span></dt><dd><p>Time-dependent dark-energy equation-of-state parameter.
+Default is 0.</p>
 </dd>
 </dl>
-</dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">H0 (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The current value of hubble parameter in km/s/Mpc, default to 70 km/s/Mpc</p>
-</dd>
-<dt class="field-even">Om (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>The current value of Omega_matter, default to 0.3</p>
-</dd>
-<dt class="field-odd">Ov (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The current value of Omega_Dark-energy, default to 0.7</p>
-</dd>
-<dt class="field-even">w0, wa (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>The EoS of Dark Energy, default to w0=-1 and wa=0.</p>
+</section>
+<section id="id52">
+<h3>Returns<a class="headerlink" href="#id52" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>z<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Redshift.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">z[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Redshift</p>
-</dd>
-</dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.cosmofuncs.dist_comoving">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.cosmofuncs.</span></span><span class="sig-name descname"><span class="pre">dist_comoving</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">70.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Om</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.cosmofuncs.dist_comoving" title="Link to this definition"></a></dt>
-<dd><p>Compute comoving distance as a function of z</p>
+<dd><p>Compute comoving distance as a function of redshift.</p>
+<section id="id53">
+<h3>Parameters<a class="headerlink" href="#id53" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">z[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Redshift</p>
+<dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshift.</p>
+</dd>
+<dt>H0<span class="classifier">float, optional</span></dt><dd><p>Present-day Hubble parameter in units of <code class="docutils literal notranslate"><span class="pre">km/s/Mpc</span></code>.
+Default is 70.</p>
+</dd>
+<dt>Om<span class="classifier">float, optional</span></dt><dd><p>Present-day matter density parameter. Default is 0.3.</p>
+</dd>
+<dt>Ov<span class="classifier">float, optional</span></dt><dd><p>Present-day dark-energy density parameter. Default is 0.7.</p>
+</dd>
+<dt>w0<span class="classifier">float, optional</span></dt><dd><p>Dark-energy equation-of-state parameter. Default is -1.</p>
+</dd>
+<dt>wa<span class="classifier">float, optional</span></dt><dd><p>Time-dependent dark-energy equation-of-state parameter.
+Default is 0.</p>
 </dd>
 </dl>
-</dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">H0 (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The current value of hubble parameter in km/s/Mpc, default to 70 km/s/Mpc</p>
-</dd>
-<dt class="field-even">Om (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>The current value of Omega_matter, default to 0.3</p>
-</dd>
-<dt class="field-odd">Ov (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The current value of Omega_Dark-energy, default to 0.7</p>
-</dd>
-<dt class="field-even">w0, wa (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>The EoS of Dark Energy, default to w0=-1 and wa=0.</p>
+</section>
+<section id="id54">
+<h3>Returns<a class="headerlink" href="#id54" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>rz<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Comoving distance in units of <code class="docutils literal notranslate"><span class="pre">Mpc</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">rz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Comoving distance [Mpc]</p>
-</dd>
-</dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.cosmofuncs.dist_luminosity">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.cosmofuncs.</span></span><span class="sig-name descname"><span class="pre">dist_luminosity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">70.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Om</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.cosmofuncs.dist_luminosity" title="Link to this definition"></a></dt>
-<dd><p>Compute luminosity distance as a function of z</p>
+<dd><p>Compute luminosity distance as a function of redshift.</p>
+<section id="id55">
+<h3>Parameters<a class="headerlink" href="#id55" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">z[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Redshift</p>
+<dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshift.</p>
+</dd>
+<dt>H0<span class="classifier">float, optional</span></dt><dd><p>Present-day Hubble parameter in units of <code class="docutils literal notranslate"><span class="pre">km/s/Mpc</span></code>.
+Default is 70.</p>
+</dd>
+<dt>Om<span class="classifier">float, optional</span></dt><dd><p>Present-day matter density parameter. Default is 0.3.</p>
+</dd>
+<dt>Ov<span class="classifier">float, optional</span></dt><dd><p>Present-day dark-energy density parameter. Default is 0.7.</p>
+</dd>
+<dt>w0<span class="classifier">float, optional</span></dt><dd><p>Dark-energy equation-of-state parameter. Default is -1.</p>
+</dd>
+<dt>wa<span class="classifier">float, optional</span></dt><dd><p>Time-dependent dark-energy equation-of-state parameter.
+Default is 0.</p>
 </dd>
 </dl>
-</dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">H0 (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The current value of hubble parameter in km/s/Mpc, default to 70 km/s/Mpc</p>
-</dd>
-<dt class="field-even">Om (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>The current value of Omega_matter, default to 0.3</p>
-</dd>
-<dt class="field-odd">Ov (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The current value of Omega_Dark-energy, default to 0.7</p>
-</dd>
-<dt class="field-even">w0, wa (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>The EoS of Dark Energy, default to w0=-1 and wa=0.</p>
+</section>
+<section id="id56">
+<h3>Returns<a class="headerlink" href="#id56" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>DLz<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Luminosity distance in units of <code class="docutils literal notranslate"><span class="pre">Mpc</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">DLz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Luminosity distance [Mpc]</p>
-</dd>
-</dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.cosmofuncs.growth_factor">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.cosmofuncs.</span></span><span class="sig-name descname"><span class="pre">growth_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">70.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Om</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.cosmofuncs.growth_factor" title="Link to this definition"></a></dt>
-<dd><p>Compute analytic linear growth factor D(z) as a function of z</p>
+<dd><p>Compute the analytic linear growth factor <code class="docutils literal notranslate"><span class="pre">D(z)</span></code> as a function of
+redshift.</p>
+<section id="id57">
+<h3>Parameters<a class="headerlink" href="#id57" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">z[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Redshift</p>
+<dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshift.</p>
+</dd>
+<dt>H0<span class="classifier">float, optional</span></dt><dd><p>Present-day Hubble parameter in units of <code class="docutils literal notranslate"><span class="pre">km/s/Mpc</span></code>.
+Default is 70.</p>
+</dd>
+<dt>Om<span class="classifier">float, optional</span></dt><dd><p>Present-day matter density parameter. Default is 0.3.</p>
+</dd>
+<dt>Ov<span class="classifier">float, optional</span></dt><dd><p>Present-day dark-energy density parameter. Default is 0.7.</p>
+</dd>
+<dt>w0<span class="classifier">float, optional</span></dt><dd><p>Dark-energy equation-of-state parameter. Default is -1.</p>
+</dd>
+<dt>wa<span class="classifier">float, optional</span></dt><dd><p>Time-dependent dark-energy equation-of-state parameter.
+Default is 0.</p>
+</dd>
+<dt>normed<span class="classifier">bool, optional</span></dt><dd><p>If True, normalize the growth factor so that <code class="docutils literal notranslate"><span class="pre">D(z=0)</span> <span class="pre">=</span> <span class="pre">1</span></code>.
+Otherwise, use the normalization in which <code class="docutils literal notranslate"><span class="pre">D(z)</span> <span class="pre">=</span> <span class="pre">a</span></code> in a pure
+matter universe with <code class="docutils literal notranslate"><span class="pre">Omega_m(a)</span> <span class="pre">=</span> <span class="pre">1</span></code>. Default is False.</p>
 </dd>
 </dl>
-</dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">H0 (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The current value of hubble parameter in km/s/Mpc, default to 70 km/s/Mpc</p>
-</dd>
-<dt class="field-even">Om (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>The current value of Omega_matter, default to 0.3</p>
-</dd>
-<dt class="field-odd">Ov (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The current value of Omega_Dark-energy, default to 0.7</p>
-</dd>
-<dt class="field-even">w0, wa (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>The EoS of Dark Energy, default to w0=-1 and wa=0.</p>
-</dd>
-<dt class="field-odd">normed (bool)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>If True, D(z=0)=1. Otherwise, the normalization is defined so that D(z)=a in the pure matter universe, Om(a)=1.</p>
+</section>
+<section id="id58">
+<h3>Returns<a class="headerlink" href="#id58" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Dz<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Growth factor.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Dz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Growth factor</p>
-</dd>
-</dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.cosmofuncs.growth_rate">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.cosmofuncs.</span></span><span class="sig-name descname"><span class="pre">growth_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">70.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Om</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.cosmofuncs.growth_rate" title="Link to this definition"></a></dt>
-<dd><p>Compute linear growth rate f(z) = dlnD/dlna as a function of z</p>
+<dd><p>Compute the linear growth rate as a function of redshift.</p>
+<p>The growth rate is defined as <code class="docutils literal notranslate"><span class="pre">f(z)</span> <span class="pre">=</span> <span class="pre">d</span> <span class="pre">ln</span> <span class="pre">D</span> <span class="pre">/</span> <span class="pre">d</span> <span class="pre">ln</span> <span class="pre">a</span></code>.</p>
+<section id="id59">
+<h3>Parameters<a class="headerlink" href="#id59" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">z[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Redshift</p>
+<dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshift.</p>
+</dd>
+<dt>H0<span class="classifier">float, optional</span></dt><dd><p>Present-day Hubble parameter in units of <code class="docutils literal notranslate"><span class="pre">km/s/Mpc</span></code>.
+Default is 70.</p>
+</dd>
+<dt>Om<span class="classifier">float, optional</span></dt><dd><p>Present-day matter density parameter. Default is 0.3.</p>
+</dd>
+<dt>Ov<span class="classifier">float, optional</span></dt><dd><p>Present-day dark-energy density parameter. Default is 0.7.</p>
+</dd>
+<dt>w0<span class="classifier">float, optional</span></dt><dd><p>Dark-energy equation-of-state parameter. Default is -1.</p>
+</dd>
+<dt>wa<span class="classifier">float, optional</span></dt><dd><p>Time-dependent dark-energy equation-of-state parameter.
+Default is 0.</p>
 </dd>
 </dl>
-</dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">H0 (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The current value of hubble parameter in km/s/Mpc, default to 70 km/s/Mpc</p>
-</dd>
-<dt class="field-even">Om (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>The current value of Omega_matter, default to 0.3</p>
-</dd>
-<dt class="field-odd">Ov (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The current value of Omega_Dark-energy, default to 0.7</p>
-</dd>
-<dt class="field-even">w0, wa (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>The EoS of Dark Energy, default to w0=-1 and wa=0.</p>
+</section>
+<section id="id60">
+<h3>Returns<a class="headerlink" href="#id60" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>fz<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Linear growth rate.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">fz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Growth rate</p>
-</dd>
-</dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.cosmofuncs.nz_gw">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.cosmofuncs.</span></span><span class="sig-name descname"><span class="pre">nz_gw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Hz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ntype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CH06'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dotn0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.cosmofuncs.nz_gw" title="Link to this definition"></a></dt>
-<dd><p>Distribution function of NS-NS merger events per redshift (dN/dz) at z</p>
+<dd><p>Compute the redshift distribution of neutron-star binary merger events.</p>
+<p>This returns the event distribution per redshift, <code class="docutils literal notranslate"><span class="pre">dN/dz</span></code>, at <code class="docutils literal notranslate"><span class="pre">z</span></code>.</p>
+<section id="id61">
+<h3>Parameters<a class="headerlink" href="#id61" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">z (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>redshift</p>
+<dt>z<span class="classifier">float</span></dt><dd><p>Redshift.</p>
 </dd>
-<dt class="field-even">Cz (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>comoving distance</p>
+<dt>Cz<span class="classifier">float</span></dt><dd><p>Comoving distance.</p>
 </dd>
-<dt class="field-odd">Hz (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>expansion rate</p>
+<dt>Hz<span class="classifier">float</span></dt><dd><p>Expansion rate.</p>
 </dd>
-</dl>
+<dt>ntype<span class="classifier">str, optional</span></dt><dd><p>Type of merger-rate functional form. Use <code class="docutils literal notranslate"><span class="pre">'CH06'</span></code> for the default
+model or <code class="docutils literal notranslate"><span class="pre">'none'</span></code> for no redshift evolution. Default is <code class="docutils literal notranslate"><span class="pre">'CH06'</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">ntype (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>type of dotn functional form, i.e, CH06 (default) or none.</p>
+<dt>dotn0<span class="classifier">float, optional</span></dt><dd><p>Present-day merger rate. Default is <code class="docutils literal notranslate"><span class="pre">1e-6</span></code>.</p>
 </dd>
-<dt class="field-even">dotn0 (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>current merger-rate</p>
-</dd>
-<dt class="field-odd">Tobs (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>total observation time</p>
+<dt>Tobs<span class="classifier">float, optional</span></dt><dd><p>Total observation time. Default is 3.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nz (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>distribution function at z</p>
+</section>
+<section id="id62">
+<h3>Returns<a class="headerlink" href="#id62" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>nz<span class="classifier">float</span></dt><dd><p>Event distribution function at <code class="docutils literal notranslate"><span class="pre">z</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.cosmofuncs.drate_dz">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.cosmofuncs.</span></span><span class="sig-name descname"><span class="pre">drate_dz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ntype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CH06'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.cosmofuncs.drate_dz" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Compute the redshift-dependent merger-rate factor.</p>
+<section id="id63">
+<h3>Parameters<a class="headerlink" href="#id63" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshift.</p>
+</dd>
+<dt>ntype<span class="classifier">str, optional</span></dt><dd><p>Type of merger-rate functional form. Use <code class="docutils literal notranslate"><span class="pre">'CH06'</span></code> for the default
+model or <code class="docutils literal notranslate"><span class="pre">'none'</span></code> for no redshift evolution. Default is <code class="docutils literal notranslate"><span class="pre">'CH06'</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="id64">
+<h3>Returns<a class="headerlink" href="#id64" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>drate<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Redshift-dependent merger-rate factor.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
 
 </section>
 <section id="module-cmblensplus.basic.flat">
@@ -1094,58 +1087,129 @@ See Eq.(13) of arXiv:1103.1118 for details.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.flat.alxy">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.flat.</span></span><span class="sig-name descname"><span class="pre">alxy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qtype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">W1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">W2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gln</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lxcut</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.flat.alxy" title="Link to this definition"></a></dt>
-<dd><p>Compute flat-sky quadratic estimator normalization
-CAUTION: This code interpolates the input Cl at the non-integer multipole by simply Cl(int(ell)) which leads to a small discrepancy in the normalization computed from the FFT-based method (which uses linear interpolation) and from this code. It is desireble to use the FFT-based normalization if you want to normalize the simulation results.</p>
-<dl>
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">qest (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>estimator combination (TT, TE, TB, EE, EB, or BB)</p>
+<dd><p>Compute the flat-sky quadratic-estimator normalization.</p>
+<section id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h3>
+<p>This routine interpolates the input <span class="math notranslate nohighlight">\(C_\ell\)</span> at non-integer multipoles by using <code class="docutils literal notranslate"><span class="pre">Cl[int(ell)]</span></code>. 
+This may lead to a small discrepancy between the normalization computed by this routine and the FFT-based
+normalization, which uses linear interpolation.</p>
+<p>The FFT-based normalization is recommended when normalizing simulation results.</p>
+</section>
+<section id="id65">
+<h3>Parameters<a class="headerlink" href="#id65" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>qest<span class="classifier">{‘TT’, ‘TE’, ‘TB’, ‘EE’, ‘EB’, ‘BB’}</span></dt><dd><p>Estimator combination.</p>
 </dd>
-<dt class="field-even">qtype (str)<span class="colon">:</span></dt>
-<dd class="field-even"><p>estimator type (lensing, patchytau)</p>
+<dt>qtype<span class="classifier">str</span></dt><dd><p>Estimator type, for example <code class="docutils literal notranslate"><span class="pre">'lensing'</span></code> or <code class="docutils literal notranslate"><span class="pre">'patchytau'</span></code>.</p>
 </dd>
-<dt class="field-odd">lmax (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>output maximum multipole</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization.</p>
 </dd>
-<dt class="field-even">rlmax/rlmin (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>input CMB multipole range for reconstruction</p>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum input CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-odd">fC[rlmax] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>power spectrum in the numerator</p>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum input CMB multipole used for reconstruction.</p>
 </dd>
-</dl>
-<p>:W1/W2[rlmax] : inverse of the observed power spectrum</p>
+<dt>fC<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Power spectrum in the numerator, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">gln (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>number of the GL integration points</p>
+<dt>W1<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Inverse observed power spectrum for the first field, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt class="field-even">lxcut (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>multipole cut in x-direction, <a href="#id1"><span class="problematic" id="id2">|l_x|</span></a> &lt; lx</p>
+<dt>W2<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Inverse observed power spectrum for the second field, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt class="field-odd">gle (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>convergence parameter for the GL integration</p>
+<dt>gln<span class="classifier">int, optional</span></dt><dd><p>Number of Gauss-Legendre integration points. Default is 100.</p>
 </dd>
-</dl>
+<dt>gle<span class="classifier">float, optional</span></dt><dd><p>Convergence parameter for the Gauss-Legendre integration. Default is <code class="docutils literal notranslate"><span class="pre">1e-14</span></code>.</p>
 </dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Ag/Ac[l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>normalization for even and odd estimator pairs</p>
+<dt>lxcut<span class="classifier">int, optional</span></dt><dd><p>Multipole cut in the x direction, <span class="math notranslate nohighlight">\(|\ell_x| &lt;\)</span> <code class="docutils literal notranslate"><span class="pre">lxcut</span></code>. Default is 0.</p>
 </dd>
 </dl>
+</section>
+<section id="id66">
+<h3>Returns<a class="headerlink" href="#id66" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Ag<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Normalization for the even estimator pair.</p>
+</dd>
+<dt>Ac<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Normalization for the odd estimator pair.</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.flat.alxy_asym">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.flat.</span></span><span class="sig-name descname"><span class="pre">alxy_asym</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qtype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AA</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gln</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lxcut</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.flat.alxy_asym" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Compute the asymmetric flat-sky quadratic-estimator normalization.</p>
+<section id="id67">
+<h3>Parameters<a class="headerlink" href="#id67" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>qest<span class="classifier">{‘TT’, ‘TE’, ‘TB’, ‘EE’, ‘EB’, ‘BB’}</span></dt><dd><p>Estimator combination.</p>
+</dd>
+<dt>qtype<span class="classifier">str</span></dt><dd><p>Estimator type, for example <code class="docutils literal notranslate"><span class="pre">'lensing'</span></code> or <code class="docutils literal notranslate"><span class="pre">'patchytau'</span></code>.</p>
+</dd>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization.</p>
+</dd>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum input CMB multipole used for reconstruction.</p>
+</dd>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum input CMB multipole used for reconstruction.</p>
+</dd>
+<dt>fC<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Power spectrum in the numerator, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>AA<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed auto spectrum of the first field, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>BB<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed auto spectrum of the second field, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>AB<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed cross spectrum between the first and second fields, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>gln<span class="classifier">int, optional</span></dt><dd><p>Number of Gauss-Legendre integration points. Default is 100.</p>
+</dd>
+<dt>gle<span class="classifier">float, optional</span></dt><dd><p>Convergence parameter for the Gauss-Legendre integration. Default is <code class="docutils literal notranslate"><span class="pre">1e-14</span></code>.</p>
+</dd>
+<dt>lxcut<span class="classifier">int, optional</span></dt><dd><p>Multipole cut in the x direction, <span class="math notranslate nohighlight">\(|\ell_x| &lt;\)</span> <code class="docutils literal notranslate"><span class="pre">lxcut</span></code>. Default is 0.</p>
+</dd>
+</dl>
+</section>
+<section id="id68">
+<h3>Returns<a class="headerlink" href="#id68" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Ag<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Normalization for the even estimator pair.</p>
+</dd>
+<dt>Ac<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Normalization for the odd estimator pair.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.flat.bbxy">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.flat.</span></span><span class="sig-name descname"><span class="pre">bbxy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">XX</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YY</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lensing'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gln</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-14</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.flat.bbxy" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Compute the flat-sky B-mode power spectrum induced by a modulation field to E-mode or T.</p>
+<section id="id69">
+<h3>Parameters<a class="headerlink" href="#id69" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization.</p>
+</dd>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum input multipole used in the calculation.</p>
+</dd>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum input multipole used in the calculation.</p>
+</dd>
+<dt>XX<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Modulation field power spectrum such as lensing potential power spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>YY<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>CMB E or T auto power spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>weight<span class="classifier">str, optional</span></dt><dd><p>Weight type. Default is <code class="docutils literal notranslate"><span class="pre">'lensing'</span></code>.</p>
+</dd>
+<dt>gln<span class="classifier">int, optional</span></dt><dd><p>Number of Gauss-Legendre integration points. Default is 100.</p>
+</dd>
+<dt>gle<span class="classifier">float, optional</span></dt><dd><p>Convergence parameter for the Gauss-Legendre integration. Default is <code class="docutils literal notranslate"><span class="pre">1e-14</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="id70">
+<h3>Returns<a class="headerlink" href="#id70" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>BB<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Normalization, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
 
 </section>
 <section id="module-cmblensplus.basic.wigner_funcs">
@@ -1153,54 +1217,35 @@ CAUTION: This code interpolates the input Cl at the non-integer multipole by sim
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.basic.wigner_funcs.wigner_3j">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.wigner_funcs.</span></span><span class="sig-name descname"><span class="pre">wigner_3j</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.wigner_funcs.wigner_3j" title="Link to this definition"></a></dt>
-<dd><p>Compute wigner3j for all possible l1 where w3j = (j1,j2,j3/m1,m2,m3)</p>
+<dd><p>Compute Wigner 3j symbols for all allowed values of <code class="docutils literal notranslate"><span class="pre">l1</span></code>.</p>
+<p>This function returns the Wigner 3j symbols</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{pmatrix}
+l_1 &amp; l_2 &amp; l_3 \\
+m_1 &amp; m_2 &amp; m_3
+\end{pmatrix}\end{split}\]</div>
+<p>for fixed <code class="docutils literal notranslate"><span class="pre">l2</span></code>, <code class="docutils literal notranslate"><span class="pre">l3</span></code>, <code class="docutils literal notranslate"><span class="pre">m2</span></code>, and <code class="docutils literal notranslate"><span class="pre">m3</span></code>. The value of <code class="docutils literal notranslate"><span class="pre">m1</span></code> is
+determined by the selection rule <code class="docutils literal notranslate"><span class="pre">m1</span> <span class="pre">+</span> <span class="pre">m2</span> <span class="pre">+</span> <span class="pre">m3</span> <span class="pre">=</span> <span class="pre">0</span></code>.</p>
+<section id="id71">
+<h3>Parameters<a class="headerlink" href="#id71" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">shap (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>shape of the bispectrum (equi, fold, sque, or isos)</p>
+<dt>l2<span class="classifier">int</span></dt><dd><p>Second angular momentum quantum number.</p>
 </dd>
-<dt class="field-even">cpmodel (str)<span class="colon">:</span></dt>
-<dd class="field-even"><p>cosmological parameter model (model0, modelw, or modelp)</p>
+<dt>l3<span class="classifier">int</span></dt><dd><p>Third angular momentum quantum number.</p>
 </dd>
-<dt class="field-odd">model (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>fitting formula of the matter bispectrum (LN=linear, SC=SC03, GM=Gil-Marin+12, 3B=3-shape-bispectrum, or RT=Takahashi+19)</p>
+<dt>m2<span class="classifier">int</span></dt><dd><p>Magnetic quantum number corresponding to <code class="docutils literal notranslate"><span class="pre">l2</span></code>.</p>
 </dd>
-<dt class="field-even">z[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>redshift points for the z-integral</p>
-</dd>
-<dt class="field-odd">zn (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>number of redshifts for the z-integral</p>
-</dd>
-<dt class="field-even">dz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>interval of z</p>
-</dd>
-<dt class="field-odd">zs[3] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>source redshifts</p>
-</dd>
-<dt class="field-even">lmin/lmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>minimum/maximum multipoles of the bispectrum</p>
-</dd>
-<dt class="field-odd">k[kn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>k for the matter power spectrum</p>
-</dd>
-<dt class="field-even">pk0 (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>the linear matter power spectrum at z=0</p>
-</dd>
-<dt class="field-odd">kn (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>size of k</p>
+<dt>m3<span class="classifier">int</span></dt><dd><p>Magnetic quantum number corresponding to <code class="docutils literal notranslate"><span class="pre">l3</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">bl0[l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>lensing bispectrum from LSS contributions at [lmin,lmax]</p>
-</dd>
-<dt class="field-even">bl1[l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>lensing bispectrum from post-Born contributions at [lmin,lmax]</p>
+</section>
+<section id="id72">
+<h3>Returns<a class="headerlink" href="#id72" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>w3j<span class="classifier">ndarray of float</span></dt><dd><p>Wigner 3j symbols for all allowed values of <code class="docutils literal notranslate"><span class="pre">l1</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 </section>

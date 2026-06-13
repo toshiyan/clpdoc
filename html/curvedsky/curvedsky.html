@@ -612,626 +612,630 @@ potential. Default is <code class="docutils literal notranslate"><span class="pr
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_quad.qtt">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qtt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qtt" title="Link to this definition"></a></dt>
-<dd><p>Normalization of reconstructed fields from the temperature quadratic estimator</p>
+<dd><p>Compute the normalization of reconstructed fields from the temperature
+quadratic estimator.</p>
+<section id="id19">
+<h3>Parameters<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
+<dt>est<span class="classifier">str</span></dt><dd><p>Estimator type.</p>
 </dd>
-<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization spectrum.</p>
 </dd>
-<dt class="field-odd">TT [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory TT spectrum, with bounds (0:rlmax)</p>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-even">OCT [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Observed TT spectrum, with bounds (0:rlmax)</p>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum CMB multipole used for reconstruction.</p>
 </dd>
-</dl>
+<dt>TT<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory TT spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt>OCT<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed TT spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>lfac<span class="classifier">str, optional</span></dt><dd><p>Multiplicative factor. Use <code class="docutils literal notranslate"><span class="pre">'k'</span></code> for convergence or <code class="docutils literal notranslate"><span class="pre">''</span></code> for
+lensing potential. Default is <code class="docutils literal notranslate"><span class="pre">''</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalizations (1 is dummy except lens = 0 and curl = 1), with bounds (0:lmax)</p>
+</section>
+<section id="id20">
+<h3>Returns<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Al<span class="classifier">ndarray of float, shape (2, lmax + 1)</span></dt><dd><p>Normalizations. The first component is for the lensing-potential
+estimator and the second component is for the curl-mode estimator.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_quad.qte">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qte" title="Link to this definition"></a></dt>
-<dd><p>Normalization of reconstructed fields from the TE quadratic estimator</p>
+<dd><p>Compute the normalization of reconstructed fields from the TE quadratic
+estimator.</p>
+<section id="id21">
+<h3>Parameters<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
+<dt>est<span class="classifier">str</span></dt><dd><p>Estimator type.</p>
 </dd>
-<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization spectrum.</p>
 </dd>
-<dt class="field-odd">TE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory TE spectrum, with bounds (0:rlmax)</p>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-even">OCT [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Observed TT spectrum, with bounds (0:rlmax)</p>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-odd">OCE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+<dt>TE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory TE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-</dl>
+<dt>OCT<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed TT spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt>OCE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed EE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>lfac<span class="classifier">str, optional</span></dt><dd><p>Multiplicative factor. Use <code class="docutils literal notranslate"><span class="pre">'k'</span></code> for convergence or <code class="docutils literal notranslate"><span class="pre">''</span></code> for
+lensing potential. Default is <code class="docutils literal notranslate"><span class="pre">''</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalizations (1 is dummy except lens = 0 and curl = 1), with bounds (0:lmax)</p>
+</section>
+<section id="id22">
+<h3>Returns<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Al<span class="classifier">ndarray of float, shape (2, lmax + 1)</span></dt><dd><p>Normalizations. The first component is for the lensing-potential
+estimator and the second component is for the curl-mode estimator.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_quad.qtb">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qtb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qtb" title="Link to this definition"></a></dt>
-<dd><p>Normalization of reconstructed fields from the TB quadratic estimator</p>
+<dd><p>Compute the normalization of reconstructed fields from the TB quadratic
+estimator.</p>
+<section id="id23">
+<h3>Parameters<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
+<dt>est<span class="classifier">str</span></dt><dd><p>Estimator type.</p>
 </dd>
-<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization spectrum.</p>
 </dd>
-<dt class="field-odd">TE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory TE spectrum, with bounds (0:rlmax)</p>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-even">OCT [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Observed TT spectrum, with bounds (0:rlmax)</p>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-odd">OCB [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Observed BB spectrum, with bounds (0:rlmax)</p>
+<dt>TE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory TE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-</dl>
+<dt>OCT<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed TT spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt>OCB<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed BB spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>lfac<span class="classifier">str, optional</span></dt><dd><p>Multiplicative factor. Use <code class="docutils literal notranslate"><span class="pre">'k'</span></code> for convergence or <code class="docutils literal notranslate"><span class="pre">''</span></code> for
+lensing potential. Default is <code class="docutils literal notranslate"><span class="pre">''</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalizations (1 is dummy except lens = 0 and curl = 1), with bounds (0:lmax)</p>
+</section>
+<section id="id24">
+<h3>Returns<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Al<span class="classifier">ndarray of float, shape (2, lmax + 1)</span></dt><dd><p>Normalizations. The first component is for the lensing-potential
+estimator and the second component is for the curl-mode estimator.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_quad.qee">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">EE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qee" title="Link to this definition"></a></dt>
-<dd><p>Normalization of reconstructed amplitude modulation from the EE quadratic estimator</p>
+<dd><p>Compute the normalization of reconstructed fields from the EE quadratic
+estimator.</p>
+<section id="id25">
+<h3>Parameters<a class="headerlink" href="#id25" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
+<dt>est<span class="classifier">str</span></dt><dd><p>Estimator type.</p>
 </dd>
-<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization spectrum.</p>
 </dd>
-<dt class="field-odd">EE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory EE spectrum, with bounds (0:rlmax)</p>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-even">OCE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum CMB multipole used for reconstruction.</p>
 </dd>
-</dl>
+<dt>EE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory EE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt>OCE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed EE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>lfac<span class="classifier">str, optional</span></dt><dd><p>Multiplicative factor. Use <code class="docutils literal notranslate"><span class="pre">'k'</span></code> for convergence or <code class="docutils literal notranslate"><span class="pre">''</span></code> for
+lensing potential. Default is <code class="docutils literal notranslate"><span class="pre">''</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalization, with bounds (0:lmax)</p>
+</section>
+<section id="id26">
+<h3>Returns<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Al<span class="classifier">ndarray of float, shape (2, lmax + 1)</span></dt><dd><p>Normalization, with bounds <code class="docutils literal notranslate"><span class="pre">(0:1,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_quad.qeb">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qeb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">EE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BB</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qeb" title="Link to this definition"></a></dt>
-<dd><p>Normalization of reconstructed fields from the EB quadratic estimator</p>
+<dd><p>Compute the normalization of reconstructed fields from the EB quadratic
+estimator.</p>
+<section id="id27">
+<h3>Parameters<a class="headerlink" href="#id27" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
+<dt>est<span class="classifier">str</span></dt><dd><p>Estimator type.</p>
 </dd>
-<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization spectrum.</p>
 </dd>
-<dt class="field-odd">EE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory EE spectrum, with bounds (0:rlmax)</p>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-even">OCE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-odd">OCB [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Observed BB spectrum, with bounds (0:rlmax)</p>
+<dt>EE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory EE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-</dl>
+<dt>OCE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed EE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt>Args(optionals): </dt><dd><dl class="field-list simple">
-<dt class="field-odd">BB [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory BB spectrum, with bounds (0:rlmax)</p>
+<dt>OCB<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed BB spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt class="field-even">lfac (str)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt>BB<span class="classifier">array_like of float, shape (rlmax + 1,), optional</span></dt><dd><p>Theory BB spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>. If set to 0, a zero
+spectrum with the same shape as <code class="docutils literal notranslate"><span class="pre">EE</span></code> is used.</p>
+</dd>
+<dt>lfac<span class="classifier">str, optional</span></dt><dd><p>Multiplicative factor. Use <code class="docutils literal notranslate"><span class="pre">'k'</span></code> for convergence or <code class="docutils literal notranslate"><span class="pre">''</span></code> for
+lensing potential. Default is <code class="docutils literal notranslate"><span class="pre">''</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalization, with bounds (0:lmax)</p>
+</section>
+<section id="id28">
+<h3>Returns<a class="headerlink" href="#id28" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Al<span class="classifier">ndarray of float, shape (2, lmax + 1)</span></dt><dd><p>Normalization, with bounds <code class="docutils literal notranslate"><span class="pre">(0:1,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_quad.qbb">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qbb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qbb" title="Link to this definition"></a></dt>
-<dd><p>Normalization of reconstructed amplitude modulation from the BB quadratic estimator</p>
+<dd><p>Compute the normalization of reconstructed fields from the BB quadratic
+estimator.</p>
+<section id="id29">
+<h3>Parameters<a class="headerlink" href="#id29" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
+<dt>est<span class="classifier">str</span></dt><dd><p>Estimator type.</p>
 </dd>
-<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization spectrum.</p>
 </dd>
-<dt class="field-odd">BB [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory BB spectrum, with bounds (0:rlmax)</p>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-even">OCB [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Observed BB spectrum, with bounds (0:rlmax)</p>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum CMB multipole used for reconstruction.</p>
 </dd>
-</dl>
+<dt>BB<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory BB spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt>OCB<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed BB spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>lfac<span class="classifier">str, optional</span></dt><dd><p>Multiplicative factor. Use <code class="docutils literal notranslate"><span class="pre">'k'</span></code> for convergence or <code class="docutils literal notranslate"><span class="pre">''</span></code> for
+lensing potential. Default is <code class="docutils literal notranslate"><span class="pre">''</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalization, with bounds (0:lmax)</p>
+</section>
+<section id="id30">
+<h3>Returns<a class="headerlink" href="#id30" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Al<span class="classifier">ndarray of float, shape (2, lmax + 1)</span></dt><dd><p>Normalization, with bounds <code class="docutils literal notranslate"><span class="pre">(0:1,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_quad.qttte">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qttte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fCTT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fCTE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCTE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qttte" title="Link to this definition"></a></dt>
-<dd><p>Correlation between unnormalized TT and TE quadratic estimators</p>
+<dd><p>Compute the correlation between unnormalized TT and TE quadratic
+estimators.</p>
+<section id="id31">
+<h3>Parameters<a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
+<dt>est<span class="classifier">str</span></dt><dd><p>Estimator type.</p>
 </dd>
-<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization spectrum.</p>
 </dd>
-<dt class="field-odd">fCTT [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory TT spectrum, with bounds (0:rlmax)</p>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-even">fCTE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Theory TE spectrum, with bounds (0:rlmax)</p>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-odd">OCT [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Observed TT spectrum, with bounds (0:rlmax)</p>
+<dt>fCTT<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory TT spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt class="field-even">OCE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+<dt>fCTE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory TE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt class="field-odd">OCTE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Observed TE spectrum, with bounds (0:rlmax)</p>
+<dt>OCT<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed TT spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-</dl>
+<dt>OCE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed EE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt>OCTE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed TE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>lfac<span class="classifier">str, optional</span></dt><dd><p>Multiplicative factor. Use <code class="docutils literal notranslate"><span class="pre">'k'</span></code> for convergence or <code class="docutils literal notranslate"><span class="pre">''</span></code> for
+lensing potential. Default is <code class="docutils literal notranslate"><span class="pre">''</span></code>.</p>
 </dd>
 </dl>
+</section>
+<section id="id32">
+<h3>Returns<a class="headerlink" href="#id32" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Ig<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Correlation between lensing-potential estimators, with bounds
+<code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Ig [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Correlation between lensing potential estimators, with bounds (0:lmax)</p>
-</dd>
-<dt class="field-even">Ic [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Correlation between curl mode estimators, with bounds (0:lmax)</p>
+<dt>Ic<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Correlation between curl-mode estimators, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_quad.qttee">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qttee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fCTT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fCEE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCTE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qttee" title="Link to this definition"></a></dt>
-<dd><p>Correlation between unnormalized TT and EE quadratic estimators</p>
+<dd><p>Compute the correlation between unnormalized TT and EE quadratic
+estimators.</p>
+<section id="id33">
+<h3>Parameters<a class="headerlink" href="#id33" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
+<dt>est<span class="classifier">str</span></dt><dd><p>Estimator type.</p>
 </dd>
-<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization spectrum.</p>
 </dd>
-<dt class="field-odd">fCTT [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory TT spectrum, with bounds (0:rlmax)</p>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-even">fCEE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Theory EE spectrum, with bounds (0:rlmax)</p>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-odd">OCT [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Observed TT spectrum, with bounds (0:rlmax)</p>
+<dt>fCTT<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory TT spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt class="field-even">OCE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+<dt>fCEE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory EE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt class="field-odd">OCTE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Observed TE spectrum, with bounds (0:rlmax)</p>
+<dt>OCT<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed TT spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-</dl>
+<dt>OCE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed EE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt>OCTE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed TE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>lfac<span class="classifier">str, optional</span></dt><dd><p>Multiplicative factor. Use <code class="docutils literal notranslate"><span class="pre">'k'</span></code> for convergence or <code class="docutils literal notranslate"><span class="pre">''</span></code> for
+lensing potential. Default is <code class="docutils literal notranslate"><span class="pre">''</span></code>.</p>
 </dd>
 </dl>
+</section>
+<section id="id34">
+<h3>Returns<a class="headerlink" href="#id34" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Ig<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Correlation between lensing-potential estimators, with bounds
+<code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Ig [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Correlation between lensing potential estimators, with bounds (0:lmax)</p>
-</dd>
-<dt class="field-even">Ic [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Correlation between curl mode estimators, with bounds (0:lmax)</p>
+<dt>Ic<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Correlation between curl-mode estimators, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_quad.qteee">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qteee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fCEE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fCTE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCTE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qteee" title="Link to this definition"></a></dt>
-<dd><p>Correlation between unnormalized TE and EE quadratic estimators</p>
+<dd><p>Compute the correlation between unnormalized TE and EE quadratic
+estimators.</p>
+<section id="id35">
+<h3>Parameters<a class="headerlink" href="#id35" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
+<dt>est<span class="classifier">str</span></dt><dd><p>Estimator type.</p>
 </dd>
-<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization spectrum.</p>
 </dd>
-<dt class="field-odd">fCEE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory EE spectrum, with bounds (0:rlmax)</p>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-even">fCTE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Theory TE spectrum, with bounds (0:rlmax)</p>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-odd">OCT [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Observed TT spectrum, with bounds (0:rlmax)</p>
+<dt>fCEE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory EE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt class="field-even">OCE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+<dt>fCTE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory TE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt class="field-odd">OCTE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Observed TE spectrum, with bounds (0:rlmax)</p>
+<dt>OCT<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed TT spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-</dl>
+<dt>OCE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed EE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt>OCTE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed TE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>lfac<span class="classifier">str, optional</span></dt><dd><p>Multiplicative factor. Use <code class="docutils literal notranslate"><span class="pre">'k'</span></code> for convergence or <code class="docutils literal notranslate"><span class="pre">''</span></code> for
+lensing potential. Default is <code class="docutils literal notranslate"><span class="pre">''</span></code>.</p>
 </dd>
 </dl>
+</section>
+<section id="id36">
+<h3>Returns<a class="headerlink" href="#id36" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Ig<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Correlation between lensing-potential estimators, with bounds
+<code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Ig [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Correlation between lensing potential estimators, with bounds (0:lmax)</p>
-</dd>
-<dt class="field-even">Ic [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Correlation between curl mode estimators, with bounds (0:lmax)</p>
+<dt>Ic<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Correlation between curl-mode estimators, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_quad.qtbeb">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qtbeb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fCEE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fCBB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fCTE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCTE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qtbeb" title="Link to this definition"></a></dt>
-<dd><p>Correlation between unnormalized TB and EB quadratic estimators</p>
+<dd><p>Compute the correlation between unnormalized TB and EB quadratic
+estimators.</p>
+<section id="id37">
+<h3>Parameters<a class="headerlink" href="#id37" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
+<dt>est<span class="classifier">str</span></dt><dd><p>Estimator type.</p>
 </dd>
-<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization spectrum.</p>
 </dd>
-<dt class="field-odd">fCEE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory EE spectrum, with bounds (0:rlmax)</p>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-even">fCBB [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Theory BB spectrum, with bounds (0:rlmax)</p>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-odd">OCT [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Observed TT spectrum, with bounds (0:rlmax)</p>
+<dt>fCEE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory EE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt class="field-even">OCE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+<dt>fCBB<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory BB spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt class="field-odd">OCB [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Observed BB spectrum, with bounds (0:rlmax)</p>
+<dt>fCTE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory TE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt class="field-even">OCTE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Observed TE spectrum, with bounds (0:rlmax)</p>
+<dt>OCT<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed TT spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-</dl>
+<dt>OCE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed EE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt>OCB<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed BB spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>OCTE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed TE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>lfac<span class="classifier">str, optional</span></dt><dd><p>Multiplicative factor. Use <code class="docutils literal notranslate"><span class="pre">'k'</span></code> for convergence or <code class="docutils literal notranslate"><span class="pre">''</span></code> for
+lensing potential. Default is <code class="docutils literal notranslate"><span class="pre">''</span></code>.</p>
 </dd>
 </dl>
+</section>
+<section id="id38">
+<h3>Returns<a class="headerlink" href="#id38" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Ig<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Correlation between lensing-potential estimators, with bounds
+<code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Ig [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Correlation between lensing potential estimators, with bounds (0:lmax)</p>
-</dd>
-<dt class="field-even">Ic [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Correlation between curl mode estimators, with bounds (0:lmax)</p>
+<dt>Ic<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Correlation between curl-mode estimators, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_quad.qmv">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qmv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QDO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Al</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Il</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qmv" title="Link to this definition"></a></dt>
-<dd><p>Compute MV estimator normalization. Currently BB is ignored.</p>
+<dd><p>Compute the minimum-variance estimator normalization.</p>
+<p>Currently, the BB estimator is ignored.</p>
+<section id="id39">
+<h3>Parameters<a class="headerlink" href="#id39" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of the output power spectra</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output power spectra.</p>
 </dd>
-<dt class="field-even">QDO[6] (bool)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Specifying which estimators to be combined for the minimum variance estimator, with size (6). The oder is TT, TE, EE, TB, EB and BB. Currently, BB is always False</p>
+<dt>QDO<span class="classifier">array_like of bool, shape (6,)</span></dt><dd><p>Flags specifying which estimators are combined for the
+minimum-variance estimator. The order is TT, TE, EE, TB, EB, and BB.
+Currently, BB is always False.</p>
 </dd>
-<dt class="field-odd">Al [5,l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalizations of each estimator (TT, TE, EE, TB, EB).</p>
+<dt>Al<span class="classifier">array_like of float, shape (5, lmax + 1)</span></dt><dd><p>Normalizations of each estimator: TT, TE, EE, TB, and EB.</p>
 </dd>
-<dt class="field-even">Il [4,l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Correlation between different estimators (TTxTE, TTxEE, TExEE, TBxEB).</p>
+<dt>Il<span class="classifier">array_like of float, shape (4, lmax + 1)</span></dt><dd><p>Correlations between different estimators: TT x TE, TT x EE,
+TE x EE, and TB x EB.</p>
 </dd>
 </dl>
+</section>
+<section id="id40">
+<h3>Returns<a class="headerlink" href="#id40" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>MV<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Normalization of the minimum-variance estimator, with bounds
+<code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">MV [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalization of the MV estimator, with bounds (0:lmax)</p>
-</dd>
-<dt class="field-even">Nl [6,l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Weights for each estimator (TT, TE, EE, TB, EB, BB=0), with bounds (0:lmax)</p>
+<dt>Nl<span class="classifier">ndarray of float, shape (6, lmax + 1)</span></dt><dd><p>Weights for each estimator: TT, TE, EE, TB, EB, and BB, with bounds
+<code class="docutils literal notranslate"><span class="pre">(0:5,</span> <span class="pre">0:lmax)</span></code>. The BB weight is zero.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_quad.qall">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qall</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QDO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qall" title="Link to this definition"></a></dt>
-<dd><p>Compute MV estimator normalization. Currently BB is ignored.</p>
+<dd><p>Compute all quadratic-estimator normalizations and MV weights.</p>
+<p>Currently, the BB estimator is ignored.</p>
+<section id="id41">
+<h3>Parameters<a class="headerlink" href="#id41" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">QDO[6] (bool)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Specifying which estimators to be combined for the minimum variance estimator, with size (6). The oder is TT, TE, EE, TB, EB and BB.</p>
+<dt>est<span class="classifier">str</span></dt><dd><p>Estimator type.</p>
 </dd>
-<dt class="field-even">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Maximum multipole of the output power spectra</p>
+<dt>QDO<span class="classifier">array_like of bool, shape (6,)</span></dt><dd><p>Flags specifying which estimators are combined for the
+minimum-variance estimator. The order is TT, TE, EE, TB, EB, and BB.</p>
 </dd>
-<dt class="field-odd">rlmin/rlmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output power spectra.</p>
 </dd>
-<dt class="field-even">fC/OC [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Theory/Observed CMB angular power spectra (TT, EE, BB, TE), with bounds (0:rlmax)</p>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum CMB multipole used for reconstruction.</p>
 </dd>
-</dl>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum CMB multipole used for reconstruction.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt>fC<span class="classifier">array_like of float, shape (4, rlmax + 1)</span></dt><dd><p>Theory CMB angular power spectra, with components TT, EE, BB, and TE,
+and bounds <code class="docutils literal notranslate"><span class="pre">(0:3,</span> <span class="pre">0:rlmax)</span></code>.</p>
 </dd>
-</dl>
+<dt>OC<span class="classifier">array_like of float, shape (4, rlmax + 1)</span></dt><dd><p>Observed CMB angular power spectra, with components TT, EE, BB, and
+TE, and bounds <code class="docutils literal notranslate"><span class="pre">(0:3,</span> <span class="pre">0:rlmax)</span></code>.</p>
 </dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Ag [6,l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalization of the TT, TE, EE, TB, EB, and MV estimators for lensing potential, with bounds (6,0:lmax)</p>
-</dd>
-<dt class="field-even">Ac [6,l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Same as Ag but for curl mode</p>
-</dd>
-<dt class="field-odd">Nlg [6,l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Weights for TT, TE, EE, TB, EB, and BB (=0) estimators for lensing potential, with bounds (6,0:lmax)</p>
-</dd>
-<dt class="field-even">Nlc [6,l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Same as Nlg but for curl mode</p>
+<dt>lfac<span class="classifier">str, optional</span></dt><dd><p>Multiplicative factor. Use <code class="docutils literal notranslate"><span class="pre">'k'</span></code> for convergence or <code class="docutils literal notranslate"><span class="pre">''</span></code> for
+lensing potential. Default is <code class="docutils literal notranslate"><span class="pre">''</span></code>.</p>
 </dd>
 </dl>
+</section>
+<section id="id42">
+<h3>Returns<a class="headerlink" href="#id42" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Ag<span class="classifier">ndarray of float, shape (6, lmax + 1)</span></dt><dd><p>Normalizations of the TT, TE, EE, TB, EB, and MV estimators for the
+lensing potential, with bounds <code class="docutils literal notranslate"><span class="pre">(0:5,</span> <span class="pre">0:lmax)</span></code>.</p>
+</dd>
+<dt>Ac<span class="classifier">ndarray of float, shape (6, lmax + 1)</span></dt><dd><p>Same as <code class="docutils literal notranslate"><span class="pre">Ag</span></code>, but for the curl mode.</p>
+</dd>
+<dt>Nlg<span class="classifier">ndarray of float, shape (6, lmax + 1)</span></dt><dd><p>Weights for TT, TE, EE, TB, EB, and BB estimators for the lensing
+potential, with bounds <code class="docutils literal notranslate"><span class="pre">(0:5,</span> <span class="pre">0:lmax)</span></code>. The BB weight is zero.</p>
+</dd>
+<dt>Nlc<span class="classifier">ndarray of float, shape (6, lmax + 1)</span></dt><dd><p>Same as <code class="docutils literal notranslate"><span class="pre">Nlg</span></code>, but for the curl mode.</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_quad.qeb_iter">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qeb_iter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cpp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">conv</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qeb_iter" title="Link to this definition"></a></dt>
-<dd><p>Normalization of reconstructed CMB lensing potential and its curl mode from the EB quadratic estimator</p>
+<dd><p>Compute the iterative EB normalization of the reconstructed CMB lensing
+potential and curl mode.</p>
+<section id="id43">
+<h3>Parameters<a class="headerlink" href="#id43" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output normalization</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization.</p>
 </dd>
-<dt class="field-even">elmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Maximum multipole of input EE spectra, CE and OCE</p>
+<dt>elmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the input EE spectra <code class="docutils literal notranslate"><span class="pre">CE</span></code> and <code class="docutils literal notranslate"><span class="pre">OCE</span></code>.</p>
 </dd>
-<dt class="field-odd">rlmin/rlmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-even">dlmin/dlmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum/Maximum multipole of E mode and lensing potential for delensing</p>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-odd">CE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory EE angular power spectrum, with bounds (0:elmax)</p>
+<dt>dlmin<span class="classifier">int</span></dt><dd><p>Minimum multipole of the E mode and lensing potential used for
+delensing.</p>
 </dd>
-<dt class="field-even">OCE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Observed EE spectrum, with bounds (0:elmax)</p>
+<dt>dlmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the E mode and lensing potential used for
+delensing.</p>
 </dd>
-<dt class="field-odd">OCB [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Observed BB spectrum, with bounds (0:rlmax)</p>
+<dt>CE<span class="classifier">array_like of float, shape (elmax + 1,)</span></dt><dd><p>Theory EE angular power spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:elmax</span></code>.</p>
 </dd>
-<dt class="field-even">Cpp [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Theory lensing potential spectrum, with bounds (0:dlmax)</p>
+<dt>OCE<span class="classifier">array_like of float, shape (elmax + 1,)</span></dt><dd><p>Observed EE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:elmax</span></code>.</p>
 </dd>
-</dl>
+<dt>OCB<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed BB spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">iter (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>number of iteration, default to 1 (no iteration)</p>
+<dt>Cpp<span class="classifier">array_like of float, shape (dlmax + 1,)</span></dt><dd><p>Theory lensing-potential spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:dlmax</span></code>.</p>
 </dd>
-<dt class="field-even">conv (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>a parameter for convergence the iteration, default to 0.00001</p>
+<dt>iter<span class="classifier">int, optional</span></dt><dd><p>Number of iterations. Default is 1, corresponding to no iteration.</p>
+</dd>
+<dt>conv<span class="classifier">float, optional</span></dt><dd><p>Convergence threshold for the iteration. Default is 0.00001.</p>
 </dd>
 </dl>
+</section>
+<section id="id44">
+<h3>Returns<a class="headerlink" href="#id44" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Ag<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>CMB lensing-potential normalization, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Ag [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>CMB lensing potential normalization, with bounds (0:lmax)</p>
-</dd>
-<dt class="field-even">Ac [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Curl mode (pseudo lensing potential) normalization, with bounds (0:lmax)</p>
+<dt>Ac<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Curl-mode, or pseudo lensing-potential, normalization, with bounds
+<code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_quad.qall_iter">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">qall_iter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ucl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lcl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ocl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'qe'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.qall_iter" title="Link to this definition"></a></dt>
-<dd><p># Reconstruction Noise
-# TT, TE, EE, TB, EB, EE+EB, TT+TE+EE+EB</p>
+<dd><p>Compute reconstruction-noise curves for several estimator combinations.</p>
+<p>The returned rows correspond to TT, TE, EE, TB, EB, EE+EB, and
+TT+TE+EE+EB.</p>
+<section id="id45">
+<h3>Parameters<a class="headerlink" href="#id45" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output reconstruction-noise curves.</p>
+</dd>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum CMB multipole used for reconstruction.</p>
+</dd>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum CMB multipole used for reconstruction.</p>
+</dd>
+<dt>ucl<span class="classifier">array_like of float</span></dt><dd><p>Unlensed CMB angular power spectra.</p>
+</dd>
+<dt>lcl<span class="classifier">array_like of float</span></dt><dd><p>Lensed CMB angular power spectra.</p>
+</dd>
+<dt>ocl<span class="classifier">array_like of float</span></dt><dd><p>Observed CMB angular power spectra.</p>
+</dd>
+<dt>eb<span class="classifier">{‘qe’, ‘iter’}, optional</span></dt><dd><p>EB reconstruction method. Use <code class="docutils literal notranslate"><span class="pre">'qe'</span></code> for the quadratic estimator,
+or any other value for the iterative EB reconstruction. Default is
+<code class="docutils literal notranslate"><span class="pre">'qe'</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="id46">
+<h3>Returns<a class="headerlink" href="#id46" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Ag<span class="classifier">ndarray of float, shape (7, lmax + 1)</span></dt><dd><p>Lensing-potential reconstruction-noise curves.</p>
+</dd>
+<dt>Ac<span class="classifier">ndarray of float, shape (7, lmax + 1)</span></dt><dd><p>Curl-mode reconstruction-noise curves.</p>
+</dd>
+</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_quad.xtt">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">xtt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.xtt" title="Link to this definition"></a></dt>
-<dd><p>Unnormalized response between lensing potential and amplitude modulation from the temperature quadratic estimator</p>
+<dd><p>Compute the unnormalized response between lensing potential and amplitude
+modulation from the temperature quadratic estimator.</p>
+<section id="id47">
+<h3>Parameters<a class="headerlink" href="#id47" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
+<dt>est<span class="classifier">str</span></dt><dd><p>Estimator type.</p>
 </dd>
-<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization spectrum.</p>
 </dd>
-<dt class="field-odd">fC [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory TT spectrum, with bounds (0:rlmax)</p>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-even">OCT [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Observed TT spectrum, with bounds (0:rlmax)</p>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum CMB multipole used for reconstruction.</p>
 </dd>
-</dl>
+<dt>fC<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory TT spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Multiplying square of L(L+1)/2, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt>OCT<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed TT spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>lfac<span class="classifier">str, optional</span></dt><dd><p>Multiplicative factor. Use <code class="docutils literal notranslate"><span class="pre">'k'</span></code> for convergence or <code class="docutils literal notranslate"><span class="pre">''</span></code> for
+lensing potential. Default is <code class="docutils literal notranslate"><span class="pre">''</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Ag [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Cross normalization, with bounds (0:lmax)</p>
+</section>
+<section id="id48">
+<h3>Returns<a class="headerlink" href="#id48" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Ag<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Cross normalization, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_quad.xeb">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_quad.</span></span><span class="sig-name descname"><span class="pre">xeb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">EE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">EB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BB</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_quad.xeb" title="Link to this definition"></a></dt>
-<dd><p>Response of reconstructed field to other in the EB quadratic estimator</p>
+<dd><p>Compute the response of the reconstructed EB field to another field.</p>
+<section id="id49">
+<h3>Parameters<a class="headerlink" href="#id49" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
+<dt>est<span class="classifier">str</span></dt><dd><p>Estimator type.</p>
 </dd>
-<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization spectrum.</p>
 </dd>
-<dt class="field-odd">EE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory EE spectrum, with bounds (0:rlmax)</p>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-even">EB [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Theory EB spectrum, with bounds (0:rlmax)</p>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-odd">OCE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+<dt>EE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory EE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt class="field-even">OCB [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Observed BB spectrum, with bounds (0:rlmax)</p>
+<dt>EB<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory EB spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-</dl>
+<dt>OCE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed EE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt>Args(optionals): </dt><dd><dl class="field-list simple">
-<dt class="field-odd">BB [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory BB spectrum, with bounds (0:rlmax)</p>
+<dt>OCB<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed BB spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>BB<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory BB spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Aa [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Pol. rot. angle normalization, with bounds (0:lmax)</p>
+</section>
+<section id="id50">
+<h3>Returns<a class="headerlink" href="#id50" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Aa<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Polarization-rotation angle normalization, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 </section>
@@ -1240,220 +1244,213 @@ potential. Default is <code class="docutils literal notranslate"><span class="pr
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_imag.qte">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_imag.</span></span><span class="sig-name descname"><span class="pre">qte</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_imag.qte" title="Link to this definition"></a></dt>
-<dd><p>Normalization of reconstructed imaginary CMB lensing potential and its curl mode from the TE quadratic estimator</p>
+<dd><p>Compute the normalization of the reconstructed imaginary CMB lensing
+potential and curl mode from the TE quadratic estimator.</p>
+<section id="id51">
+<h3>Parameters<a class="headerlink" href="#id51" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
+<dt>est<span class="classifier">str</span></dt><dd><p>Estimator type.</p>
 </dd>
-<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization spectrum.</p>
 </dd>
-<dt class="field-odd">TB [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory TB spectrum, with bounds (0:rlmax)</p>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-even">OCT [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Observed TT spectrum, with bounds (0:rlmax)</p>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-odd">OCE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+<dt>TB<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory TB spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-</dl>
+<dt>OCT<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed TT spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Type of output, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt>OCE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed EE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>lfac<span class="classifier">str, optional</span></dt><dd><p>Output type. Use <code class="docutils literal notranslate"><span class="pre">'k'</span></code> for convergence or <code class="docutils literal notranslate"><span class="pre">''</span></code> for lensing
+potential. Default is <code class="docutils literal notranslate"><span class="pre">''</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalization, with bounds (0:lmax)</p>
+</section>
+<section id="id52">
+<h3>Returns<a class="headerlink" href="#id52" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Al<span class="classifier">ndarray of float, shape (2, lmax + 1)</span></dt><dd><p>Normalization, with bounds <code class="docutils literal notranslate"><span class="pre">(0:1,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_imag.qtb">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_imag.</span></span><span class="sig-name descname"><span class="pre">qtb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_imag.qtb" title="Link to this definition"></a></dt>
-<dd><p>Normalization of reconstructed imaginary CMB lensing potential and its curl mode from the TB quadratic estimator</p>
+<dd><p>Compute the normalization of the reconstructed imaginary CMB lensing
+potential and curl mode from the TB quadratic estimator.</p>
+<section id="id53">
+<h3>Parameters<a class="headerlink" href="#id53" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
+<dt>est<span class="classifier">str</span></dt><dd><p>Estimator type.</p>
 </dd>
-<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization spectrum.</p>
 </dd>
-<dt class="field-odd">TB [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory TE spectrum, with bounds (0:rlmax)</p>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-even">OCT [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Observed TT spectrum, with bounds (0:rlmax)</p>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-odd">OCB [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Observed BB spectrum, with bounds (0:rlmax)</p>
+<dt>TB<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory TE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-</dl>
+<dt>OCT<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed TT spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Type of output, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt>OCB<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed BB spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>lfac<span class="classifier">str, optional</span></dt><dd><p>Output type. Use <code class="docutils literal notranslate"><span class="pre">'k'</span></code> for convergence or <code class="docutils literal notranslate"><span class="pre">''</span></code> for lensing
+potential. Default is <code class="docutils literal notranslate"><span class="pre">''</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalization, with bounds (0:lmax)</p>
+</section>
+<section id="id54">
+<h3>Returns<a class="headerlink" href="#id54" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Al<span class="classifier">ndarray of float, shape (2, lmax + 1)</span></dt><dd><p>Normalization, with bounds <code class="docutils literal notranslate"><span class="pre">(0:1,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_imag.qee">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_imag.</span></span><span class="sig-name descname"><span class="pre">qee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_imag.qee" title="Link to this definition"></a></dt>
-<dd><p>Normalization of reconstructed imaginary CMB lensing potential and its curl mode from the E-mode quadratic estimator</p>
+<dd><p>Compute the normalization of the reconstructed imaginary CMB lensing
+potential and curl mode from the E-mode quadratic estimator.</p>
+<section id="id55">
+<h3>Parameters<a class="headerlink" href="#id55" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
+<dt>est<span class="classifier">str</span></dt><dd><p>Estimator type.</p>
 </dd>
-<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization spectrum.</p>
 </dd>
-<dt class="field-odd">fC [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory EE spectrum, with bounds (0:rlmax)</p>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-even">OCE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum CMB multipole used for reconstruction.</p>
 </dd>
-</dl>
+<dt>fC<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory EE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Type of output, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt>OCE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed EE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>lfac<span class="classifier">str, optional</span></dt><dd><p>Output type. Use <code class="docutils literal notranslate"><span class="pre">'k'</span></code> for convergence or <code class="docutils literal notranslate"><span class="pre">''</span></code> for lensing
+potential. Default is <code class="docutils literal notranslate"><span class="pre">''</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalization, with bounds (0:lmax)</p>
+</section>
+<section id="id56">
+<h3>Returns<a class="headerlink" href="#id56" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Al<span class="classifier">ndarray of float, shape (2, lmax + 1)</span></dt><dd><p>Normalization, with bounds <code class="docutils literal notranslate"><span class="pre">(0:1,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_imag.qeb">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_imag.</span></span><span class="sig-name descname"><span class="pre">qeb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_imag.qeb" title="Link to this definition"></a></dt>
-<dd><p>Normalization of reconstructed imaginary CMB lensing potential and its curl mode from the EB quadratic estimator</p>
+<dd><p>Compute the normalization of the reconstructed imaginary CMB lensing
+potential and curl mode from the EB quadratic estimator.</p>
+<section id="id57">
+<h3>Parameters<a class="headerlink" href="#id57" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
+<dt>est<span class="classifier">str</span></dt><dd><p>Estimator type.</p>
 </dd>
-<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization spectrum.</p>
 </dd>
-<dt class="field-odd">fC [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory EB spectrum, with bounds (0:rlmax)</p>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-even">OCE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Observed EE spectrum, with bounds (0:rlmax)</p>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-odd">OCB [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Observed BB spectrum, with bounds (0:rlmax)</p>
+<dt>fC<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory EB spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-</dl>
+<dt>OCE<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed EE spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Type of output, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt>OCB<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed BB spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>lfac<span class="classifier">str, optional</span></dt><dd><p>Output type. Use <code class="docutils literal notranslate"><span class="pre">'k'</span></code> for convergence or <code class="docutils literal notranslate"><span class="pre">''</span></code> for lensing
+potential. Default is <code class="docutils literal notranslate"><span class="pre">''</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalization, with bounds (0:lmax)</p>
+</section>
+<section id="id58">
+<h3>Returns<a class="headerlink" href="#id58" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Al<span class="classifier">ndarray of float, shape (2, lmax + 1)</span></dt><dd><p>Normalization, with bounds <code class="docutils literal notranslate"><span class="pre">(0:1,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_imag.qbb">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_imag.</span></span><span class="sig-name descname"><span class="pre">qbb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_imag.qbb" title="Link to this definition"></a></dt>
-<dd><p>Normalization of reconstructed imaginary CMB lensing potential and its curl mode from the B-mode quadratic estimator</p>
+<dd><p>Compute the normalization of the reconstructed imaginary CMB lensing
+potential and curl mode from the B-mode quadratic estimator.</p>
+<section id="id59">
+<h3>Parameters<a class="headerlink" href="#id59" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
+<dt>est<span class="classifier">str</span></dt><dd><p>Estimator type.</p>
 </dd>
-<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization spectrum.</p>
 </dd>
-<dt class="field-odd">fC [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory BB spectrum, with bounds (0:rlmax)</p>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-even">OCB [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Observed BB spectrum, with bounds (0:rlmax)</p>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum CMB multipole used for reconstruction.</p>
 </dd>
-</dl>
+<dt>fC<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory BB spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Type of output, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt>OCB<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed BB spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>lfac<span class="classifier">str, optional</span></dt><dd><p>Output type. Use <code class="docutils literal notranslate"><span class="pre">'k'</span></code> for convergence or <code class="docutils literal notranslate"><span class="pre">''</span></code> for lensing
+potential. Default is <code class="docutils literal notranslate"><span class="pre">''</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalization, with bounds (0:lmax)</p>
+</section>
+<section id="id60">
+<h3>Returns<a class="headerlink" href="#id60" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Al<span class="classifier">ndarray of float, shape (2, lmax + 1)</span></dt><dd><p>Normalization, with bounds <code class="docutils literal notranslate"><span class="pre">(0:1,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.norm_imag.qbb_asym">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.norm_imag.</span></span><span class="sig-name descname"><span class="pre">qbb_asym</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">est</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">OCB2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfac</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.norm_imag.qbb_asym" title="Link to this definition"></a></dt>
-<dd><p>Normalization of reconstructed imaginary CMB lensing potential and its curl mode from the B-mode quadratic estimator</p>
+<dd><p>Compute the asymmetric normalization of the reconstructed imaginary CMB
+lensing potential and curl mode from the B-mode quadratic estimator.</p>
+<section id="id61">
+<h3>Parameters<a class="headerlink" href="#id61" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of output normalization spectrum</p>
+<dt>est<span class="classifier">str</span></dt><dd><p>Estimator type.</p>
 </dd>
-<dt class="field-even">rlmin/rlmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum/Maximum multipole of CMB for reconstruction</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization spectrum.</p>
 </dd>
-<dt class="field-odd">fC [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Theory BB spectrum, with bounds (0:rlmax)</p>
+<dt>rlmin<span class="classifier">int</span></dt><dd><p>Minimum CMB multipole used for reconstruction.</p>
 </dd>
-<dt class="field-even">OCB1/2 [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Observed BB spectrum for experiment 1 and 2, with bounds (0:rlmax)</p>
+<dt>rlmax<span class="classifier">int</span></dt><dd><p>Maximum CMB multipole used for reconstruction.</p>
 </dd>
-</dl>
+<dt>fC<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Theory BB spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lfac (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Type of output, i.e., convergence (lfac=’k’) or lensing potential (lfac=’’, default)</p>
+<dt>OCB1<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed BB spectrum for experiment 1, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>OCB2<span class="classifier">array_like of float, shape (rlmax + 1,)</span></dt><dd><p>Observed BB spectrum for experiment 2, with bounds <code class="docutils literal notranslate"><span class="pre">0:rlmax</span></code>.</p>
+</dd>
+<dt>lfac<span class="classifier">str, optional</span></dt><dd><p>Output type. Use <code class="docutils literal notranslate"><span class="pre">'k'</span></code> for convergence or <code class="docutils literal notranslate"><span class="pre">''</span></code> for lensing
+potential. Default is <code class="docutils literal notranslate"><span class="pre">''</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Al [2,l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Normalization, with bounds (0:lmax)</p>
+</section>
+<section id="id62">
+<h3>Returns<a class="headerlink" href="#id62" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Al<span class="classifier">ndarray of float, shape (2, lmax + 1)</span></dt><dd><p>Normalization, with bounds <code class="docutils literal notranslate"><span class="pre">(0:1,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 </section>
@@ -1464,8 +1461,8 @@ potential. Default is <code class="docutils literal notranslate"><span class="pr
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.delens.</span></span><span class="sig-name descname"><span class="pre">lensingb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wElm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wplm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'p'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.delens.lensingb" title="Link to this definition"></a></dt>
 <dd><p>Compute the lensing B-mode alm as a convolution of the Wiener-filtered
 E-mode alm and the lensing-potential alm.</p>
-<section id="id19">
-<h3>Parameters<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
+<section id="id63">
+<h3>Parameters<a class="headerlink" href="#id63" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output lensing B-mode alm.</p>
 </dd>
@@ -1490,8 +1487,8 @@ Default is <code class="docutils literal notranslate"><span class="pre">'p'</spa
 </dd>
 </dl>
 </section>
-<section id="id20">
-<h3>Returns<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
+<section id="id64">
+<h3>Returns<a class="headerlink" href="#id64" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>lBlm<span class="classifier">ndarray of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>Lensing B-mode alm, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
@@ -1508,8 +1505,8 @@ Default is <code class="docutils literal notranslate"><span class="pre">'p'</spa
 \[\beta(\hat{n}) + \alpha^{\rm iw}(\hat{n} + \beta(\hat{n})) = 0,\]</div>
 <p>where <span class="math notranslate nohighlight">\(\alpha^{\rm iw}\)</span> is the filtered lensing deflection vector.
 See arXiv:1701.01712.</p>
-<section id="id21">
-<h3>Parameters<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
+<section id="id65">
+<h3>Parameters<a class="headerlink" href="#id65" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>nside<span class="classifier">int</span></dt><dd><p>Nside of the output shift-vector map.</p>
 </dd>
@@ -1520,8 +1517,8 @@ See arXiv:1701.01712.</p>
 </dd>
 </dl>
 </section>
-<section id="id22">
-<h3>Returns<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
+<section id="id66">
+<h3>Returns<a class="headerlink" href="#id66" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>beta<span class="classifier">ndarray of float, shape (12 * nside**2, 2)</span></dt><dd><p>Two-dimensional shift vector, with bounds <code class="docutils literal notranslate"><span class="pre">(0:npix-1,</span> <span class="pre">1:2)</span></code>.</p>
 </dd>
@@ -1533,8 +1530,8 @@ See arXiv:1701.01712.</p>
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.delens.phi2grad">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.delens.</span></span><span class="sig-name descname"><span class="pre">phi2grad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.delens.phi2grad" title="Link to this definition"></a></dt>
 <dd><p>Return the deflection vector at each Healpix pixel.</p>
-<section id="id23">
-<h3>Parameters<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
+<section id="id67">
+<h3>Parameters<a class="headerlink" href="#id67" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>nside<span class="classifier">int</span></dt><dd><p>Nside of the output deflection-vector map.</p>
 </dd>
@@ -1542,8 +1539,8 @@ See arXiv:1701.01712.</p>
 </dd>
 </dl>
 </section>
-<section id="id24">
-<h3>Returns<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
+<section id="id68">
+<h3>Returns<a class="headerlink" href="#id68" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>grad<span class="classifier">ndarray of float, shape (12 * nside**2, 2)</span></dt><dd><p>Two-dimensional deflection vector, with bounds <code class="docutils literal notranslate"><span class="pre">(0:npix-1,</span> <span class="pre">1:2)</span></code>.</p>
 </dd>
@@ -1567,8 +1564,8 @@ See arXiv:1701.01712.</p>
 \left[\delta^{\rm L}(\hat{n})\right]^2,\]</div>
 <p>where <span class="math notranslate nohighlight">\(\delta^{\rm L}(\hat{n})\)</span> is a Gaussian field obtained from
 the input alm.</p>
-<section id="id25">
-<h3>Parameters<a class="headerlink" href="#id25" title="Link to this heading"></a></h3>
+<section id="id69">
+<h3>Parameters<a class="headerlink" href="#id69" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>alm<span class="classifier">ndarray of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>Input harmonic coefficients, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
@@ -1576,8 +1573,8 @@ the input alm.</p>
 </dd>
 </dl>
 </section>
-<section id="id26">
-<h3>Returns<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
+<section id="id70">
+<h3>Returns<a class="headerlink" href="#id70" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>qlm<span class="classifier">ndarray of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>Output harmonic coefficients of the non-Gaussian field, with bounds
 <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
@@ -1591,8 +1588,8 @@ the input alm.</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.bispec.</span></span><span class="sig-name descname"><span class="pre">bispec_norm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bstype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'equi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.bispec.bispec_norm" title="Link to this definition"></a></dt>
 <dd><p>Return the normalization of the binned reduced bispectrum for given
 multipole bins.</p>
-<section id="id27">
-<h3>Parameters<a class="headerlink" href="#id27" title="Link to this heading"></a></h3>
+<section id="id71">
+<h3>Parameters<a class="headerlink" href="#id71" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>bp<span class="classifier">array_like of float, shape (bn + 1,)</span></dt><dd><p>Bin edges, with bounds <code class="docutils literal notranslate"><span class="pre">0:bn</span></code>.</p>
 </dd>
@@ -1608,8 +1605,8 @@ If not given, the lowest multipole bin is used.</p>
 </dd>
 </dl>
 </section>
-<section id="id28">
-<h3>Returns<a class="headerlink" href="#id28" title="Link to this heading"></a></h3>
+<section id="id72">
+<h3>Returns<a class="headerlink" href="#id72" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>norm<span class="classifier">ndarray of float, shape (bn,)</span></dt><dd><p>Normalization of the binned reduced bispectrum at each bin, with
 bounds <code class="docutils literal notranslate"><span class="pre">0:bn-1</span></code>.</p>
@@ -1622,8 +1619,8 @@ bounds <code class="docutils literal notranslate"><span class="pre">0:bn-1</span
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.bispec.bispec_bin">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.bispec.</span></span><span class="sig-name descname"><span class="pre">bispec_bin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bstype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'equi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.bispec.bispec_bin" title="Link to this definition"></a></dt>
 <dd><p>Return the unnormalized binned reduced bispectrum for given multipole bins.</p>
-<section id="id29">
-<h3>Parameters<a class="headerlink" href="#id29" title="Link to this heading"></a></h3>
+<section id="id73">
+<h3>Parameters<a class="headerlink" href="#id73" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>bp<span class="classifier">array_like of float, shape (bn + 1,)</span></dt><dd><p>Bin edges, with bounds <code class="docutils literal notranslate"><span class="pre">0:bn</span></code>.</p>
 </dd>
@@ -1641,8 +1638,8 @@ If not given, the lowest multipole bin is used.</p>
 </dd>
 </dl>
 </section>
-<section id="id30">
-<h3>Returns<a class="headerlink" href="#id30" title="Link to this heading"></a></h3>
+<section id="id74">
+<h3>Returns<a class="headerlink" href="#id74" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>bis<span class="classifier">ndarray of float, shape (bn,)</span></dt><dd><p>Unnormalized binned reduced bispectrum at each bin, with bounds
 <code class="docutils literal notranslate"><span class="pre">0:bn-1</span></code>.</p>
@@ -1656,8 +1653,8 @@ If not given, the lowest multipole bin is used.</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.bispec.</span></span><span class="sig-name descname"><span class="pre">xbispec_bin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bstype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'equi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bst</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sL</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.bispec.xbispec_bin" title="Link to this definition"></a></dt>
 <dd><p>Return the unnormalized binned reduced cross-bispectrum for given
 multipole bins.</p>
-<section id="id31">
-<h3>Parameters<a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
+<section id="id75">
+<h3>Parameters<a class="headerlink" href="#id75" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>bp<span class="classifier">array_like of float, shape (bn + 1,)</span></dt><dd><p>Bin edges, with bounds <code class="docutils literal notranslate"><span class="pre">0:bn</span></code>.</p>
 </dd>
@@ -1676,8 +1673,8 @@ If not given, the lowest multipole bin is used.</p>
 </dd>
 </dl>
 </section>
-<section id="id32">
-<h3>Returns<a class="headerlink" href="#id32" title="Link to this heading"></a></h3>
+<section id="id76">
+<h3>Returns<a class="headerlink" href="#id76" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>bis<span class="classifier">ndarray of float, shape (bn,)</span></dt><dd><p>Unnormalized binned reduced cross-bispectrum at each bin, with bounds
 <code class="docutils literal notranslate"><span class="pre">0:bn-1</span></code>.</p>
@@ -1698,8 +1695,8 @@ during filtering, and returns filtered alms after beam deconvolution.</p>
 <p>The number of fields is denoted by <code class="docutils literal notranslate"><span class="pre">n</span></code>: temperature only has <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">1</span></code>,
 polarization only has <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">2</span></code>, and temperature plus polarization has
 <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">3</span></code>. The number of frequency maps is denoted by <code class="docutils literal notranslate"><span class="pre">mn</span></code>.</p>
-<section id="id33">
-<h3>Parameters<a class="headerlink" href="#id33" title="Link to this heading"></a></h3>
+<section id="id77">
+<h3>Parameters<a class="headerlink" href="#id77" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>cl<span class="classifier">array_like of float, shape (n, lmax + 1)</span></dt><dd><p>Theory signal power spectra, with bounds <code class="docutils literal notranslate"><span class="pre">(0:n-1,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
@@ -1742,8 +1739,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 </dd>
 </dl>
 </section>
-<section id="id34">
-<h3>Returns<a class="headerlink" href="#id34" title="Link to this heading"></a></h3>
+<section id="id78">
+<h3>Returns<a class="headerlink" href="#id78" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>xlm<span class="classifier">ndarray of complex, shape (n, lmax + 1, lmax + 1)</span></dt><dd><p>C-inverse or Wiener-filtered multipoles, with bounds
 <code class="docutils literal notranslate"><span class="pre">(0:n-1,</span> <span class="pre">0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
@@ -1758,8 +1755,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 <dd><p>Compute inverse-variance weighted multipoles for multiple kappa tracers.</p>
 <p>This routine computes <span class="math notranslate nohighlight">\((C + N)^{-1} x\)</span> for multiple mass-tracer
 kappa maps.</p>
-<section id="id35">
-<h3>Parameters<a class="headerlink" href="#id35" title="Link to this heading"></a></h3>
+<section id="id79">
+<h3>Parameters<a class="headerlink" href="#id79" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>cov<span class="classifier">array_like of float, shape (n, n, lmax + 1)</span></dt><dd><p>Signal covariance matrix for each multipole, with bounds
 <code class="docutils literal notranslate"><span class="pre">(0:n-1,</span> <span class="pre">0:n-1,</span> <span class="pre">0:lmax)</span></code>.</p>
@@ -1798,8 +1795,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 </dd>
 </dl>
 </section>
-<section id="id36">
-<h3>Returns<a class="headerlink" href="#id36" title="Link to this heading"></a></h3>
+<section id="id80">
+<h3>Returns<a class="headerlink" href="#id80" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>xlm<span class="classifier">ndarray of complex, shape (n, lmax + 1, lmax + 1)</span></dt><dd><p>Wiener-filtered multipoles, with bounds <code class="docutils literal notranslate"><span class="pre">(0:n-1,</span> <span class="pre">0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
@@ -1815,8 +1812,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 with two different Nsides. The input maps must be beam-convolved. This
 routine deconvolves the beam during filtering, and returns filtered alms
 after beam deconvolution.</p>
-<section id="id37">
-<h3>Parameters<a class="headerlink" href="#id37" title="Link to this heading"></a></h3>
+<section id="id81">
+<h3>Parameters<a class="headerlink" href="#id81" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>cl<span class="classifier">array_like of float, shape (n, lmax + 1)</span></dt><dd><p>Theory signal power spectra, with bounds <code class="docutils literal notranslate"><span class="pre">(0:n-1,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
@@ -1879,8 +1876,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 </dd>
 </dl>
 </section>
-<section id="id38">
-<h3>Returns<a class="headerlink" href="#id38" title="Link to this heading"></a></h3>
+<section id="id82">
+<h3>Returns<a class="headerlink" href="#id82" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>xlm<span class="classifier">ndarray of complex, shape (n, lmax + 1, lmax + 1)</span></dt><dd><p>C-inverse or Wiener-filtered multipoles, with bounds
 <code class="docutils literal notranslate"><span class="pre">(0:n-1,</span> <span class="pre">0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
@@ -1897,8 +1894,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">gauss1alm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.gauss1alm" title="Link to this definition"></a></dt>
 <dd><p>Generate <span class="math notranslate nohighlight">\(a_{lm}\)</span> as a random Gaussian field whose power spectrum is <code class="docutils literal notranslate"><span class="pre">cl</span></code>.</p>
 <p>The output alm is given by a 2D array.</p>
-<section id="id39">
-<h3>Parameters<a class="headerlink" href="#id39" title="Link to this heading"></a></h3>
+<section id="id83">
+<h3>Parameters<a class="headerlink" href="#id83" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>cl<span class="classifier">array_like of float, shape (lmax + 1,)</span></dt><dd><p>Angular power spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
@@ -1906,8 +1903,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 </dd>
 </dl>
 </section>
-<section id="id40">
-<h3>Returns<a class="headerlink" href="#id40" title="Link to this heading"></a></h3>
+<section id="id84">
+<h3>Returns<a class="headerlink" href="#id84" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>alm<span class="classifier">ndarray of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>Random Gaussian alm, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
@@ -1920,8 +1917,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">gauss2alm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cl1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cl2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.gauss2alm" title="Link to this definition"></a></dt>
 <dd><p>Generate two correlated alms as random Gaussian fields.</p>
 <p>The auto spectra of the two fields are <code class="docutils literal notranslate"><span class="pre">cl1</span></code> and <code class="docutils literal notranslate"><span class="pre">cl2</span></code>, and their cross spectrum is <code class="docutils literal notranslate"><span class="pre">xl</span></code>.</p>
-<section id="id41">
-<h3>Parameters<a class="headerlink" href="#id41" title="Link to this heading"></a></h3>
+<section id="id85">
+<h3>Parameters<a class="headerlink" href="#id85" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>cl1<span class="classifier">array_like of float, shape (lmax + 1,)</span></dt><dd><p>Angular power spectrum of the first alm, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
@@ -1935,8 +1932,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 </dd>
 </dl>
 </section>
-<section id="id42">
-<h3>Returns<a class="headerlink" href="#id42" title="Link to this heading"></a></h3>
+<section id="id86">
+<h3>Returns<a class="headerlink" href="#id86" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>alm<span class="classifier">ndarray of complex, shape (2, lmax + 1, lmax + 1)</span></dt><dd><p>Random Gaussian alms, with bounds <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
@@ -1949,8 +1946,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">gaussTEB</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">EE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.gaussTEB" title="Link to this definition"></a></dt>
 <dd><p>Generate T/E/B alms as correlated random Gaussian fields.</p>
 <p>The auto spectra are <code class="docutils literal notranslate"><span class="pre">TT</span></code>, <code class="docutils literal notranslate"><span class="pre">EE</span></code>, and <code class="docutils literal notranslate"><span class="pre">BB</span></code>.  The T-E cross spectrum is <code class="docutils literal notranslate"><span class="pre">TE</span></code>.</p>
-<section id="id43">
-<h3>Parameters<a class="headerlink" href="#id43" title="Link to this heading"></a></h3>
+<section id="id87">
+<h3>Parameters<a class="headerlink" href="#id87" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>TT<span class="classifier">array_like of float, shape (lmax + 1,)</span></dt><dd><p>Temperature angular power spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
@@ -1964,8 +1961,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 </dd>
 </dl>
 </section>
-<section id="id44">
-<h3>Returns<a class="headerlink" href="#id44" title="Link to this heading"></a></h3>
+<section id="id88">
+<h3>Returns<a class="headerlink" href="#id88" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>alm<span class="classifier">ndarray of complex, shape (3, lmax + 1, lmax + 1)</span></dt><dd><p>Random Gaussian T/E/B alms, with bounds <code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
@@ -1978,8 +1975,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">gaussalm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ilm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.gaussalm" title="Link to this definition"></a></dt>
 <dd><p>Generate correlated alms as random Gaussian fields.</p>
 <p>The covariance between fields is specified by <code class="docutils literal notranslate"><span class="pre">cl[i,</span> <span class="pre">j]</span></code>.</p>
-<section id="id45">
-<h3>Parameters<a class="headerlink" href="#id45" title="Link to this heading"></a></h3>
+<section id="id89">
+<h3>Parameters<a class="headerlink" href="#id89" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>cl<span class="classifier">array_like of float, shape (n, n, lmax + 1)</span></dt><dd><p>Covariance spectra between the Gaussian fields, with bounds <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
@@ -1991,8 +1988,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 </dd>
 </dl>
 </section>
-<section id="id46">
-<h3>Returns<a class="headerlink" href="#id46" title="Link to this heading"></a></h3>
+<section id="id90">
+<h3>Returns<a class="headerlink" href="#id90" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>alm<span class="classifier">ndarray of complex, shape (n, lmax + 1, lmax + 1)</span></dt><dd><p>Random Gaussian alms, with bounds <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
@@ -2004,8 +2001,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.subpatch_mask">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">subpatch_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside_full</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_sub</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipix_sub</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascale</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.subpatch_mask" title="Link to this definition"></a></dt>
 <dd><p>Calculate a mask for a patched map.</p>
-<section id="id47">
-<h3>Parameters<a class="headerlink" href="#id47" title="Link to this heading"></a></h3>
+<section id="id91">
+<h3>Parameters<a class="headerlink" href="#id91" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>nside_full<span class="classifier">int</span></dt><dd><p>Nside of the full map.</p>
 </dd>
@@ -2017,8 +2014,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 </dd>
 </dl>
 </section>
-<section id="id48">
-<h3>Returns<a class="headerlink" href="#id48" title="Link to this heading"></a></h3>
+<section id="id92">
+<h3>Returns<a class="headerlink" href="#id92" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>mask<span class="classifier">ndarray of float, shape (npix, 2)</span></dt><dd><p>Mask map, with bounds <code class="docutils literal notranslate"><span class="pre">(0:npix-1,</span> <span class="pre">2)</span></code>.</p>
 </dd>
@@ -2031,8 +2028,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">get_baseline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">npix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_subpatch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QU</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.get_baseline" title="Link to this definition"></a></dt>
 <dd><p>Calculate the baseline of each subpatch.</p>
 <p>The subpatches are assumed to have the same size.</p>
-<section id="id49">
-<h3>Parameters<a class="headerlink" href="#id49" title="Link to this heading"></a></h3>
+<section id="id93">
+<h3>Parameters<a class="headerlink" href="#id93" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>npix<span class="classifier">int</span></dt><dd><p>Number of pixels in the full map.</p>
 </dd>
@@ -2042,8 +2039,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 </dd>
 </dl>
 </section>
-<section id="id50">
-<h3>Returns<a class="headerlink" href="#id50" title="Link to this heading"></a></h3>
+<section id="id94">
+<h3>Returns<a class="headerlink" href="#id94" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>blmap<span class="classifier">ndarray of float, shape (npix, 2)</span></dt><dd><p>Baseline maps, with bounds <code class="docutils literal notranslate"><span class="pre">(0:npix-1,</span> <span class="pre">2)</span></code>.</p>
 </dd>
@@ -2055,8 +2052,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.get_winmap">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">get_winmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside_large</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_small</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipix_pix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apod</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.get_winmap" title="Link to this definition"></a></dt>
 <dd><p>Return the apodization window value for a subpatch.</p>
-<section id="id51">
-<h3>Parameters<a class="headerlink" href="#id51" title="Link to this heading"></a></h3>
+<section id="id95">
+<h3>Parameters<a class="headerlink" href="#id95" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>nside_large<span class="classifier">int</span></dt><dd><p>Nside of the subpatch.</p>
 </dd>
@@ -2068,8 +2065,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 </dd>
 </dl>
 </section>
-<section id="id52">
-<h3>Returns<a class="headerlink" href="#id52" title="Link to this heading"></a></h3>
+<section id="id96">
+<h3>Returns<a class="headerlink" href="#id96" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>wind_out<span class="classifier">float</span></dt><dd><p>Apodization window value at <code class="docutils literal notranslate"><span class="pre">ipix_pix</span></code>.</p>
 </dd>
@@ -2081,8 +2078,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.get_apod_window">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">get_apod_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.get_apod_window" title="Link to this definition"></a></dt>
 <dd><p>Evaluate a sine apodization window.</p>
-<section id="id53">
-<h3>Parameters<a class="headerlink" href="#id53" title="Link to this heading"></a></h3>
+<section id="id97">
+<h3>Parameters<a class="headerlink" href="#id97" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>s<span class="classifier">float</span></dt><dd><p>Distance from the center of the window.</p>
 </dd>
@@ -2090,8 +2087,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 </dd>
 </dl>
 </section>
-<section id="id54">
-<h3>Returns<a class="headerlink" href="#id54" title="Link to this heading"></a></h3>
+<section id="id98">
+<h3>Returns<a class="headerlink" href="#id98" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>w<span class="classifier">float</span></dt><dd><p>Apodization window value.</p>
 </dd>
@@ -2104,8 +2101,8 @@ no status file is written. Default is <code class="docutils literal notranslate"
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">eb_separate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">W</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">U</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.eb_separate" title="Link to this definition"></a></dt>
 <dd><p>Perform E/B-mode separation using the chi-field estimator.</p>
 <p>See Sec. III.2 of arXiv:1305.7441 for the numerical implementation.</p>
-<section id="id55">
-<h3>Parameters<a class="headerlink" href="#id55" title="Link to this heading"></a></h3>
+<section id="id99">
+<h3>Parameters<a class="headerlink" href="#id99" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole used internally for the harmonic transform.</p>
 </dd>
@@ -2118,8 +2115,8 @@ boundary, with bounds <code class="docutils literal notranslate"><span class="pr
 </dd>
 </dl>
 </section>
-<section id="id56">
-<h3>Returns<a class="headerlink" href="#id56" title="Link to this heading"></a></h3>
+<section id="id100">
+<h3>Returns<a class="headerlink" href="#id100" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>Elm<span class="classifier">ndarray of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>Separated E modes, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
@@ -2133,8 +2130,8 @@ boundary, with bounds <code class="docutils literal notranslate"><span class="pr
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.alm2cl">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">alm2cl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.alm2cl" title="Link to this definition"></a></dt>
 <dd><p>Compute an angular power spectrum from alm coefficients.</p>
-<section id="id57">
-<h3>Parameters<a class="headerlink" href="#id57" title="Link to this heading"></a></h3>
+<section id="id101">
+<h3>Parameters<a class="headerlink" href="#id101" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>alm1<span class="classifier">array_like of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>First harmonic coefficients, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
@@ -2142,8 +2139,8 @@ boundary, with bounds <code class="docutils literal notranslate"><span class="pr
 </dd>
 </dl>
 </section>
-<section id="id58">
-<h3>Returns<a class="headerlink" href="#id58" title="Link to this heading"></a></h3>
+<section id="id102">
+<h3>Returns<a class="headerlink" href="#id102" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>cl<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Auto or cross angular power spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
@@ -2155,8 +2152,8 @@ boundary, with bounds <code class="docutils literal notranslate"><span class="pr
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.alm2bcl">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">alm2bcl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.alm2bcl" title="Link to this definition"></a></dt>
 <dd><p>Compute a binned angular power spectrum from alm coefficients.</p>
-<section id="id59">
-<h3>Parameters<a class="headerlink" href="#id59" title="Link to this heading"></a></h3>
+<section id="id103">
+<h3>Parameters<a class="headerlink" href="#id103" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>bn<span class="classifier">int</span></dt><dd><p>Number of multipole bins.</p>
 </dd>
@@ -2170,8 +2167,8 @@ or <code class="docutils literal notranslate"><span class="pre">'p3'</span></cod
 </dd>
 </dl>
 </section>
-<section id="id60">
-<h3>Returns<a class="headerlink" href="#id60" title="Link to this heading"></a></h3>
+<section id="id104">
+<h3>Returns<a class="headerlink" href="#id104" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>cb<span class="classifier">ndarray of float, shape (bn,)</span></dt><dd><p>Auto or cross angular power spectrum with multipole binning, with bounds <code class="docutils literal notranslate"><span class="pre">0:bn-1</span></code>.</p>
 </dd>
@@ -2183,8 +2180,8 @@ or <code class="docutils literal notranslate"><span class="pre">'p3'</span></cod
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.alm2rho">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">alm2rho</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.alm2rho" title="Link to this definition"></a></dt>
 <dd><p>Compute correlation coefficients between two alms.</p>
-<section id="id61">
-<h3>Parameters<a class="headerlink" href="#id61" title="Link to this heading"></a></h3>
+<section id="id105">
+<h3>Parameters<a class="headerlink" href="#id105" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>alm1<span class="classifier">array_like of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>First harmonic coefficients, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
@@ -2192,8 +2189,8 @@ or <code class="docutils literal notranslate"><span class="pre">'p3'</span></cod
 </dd>
 </dl>
 </section>
-<section id="id62">
-<h3>Returns<a class="headerlink" href="#id62" title="Link to this heading"></a></h3>
+<section id="id106">
+<h3>Returns<a class="headerlink" href="#id106" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>rho<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Correlation coefficients, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
@@ -2205,15 +2202,15 @@ or <code class="docutils literal notranslate"><span class="pre">'p3'</span></cod
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.alm2cov">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">alm2cov</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.alm2cov" title="Link to this definition"></a></dt>
 <dd><p>Compute auto and cross spectra between multiple alms.</p>
-<section id="id63">
-<h3>Parameters<a class="headerlink" href="#id63" title="Link to this heading"></a></h3>
+<section id="id107">
+<h3>Parameters<a class="headerlink" href="#id107" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>alm<span class="classifier">array_like of complex, shape (n, lmax + 1, lmax + 1)</span></dt><dd><p>Harmonic coefficients, with bounds <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
 </dl>
 </section>
-<section id="id64">
-<h3>Returns<a class="headerlink" href="#id64" title="Link to this heading"></a></h3>
+<section id="id108">
+<h3>Returns<a class="headerlink" href="#id108" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>cov<span class="classifier">ndarray of float, shape (n, n, lmax + 1)</span></dt><dd><p>Auto and cross angular power spectra between <code class="docutils literal notranslate"><span class="pre">alm[i]</span></code> and <code class="docutils literal notranslate"><span class="pre">alm[j]</span></code>.</p>
 </dd>
@@ -2226,8 +2223,8 @@ or <code class="docutils literal notranslate"><span class="pre">'p3'</span></cod
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">apodize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rmask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascale</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">holeminsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.apodize" title="Link to this definition"></a></dt>
 <dd><p>Compute an apodized window function.</p>
 <p>This function partially uses Healpix’s <code class="docutils literal notranslate"><span class="pre">process_mask</span></code> code.</p>
-<section id="id65">
-<h3>Parameters<a class="headerlink" href="#id65" title="Link to this heading"></a></h3>
+<section id="id109">
+<h3>Parameters<a class="headerlink" href="#id109" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>rmask<span class="classifier">array_like of float, shape (npix,)</span></dt><dd><p>Input window function, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>. Pixels with
 <code class="docutils literal notranslate"><span class="pre">rmask</span> <span class="pre">==</span> <span class="pre">0</span></code> are treated as masked pixels.</p>
@@ -2240,8 +2237,8 @@ or <code class="docutils literal notranslate"><span class="pre">'p3'</span></cod
 </dd>
 </dl>
 </section>
-<section id="id66">
-<h3>Returns<a class="headerlink" href="#id66" title="Link to this heading"></a></h3>
+<section id="id110">
+<h3>Returns<a class="headerlink" href="#id110" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>amask<span class="classifier">ndarray of float, shape (npix,)</span></dt><dd><p>Apodization window, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code> and the same ordering as the input map.</p>
 </dd>
@@ -2253,8 +2250,8 @@ or <code class="docutils literal notranslate"><span class="pre">'p3'</span></cod
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.hp_alm2map">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">hp_alm2map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.hp_alm2map" title="Link to this definition"></a></dt>
 <dd><p>Transform alm coefficients to a map using Healpix <code class="docutils literal notranslate"><span class="pre">(l,</span> <span class="pre">m)</span></code> ordering.</p>
-<section id="id67">
-<h3>Parameters<a class="headerlink" href="#id67" title="Link to this heading"></a></h3>
+<section id="id111">
+<h3>Parameters<a class="headerlink" href="#id111" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>nside<span class="classifier">int</span></dt><dd><p>Nside of the output map.</p>
 </dd>
@@ -2264,8 +2261,8 @@ or <code class="docutils literal notranslate"><span class="pre">'p3'</span></cod
 </dd>
 </dl>
 </section>
-<section id="id68">
-<h3>Returns<a class="headerlink" href="#id68" title="Link to this heading"></a></h3>
+<section id="id112">
+<h3>Returns<a class="headerlink" href="#id112" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>map<span class="classifier">ndarray of float, shape (npix,)</span></dt><dd><p>Transformed map, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
 </dd>
@@ -2277,8 +2274,8 @@ or <code class="docutils literal notranslate"><span class="pre">'p3'</span></cod
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.hp_alm2map_spin">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">hp_alm2map_spin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.hp_alm2map_spin" title="Link to this definition"></a></dt>
 <dd><p>Transform spin alm coefficients to maps using Healpix <code class="docutils literal notranslate"><span class="pre">(l,</span> <span class="pre">m)</span></code> ordering.</p>
-<section id="id69">
-<h3>Parameters<a class="headerlink" href="#id69" title="Link to this heading"></a></h3>
+<section id="id113">
+<h3>Parameters<a class="headerlink" href="#id113" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>nside<span class="classifier">int</span></dt><dd><p>Nside of the output maps.</p>
 </dd>
@@ -2292,8 +2289,8 @@ or <code class="docutils literal notranslate"><span class="pre">'p3'</span></cod
 </dd>
 </dl>
 </section>
-<section id="id70">
-<h3>Returns<a class="headerlink" href="#id70" title="Link to this heading"></a></h3>
+<section id="id114">
+<h3>Returns<a class="headerlink" href="#id114" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>map0<span class="classifier">ndarray of float, shape (npix,)</span></dt><dd><p>Real part of the transformed map, or Q-like map, with bounds
 <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
@@ -2309,8 +2306,8 @@ or <code class="docutils literal notranslate"><span class="pre">'p3'</span></cod
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.hp_map2alm">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">hp_map2alm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.hp_map2alm" title="Link to this definition"></a></dt>
 <dd><p>Transform a map to alm coefficients using Healpix <code class="docutils literal notranslate"><span class="pre">(l,</span> <span class="pre">m)</span></code> ordering.</p>
-<section id="id71">
-<h3>Parameters<a class="headerlink" href="#id71" title="Link to this heading"></a></h3>
+<section id="id115">
+<h3>Parameters<a class="headerlink" href="#id115" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output alm.</p>
 </dd>
@@ -2322,8 +2319,8 @@ or <code class="docutils literal notranslate"><span class="pre">'p3'</span></cod
 </dd>
 </dl>
 </section>
-<section id="id72">
-<h3>Returns<a class="headerlink" href="#id72" title="Link to this heading"></a></h3>
+<section id="id116">
+<h3>Returns<a class="headerlink" href="#id116" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>alm<span class="classifier">ndarray of complex, shape (lmax + 1, mmax + 1)</span></dt><dd><p>Harmonic coefficients obtained from the input map, with bounds
 <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:mmax)</span></code>.</p>
@@ -2338,8 +2335,8 @@ or <code class="docutils literal notranslate"><span class="pre">'p3'</span></cod
 <dd><p>Transform spin maps to alm coefficients using Healpix <code class="docutils literal notranslate"><span class="pre">(l,</span> <span class="pre">m)</span></code> ordering.</p>
 <p>For example, if <code class="docutils literal notranslate"><span class="pre">map0</span></code> is Q, <code class="docutils literal notranslate"><span class="pre">map1</span></code> is U, and <code class="docutils literal notranslate"><span class="pre">spin</span> <span class="pre">==</span> <span class="pre">2</span></code>, the
 output alm contains E and B modes.</p>
-<section id="id73">
-<h3>Parameters<a class="headerlink" href="#id73" title="Link to this heading"></a></h3>
+<section id="id117">
+<h3>Parameters<a class="headerlink" href="#id117" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output alm.</p>
 </dd>
@@ -2355,8 +2352,8 @@ output alm contains E and B modes.</p>
 </dd>
 </dl>
 </section>
-<section id="id74">
-<h3>Returns<a class="headerlink" href="#id74" title="Link to this heading"></a></h3>
+<section id="id118">
+<h3>Returns<a class="headerlink" href="#id118" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>alm<span class="classifier">ndarray of complex, shape (2, lmax + 1, mmax + 1)</span></dt><dd><p>Parity-even and parity-odd harmonic coefficients obtained from the
 input maps, with bounds <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">0:lmax,</span> <span class="pre">0:mmax)</span></code>.</p>
@@ -2371,8 +2368,8 @@ input maps, with bounds <code class="docutils literal notranslate"><span class="
 <dd><p>Filter a map by a multipole-dependent function.</p>
 <p>The input map is transformed to alm, multiplied by <code class="docutils literal notranslate"><span class="pre">lfunc</span></code>, and then
 transformed back to a map.</p>
-<section id="id75">
-<h3>Parameters<a class="headerlink" href="#id75" title="Link to this heading"></a></h3>
+<section id="id119">
+<h3>Parameters<a class="headerlink" href="#id119" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>imap<span class="classifier">array_like of float, shape (12 * nside**2,)</span></dt><dd><p>Input map, with bounds <code class="docutils literal notranslate"><span class="pre">0:12*nside**2-1</span></code>.</p>
 </dd>
@@ -2381,8 +2378,8 @@ bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span
 </dd>
 </dl>
 </section>
-<section id="id76">
-<h3>Returns<a class="headerlink" href="#id76" title="Link to this heading"></a></h3>
+<section id="id120">
+<h3>Returns<a class="headerlink" href="#id120" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>omap<span class="classifier">ndarray of float, shape (12 * nside**2,)</span></dt><dd><p>Output map, with bounds <code class="docutils literal notranslate"><span class="pre">0:12*nside**2-1</span></code>.</p>
 </dd>
@@ -2394,8 +2391,8 @@ bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.mulwin">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">mulwin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.mulwin" title="Link to this definition"></a></dt>
 <dd><p>Multiply a map reconstructed from alm by a window function.</p>
-<section id="id77">
-<h3>Parameters<a class="headerlink" href="#id77" title="Link to this heading"></a></h3>
+<section id="id121">
+<h3>Parameters<a class="headerlink" href="#id121" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>alm<span class="classifier">array_like of complex, shape (lmax + 1, mmax + 1)</span></dt><dd><p>Harmonic coefficients used to construct the input map, with bounds
 <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:mmax)</span></code>.</p>
@@ -2406,8 +2403,8 @@ bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span
 </dd>
 </dl>
 </section>
-<section id="id78">
-<h3>Returns<a class="headerlink" href="#id78" title="Link to this heading"></a></h3>
+<section id="id122">
+<h3>Returns<a class="headerlink" href="#id122" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>wlm<span class="classifier">ndarray of complex, shape (lmax + 1, mmax + 1)</span></dt><dd><p>Harmonic coefficients of the window-multiplied map, with bounds
 <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:mmax)</span></code>.</p>
@@ -2420,8 +2417,8 @@ bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.mulwin_spin">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">mulwin_spin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.mulwin_spin" title="Link to this definition"></a></dt>
 <dd><p>Multiply spin maps reconstructed from alm by a window function.</p>
-<section id="id79">
-<h3>Parameters<a class="headerlink" href="#id79" title="Link to this heading"></a></h3>
+<section id="id123">
+<h3>Parameters<a class="headerlink" href="#id123" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>alm<span class="classifier">array_like of complex, shape (2, lmax + 1, mmax + 1)</span></dt><dd><p>Spin-s E/B-like harmonic coefficients used to construct the input
 maps, with bounds <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">0:lmax,</span> <span class="pre">0:mmax)</span></code>.</p>
@@ -2434,8 +2431,8 @@ maps, with bounds <code class="docutils literal notranslate"><span class="pre">(
 </dd>
 </dl>
 </section>
-<section id="id80">
-<h3>Returns<a class="headerlink" href="#id80" title="Link to this heading"></a></h3>
+<section id="id124">
+<h3>Returns<a class="headerlink" href="#id124" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>wlm<span class="classifier">ndarray of complex, shape (2, lmax + 1, mmax + 1)</span></dt><dd><p>Parity-even and parity-odd harmonic coefficients obtained from the
 window-multiplied maps, with bounds <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">0:lmax,</span> <span class="pre">0:mmax)</span></code>.</p>
@@ -2448,15 +2445,15 @@ window-multiplied maps, with bounds <code class="docutils literal notranslate"><
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.lm_healpy2healpix">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">lm_healpy2healpix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">almpy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.lm_healpy2healpix" title="Link to this definition"></a></dt>
 <dd><p>Convert healpy alm storage to Healpix <code class="docutils literal notranslate"><span class="pre">(l,</span> <span class="pre">m)</span></code> storage.</p>
-<section id="id81">
-<h3>Parameters<a class="headerlink" href="#id81" title="Link to this heading"></a></h3>
+<section id="id125">
+<h3>Parameters<a class="headerlink" href="#id125" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>almpy<span class="classifier">array_like of complex, shape (lmpy,)</span></dt><dd><p>Healpy alm array, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmpy-1</span></code>.</p>
 </dd>
 </dl>
 </section>
-<section id="id82">
-<h3>Returns<a class="headerlink" href="#id82" title="Link to this heading"></a></h3>
+<section id="id126">
+<h3>Returns<a class="headerlink" href="#id126" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>almpix<span class="classifier">ndarray of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>Healpix alm array, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
@@ -2468,15 +2465,15 @@ window-multiplied maps, with bounds <code class="docutils literal notranslate"><
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.lm_healpix2healpy">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">lm_healpix2healpy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">almpix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.lm_healpix2healpy" title="Link to this definition"></a></dt>
 <dd><p>Convert Healpix <code class="docutils literal notranslate"><span class="pre">(l,</span> <span class="pre">m)</span></code> alm storage to healpy storage.</p>
-<section id="id83">
-<h3>Parameters<a class="headerlink" href="#id83" title="Link to this heading"></a></h3>
+<section id="id127">
+<h3>Parameters<a class="headerlink" href="#id127" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>almpix<span class="classifier">array_like of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>Healpix alm array, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
 </dl>
 </section>
-<section id="id84">
-<h3>Returns<a class="headerlink" href="#id84" title="Link to this heading"></a></h3>
+<section id="id128">
+<h3>Returns<a class="headerlink" href="#id128" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>almpy<span class="classifier">ndarray of complex, shape (lmpy,)</span></dt><dd><p>Healpy alm array, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmpy-1</span></code>.</p>
 </dd>
@@ -2488,15 +2485,15 @@ window-multiplied maps, with bounds <code class="docutils literal notranslate"><
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.cosin_healpix">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">cosin_healpix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.cosin_healpix" title="Link to this definition"></a></dt>
 <dd><p>Return <span class="math notranslate nohighlight">\(\cos(\theta)\)</span> as a function of the Healpix pixel index.</p>
-<section id="id85">
-<h3>Parameters<a class="headerlink" href="#id85" title="Link to this heading"></a></h3>
+<section id="id129">
+<h3>Parameters<a class="headerlink" href="#id129" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>nside<span class="classifier">int</span></dt><dd><p>Nside of the desired map.</p>
 </dd>
 </dl>
 </section>
-<section id="id86">
-<h3>Returns<a class="headerlink" href="#id86" title="Link to this heading"></a></h3>
+<section id="id130">
+<h3>Returns<a class="headerlink" href="#id130" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>cosin<span class="classifier">ndarray of float, shape (npix,)</span></dt><dd><p>Values of <span class="math notranslate nohighlight">\(\cos(\theta)\)</span>, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
 </dd>
@@ -2508,8 +2505,8 @@ window-multiplied maps, with bounds <code class="docutils literal notranslate"><
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.calc_mfs">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">calc_mfs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">walm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.calc_mfs" title="Link to this definition"></a></dt>
 <dd><p>Compute two-dimensional Minkowski functionals from a given alm.</p>
-<section id="id87">
-<h3>Parameters<a class="headerlink" href="#id87" title="Link to this heading"></a></h3>
+<section id="id131">
+<h3>Parameters<a class="headerlink" href="#id131" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>nu<span class="classifier">array_like of float, shape (bn,)</span></dt><dd><p>Threshold bins, with bounds <code class="docutils literal notranslate"><span class="pre">0:bn-1</span></code>.</p>
 </dd>
@@ -2521,8 +2518,8 @@ window-multiplied maps, with bounds <code class="docutils literal notranslate"><
 </dd>
 </dl>
 </section>
-<section id="id88">
-<h3>Returns<a class="headerlink" href="#id88" title="Link to this heading"></a></h3>
+<section id="id132">
+<h3>Returns<a class="headerlink" href="#id132" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>V<span class="classifier">ndarray of float, shape (bn, 3)</span></dt><dd><p>The three Minkowski functionals, <code class="docutils literal notranslate"><span class="pre">V0</span></code>, <code class="docutils literal notranslate"><span class="pre">V1</span></code>, and <code class="docutils literal notranslate"><span class="pre">V2</span></code>, at each
 threshold bin, with bounds <code class="docutils literal notranslate"><span class="pre">(0:bn-1,</span> <span class="pre">0:2)</span></code>.</p>
@@ -2535,8 +2532,8 @@ threshold bin, with bounds <code class="docutils literal notranslate"><span clas
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.load_defangle_takahashi">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">load_defangle_takahashi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.load_defangle_takahashi" title="Link to this definition"></a></dt>
 <dd><p>Read source-plane theta and phi coordinates from Takahashi et al. (2017).</p>
-<section id="id89">
-<h3>Parameters<a class="headerlink" href="#id89" title="Link to this heading"></a></h3>
+<section id="id133">
+<h3>Parameters<a class="headerlink" href="#id133" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>fname<span class="classifier">str</span></dt><dd><p>File name.</p>
 </dd>
@@ -2546,8 +2543,8 @@ threshold bin, with bounds <code class="docutils literal notranslate"><span clas
 </dd>
 </dl>
 </section>
-<section id="id90">
-<h3>Returns<a class="headerlink" href="#id90" title="Link to this heading"></a></h3>
+<section id="id134">
+<h3>Returns<a class="headerlink" href="#id134" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>theta<span class="classifier">ndarray of float, shape (npix,)</span></dt><dd><p>Theta coordinates, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
 </dd>
@@ -2561,8 +2558,8 @@ threshold bin, with bounds <code class="docutils literal notranslate"><span clas
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.polcoord2angle">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">polcoord2angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.polcoord2angle" title="Link to this definition"></a></dt>
 <dd><p>Convert source-plane theta and phi coordinates to deflection angles.</p>
-<section id="id91">
-<h3>Parameters<a class="headerlink" href="#id91" title="Link to this heading"></a></h3>
+<section id="id135">
+<h3>Parameters<a class="headerlink" href="#id135" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>theta<span class="classifier">array_like of float, shape (npix,)</span></dt><dd><p>Theta coordinates, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
 </dd>
@@ -2572,8 +2569,8 @@ threshold bin, with bounds <code class="docutils literal notranslate"><span clas
 </dd>
 </dl>
 </section>
-<section id="id92">
-<h3>Returns<a class="headerlink" href="#id92" title="Link to this heading"></a></h3>
+<section id="id136">
+<h3>Returns<a class="headerlink" href="#id136" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>angle<span class="classifier">ndarray of float, shape (2, npix)</span></dt><dd><p>Deflection-angle vector containing two components, with bounds
 <code class="docutils literal notranslate"><span class="pre">(0:1,</span> <span class="pre">0:npix-1)</span></code>.</p>
@@ -2586,8 +2583,8 @@ threshold bin, with bounds <code class="docutils literal notranslate"><span clas
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.polcoord2angle_alm">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">polcoord2angle_alm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.polcoord2angle_alm" title="Link to this definition"></a></dt>
 <dd><p>Convert source-plane theta and phi coordinates to deflection-angle alms.</p>
-<section id="id93">
-<h3>Parameters<a class="headerlink" href="#id93" title="Link to this heading"></a></h3>
+<section id="id137">
+<h3>Parameters<a class="headerlink" href="#id137" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the gradient and curl alms.</p>
 </dd>
@@ -2599,8 +2596,8 @@ threshold bin, with bounds <code class="docutils literal notranslate"><span clas
 </dd>
 </dl>
 </section>
-<section id="id94">
-<h3>Returns<a class="headerlink" href="#id94" title="Link to this heading"></a></h3>
+<section id="id138">
+<h3>Returns<a class="headerlink" href="#id138" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>glm<span class="classifier">ndarray of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>Gradient-mode alm, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
@@ -2616,8 +2613,8 @@ threshold bin, with bounds <code class="docutils literal notranslate"><span clas
 <dd><p>Compute galaxy overdensity maps from Takahashi et al. (2017) matter maps.</p>
 <p>The galaxy redshift distribution is assumed to follow Eq. (7) of
 arXiv:1810.03346.</p>
-<section id="id95">
-<h3>Parameters<a class="headerlink" href="#id95" title="Link to this heading"></a></h3>
+<section id="id139">
+<h3>Parameters<a class="headerlink" href="#id139" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>fname<span class="classifier">str</span></dt><dd><p>File name of the density map.</p>
 </dd>
@@ -2643,8 +2640,8 @@ arXiv:1810.03346.</p>
 </dd>
 </dl>
 </section>
-<section id="id96">
-<h3>Returns<a class="headerlink" href="#id96" title="Link to this heading"></a></h3>
+<section id="id140">
+<h3>Returns<a class="headerlink" href="#id140" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>gmap<span class="classifier">ndarray of float, shape (npix, zbin)</span></dt><dd><p>Galaxy number-density map for each redshift bin.</p>
 </dd>

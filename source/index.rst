@@ -7,16 +7,8 @@
 Welcome to the cmblensplus documentation
 ========================================
 
-This package contains fortran90 wrappers for python to perform CMB lensing/ cosmic bi-refringence/ patchy reionization reconstructions, 
+This package contains python modules to perform CMB lensing/ cosmic bi-refringence/ patchy reionization reconstructions, 
 delensing, and bi-spectrum measurement. The pakage can be downloaded from https://github.com/toshiyan/cmblensplus.
-
-Installation
-------------
-
-.. toctree::
-   :maxdepth: 1
-
-   install
 
 Documents
 ------------

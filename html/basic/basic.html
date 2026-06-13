@@ -264,22 +264,14 @@ with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax<
 <dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output power spectrum.</p>
 </dd>
 <dt>k<span class="classifier">array_like of float, shape (kn,)</span></dt><dd><p>Wavenumbers for the matter power spectrum in units of
-:math:<a href="#id6"><span class="problematic" id="id7">`</span></a>h/{</p>
+<span class="math notranslate nohighlight">\(h/{\rm Mpc}\)</span>.</p>
 </dd>
-</dl>
-<p>m Mpc}`.
-pk0 : array_like of float, shape (kn,)</p>
-<blockquote>
-<div><p>Linear matter power spectrum at <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0</span></code> in units of
-:math:<a href="#id8"><span class="problematic" id="id9">`</span></a>{</p>
-</div></blockquote>
-<p>m Mpc}^3/h^3`.
-pktype : str, optional</p>
-<blockquote>
-<div><p>Fitting formula for the matter power spectrum. Supported values include
+<dt>pk0<span class="classifier">array_like of float, shape (kn,)</span></dt><dd><p>Linear matter power spectrum at <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0</span></code> in units of
+<span class="math notranslate nohighlight">\({\rm Mpc}^3/h^3\)</span>.</p>
+</dd>
+<dt>pktype<span class="classifier">str, optional</span></dt><dd><p>Fitting formula for the matter power spectrum. Supported values include
 <code class="docutils literal notranslate"><span class="pre">'Lin'</span></code>, <code class="docutils literal notranslate"><span class="pre">'S02'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'T12'</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">'T12'</span></code>.</p>
-</div></blockquote>
-<dl class="simple">
+</dd>
 <dt>cltype<span class="classifier">str, optional</span></dt><dd><p>Power-spectrum type. Supported values include <code class="docutils literal notranslate"><span class="pre">'kk'</span></code>, <code class="docutils literal notranslate"><span class="pre">'gk'</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">'gg'</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">'kk'</span></code>.</p>
 </dd>
@@ -291,8 +283,8 @@ pktype : str, optional</p>
 </dd>
 </dl>
 </section>
-<section id="id10">
-<h3>Returns<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<section id="id6">
+<h3>Returns<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>cl<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Power spectrum from LSS contributions.</p>
 </dd>
@@ -304,8 +296,8 @@ pktype : str, optional</p>
 <dt class="sig sig-object py" id="cmblensplus.basic.bispec.bispeclens">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.bispec.</span></span><span class="sig-name descname"><span class="pre">bispeclens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cpmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pk0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pktype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'T12'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ltype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">btype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'kkk'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dNdz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wdel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.bispec.bispeclens" title="Link to this definition"></a></dt>
 <dd><p>Compute the lensing bispectrum analytically.</p>
-<section id="id11">
-<h3>Parameters<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<section id="id7">
+<h3>Parameters<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>shap<span class="classifier">str</span></dt><dd><p>Bispectrum shape. Supported values include <code class="docutils literal notranslate"><span class="pre">'equi'</span></code>, <code class="docutils literal notranslate"><span class="pre">'fold'</span></code>,
 <code class="docutils literal notranslate"><span class="pre">'sque'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'isos'</span></code>.</p>
@@ -327,21 +319,13 @@ pktype : str, optional</p>
 <dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the bispectrum.</p>
 </dd>
 <dt>k<span class="classifier">array_like of float, shape (kn,)</span></dt><dd><p>Wavenumbers for the matter power spectrum in units of
-:math:<a href="#id12"><span class="problematic" id="id13">`</span></a>h/{</p>
+<span class="math notranslate nohighlight">\(h/{\rm Mpc}\)</span>.</p>
 </dd>
-</dl>
-<p>m Mpc}`.
-pk0 : array_like of float, shape (kn,)</p>
-<blockquote>
-<div><p>Linear matter power spectrum at <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0</span></code> in units of
-:math:<a href="#id14"><span class="problematic" id="id15">`</span></a>{</p>
-</div></blockquote>
-<p>m Mpc}^3/h^3`.
-lan : float, optional</p>
-<blockquote>
-<div><p>Modified-gravity extension parameter. Default is 0.</p>
-</div></blockquote>
-<dl class="simple">
+<dt>pk0<span class="classifier">array_like of float, shape (kn,)</span></dt><dd><p>Linear matter power spectrum at <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0</span></code> in units of
+<span class="math notranslate nohighlight">\({\rm Mpc}^3/h^3\)</span>.</p>
+</dd>
+<dt>lan<span class="classifier">float, optional</span></dt><dd><p>Modified-gravity extension parameter. Default is 0.</p>
+</dd>
 <dt>kan<span class="classifier">float, optional</span></dt><dd><p>Modified-gravity extension parameter. Default is 0.</p>
 </dd>
 <dt>pktype<span class="classifier">str, optional</span></dt><dd><p>Fitting formula for the matter power spectrum. Supported values include
@@ -361,8 +345,8 @@ Default is <code class="docutils literal notranslate"><span class="pre">''</span
 </dd>
 </dl>
 </section>
-<section id="id16">
-<h3>Returns<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<section id="id8">
+<h3>Returns<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>bl0<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Lensing bispectrum from LSS contributions.</p>
 </dd>
@@ -376,8 +360,8 @@ Default is <code class="docutils literal notranslate"><span class="pre">''</span
 <dt class="sig sig-object py" id="cmblensplus.basic.bispec.bispeclens_bin">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.bispec.</span></span><span class="sig-name descname"><span class="pre">bispeclens_bin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cpmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pk0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pktype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'T12'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">btype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'kkk'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dNdz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wdel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.bispec.bispeclens_bin" title="Link to this definition"></a></dt>
 <dd><p>Compute the binned lensing bispectrum analytically.</p>
-<section id="id17">
-<h3>Parameters<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<section id="id9">
+<h3>Parameters<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>shap<span class="classifier">str</span></dt><dd><p>Bispectrum shape. Supported values include <code class="docutils literal notranslate"><span class="pre">'equi'</span></code>, <code class="docutils literal notranslate"><span class="pre">'fold'</span></code>,
 <code class="docutils literal notranslate"><span class="pre">'sque'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'isos'</span></code>.</p>
@@ -401,21 +385,13 @@ Default is <code class="docutils literal notranslate"><span class="pre">''</span
 <dt>bn<span class="classifier">int</span></dt><dd><p>Number of multipole bins.</p>
 </dd>
 <dt>k<span class="classifier">array_like of float, shape (kn,)</span></dt><dd><p>Wavenumbers for the matter power spectrum in units of
-:math:<a href="#id18"><span class="problematic" id="id19">`</span></a>h/{</p>
+<span class="math notranslate nohighlight">\(h/{\rm Mpc}\)</span>.</p>
 </dd>
-</dl>
-<p>m Mpc}`.
-pk0 : array_like of float, shape (kn,)</p>
-<blockquote>
-<div><p>Linear matter power spectrum at <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0</span></code> in units of
-:math:<a href="#id20"><span class="problematic" id="id21">`</span></a>{</p>
-</div></blockquote>
-<p>m Mpc}^3/h^3`.
-lan : float, optional</p>
-<blockquote>
-<div><p>Modified-gravity extension parameter. Default is 0.</p>
-</div></blockquote>
-<dl class="simple">
+<dt>pk0<span class="classifier">array_like of float, shape (kn,)</span></dt><dd><p>Linear matter power spectrum at <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0</span></code> in units of
+<span class="math notranslate nohighlight">\({\rm Mpc}^3/h^3\)</span>.</p>
+</dd>
+<dt>lan<span class="classifier">float, optional</span></dt><dd><p>Modified-gravity extension parameter. Default is 0.</p>
+</dd>
 <dt>kan<span class="classifier">float, optional</span></dt><dd><p>Modified-gravity extension parameter. Default is 0.</p>
 </dd>
 <dt>pktype<span class="classifier">str, optional</span></dt><dd><p>Fitting formula for the matter power spectrum. Supported values include
@@ -432,8 +408,8 @@ lan : float, optional</p>
 </dd>
 </dl>
 </section>
-<section id="id22">
-<h3>Returns<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
+<section id="id10">
+<h3>Returns<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>bc<span class="classifier">ndarray of float, shape (bn,)</span></dt><dd><p>Multipole bin centers.</p>
 </dd>
@@ -449,8 +425,8 @@ lan : float, optional</p>
 <dt class="sig sig-object py" id="cmblensplus.basic.bispec.bispeclens_snr">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.bispec.</span></span><span class="sig-name descname"><span class="pre">bispeclens_snr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cpmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pk0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pktype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'T12'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">btype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'kkk'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dNdz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cgg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ro</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wdel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.bispec.bispeclens_snr" title="Link to this definition"></a></dt>
 <dd><p>Compute the signal-to-noise ratio of the lensing bispectrum analytically.</p>
-<section id="id23">
-<h3>Parameters<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
+<section id="id11">
+<h3>Parameters<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>cpmodel<span class="classifier">str</span></dt><dd><p>Cosmological parameter model. Supported values include <code class="docutils literal notranslate"><span class="pre">'model0'</span></code>,
 <code class="docutils literal notranslate"><span class="pre">'modelw'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'modelp'</span></code>.</p>
@@ -471,22 +447,14 @@ lan : float, optional</p>
 <dt>cl<span class="classifier">array_like of float, shape (lmax + 1,)</span></dt><dd><p>Observed angular power spectrum from <code class="docutils literal notranslate"><span class="pre">l</span> <span class="pre">=</span> <span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">lmax</span></code>.</p>
 </dd>
 <dt>k<span class="classifier">array_like of float, shape (kn,)</span></dt><dd><p>Wavenumbers for the matter power spectrum in units of
-:math:<a href="#id24"><span class="problematic" id="id25">`</span></a>h/{</p>
+<span class="math notranslate nohighlight">\(h/{\rm Mpc}\)</span>.</p>
 </dd>
-</dl>
-<p>m Mpc}`.
-pk0 : array_like of float, shape (kn,)</p>
-<blockquote>
-<div><p>Linear matter power spectrum at <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0</span></code> in units of
-:math:<a href="#id26"><span class="problematic" id="id27">`</span></a>{</p>
-</div></blockquote>
-<p>m Mpc}^3/h^3`.
-pktype : str, optional</p>
-<blockquote>
-<div><p>Fitting formula for the matter power spectrum. Supported values include
+<dt>pk0<span class="classifier">array_like of float, shape (kn,)</span></dt><dd><p>Linear matter power spectrum at <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0</span></code> in units of
+<span class="math notranslate nohighlight">\({\rm Mpc}^3/h^3\)</span>.</p>
+</dd>
+<dt>pktype<span class="classifier">str, optional</span></dt><dd><p>Fitting formula for the matter power spectrum. Supported values include
 <code class="docutils literal notranslate"><span class="pre">'Lin'</span></code>, <code class="docutils literal notranslate"><span class="pre">'S02'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'T12'</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">'T12'</span></code>.</p>
-</div></blockquote>
-<dl class="simple">
+</dd>
 <dt>btype<span class="classifier">str, optional</span></dt><dd><p>Bispectrum type. Supported values include <code class="docutils literal notranslate"><span class="pre">'kkk'</span></code>, <code class="docutils literal notranslate"><span class="pre">'gkk'</span></code>,
 <code class="docutils literal notranslate"><span class="pre">'ggk'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'ggg'</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">'kkk'</span></code>.</p>
 </dd>
@@ -502,8 +470,8 @@ pktype : str, optional</p>
 </dd>
 </dl>
 </section>
-<section id="id28">
-<h3>Returns<a class="headerlink" href="#id28" title="Link to this heading"></a></h3>
+<section id="id12">
+<h3>Returns<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>snr<span class="classifier">ndarray of float, shape (2,)</span></dt><dd><p>Total signal-to-noise ratio and LSS-only signal-to-noise ratio.</p>
 </dd>
@@ -516,8 +484,8 @@ pktype : str, optional</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.bispec.</span></span><span class="sig-name descname"><span class="pre">bispeclens_gauss_bin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cl</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.bispec.bispeclens_gauss_bin" title="Link to this definition"></a></dt>
 <dd><p>Compute the binned bispectrum analytically for the quadratic Gaussian
 model.</p>
-<section id="id29">
-<h3>Parameters<a class="headerlink" href="#id29" title="Link to this heading"></a></h3>
+<section id="id13">
+<h3>Parameters<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>shap<span class="classifier">str</span></dt><dd><p>Bispectrum shape. Supported values include <code class="docutils literal notranslate"><span class="pre">'equi'</span></code>, <code class="docutils literal notranslate"><span class="pre">'fold'</span></code>,
 <code class="docutils literal notranslate"><span class="pre">'sque'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'isos'</span></code>.</p>
@@ -532,8 +500,8 @@ model.</p>
 </dd>
 </dl>
 </section>
-<section id="id30">
-<h3>Returns<a class="headerlink" href="#id30" title="Link to this heading"></a></h3>
+<section id="id14">
+<h3>Returns<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>bc<span class="classifier">ndarray of float, shape (bn,)</span></dt><dd><p>Multipole bin centers.</p>
 </dd>
@@ -547,8 +515,8 @@ model.</p>
 <dt class="sig sig-object py" id="cmblensplus.basic.bispec.zpoints">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.bispec.</span></span><span class="sig-name descname"><span class="pre">zpoints</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zspace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.bispec.zpoints" title="Link to this definition"></a></dt>
 <dd><p>Precompute interpolation points for redshift.</p>
-<section id="id31">
-<h3>Parameters<a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
+<section id="id15">
+<h3>Parameters<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>zmin<span class="classifier">float</span></dt><dd><p>Minimum redshift.</p>
 </dd>
@@ -561,8 +529,8 @@ spacing. Default is 1.</p>
 </dd>
 </dl>
 </section>
-<section id="id32">
-<h3>Returns<a class="headerlink" href="#id32" title="Link to this heading"></a></h3>
+<section id="id16">
+<h3>Returns<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>z<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Redshift points.</p>
 </dd>
@@ -576,8 +544,8 @@ spacing. Default is 1.</p>
 <dt class="sig sig-object py" id="cmblensplus.basic.bispec.skewspeclens">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.bispec.</span></span><span class="sig-name descname"><span class="pre">skewspeclens</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cpmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ols</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pk0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pktype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'T12'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">btype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'kkk'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Om</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">70.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mnu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.965</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dNdz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wdel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.bispec.skewspeclens" title="Link to this definition"></a></dt>
 <dd><p>Compute the skew spectrum using a matter-bispectrum fitting formula.</p>
-<section id="id33">
-<h3>Parameters<a class="headerlink" href="#id33" title="Link to this heading"></a></h3>
+<section id="id17">
+<h3>Parameters<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>cpmodel<span class="classifier">str</span></dt><dd><p>Cosmological parameter model. Supported values include <code class="docutils literal notranslate"><span class="pre">'model0'</span></code>,
 <code class="docutils literal notranslate"><span class="pre">'modelw'</span></code>, <code class="docutils literal notranslate"><span class="pre">'modelp'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'input'</span></code>.</p>
@@ -599,21 +567,13 @@ map.</p>
 <dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of alms included in the skew spectrum.</p>
 </dd>
 <dt>k<span class="classifier">array_like of float, shape (kn,)</span></dt><dd><p>Wavenumbers for the matter power spectrum in units of
-:math:<a href="#id34"><span class="problematic" id="id35">`</span></a>h/{</p>
+<span class="math notranslate nohighlight">\(h/{\rm Mpc}\)</span>.</p>
 </dd>
-</dl>
-<p>m Mpc}`.
-pk0 : array_like of float, shape (kn,)</p>
-<blockquote>
-<div><p>Linear matter power spectrum at <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0</span></code> in units of
-:math:<a href="#id36"><span class="problematic" id="id37">`</span></a>{</p>
-</div></blockquote>
-<p>m Mpc}^3/h^3`.
-theta : float, optional</p>
-<blockquote>
-<div><p>Kappa-map resolution in arcmin. Default is 0.0.</p>
-</div></blockquote>
-<dl class="simple">
+<dt>pk0<span class="classifier">array_like of float, shape (kn,)</span></dt><dd><p>Linear matter power spectrum at <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0</span></code> in units of
+<span class="math notranslate nohighlight">\({\rm Mpc}^3/h^3\)</span>.</p>
+</dd>
+<dt>theta<span class="classifier">float, optional</span></dt><dd><p>Kappa-map resolution in arcmin. Default is 0.0.</p>
+</dd>
 <dt>pktype<span class="classifier">str, optional</span></dt><dd><p>Fitting formula for the matter power spectrum. Supported values include
 <code class="docutils literal notranslate"><span class="pre">'Lin'</span></code>, <code class="docutils literal notranslate"><span class="pre">'S02'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'T12'</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">'T12'</span></code>.</p>
 </dd>
@@ -647,8 +607,8 @@ Default is 0.</p>
 </dd>
 </dl>
 </section>
-<section id="id38">
-<h3>Returns<a class="headerlink" href="#id38" title="Link to this heading"></a></h3>
+<section id="id18">
+<h3>Returns<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>skew<span class="classifier">ndarray of float, shape (3, 2, bn)</span></dt><dd><p>Skew spectra <code class="docutils literal notranslate"><span class="pre">S0</span></code>, <code class="docutils literal notranslate"><span class="pre">S1</span></code>, and <code class="docutils literal notranslate"><span class="pre">S2</span></code> from LSS and post-Born
 contributions, separately.</p>
@@ -664,8 +624,8 @@ contributions, separately.</p>
 <dt class="sig sig-object py" id="cmblensplus.basic.galaxy.dndz_sf">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.galaxy.</span></span><span class="sig-name descname"><span class="pre">dndz_sf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.galaxy.dndz_sf" title="Link to this definition"></a></dt>
 <dd><p>Return a model galaxy redshift distribution.</p>
-<section id="id39">
-<h3>Parameters<a class="headerlink" href="#id39" title="Link to this heading"></a></h3>
+<section id="id19">
+<h3>Parameters<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshifts at which <code class="docutils literal notranslate"><span class="pre">dndz</span></code> is returned.</p>
 </dd>
@@ -680,8 +640,8 @@ has to be specified.</p>
 </dd>
 </dl>
 </section>
-<section id="id40">
-<h3>Returns<a class="headerlink" href="#id40" title="Link to this heading"></a></h3>
+<section id="id20">
+<h3>Returns<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>dndz<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Galaxy redshift distribution.</p>
 </dd>
@@ -695,8 +655,8 @@ has to be specified.</p>
 <dd><p>Return the photo-z error function for a redshift distribution.</p>
 <p>The returned function is multiplied by the original galaxy redshift
 distribution. See Eq. (13) of arXiv:1103.1118 for details.</p>
-<section id="id41">
-<h3>Parameters<a class="headerlink" href="#id41" title="Link to this heading"></a></h3>
+<section id="id21">
+<h3>Parameters<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshifts at which the photo-z error function is returned.</p>
 </dd>
@@ -711,8 +671,8 @@ Default is 0.03.</p>
 </dd>
 </dl>
 </section>
-<section id="id42">
-<h3>Returns<a class="headerlink" href="#id42" title="Link to this heading"></a></h3>
+<section id="id22">
+<h3>Returns<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>pz<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Photo-z error function.</p>
 </dd>
@@ -724,8 +684,8 @@ Default is 0.03.</p>
 <dt class="sig sig-object py" id="cmblensplus.basic.galaxy.zbin">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.galaxy.</span></span><span class="sig-name descname"><span class="pre">zbin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.galaxy.zbin" title="Link to this definition"></a></dt>
 <dd><p>Compute redshift-bin intervals with equal galaxy counts.</p>
-<section id="id43">
-<h3>Parameters<a class="headerlink" href="#id43" title="Link to this heading"></a></h3>
+<section id="id23">
+<h3>Parameters<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>zn<span class="classifier">int</span></dt><dd><p>Number of redshift bins.</p>
 </dd>
@@ -742,8 +702,8 @@ has to be specified.</p>
 </dd>
 </dl>
 </section>
-<section id="id44">
-<h3>Returns<a class="headerlink" href="#id44" title="Link to this heading"></a></h3>
+<section id="id24">
+<h3>Returns<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>zb<span class="classifier">ndarray of float, shape (zn + 1,)</span></dt><dd><p>Redshift-bin intervals.</p>
 </dd>
@@ -755,8 +715,8 @@ has to be specified.</p>
 <dt class="sig sig-object py" id="cmblensplus.basic.galaxy.frac">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.galaxy.</span></span><span class="sig-name descname"><span class="pre">frac</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zbias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.galaxy.frac" title="Link to this definition"></a></dt>
 <dd><p>Compute the fraction of galaxies in each redshift bin.</p>
-<section id="id45">
-<h3>Parameters<a class="headerlink" href="#id45" title="Link to this heading"></a></h3>
+<section id="id25">
+<h3>Parameters<a class="headerlink" href="#id25" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>zn<span class="classifier">int</span></dt><dd><p>Number of redshift bins.</p>
 </dd>
@@ -776,8 +736,8 @@ has to be specified.</p>
 </dd>
 </dl>
 </section>
-<section id="id46">
-<h3>Returns<a class="headerlink" href="#id46" title="Link to this heading"></a></h3>
+<section id="id26">
+<h3>Returns<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
 <dl>
 <dt>nfrac<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Fraction of galaxies in each bin, defined by</p>
 <div class="math notranslate nohighlight">
@@ -797,8 +757,8 @@ has to be specified.</p>
 <dd><p>Compute the expansion rate.</p>
 <p>The returned value is either the expansion rate <code class="docutils literal notranslate"><span class="pre">H</span></code> in units of
 <code class="docutils literal notranslate"><span class="pre">km/s/Mpc</span></code> or <code class="docutils literal notranslate"><span class="pre">H</span> <span class="pre">/</span> <span class="pre">c</span></code> in units of <code class="docutils literal notranslate"><span class="pre">1/Mpc</span></code>.</p>
-<section id="id47">
-<h3>Parameters<a class="headerlink" href="#id47" title="Link to this heading"></a></h3>
+<section id="id27">
+<h3>Parameters<a class="headerlink" href="#id27" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshifts at which the expansion rate is computed.</p>
 </dd>
@@ -818,8 +778,8 @@ Default is 0.</p>
 </dd>
 </dl>
 </section>
-<section id="id48">
-<h3>Returns<a class="headerlink" href="#id48" title="Link to this heading"></a></h3>
+<section id="id28">
+<h3>Returns<a class="headerlink" href="#id28" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>Hz<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Expansion rate <code class="docutils literal notranslate"><span class="pre">H(z)</span></code>, divided by the speed of light if
 <code class="docutils literal notranslate"><span class="pre">divc</span></code> is True.</p>
@@ -832,8 +792,8 @@ Default is 0.</p>
 <dt class="sig sig-object py" id="cmblensplus.basic.cosmofuncs.dhubble_dz">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.cosmofuncs.</span></span><span class="sig-name descname"><span class="pre">dhubble_dz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">70.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Om</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.cosmofuncs.dhubble_dz" title="Link to this definition"></a></dt>
 <dd><p>Compute the derivative of the expansion rate, <code class="docutils literal notranslate"><span class="pre">dH(z)</span> <span class="pre">/</span> <span class="pre">dz</span></code>.</p>
-<section id="id49">
-<h3>Parameters<a class="headerlink" href="#id49" title="Link to this heading"></a></h3>
+<section id="id29">
+<h3>Parameters<a class="headerlink" href="#id29" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshifts at which <code class="docutils literal notranslate"><span class="pre">dH/dz</span></code> is computed.</p>
 </dd>
@@ -851,8 +811,8 @@ Default is 0.</p>
 </dd>
 </dl>
 </section>
-<section id="id50">
-<h3>Returns<a class="headerlink" href="#id50" title="Link to this heading"></a></h3>
+<section id="id30">
+<h3>Returns<a class="headerlink" href="#id30" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>dHdz<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Derivative of the expansion rate, <code class="docutils literal notranslate"><span class="pre">dH(z)</span> <span class="pre">/</span> <span class="pre">dz</span></code>.</p>
 </dd>
@@ -864,8 +824,8 @@ Default is 0.</p>
 <dt class="sig sig-object py" id="cmblensplus.basic.cosmofuncs.dist2z">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.cosmofuncs.</span></span><span class="sig-name descname"><span class="pre">dist2z</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">70.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Om</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.cosmofuncs.dist2z" title="Link to this definition"></a></dt>
 <dd><p>Compute redshift as a function of comoving distance.</p>
-<section id="id51">
-<h3>Parameters<a class="headerlink" href="#id51" title="Link to this heading"></a></h3>
+<section id="id31">
+<h3>Parameters<a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>rz<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Comoving distance in units of <code class="docutils literal notranslate"><span class="pre">Mpc</span></code>.</p>
 </dd>
@@ -883,8 +843,8 @@ Default is 0.</p>
 </dd>
 </dl>
 </section>
-<section id="id52">
-<h3>Returns<a class="headerlink" href="#id52" title="Link to this heading"></a></h3>
+<section id="id32">
+<h3>Returns<a class="headerlink" href="#id32" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>z<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Redshift.</p>
 </dd>
@@ -896,8 +856,8 @@ Default is 0.</p>
 <dt class="sig sig-object py" id="cmblensplus.basic.cosmofuncs.dist_comoving">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.cosmofuncs.</span></span><span class="sig-name descname"><span class="pre">dist_comoving</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">70.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Om</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.cosmofuncs.dist_comoving" title="Link to this definition"></a></dt>
 <dd><p>Compute comoving distance as a function of redshift.</p>
-<section id="id53">
-<h3>Parameters<a class="headerlink" href="#id53" title="Link to this heading"></a></h3>
+<section id="id33">
+<h3>Parameters<a class="headerlink" href="#id33" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshift.</p>
 </dd>
@@ -915,8 +875,8 @@ Default is 0.</p>
 </dd>
 </dl>
 </section>
-<section id="id54">
-<h3>Returns<a class="headerlink" href="#id54" title="Link to this heading"></a></h3>
+<section id="id34">
+<h3>Returns<a class="headerlink" href="#id34" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>rz<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Comoving distance in units of <code class="docutils literal notranslate"><span class="pre">Mpc</span></code>.</p>
 </dd>
@@ -928,8 +888,8 @@ Default is 0.</p>
 <dt class="sig sig-object py" id="cmblensplus.basic.cosmofuncs.dist_luminosity">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.cosmofuncs.</span></span><span class="sig-name descname"><span class="pre">dist_luminosity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">70.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Om</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.cosmofuncs.dist_luminosity" title="Link to this definition"></a></dt>
 <dd><p>Compute luminosity distance as a function of redshift.</p>
-<section id="id55">
-<h3>Parameters<a class="headerlink" href="#id55" title="Link to this heading"></a></h3>
+<section id="id35">
+<h3>Parameters<a class="headerlink" href="#id35" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshift.</p>
 </dd>
@@ -947,8 +907,8 @@ Default is 0.</p>
 </dd>
 </dl>
 </section>
-<section id="id56">
-<h3>Returns<a class="headerlink" href="#id56" title="Link to this heading"></a></h3>
+<section id="id36">
+<h3>Returns<a class="headerlink" href="#id36" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>DLz<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Luminosity distance in units of <code class="docutils literal notranslate"><span class="pre">Mpc</span></code>.</p>
 </dd>
@@ -961,8 +921,8 @@ Default is 0.</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.cosmofuncs.</span></span><span class="sig-name descname"><span class="pre">growth_factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">70.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Om</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.cosmofuncs.growth_factor" title="Link to this definition"></a></dt>
 <dd><p>Compute the analytic linear growth factor <code class="docutils literal notranslate"><span class="pre">D(z)</span></code> as a function of
 redshift.</p>
-<section id="id57">
-<h3>Parameters<a class="headerlink" href="#id57" title="Link to this heading"></a></h3>
+<section id="id37">
+<h3>Parameters<a class="headerlink" href="#id37" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshift.</p>
 </dd>
@@ -984,8 +944,8 @@ matter universe with <code class="docutils literal notranslate"><span class="pre
 </dd>
 </dl>
 </section>
-<section id="id58">
-<h3>Returns<a class="headerlink" href="#id58" title="Link to this heading"></a></h3>
+<section id="id38">
+<h3>Returns<a class="headerlink" href="#id38" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>Dz<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Growth factor.</p>
 </dd>
@@ -998,8 +958,8 @@ matter universe with <code class="docutils literal notranslate"><span class="pre
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.cosmofuncs.</span></span><span class="sig-name descname"><span class="pre">growth_rate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">70.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Om</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Ov</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.cosmofuncs.growth_rate" title="Link to this definition"></a></dt>
 <dd><p>Compute the linear growth rate as a function of redshift.</p>
 <p>The growth rate is defined as <code class="docutils literal notranslate"><span class="pre">f(z)</span> <span class="pre">=</span> <span class="pre">d</span> <span class="pre">ln</span> <span class="pre">D</span> <span class="pre">/</span> <span class="pre">d</span> <span class="pre">ln</span> <span class="pre">a</span></code>.</p>
-<section id="id59">
-<h3>Parameters<a class="headerlink" href="#id59" title="Link to this heading"></a></h3>
+<section id="id39">
+<h3>Parameters<a class="headerlink" href="#id39" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshift.</p>
 </dd>
@@ -1017,8 +977,8 @@ Default is 0.</p>
 </dd>
 </dl>
 </section>
-<section id="id60">
-<h3>Returns<a class="headerlink" href="#id60" title="Link to this heading"></a></h3>
+<section id="id40">
+<h3>Returns<a class="headerlink" href="#id40" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>fz<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Linear growth rate.</p>
 </dd>
@@ -1031,8 +991,8 @@ Default is 0.</p>
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.cosmofuncs.</span></span><span class="sig-name descname"><span class="pre">nz_gw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Cz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Hz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ntype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CH06'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dotn0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Tobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.cosmofuncs.nz_gw" title="Link to this definition"></a></dt>
 <dd><p>Compute the redshift distribution of neutron-star binary merger events.</p>
 <p>This returns the event distribution per redshift, <code class="docutils literal notranslate"><span class="pre">dN/dz</span></code>, at <code class="docutils literal notranslate"><span class="pre">z</span></code>.</p>
-<section id="id61">
-<h3>Parameters<a class="headerlink" href="#id61" title="Link to this heading"></a></h3>
+<section id="id41">
+<h3>Parameters<a class="headerlink" href="#id41" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>z<span class="classifier">float</span></dt><dd><p>Redshift.</p>
 </dd>
@@ -1049,8 +1009,8 @@ model or <code class="docutils literal notranslate"><span class="pre">'none'</sp
 </dd>
 </dl>
 </section>
-<section id="id62">
-<h3>Returns<a class="headerlink" href="#id62" title="Link to this heading"></a></h3>
+<section id="id42">
+<h3>Returns<a class="headerlink" href="#id42" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>nz<span class="classifier">float</span></dt><dd><p>Event distribution function at <code class="docutils literal notranslate"><span class="pre">z</span></code>.</p>
 </dd>
@@ -1062,8 +1022,8 @@ model or <code class="docutils literal notranslate"><span class="pre">'none'</sp
 <dt class="sig sig-object py" id="cmblensplus.basic.cosmofuncs.drate_dz">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.cosmofuncs.</span></span><span class="sig-name descname"><span class="pre">drate_dz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ntype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'CH06'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.cosmofuncs.drate_dz" title="Link to this definition"></a></dt>
 <dd><p>Compute the redshift-dependent merger-rate factor.</p>
-<section id="id63">
-<h3>Parameters<a class="headerlink" href="#id63" title="Link to this heading"></a></h3>
+<section id="id43">
+<h3>Parameters<a class="headerlink" href="#id43" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>z<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Redshift.</p>
 </dd>
@@ -1072,8 +1032,8 @@ model or <code class="docutils literal notranslate"><span class="pre">'none'</sp
 </dd>
 </dl>
 </section>
-<section id="id64">
-<h3>Returns<a class="headerlink" href="#id64" title="Link to this heading"></a></h3>
+<section id="id44">
+<h3>Returns<a class="headerlink" href="#id44" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>drate<span class="classifier">ndarray of float, shape (zn,)</span></dt><dd><p>Redshift-dependent merger-rate factor.</p>
 </dd>
@@ -1095,8 +1055,8 @@ This may lead to a small discrepancy between the normalization computed by this 
 normalization, which uses linear interpolation.</p>
 <p>The FFT-based normalization is recommended when normalizing simulation results.</p>
 </section>
-<section id="id65">
-<h3>Parameters<a class="headerlink" href="#id65" title="Link to this heading"></a></h3>
+<section id="id45">
+<h3>Parameters<a class="headerlink" href="#id45" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>qest<span class="classifier">{‘TT’, ‘TE’, ‘TB’, ‘EE’, ‘EB’, ‘BB’}</span></dt><dd><p>Estimator combination.</p>
 </dd>
@@ -1122,8 +1082,8 @@ normalization, which uses linear interpolation.</p>
 </dd>
 </dl>
 </section>
-<section id="id66">
-<h3>Returns<a class="headerlink" href="#id66" title="Link to this heading"></a></h3>
+<section id="id46">
+<h3>Returns<a class="headerlink" href="#id46" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>Ag<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Normalization for the even estimator pair.</p>
 </dd>
@@ -1137,8 +1097,8 @@ normalization, which uses linear interpolation.</p>
 <dt class="sig sig-object py" id="cmblensplus.basic.flat.alxy_asym">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.flat.</span></span><span class="sig-name descname"><span class="pre">alxy_asym</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qest</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qtype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AA</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gln</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lxcut</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.flat.alxy_asym" title="Link to this definition"></a></dt>
 <dd><p>Compute the asymmetric flat-sky quadratic-estimator normalization.</p>
-<section id="id67">
-<h3>Parameters<a class="headerlink" href="#id67" title="Link to this heading"></a></h3>
+<section id="id47">
+<h3>Parameters<a class="headerlink" href="#id47" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>qest<span class="classifier">{‘TT’, ‘TE’, ‘TB’, ‘EE’, ‘EB’, ‘BB’}</span></dt><dd><p>Estimator combination.</p>
 </dd>
@@ -1166,8 +1126,8 @@ normalization, which uses linear interpolation.</p>
 </dd>
 </dl>
 </section>
-<section id="id68">
-<h3>Returns<a class="headerlink" href="#id68" title="Link to this heading"></a></h3>
+<section id="id48">
+<h3>Returns<a class="headerlink" href="#id48" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>Ag<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Normalization for the even estimator pair.</p>
 </dd>
@@ -1181,8 +1141,8 @@ normalization, which uses linear interpolation.</p>
 <dt class="sig sig-object py" id="cmblensplus.basic.flat.bbxy">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.basic.flat.</span></span><span class="sig-name descname"><span class="pre">bbxy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rlmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">XX</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YY</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lensing'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gln</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-14</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.basic.flat.bbxy" title="Link to this definition"></a></dt>
 <dd><p>Compute the flat-sky B-mode power spectrum induced by a modulation field to E-mode or T.</p>
-<section id="id69">
-<h3>Parameters<a class="headerlink" href="#id69" title="Link to this heading"></a></h3>
+<section id="id49">
+<h3>Parameters<a class="headerlink" href="#id49" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output normalization.</p>
 </dd>
@@ -1202,8 +1162,8 @@ normalization, which uses linear interpolation.</p>
 </dd>
 </dl>
 </section>
-<section id="id70">
-<h3>Returns<a class="headerlink" href="#id70" title="Link to this heading"></a></h3>
+<section id="id50">
+<h3>Returns<a class="headerlink" href="#id50" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>BB<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Normalization, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
@@ -1226,8 +1186,8 @@ m_1 &amp; m_2 &amp; m_3
 \end{pmatrix}\end{split}\]</div>
 <p>for fixed <code class="docutils literal notranslate"><span class="pre">l2</span></code>, <code class="docutils literal notranslate"><span class="pre">l3</span></code>, <code class="docutils literal notranslate"><span class="pre">m2</span></code>, and <code class="docutils literal notranslate"><span class="pre">m3</span></code>. The value of <code class="docutils literal notranslate"><span class="pre">m1</span></code> is
 determined by the selection rule <code class="docutils literal notranslate"><span class="pre">m1</span> <span class="pre">+</span> <span class="pre">m2</span> <span class="pre">+</span> <span class="pre">m3</span> <span class="pre">=</span> <span class="pre">0</span></code>.</p>
-<section id="id71">
-<h3>Parameters<a class="headerlink" href="#id71" title="Link to this heading"></a></h3>
+<section id="id51">
+<h3>Parameters<a class="headerlink" href="#id51" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>l2<span class="classifier">int</span></dt><dd><p>Second angular momentum quantum number.</p>
 </dd>
@@ -1239,8 +1199,8 @@ determined by the selection rule <code class="docutils literal notranslate"><spa
 </dd>
 </dl>
 </section>
-<section id="id72">
-<h3>Returns<a class="headerlink" href="#id72" title="Link to this heading"></a></h3>
+<section id="id52">
+<h3>Returns<a class="headerlink" href="#id52" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>w3j<span class="classifier">ndarray of float</span></dt><dd><p>Wigner 3j symbols for all allowed values of <code class="docutils literal notranslate"><span class="pre">l1</span></code>.</p>
 </dd>

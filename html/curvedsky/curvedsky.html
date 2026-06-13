@@ -1947,783 +1947,738 @@ This code deconvolves the beam during filtering and the output are the filtered 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.gauss2alm">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">gauss2alm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cl1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cl2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.gauss2alm" title="Link to this definition"></a></dt>
-<dd><p>Generating two alms as random Gaussian fields whose power spectra are cl1, cl2 and the cross spectrum is xl.</p>
+<dd><p>Generate two correlated alms as random Gaussian fields.</p>
+<p>The auto spectra of the two fields are <code class="docutils literal notranslate"><span class="pre">cl1</span></code> and <code class="docutils literal notranslate"><span class="pre">cl2</span></code>, and their cross spectrum is <code class="docutils literal notranslate"><span class="pre">xl</span></code>.</p>
+<section id="id1">
+<h3>Parameters<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">cl1 [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Angular power spectrum of the 1st alm, with bounds (0:lmax)</p>
+<dt>cl1<span class="classifier">array_like of float, shape (lmax + 1,)</span></dt><dd><p>Angular power spectrum of the first alm, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
-<dt class="field-even">cl2 [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Angular power spectrum of the 2nd alm, with bounds (0:lmax)</p>
+<dt>cl2<span class="classifier">array_like of float, shape (lmax + 1,)</span></dt><dd><p>Angular power spectrum of the second alm, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
-<dt class="field-odd">xl [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Cross-power spectrum between alm1 and alm2, with bounds (0:lmax)</p>
+<dt>xl<span class="classifier">array_like of float, shape (lmax + 1,)</span></dt><dd><p>Cross-power spectrum between the two alms, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
+</dd>
+<dt>lmin<span class="classifier">int, optional</span></dt><dd><p>Minimum multipole of the output alms. Default is 2.</p>
 </dd>
 </dl>
-</dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmin (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum multipole of output alm (default: 2)</p>
-</dd>
-<dt class="field-even">flm [l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Constrained realiation of alms whose power spectrum is cl1</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm [2,l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Random Gaussian alms, with bounds (2,0:lmax,0:lmax)</p>
+<p>flm : array_like of complex, optional
+Constrained realization of an alm whose power spectrum is <code class="docutils literal notranslate"><span class="pre">cl1</span></code>.</p>
+</section>
+<section id="id2">
+<h3>Returns<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>alm<span class="classifier">ndarray of complex, shape (2, lmax + 1, lmax + 1)</span></dt><dd><p>Random Gaussian alms, with bounds <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.gaussTEB">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">gaussTEB</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">TT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">EE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BB</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.gaussTEB" title="Link to this definition"></a></dt>
-<dd><p>Generating T/E/B alms as random Gaussian fields whose power spectra are TT, EE, BB and the cross spectrum is TE.</p>
+<dd><p>Generate T/E/B alms as correlated random Gaussian fields.</p>
+<p>The auto spectra are <code class="docutils literal notranslate"><span class="pre">TT</span></code>, <code class="docutils literal notranslate"><span class="pre">EE</span></code>, and <code class="docutils literal notranslate"><span class="pre">BB</span></code>.  The T-E cross spectrum is <code class="docutils literal notranslate"><span class="pre">TE</span></code>.</p>
+<section id="id3">
+<h3>Parameters<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">TT [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Angular power spectrum of temperature, with bounds (0:lmax)</p>
+<dt>TT<span class="classifier">array_like of float, shape (lmax + 1,)</span></dt><dd><p>Temperature angular power spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
-<dt class="field-even">EE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Angular power spectrum of E mode, with bounds (0:lmax)</p>
+<dt>EE<span class="classifier">array_like of float, shape (lmax + 1,)</span></dt><dd><p>E-mode angular power spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
-<dt class="field-odd">BB [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Angular power spectrum of B mode, with bounds (0:lmax)</p>
+<dt>BB<span class="classifier">array_like of float, shape (lmax + 1,)</span></dt><dd><p>B-mode angular power spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
-<dt class="field-even">TE [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>TE cross-power spectrum, with bounds (0:lmax)</p>
+<dt>TE<span class="classifier">array_like of float, shape (lmax + 1,)</span></dt><dd><p>T-E cross-power spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
+</dd>
+<dt>lmin<span class="classifier">int, optional</span></dt><dd><p>Minimum multipole of the output alms. Default is 2.</p>
 </dd>
 </dl>
-</dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmin (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum multipole of output alm (default: 2)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm [3,l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Random Gaussian T/E/B alms, with bounds (3,0:lmax,0:lmax)</p>
+</section>
+<section id="id4">
+<h3>Returns<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>alm<span class="classifier">ndarray of complex, shape (3, lmax + 1, lmax + 1)</span></dt><dd><p>Random Gaussian T/E/B alms, with bounds <code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.gaussalm">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">gaussalm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ilm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.gaussalm" title="Link to this definition"></a></dt>
-<dd><p>Generating alms as random Gaussian fields whose covariance is given by cl[i,j].</p>
+<dd><p>Generate correlated alms as random Gaussian fields.</p>
+<p>The covariance between fields is specified by <code class="docutils literal notranslate"><span class="pre">cl[i,</span> <span class="pre">j]</span></code>.</p>
+<section id="id5">
+<h3>Parameters<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">cl [i,j,l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Covariance between the gaussian fields, with bounds (n,n,0:lmax)</p>
+<dt>cl<span class="classifier">array_like of float, shape (n, n, lmax + 1)</span></dt><dd><p>Covariance spectra between the Gaussian fields, with bounds <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">n,</span> <span class="pre">0:lmax)</span></code>.</p>
+</dd>
+<dt>n<span class="classifier">int, optional</span></dt><dd><p>Number of fields. If omitted, it is inferred from <code class="docutils literal notranslate"><span class="pre">cl</span></code>.</p>
+</dd>
+<dt>lmax<span class="classifier">int, optional</span></dt><dd><p>Maximum multipole. If omitted, it is inferred from <code class="docutils literal notranslate"><span class="pre">cl</span></code>.</p>
+</dd>
+<dt>ilm<span class="classifier">array_like of complex, optional</span></dt><dd><p>Input fixed alm for the <code class="docutils literal notranslate"><span class="pre">cl[0,</span> <span class="pre">0]</span></code> element. The other alms are generated to be correlated with <code class="docutils literal notranslate"><span class="pre">ilm</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">ilm [l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Input alm for the cl[0,0] element (default to None). The other alms are generated to be correlated with ilm.</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm [i,l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Random Gaussian alms, with bounds (n,0:lmax,0:lmax)</p>
+</section>
+<section id="id6">
+<h3>Returns<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>alm<span class="classifier">ndarray of complex, shape (n, lmax + 1, lmax + 1)</span></dt><dd><p>Random Gaussian alms, with bounds <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.subpatch_mask">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">subpatch_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside_full</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_sub</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipix_sub</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascale</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.subpatch_mask" title="Link to this definition"></a></dt>
 <dd><p>Calculate a mask for a patched map.</p>
-<dl>
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nside_full (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Nside of full map</p>
+<section id="id7">
+<h3>Parameters<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>nside_full<span class="classifier">int</span></dt><dd><p>Nside of the full map.</p>
 </dd>
-<dt class="field-even">nside_sub (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Nside of a patch map</p>
+<dt>nside_sub<span class="classifier">int</span></dt><dd><p>Nside of the patch map.</p>
 </dd>
-<dt class="field-odd">ipix_sub (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Healpix pixel index of a patch map</p>
+<dt>ipix_sub<span class="classifier">int</span></dt><dd><p>Healpix pixel index of the patch map.</p>
 </dd>
-</dl>
-<p>:ascale (dble)   : apodization scale (nothing, 1) to (full, 0)</p>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">mask [pix] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>mask map with bounds (0:npix-1,2)</p>
+<dt>ascale<span class="classifier">float</span></dt><dd><p>Apodization scale, from no apodization at 1 to full apodization at 0.</p>
 </dd>
 </dl>
+</section>
+<section id="id8">
+<h3>Returns<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>mask<span class="classifier">ndarray of float, shape (npix, 2)</span></dt><dd><p>Mask map, with bounds <code class="docutils literal notranslate"><span class="pre">(0:npix-1,</span> <span class="pre">2)</span></code>.</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.get_baseline">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">get_baseline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">npix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_subpatch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">QU</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.get_baseline" title="Link to this definition"></a></dt>
-<dd><p>Calculate baseline of each subpatch. The subpatches have the same size.</p>
+<dd><p>Calculate the baseline of each subpatch.</p>
+<p>The subpatches are assumed to have the same size.</p>
+<section id="id9">
+<h3>Parameters<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">npix (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>pixel number of the full map</p>
+<dt>npix<span class="classifier">int</span></dt><dd><p>Number of pixels in the full map.</p>
 </dd>
-<dt class="field-even">nside_subpatch (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Nside of sub patch</p>
+<dt>nside_subpatch<span class="classifier">int</span></dt><dd><p>Nside of each subpatch.</p>
 </dd>
-<dt class="field-odd">QU [pix,2] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Q/U maps, with bounds (0:npix-1,2)</p>
+<dt>QU<span class="classifier">array_like of float, shape (npix, 2)</span></dt><dd><p>Q/U maps, with bounds <code class="docutils literal notranslate"><span class="pre">(0:npix-1,</span> <span class="pre">2)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">blmap [pix,2] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>baseline maps, with bounds (0:npix-1,2)</p>
+</section>
+<section id="id10">
+<h3>Returns<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>blmap<span class="classifier">ndarray of float, shape (npix, 2)</span></dt><dd><p>Baseline maps, with bounds <code class="docutils literal notranslate"><span class="pre">(0:npix-1,</span> <span class="pre">2)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.get_winmap">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">get_winmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside_large</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside_small</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ipix_pix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">apod</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.get_winmap" title="Link to this definition"></a></dt>
-<dd><p>Return apodization window for subpatch.</p>
+<dd><p>Return the apodization window value for a subpatch.</p>
+<section id="id11">
+<h3>Parameters<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nside_large (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Nside of sub patch</p>
+<dt>nside_large<span class="classifier">int</span></dt><dd><p>Nside of the subpatch.</p>
 </dd>
-<dt class="field-even">nside_small (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>full Nside</p>
+<dt>nside_small<span class="classifier">int</span></dt><dd><p>Full-map Nside.</p>
 </dd>
-<dt class="field-odd">ipix_pix (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>pixel index of full map</p>
+<dt>ipix_pix<span class="classifier">int</span></dt><dd><p>Pixel index of the full map.</p>
 </dd>
-<dt class="field-even">apod (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>apodization length</p>
+<dt>apod<span class="classifier">float</span></dt><dd><p>Apodization length.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">wind_out (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>aporization window at ipix_pix</p>
+</section>
+<section id="id12">
+<h3>Returns<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>wind_out<span class="classifier">float</span></dt><dd><p>Apodization window value at <code class="docutils literal notranslate"><span class="pre">ipix_pix</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.get_apod_window">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">get_apod_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.get_apod_window" title="Link to this definition"></a></dt>
-<dd><p>A sine apodization window</p>
+<dd><p>Evaluate a sine apodization window.</p>
+<section id="id13">
+<h3>Parameters<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">s (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Distance from the center of the window</p>
+<dt>s<span class="classifier">float</span></dt><dd><p>Distance from the center of the window.</p>
 </dd>
-<dt class="field-even">a (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Apodization length, nothing (a=1) to all (a=0)</p>
+<dt>a<span class="classifier">float</span></dt><dd><p>Apodization length, from no apodization at 1 to full apodization at 0.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">w (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Aporization window</p>
+</section>
+<section id="id14">
+<h3>Returns<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>w<span class="classifier">float</span></dt><dd><p>Apodization window value.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.eb_separate">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">eb_separate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">W</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">U</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.eb_separate" title="Link to this definition"></a></dt>
-<dd><p>E/B mode seperation based on the chi-field estimator. See e.g. Sec.III.2 of arXiv:1305.7441 for numerical implimentation.</p>
+<dd><p>Perform E/B-mode separation using the chi-field estimator.</p>
+<p>See Sec. III.2 of arXiv:1305.7441 for the numerical implementation.</p>
+<section id="id15">
+<h3>Parameters<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole used for the harmonic transform internally</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole used internally for the harmonic transform.</p>
 </dd>
-<dt class="field-even">W[pix] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Window function satisfying zero 1st and 2nd derivatives at the boundary, with bounds (0:npix-1)</p>
+<dt>W<span class="classifier">array_like of float, shape (npix,)</span></dt><dd><p>Window function satisfying zero first and second derivatives at the
+boundary, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
 </dd>
-<dt class="field-odd">Q/U[pix] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Input Q/U map already multiplied by W, with bounds (0:npix-1)</p>
+<dt>Q<span class="classifier">array_like of float, shape (npix,)</span></dt><dd><p>Input Q map already multiplied by <code class="docutils literal notranslate"><span class="pre">W</span></code>, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
 </dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">Elm/Blm[l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Seperated E/B modes, with bounds (0:lmax,0:lmax)</p>
+<dt>U<span class="classifier">array_like of float, shape (npix,)</span></dt><dd><p>Input U map already multiplied by <code class="docutils literal notranslate"><span class="pre">W</span></code>, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
 </dd>
 </dl>
+</section>
+<section id="id16">
+<h3>Returns<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>Elm<span class="classifier">ndarray of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>Separated E modes, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
+</dd>
+<dt>Blm<span class="classifier">ndarray of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>Separated B modes, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.alm2cl">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">alm2cl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.alm2cl" title="Link to this definition"></a></dt>
-<dd><p>From alm to angular power spectrum</p>
+<dd><p>Compute an angular power spectrum from alm coefficients.</p>
+<section id="id17">
+<h3>Parameters<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm1 [l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1st harmonic coefficient, with bounds (0:lmax,0:lmax)</p>
+<dt>alm1<span class="classifier">array_like of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>First harmonic coefficients, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
+</dd>
+<dt>alm2<span class="classifier">array_like of complex, optional</span></dt><dd><p>Second harmonic coefficients, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>. If omitted, <code class="docutils literal notranslate"><span class="pre">alm1</span></code> is used to compute the auto spectrum.</p>
 </dd>
 </dl>
-</dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm2 [l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2nd harmonic coefficient, with bounds (0:lmax,0:lmax), default to alm1</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">cl [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Auto or cross angular power spectrum, with bounds (0:lmax)</p>
+</section>
+<section id="id18">
+<h3>Returns<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>cl<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Auto or cross angular power spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.alm2bcl">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">alm2bcl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.alm2bcl" title="Link to this definition"></a></dt>
-<dd><p>From alm to angular power spectrum with multipole binning</p>
+<dd><p>Compute a binned angular power spectrum from alm coefficients.</p>
+<section id="id19">
+<h3>Parameters<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">bn (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of multipole bins</p>
+<dt>bn<span class="classifier">int</span></dt><dd><p>Number of multipole bins.</p>
 </dd>
-<dt class="field-even">alm1 [l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>1st harmonic coefficient, with bounds (0:lmax,0:lmax)</p>
+<dt>alm1<span class="classifier">array_like of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>First harmonic coefficients, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
-</dl>
+<dt>alm2<span class="classifier">array_like of complex, optional</span></dt><dd><p>Second harmonic coefficients, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>. If omitted, <code class="docutils literal notranslate"><span class="pre">alm1</span></code> is used.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm2 [l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>2nd harmonic coefficient, with bounds (0:lmax,0:lmax), default to alm1</p>
-</dd>
-<dt class="field-even">spc (str)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Specify bin spacing, ‘’ = linear (default), ‘log’ = log spacing, ‘log10’ = log10 spacing, ‘p2’ = power of 2 spacing, ‘p3’ = power of 3 spacing</p>
+<dt>spc<span class="classifier">str, optional</span></dt><dd><p>Bin spacing. Use <code class="docutils literal notranslate"><span class="pre">''</span></code> for linear spacing, <code class="docutils literal notranslate"><span class="pre">'log'</span></code> for logarithmic spacing, 
+<code class="docutils literal notranslate"><span class="pre">'log10'</span></code> for base-10 logarithmic spacing, <code class="docutils literal notranslate"><span class="pre">'p2'</span></code> for powers of 2, 
+or <code class="docutils literal notranslate"><span class="pre">'p3'</span></code> for powers of 3.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">cb [bin] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Auto or cross angular power spectrum with multipole binning, with bounds (0:bn-1)</p>
+</section>
+<section id="id20">
+<h3>Returns<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>cb<span class="classifier">ndarray of float, shape (bn,)</span></dt><dd><p>Auto or cross angular power spectrum with multipole binning, with bounds <code class="docutils literal notranslate"><span class="pre">0:bn-1</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.alm2rho">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">alm2rho</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alm1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.alm2rho" title="Link to this definition"></a></dt>
-<dd><p>Compute correlation coefficients between two alms</p>
+<dd><p>Compute correlation coefficients between two alms.</p>
+<section id="id21">
+<h3>Parameters<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm1 [l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1st harmonic coefficient, with bounds (0:lmax,0:lmax)</p>
+<dt>alm1<span class="classifier">array_like of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>First harmonic coefficients, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
-<dt class="field-even">alm2 [l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>2nd harmonic coefficient, with bounds (0:lmax,0:lmax)</p>
+<dt>alm2<span class="classifier">array_like of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>Second harmonic coefficients, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">rho [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Auto or cross angular power spectrum, with bounds (0:lmax)</p>
+</section>
+<section id="id22">
+<h3>Returns<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>rho<span class="classifier">ndarray of float, shape (lmax + 1,)</span></dt><dd><p>Correlation coefficients, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.alm2cov">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">alm2cov</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alm</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.alm2cov" title="Link to this definition"></a></dt>
-<dd><p>Compute correlation coefficients between two alms</p>
+<dd><p>Compute auto and cross spectra between multiple alms.</p>
+<section id="id23">
+<h3>Parameters<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm [n,l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>1st harmonic coefficient, with bounds (0:lmax,0:lmax)</p>
+<dt>alm<span class="classifier">array_like of complex, shape (n, lmax + 1, lmax + 1)</span></dt><dd><p>Harmonic coefficients, with bounds <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">cov [n,n,l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Auto and cross angular power spectra between alm[i] and alm[j]</p>
+</section>
+<section id="id24">
+<h3>Returns<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>cov<span class="classifier">ndarray of float, shape (n, n, lmax + 1)</span></dt><dd><p>Auto and cross angular power spectra between <code class="docutils literal notranslate"><span class="pre">alm[i]</span></code> and <code class="docutils literal notranslate"><span class="pre">alm[j]</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.apodize">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">apodize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rmask</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascale</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">holeminsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.apodize" title="Link to this definition"></a></dt>
-<dd><p>Compute apodized window function. Partially use Healpix’s process_mask code.</p>
+<dd><p>Compute an apodized window function.</p>
+<p>This function partially uses Healpix’s <code class="docutils literal notranslate"><span class="pre">process_mask</span></code> code.</p>
+<section id="id25">
+<h3>Parameters<a class="headerlink" href="#id25" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">rmask[pix] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Input window function, with bounds (0:pix-1). Pixels at rmask=0 is considered as masked pixels.</p>
+<dt>rmask<span class="classifier">array_like of float, shape (npix,)</span></dt><dd><p>Input window function, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>. Pixels with
+<code class="docutils literal notranslate"><span class="pre">rmask</span> <span class="pre">==</span> <span class="pre">0</span></code> are treated as masked pixels.</p>
 </dd>
-<dt class="field-even">ascale (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Apodization length [deg] from the closest masked pixel</p>
+<dt>ascale<span class="classifier">float</span></dt><dd><p>Apodization length in degrees from the closest masked pixel.</p>
 </dd>
-</dl>
+<dt>order<span class="classifier">int, optional</span></dt><dd><p>Pixel ordering. Use 1 for RING ordering; other values are treated as NESTED ordering. Default is 1.</p>
 </dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">order (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Pixel order, 1 for RING (default), otherwize NESTED</p>
-</dd>
-<dt class="field-even">holeminsize (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Minimum hole size [arcmin] (i.e., holes within this size is filled), default to 0</p>
+<dt>holeminsize<span class="classifier">float, optional</span></dt><dd><p>Minimum hole size in arcminutes. Holes smaller than this size are filled. Default is 0.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">amask[pix] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Apodization window, with bounds (0:npix-1), using the same ordering as input</p>
+</section>
+<section id="id26">
+<h3>Returns<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>amask<span class="classifier">ndarray of float, shape (npix,)</span></dt><dd><p>Apodization window, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code> and the same ordering as the input map.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.hp_alm2map">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">hp_alm2map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.hp_alm2map" title="Link to this definition"></a></dt>
-<dd><p>Ylm transform of the map to alm with the healpix (l,m) order</p>
+<dd><p>Transform alm coefficients to a map using Healpix <code class="docutils literal notranslate"><span class="pre">(l,</span> <span class="pre">m)</span></code> ordering.</p>
+<section id="id27">
+<h3>Parameters<a class="headerlink" href="#id27" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nside (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Nside of the input map</p>
+<dt>nside<span class="classifier">int</span></dt><dd><p>Nside of the output map.</p>
 </dd>
-<dt class="field-even">alm [l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Harmonic coefficient to be transformed to a map, with bounds (0:lmax,0:mmax)</p>
+<dt>alm<span class="classifier">array_like of complex, shape (lmax + 1, mmax + 1)</span></dt><dd><p>Harmonic coefficients to be transformed to a map, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:mmax)</span></code>.</p>
 </dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">map [pix] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Transformed map, with bounds (0:npix-1)</p>
+<dt>nthreads<span class="classifier">int, optional</span></dt><dd><p>Number of threads. Default is 0.</p>
 </dd>
 </dl>
+</section>
+<section id="id28">
+<h3>Returns<a class="headerlink" href="#id28" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>map<span class="classifier">ndarray of float, shape (npix,)</span></dt><dd><p>Transformed map, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.hp_alm2map_spin">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">hp_alm2map_spin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.hp_alm2map_spin" title="Link to this definition"></a></dt>
-<dd><p>Ylm transform of the map to alm with the healpix (l,m) order</p>
+<dd><p>Transform spin alm coefficients to maps using Healpix <code class="docutils literal notranslate"><span class="pre">(l,</span> <span class="pre">m)</span></code> ordering.</p>
+<section id="id29">
+<h3>Parameters<a class="headerlink" href="#id29" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nside (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Nside of the input map</p>
+<dt>nside<span class="classifier">int</span></dt><dd><p>Nside of the output maps.</p>
 </dd>
-<dt class="field-even">spin (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Spin of the transform</p>
+<dt>spin<span class="classifier">int</span></dt><dd><p>Spin of the transform.</p>
 </dd>
-<dt class="field-odd">elm [l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Spin-s E-like harmonic coefficient to be transformed to a map, with bounds (0:lmax,0:mmax)</p>
+<dt>elm<span class="classifier">array_like of complex, shape (lmax + 1, mmax + 1)</span></dt><dd><p>Spin-s E-like harmonic coefficients, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:mmax)</span></code>.</p>
 </dd>
-<dt class="field-even">blm [l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Spin-s B-like harmonic coefficient to be transformed to a map, with bounds (0:lmax,0:mmax)</p>
+<dt>blm<span class="classifier">array_like of complex, shape (lmax + 1, mmax + 1)</span></dt><dd><p>Spin-s B-like harmonic coefficients, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:mmax)</span></code>.</p>
+</dd>
+<dt>nthreads<span class="classifier">int, optional</span></dt><dd><p>Number of threads. Default is 0.</p>
 </dd>
 </dl>
+</section>
+<section id="id30">
+<h3>Returns<a class="headerlink" href="#id30" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>map0<span class="classifier">ndarray of float, shape (npix,)</span></dt><dd><p>Real part of the transformed map, or Q-like map, with bounds
+<code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
 </dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">map0 [pix] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Real part of the transformed map (Q-like map), with bounds (0:npix-1)</p>
-</dd>
-<dt class="field-even">map1 [pix] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Imaginary part of the transformed map (U-like map), with bounds (0:npix-1)</p>
+<dt>map1<span class="classifier">ndarray of float, shape (npix,)</span></dt><dd><p>Imaginary part of the transformed map, or U-like map, with bounds
+<code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.hp_map2alm">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">hp_map2alm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.hp_map2alm" title="Link to this definition"></a></dt>
-<dd><p>Ylm transform of the map to alm with the healpix (l,m) order</p>
+<dd><p>Transform a map to alm coefficients using Healpix <code class="docutils literal notranslate"><span class="pre">(l,</span> <span class="pre">m)</span></code> ordering.</p>
+<section id="id31">
+<h3>Parameters<a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of the input alm</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output alm.</p>
 </dd>
-<dt class="field-even">mmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Maximum m of the input alm</p>
+<dt>mmax<span class="classifier">int</span></dt><dd><p>Maximum azimuthal index of the output alm.</p>
 </dd>
-<dt class="field-odd">map [pix] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Input map, with bounds (0:npix-1)</p>
+<dt>map<span class="classifier">array_like of float, shape (npix,)</span></dt><dd><p>Input map, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
+</dd>
+<dt>nthreads<span class="classifier">int, optional</span></dt><dd><p>Number of threads. Default is 0.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm [l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Harmonic coefficient obtained from the input map, with bounds (0:lmax,0:mmax)</p>
+</section>
+<section id="id32">
+<h3>Returns<a class="headerlink" href="#id32" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>alm<span class="classifier">ndarray of complex, shape (lmax + 1, mmax + 1)</span></dt><dd><p>Harmonic coefficients obtained from the input map, with bounds
+<code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:mmax)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.hp_map2alm_spin">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">hp_map2alm_spin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.hp_map2alm_spin" title="Link to this definition"></a></dt>
-<dd><p>Spin Ylm transform of the map ( = map0 + i map1 ) to alm with the healpix (l,m) order. For example, if map0=Q, map1=U and spin=2, 
-the alm contains E-mode and B-mode.</p>
+<dd><p>Transform spin maps to alm coefficients using Healpix <code class="docutils literal notranslate"><span class="pre">(l,</span> <span class="pre">m)</span></code> ordering.</p>
+<p>For example, if <code class="docutils literal notranslate"><span class="pre">map0</span></code> is Q, <code class="docutils literal notranslate"><span class="pre">map1</span></code> is U, and <code class="docutils literal notranslate"><span class="pre">spin</span> <span class="pre">==</span> <span class="pre">2</span></code>, the
+output alm contains E and B modes.</p>
+<section id="id33">
+<h3>Parameters<a class="headerlink" href="#id33" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of the input alm</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the output alm.</p>
 </dd>
-<dt class="field-even">mmax (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Maximum m of the input alm</p>
+<dt>mmax<span class="classifier">int</span></dt><dd><p>Maximum azimuthal index of the output alm.</p>
 </dd>
-<dt class="field-odd">spin (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Spin of the transform</p>
+<dt>spin<span class="classifier">int</span></dt><dd><p>Spin of the transform.</p>
 </dd>
-<dt class="field-even">map0 [pix] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Real part of the input map, with bounds (0:npix-1)</p>
+<dt>map0<span class="classifier">array_like of float, shape (npix,)</span></dt><dd><p>Real part of the input map, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
 </dd>
-<dt class="field-odd">map1 [pix] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Imaginary part of the input map, with bounds (0:npix-1)</p>
+<dt>map1<span class="classifier">array_like of float, shape (npix,)</span></dt><dd><p>Imaginary part of the input map, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
+</dd>
+<dt>nthreads<span class="classifier">int, optional</span></dt><dd><p>Number of threads. Default is 0.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm [2,l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Parity-eve/odd harmonic coefficients obtained from the input map, with bounds (2,0:lmax,0:mmax)</p>
+</section>
+<section id="id34">
+<h3>Returns<a class="headerlink" href="#id34" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>alm<span class="classifier">ndarray of complex, shape (2, lmax + 1, mmax + 1)</span></dt><dd><p>Parity-even and parity-odd harmonic coefficients obtained from the
+input maps, with bounds <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">0:lmax,</span> <span class="pre">0:mmax)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.map_mul_lfunc">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">map_mul_lfunc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lfunc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.map_mul_lfunc" title="Link to this definition"></a></dt>
-<dd><p>Convert map to alm, multiply a function to alm and convert back again to map</p>
+<dd><p>Filter a map by a multipole-dependent function.</p>
+<p>The input map is transformed to alm, multiplied by <code class="docutils literal notranslate"><span class="pre">lfunc</span></code>, and then
+transformed back to a map.</p>
+<section id="id35">
+<h3>Parameters<a class="headerlink" href="#id35" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">imap [pix] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Input map, with bounds (0:12*nside**2-1)</p>
+<dt>imap<span class="classifier">array_like of float, shape (12 * nside**2,)</span></dt><dd><p>Input map, with bounds <code class="docutils literal notranslate"><span class="pre">0:12*nside**2-1</span></code>.</p>
 </dd>
-<dt class="field-even">lfunc [l] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>1D spectrum to be multiplied to alm, with bounds (0:lmax)</p>
+<dt>lfunc<span class="classifier">array_like of float, shape (lmax + 1,)</span></dt><dd><p>One-dimensional spectrum multiplied into the alm coefficients, with
+bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">omap [pix] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Output map, with bounds (0:12*nside**2-1)</p>
+</section>
+<section id="id36">
+<h3>Returns<a class="headerlink" href="#id36" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>omap<span class="classifier">ndarray of float, shape (12 * nside**2,)</span></dt><dd><p>Output map, with bounds <code class="docutils literal notranslate"><span class="pre">0:12*nside**2-1</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.mulwin">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">mulwin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.mulwin" title="Link to this definition"></a></dt>
-<dd><p>Multiply window to a map obtained from alm</p>
+<dd><p>Multiply a map reconstructed from alm by a window function.</p>
+<section id="id37">
+<h3>Parameters<a class="headerlink" href="#id37" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm [l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Harmonic coefficient to be multiplied at window, with bounds (0:lmax,0:mmax)</p>
+<dt>alm<span class="classifier">array_like of complex, shape (lmax + 1, mmax + 1)</span></dt><dd><p>Harmonic coefficients used to construct the input map, with bounds
+<code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:mmax)</span></code>.</p>
 </dd>
-<dt class="field-even">win [pix] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Window map, with bounds (0:npix-1)</p>
+<dt>win<span class="classifier">array_like of float, shape (npix,)</span></dt><dd><p>Window map, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
 </dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">wlm [l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Harmonic coefficient of the window-multiplied map, with bounds (0:lmax,0:mmax)</p>
+<dt>nthreads<span class="classifier">int, optional</span></dt><dd><p>Number of threads. Default is 0.</p>
 </dd>
 </dl>
+</section>
+<section id="id38">
+<h3>Returns<a class="headerlink" href="#id38" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>wlm<span class="classifier">ndarray of complex, shape (lmax + 1, mmax + 1)</span></dt><dd><p>Harmonic coefficients of the window-multiplied map, with bounds
+<code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:mmax)</span></code>.</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.mulwin_spin">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">mulwin_spin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nthreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.mulwin_spin" title="Link to this definition"></a></dt>
-<dd><p>Multiply window to a map obtained from alm</p>
+<dd><p>Multiply spin maps reconstructed from alm by a window function.</p>
+<section id="id39">
+<h3>Parameters<a class="headerlink" href="#id39" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm [2,l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Spin-s E/B-like harmonic coefficients to be transformed to a map, with bounds (2,0:lmax,0:mmax)</p>
+<dt>alm<span class="classifier">array_like of complex, shape (2, lmax + 1, mmax + 1)</span></dt><dd><p>Spin-s E/B-like harmonic coefficients used to construct the input
+maps, with bounds <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">0:lmax,</span> <span class="pre">0:mmax)</span></code>.</p>
 </dd>
-<dt class="field-even">win [pix] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Window map, with bounds (0:npix-1)</p>
+<dt>win<span class="classifier">array_like of float, shape (npix,)</span></dt><dd><p>Window map, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
 </dd>
-</dl>
+<dt>spin<span class="classifier">int, optional</span></dt><dd><p>Spin of the transform. Default is 2.</p>
 </dd>
-<dt>Args (Optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">spin (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Spin of the transform, default to 2</p>
+<dt>nthreads<span class="classifier">int, optional</span></dt><dd><p>Number of threads. Default is 0.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">wlm [2,l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Parity-eve/odd harmonic coefficients obtained from the window-multiplied map, with bounds (2,0:lmax,0:mmax)</p>
+</section>
+<section id="id40">
+<h3>Returns<a class="headerlink" href="#id40" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>wlm<span class="classifier">ndarray of complex, shape (2, lmax + 1, mmax + 1)</span></dt><dd><p>Parity-even and parity-odd harmonic coefficients obtained from the
+window-multiplied maps, with bounds <code class="docutils literal notranslate"><span class="pre">(2,</span> <span class="pre">0:lmax,</span> <span class="pre">0:mmax)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.lm_healpy2healpix">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">lm_healpy2healpix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">almpy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.lm_healpy2healpix" title="Link to this definition"></a></dt>
-<dd><p>Transform healpy alm to healpix alm</p>
+<dd><p>Convert healpy alm storage to Healpix <code class="docutils literal notranslate"><span class="pre">(l,</span> <span class="pre">m)</span></code> storage.</p>
+<section id="id41">
+<h3>Parameters<a class="headerlink" href="#id41" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">almpy[index] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Healpy alm, with bounds (0:lmpy-1)</p>
+<dt>almpy<span class="classifier">array_like of complex, shape (lmpy,)</span></dt><dd><p>Healpy alm array, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmpy-1</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">almpix [l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Healpix alm, with bounds (0:lmax,0:lmax)</p>
+</section>
+<section id="id42">
+<h3>Returns<a class="headerlink" href="#id42" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>almpix<span class="classifier">ndarray of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>Healpix alm array, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.lm_healpix2healpy">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">lm_healpix2healpy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">almpix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.lm_healpix2healpy" title="Link to this definition"></a></dt>
-<dd><p>Transform healpix alm to healpy alm</p>
+<dd><p>Convert Healpix <code class="docutils literal notranslate"><span class="pre">(l,</span> <span class="pre">m)</span></code> alm storage to healpy storage.</p>
+<section id="id43">
+<h3>Parameters<a class="headerlink" href="#id43" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">almpix [l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Healpix alm, with bounds (0:lmax,0:lmax)</p>
+<dt>almpix<span class="classifier">array_like of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>Healpix alm array, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">almpy[index] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Healpy alm, with bounds (0:lmpy-1)</p>
+</section>
+<section id="id44">
+<h3>Returns<a class="headerlink" href="#id44" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>almpy<span class="classifier">ndarray of complex, shape (lmpy,)</span></dt><dd><p>Healpy alm array, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmpy-1</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.cosin_healpix">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">cosin_healpix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nside</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.cosin_healpix" title="Link to this definition"></a></dt>
-<dd><p>Return cos(theta) as a function of the Healpix pixel index</p>
+<dd><p>Return <span class="math notranslate nohighlight">\(\cos(\theta)\)</span> as a function of the Healpix pixel index.</p>
+<section id="id45">
+<h3>Parameters<a class="headerlink" href="#id45" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nside (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Nside of the desired map</p>
+<dt>nside<span class="classifier">int</span></dt><dd><p>Nside of the desired map.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">cosin[pix] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>cosin(theta), with bounds (0:npix-1)</p>
+</section>
+<section id="id46">
+<h3>Returns<a class="headerlink" href="#id46" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>cosin<span class="classifier">ndarray of float, shape (npix,)</span></dt><dd><p>Values of <span class="math notranslate nohighlight">\(\cos(\theta)\)</span>, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.calc_mfs">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">calc_mfs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">walm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nside</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.calc_mfs" title="Link to this definition"></a></dt>
-<dd><p>Compute 2D Minkowski functionals from a given alm</p>
+<dd><p>Compute two-dimensional Minkowski functionals from a given alm.</p>
+<section id="id47">
+<h3>Parameters<a class="headerlink" href="#id47" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">nu [bin] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Nu bins, with bounds (bn)</p>
+<dt>nu<span class="classifier">array_like of float, shape (bn,)</span></dt><dd><p>Threshold bins, with bounds <code class="docutils literal notranslate"><span class="pre">0:bn-1</span></code>.</p>
 </dd>
-<dt class="field-even">walm [l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Alm with filtering, possibly divided by the map variance, with bounds (0:lmax,0:lmax)</p>
+<dt>walm<span class="classifier">array_like of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>Alm with filtering, possibly divided by the map variance, with bounds
+<code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
-</dl>
-</dd>
-<dt>Args(optional): </dt><dd><dl class="field-list simple">
-<dt class="field-odd">nside (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Nside of the intermediate map, default to the closest power of 2 to 3xlmax</p>
+<dt>nside<span class="classifier">int, optional</span></dt><dd><p>Nside of the intermediate map. If 0, the closest power of 2 to
+<code class="docutils literal notranslate"><span class="pre">3*lmax</span></code> is used. Default is 0.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">V [bin,type] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The three Minkowski functionals, V0, V1 and V2, at each nu bin, with bounds (bn,0:2)</p>
+</section>
+<section id="id48">
+<h3>Returns<a class="headerlink" href="#id48" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>V<span class="classifier">ndarray of float, shape (bn, 3)</span></dt><dd><p>The three Minkowski functionals, <code class="docutils literal notranslate"><span class="pre">V0</span></code>, <code class="docutils literal notranslate"><span class="pre">V1</span></code>, and <code class="docutils literal notranslate"><span class="pre">V2</span></code>, at each
+threshold bin, with bounds <code class="docutils literal notranslate"><span class="pre">(0:bn-1,</span> <span class="pre">0:2)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.load_defangle_takahashi">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">load_defangle_takahashi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">npix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.load_defangle_takahashi" title="Link to this definition"></a></dt>
-<dd><p>Read theta and phi coordinates at source plane obtained by Takahashi et al. (2017)</p>
+<dd><p>Read source-plane theta and phi coordinates from Takahashi et al. (2017).</p>
+<section id="id49">
+<h3>Parameters<a class="headerlink" href="#id49" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">fname (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>file name</p>
+<dt>fname<span class="classifier">str</span></dt><dd><p>File name.</p>
 </dd>
-<dt class="field-even">npix (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Number of pixels of theta and phi data</p>
+<dt>npix<span class="classifier">int</span></dt><dd><p>Number of pixels in the theta and phi data.</p>
 </dd>
-</dl>
-</dd>
-<dt>Args (optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">verbose (bool)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>output messages, default to False</p>
+<dt>verbose<span class="classifier">bool, optional</span></dt><dd><p>If True, print progress messages. Default is False.</p>
 </dd>
 </dl>
+</section>
+<section id="id50">
+<h3>Returns<a class="headerlink" href="#id50" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>theta<span class="classifier">ndarray of float, shape (npix,)</span></dt><dd><p>Theta coordinates, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
 </dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">theta[pix] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>theta, with bounds (0:npix-1)</p>
-</dd>
-<dt class="field-even">phi[pix] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>phi, with bounds (0:npix-1)</p>
-</dd>
-</dl>
+<dt>phi<span class="classifier">ndarray of float, shape (npix,)</span></dt><dd><p>Phi coordinates, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.polcoord2angle">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">polcoord2angle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.polcoord2angle" title="Link to this definition"></a></dt>
-<dd><p>Converting theta and phi coordinates at source plane to deflection angle.</p>
+<dd><p>Convert source-plane theta and phi coordinates to deflection angles.</p>
+<section id="id51">
+<h3>Parameters<a class="headerlink" href="#id51" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">npix (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of pixels of theta and phi data</p>
+<dt>theta<span class="classifier">array_like of float, shape (npix,)</span></dt><dd><p>Theta coordinates, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
 </dd>
-<dt class="field-even">theta[pix] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>theta, with bounds (0:npix-1)</p>
+<dt>phi<span class="classifier">array_like of float, shape (npix,)</span></dt><dd><p>Phi coordinates, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
 </dd>
-<dt class="field-odd">phi[pix] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>phi, with bounds (0:npix-1)</p>
+<dt>verbose<span class="classifier">bool, optional</span></dt><dd><p>If True, print progress messages. Default is False.</p>
 </dd>
 </dl>
-</dd>
-<dt>Args (optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">verbose (bool)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>output messages, default to False</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">angle[2,pix] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>deflection angle vector containing two components, with bounds (1:2,0:npix-1)</p>
+</section>
+<section id="id52">
+<h3>Returns<a class="headerlink" href="#id52" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>angle<span class="classifier">ndarray of float, shape (2, npix)</span></dt><dd><p>Deflection-angle vector containing two components, with bounds
+<code class="docutils literal notranslate"><span class="pre">(0:1,</span> <span class="pre">0:npix-1)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.polcoord2angle_alm">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">polcoord2angle_alm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.polcoord2angle_alm" title="Link to this definition"></a></dt>
-<dd><p>Converting theta and phi coordinates at source plane to deflection angle.</p>
+<dd><p>Convert source-plane theta and phi coordinates to deflection-angle alms.</p>
+<section id="id53">
+<h3>Parameters<a class="headerlink" href="#id53" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmax (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Maximum multipole of alms for gradient and curl modes</p>
+<dt>lmax<span class="classifier">int</span></dt><dd><p>Maximum multipole of the gradient and curl alms.</p>
 </dd>
-<dt class="field-even">theta[pix] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>theta, with bounds (0:npix-1)</p>
+<dt>theta<span class="classifier">array_like of float, shape (npix,)</span></dt><dd><p>Theta coordinates, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
 </dd>
-<dt class="field-odd">phi[pix] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>phi, with bounds (0:npix-1)</p>
+<dt>phi<span class="classifier">array_like of float, shape (npix,)</span></dt><dd><p>Phi coordinates, with bounds <code class="docutils literal notranslate"><span class="pre">0:npix-1</span></code>.</p>
+</dd>
+<dt>verbose<span class="classifier">bool, optional</span></dt><dd><p>If True, print progress messages. Default is False.</p>
 </dd>
 </dl>
+</section>
+<section id="id54">
+<h3>Returns<a class="headerlink" href="#id54" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>glm<span class="classifier">ndarray of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>Gradient-mode alm, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
-<dt>Args (optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">verbose (bool)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>output messages, default to False</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">glm[l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>gradient mode, with bounds (0:lmax,0:lmax)</p>
-</dd>
-<dt class="field-even">clm[l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-even"><p>curl mode, with bounds (0:lmax,0:lmax)</p>
+<dt>clm<span class="classifier">ndarray of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>Curl-mode alm, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.mock_galaxy_takahashi">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">mock_galaxy_takahashi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ngz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">btype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sqrtz'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zbias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.mock_galaxy_takahashi" title="Link to this definition"></a></dt>
-<dd><p>Compute galaxy overdensity map from dark matter density map of Takahashi et al. (2017). 
-The galaxy z distribution is assumed to have the functional form given by Eq.(7) of <a class="reference external" href="https://arxiv.org/abs/1810.03346">https://arxiv.org/abs/1810.03346</a></p>
+<dd><p>Compute galaxy overdensity maps from Takahashi et al. (2017) matter maps.</p>
+<p>The galaxy redshift distribution is assumed to follow Eq. (7) of
+arXiv:1810.03346.</p>
+<section id="id55">
+<h3>Parameters<a class="headerlink" href="#id55" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">fname (str)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Filename of density map</p>
+<dt>fname<span class="classifier">str</span></dt><dd><p>File name of the density map.</p>
 </dd>
-<dt class="field-even">zn (int)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Number of tomographic bins</p>
+<dt>zn<span class="classifier">int</span></dt><dd><p>Number of tomographic bins.</p>
 </dd>
-<dt class="field-odd">ngz[zn] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Total number of galaxies at each z-bin</p>
+<dt>ngz<span class="classifier">array_like of float, shape (zn,)</span></dt><dd><p>Total number of galaxies in each redshift bin.</p>
 </dd>
-<dt class="field-even">zi[zn+1] (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>Redshift intervals of the tomographic bins</p>
+<dt>zi<span class="classifier">array_like of float, shape (zn + 1,)</span></dt><dd><p>Redshift bin edges for the tomographic bins.</p>
 </dd>
-</dl>
+<dt>b0<span class="classifier">float, optional</span></dt><dd><p>Constant galaxy bias at <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">0</span></code>. Default is 1.0.</p>
 </dd>
-<dt>Args(optional): </dt><dd><dl class="field-list simple">
-<dt class="field-odd">a (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>galaxy distribution shape parameter</p>
+<dt>btype<span class="classifier">str, optional</span></dt><dd><p>Redshift dependence type for the galaxy bias. Default is <code class="docutils literal notranslate"><span class="pre">'sqrtz'</span></code>.</p>
 </dd>
-<dt class="field-even">b (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>galaxy distribution shape parameter</p>
+<dt>a<span class="classifier">float, optional</span></dt><dd><p>Galaxy distribution shape parameter. Default is 2.0.</p>
 </dd>
-<dt class="field-odd">zm (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>mean redshift of galaxy distribution</p>
+<dt>b<span class="classifier">float, optional</span></dt><dd><p>Galaxy distribution shape parameter. Default is 1.0.</p>
 </dd>
-<dt class="field-even">b0 (double)<span class="colon">:</span></dt>
-<dd class="field-even"><p>constant galaxy bias at z=0</p>
+<dt>zm<span class="classifier">float, optional</span></dt><dd><p>Mean redshift of the galaxy distribution. Default is 1.0.</p>
+</dd>
+<dt>sz<span class="classifier">float, optional</span></dt><dd><p>Redshift scatter parameter. Default is 0.0.</p>
+</dd>
+<dt>zbias<span class="classifier">float, optional</span></dt><dd><p>Redshift bias parameter. Default is 0.0.</p>
 </dd>
 </dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">gmap [pix,zbin] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The galaxy number density map at each zbin</p>
+</section>
+<section id="id56">
+<h3>Returns<a class="headerlink" href="#id56" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>gmap<span class="classifier">ndarray of float, shape (npix, zbin)</span></dt><dd><p>Galaxy number-density map for each redshift bin.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 </section>

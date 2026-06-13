@@ -16,6 +16,7 @@
       <script src="../static/documentation_options.js?v=5929fcd5"></script>
       <script src="../static/doctools.js?v=9bcbadda"></script>
       <script src="../static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -1923,27 +1924,24 @@ This code deconvolves the beam during filtering and the output are the filtered 
 <dl class="py function">
 <dt class="sig sig-object py" id="cmblensplus.curvedsky.utils.gauss1alm">
 <span class="sig-prename descclassname"><span class="pre">cmblensplus.curvedsky.utils.</span></span><span class="sig-name descname"><span class="pre">gauss1alm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cmblensplus.curvedsky.utils.gauss1alm" title="Link to this definition"></a></dt>
-<dd><p>Generating alm as a random Gaussian field whose power spectrum is cl. The output alm is given by a 2D array.</p>
+<dd><p>Generate <span class="math notranslate nohighlight">\(a_{lm}\)</span> as a random Gaussian field whose power spectrum is <code class="docutils literal notranslate"><span class="pre">cl</span></code>.</p>
+<p>The output alm is given by a 2D array.</p>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
 <dl class="simple">
-<dt>Args:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">cl [l] (double)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Angular power spectrum, with bounds (0:lmax)</p>
+<dt>cl<span class="classifier">array_like of float, shape (lmax + 1,)</span></dt><dd><p>Angular power spectrum, with bounds <code class="docutils literal notranslate"><span class="pre">0:lmax</span></code>.</p>
+</dd>
+<dt>lmin<span class="classifier">int, optional</span></dt><dd><p>Minimum multipole of output alm. Default is 2.</p>
 </dd>
 </dl>
-</dd>
-<dt>Args(optional):</dt><dd><dl class="field-list simple">
-<dt class="field-odd">lmin (int)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Minimum multipole of output alm (default: 2)</p>
-</dd>
-</dl>
-</dd>
-<dt>Returns:</dt><dd><dl class="field-list simple">
-<dt class="field-odd">alm [l,m] (dcmplx)<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Random Gaussian alm, with bounds (0:lmax,0:lmax)</p>
+</section>
+<section id="returns">
+<h3>Returns<a class="headerlink" href="#returns" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>alm<span class="classifier">ndarray of complex, shape (lmax + 1, lmax + 1)</span></dt><dd><p>Random Gaussian alm, with bounds <code class="docutils literal notranslate"><span class="pre">(0:lmax,</span> <span class="pre">0:lmax)</span></code>.</p>
 </dd>
 </dl>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py function">
